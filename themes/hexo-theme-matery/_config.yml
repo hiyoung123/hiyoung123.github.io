@@ -67,7 +67,7 @@ dream:
   enable: false
   showTitle: true
   title: 我的梦想
-  text: 人生何所求，财富和自由。——《基督山伯爵》大仲马
+  text: 人生何所求，致富和自由。——《基督山伯爵》大仲马
 
 # Whether to display the musics.
 # 是否在首页显示音乐.
@@ -492,8 +492,8 @@ subtitle:
   startDelay: 300 # 开始延迟
   typeSpeed: 100 # 打字速度
   backSpeed: 50 # 删除速度
-  sub1: 从来没有真正的绝境, 只有心灵的迷途
-  sub2: Never really desperate, only the lost of the soul
+  sub1: 人生何所求，致富和自由。——《基督山伯爵》大仲马 #从来没有真正的绝境, 只有心灵的迷途
+  sub2:  #Never really desperate, only the lost of the soul
   
 # 手机二级菜单.
 navMenu:
