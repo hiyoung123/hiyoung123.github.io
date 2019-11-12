@@ -247,8 +247,10 @@ mark {
     margin-bottom: 0;
 }
 
+
 .bg-color {
-    background-image: linear-gradient(to right, #1b9ee9 0%, #188fd4 100%);
+    background-image: linear-gradient(to right, #bf30ac 0%, #0f9d58 100%);
+    opacity: 0.7;
 }
 
 .text-color {
