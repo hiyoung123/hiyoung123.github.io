@@ -1,4 +1,4 @@
---- 
+---
 title: {{ title }}
 date: {{ date }}
 top: false
@@ -10,5 +10,3 @@ summary:
 tags:
 categories:
 ---
-
-
