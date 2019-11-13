@@ -145,10 +145,10 @@
     }
 
     .frind-card1 {
-        background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+        background-image: linear-gradient(to right, #1f4d71 0%, #71bbb6 100%);
     }
 
-    .frind-card2 {
+    /*.frind-card2 {
         background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     }
 
@@ -182,7 +182,7 @@
 
     .frind-card10 {
         background-image: linear-gradient(to top, #f77062 0%, #fe5196 100%);
-    }
+    }*/
     
     article .card {
         overflow: visible !important;
@@ -203,7 +203,9 @@
                         <% for (var i = 0, len = friends.length; i < len; i++) { %>
                         <% var friend = friends[i]; %>
                         <div class="col s12 m6 l4 friend-div" data-aos="zoom-in-up">
-                            <div class="card frind-card<%- ((i % 10) +1) %>">
+			    <!--修改frends卡片，统一样式 -->
+                            <!--<div class="card frind-card<%- ((i % 10) +1) %>">-->
+			    <div class="card frind-card1">
                                 <div class="frind-ship">
                                     <div class="title">
                                         <img src="<%- friend.avatar %>" alt="img">
