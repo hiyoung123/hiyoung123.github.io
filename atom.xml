@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://hiyoungai.com/"/>
-  <updated>2019-11-11T14:27:28.228Z</updated>
+  <updated>2019-11-14T09:30:40.811Z</updated>
   <id>http://hiyoungai.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>测试code</title>
+    <link href="http://hiyoungai.com/posts/ce-shi-code.html"/>
+    <id>http://hiyoungai.com/posts/ce-shi-code.html</id>
+    <published>2019-11-14T08:39:13.000Z</published>
+    <updated>2019-11-14T09:30:40.811Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;测试&quot;&gt;&lt;a href=&quot;#测试&quot; class=&quot;headerlink&quot; title=&quot;测试&quot;&gt;&lt;/a&gt;测试&lt;/h2&gt;&lt;pre class=&quot; language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span
+        
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
