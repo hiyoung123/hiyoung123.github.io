@@ -183,6 +183,7 @@ mathjax:
 # 激活前请确认你已经安装了 hexo-wordcount 插件，安装命令: `npm i --save hexo-wordcount`
 wordCount:
   enable: true
+  totalCount: true
 
 # 文章信息--需要 hexo-wordcount 插件
 postInfo:
