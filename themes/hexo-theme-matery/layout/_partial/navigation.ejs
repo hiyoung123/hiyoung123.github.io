@@ -4,6 +4,11 @@
     menuMap.set("Tags", "标签");
     menuMap.set("Categories", "分类");
     menuMap.set("Archives", "归档");
+    menuMap.set("Medias", "媒体");
+    menuMap.set("Books", "书单");
+    menuMap.set("Musics", "音乐");
+    menuMap.set("Videos", "视频");
+    menuMap.set("Galleries", "相册");
     menuMap.set("About", "关于");
     menuMap.set("Contact", "留言板");
     menuMap.set("Friends", "友情链接");
@@ -36,7 +41,8 @@
           <% if (childrenLink.icon && childrenLink.icon.length > 0) { %>
           <i class="<%- childrenLink.icon %>" style="margin-top: -20px; zoom: 0.6;"></i>
           <% } %>
-          <span><%- childrenLink.name %></span>
+          <!--<span><%- childrenLink.name %></span>-->
+          <%- (config.language === 'zh-CN' && menuMap.has(childrenLink.name)) ? menuMap.get(childrenLink.name) : childrenLink.name %>
         </a>
       </li>
       <% } %>

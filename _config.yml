@@ -149,3 +149,16 @@ prism_plugin:
   theme: 'tomorrow'
   line_number: true    # default false
   custom_css:
+  
+douban: 
+  user: 148050136 
+  builtin: true 
+  book: 
+    title: '我的无味书屋！' 
+    quote: '沉醉于知识的hiyoung.' 
+  movie: 
+    title: '电影推荐'
+    quote: '沉醉于电影的hiyoung.' 
+    
+
+  timeout: 10000
