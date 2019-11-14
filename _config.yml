@@ -125,3 +125,7 @@ githubEmojis:
   inject: true
   styles:
   customEmojis:
+
+permalink_pinyin:
+  enable: true
+  separator: '-' # default: '-'
