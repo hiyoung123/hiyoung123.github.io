@@ -23,7 +23,7 @@ menu:
       - name: Musics
         url: /musics
         icon: fas fa-music
-      - name: Videos
+      - name: Movies
         url: /movies
         icon: fas fa-film
       - name: Galleries
