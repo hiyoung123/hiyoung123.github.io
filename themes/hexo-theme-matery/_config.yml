@@ -342,14 +342,14 @@ busuanziStatistics:
 # Add google analytics configuration
 # 添加 Google Analytics 配置
 googleAnalytics:
-  enable: false
-  id:
+  enable: true
+  id: yXNWLn28ULu1e2oNTKIDLTMhXLOEd7DwMtrEmdJ0pgE
 
 # Add baidu analytics configuration
 # 添加 baidu Analytics 配置
 baiduAnalytics:
-  enable: false
-  id: 
+  enable: true
+  id: aN8cfAjje5
   
 # 百度搜索资源平台提交链接
 baiduPush: true
