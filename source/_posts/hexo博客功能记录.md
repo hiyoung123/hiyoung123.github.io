@@ -61,6 +61,7 @@ categories:
 * 图片优化
 * 每个菜单的首图样式（是统一的首页背景hiyoung标题，还是每个菜单不一样的标题一样的背景，还是每个菜单不一样的背景不一样的标题)选择了同一背景不同标题，描述是否同一后续决定
 * 首图描述动态改变(未添加)https://github.com/shw2018/hexo-blog-fly/blob/master/themes/matery/layout/_partial/bg-cover-content.ejs
+* 文章卡片长短不一（新版本已经没有该问题，老版本有）
 
 ## bug
 * 解决部分菜单页面，标题不显示中文
