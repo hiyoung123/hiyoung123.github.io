@@ -34,7 +34,7 @@ categories:
 * 绑定域名需要添加cname文件
 * 添加去水印脚本
 * 添加交换友链卡片
-* 添加google和baidu统计(未实现)
+* 添加google和baidu统计(google已经完成收录，baidu目前没有验证完成后续添加同时百度需要设置自动推送)
 * 添加雪花效果(未实现)
 
 ## godweiyang
