@@ -100,8 +100,11 @@ theme: hexo-theme-matery
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repository: https://github.com/hiyoung123/hiyoung123.github.io
+  repo:
+    github: https://github.com/hiyoung123/hiyoung123.github.io
+    coding: https://e.coding.net/hiyoung123/hiyoung123.coding.me.git
   branch: master
+
 
 # 添加动漫人物
 live2d: 
