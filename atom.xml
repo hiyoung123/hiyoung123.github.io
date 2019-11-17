@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://hiyoungai.com/"/>
-  <updated>2019-11-16T03:25:10.835Z</updated>
+  <updated>2019-11-16T05:07:34.457Z</updated>
   <id>http://hiyoungai.com/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>最全Hexo博客搭建教程以及优化</title>
+    <link href="http://hiyoungai.com/posts/4dbbde95.html"/>
+    <id>http://hiyoungai.com/posts/4dbbde95.html</id>
+    <published>2019-11-16T03:50:59.000Z</published>
+    <updated>2019-11-16T05:07:34.457Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;第一部分：准备&quot;&gt;&lt;a href=&quot;#第一部分：准备&quot; class=&quot;headerlink&quot; title=&quot;第一部分：准备&quot;&gt;&lt;/a&gt;第一部分：准备&lt;/h2&gt;&lt;h3 id=&quot;1-Hexo介绍&quot;&gt;&lt;a href=&quot;#1-Hexo介绍&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="网站搭建与优化" scheme="http://hiyoungai.com/categories/%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA%E4%B8%8E%E4%BC%98%E5%8C%96/"/>
+    
+    
+      <category term="Hexo" scheme="http://hiyoungai.com/tags/Hexo/"/>
+    
+      <category term="博客" scheme="http://hiyoungai.com/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
