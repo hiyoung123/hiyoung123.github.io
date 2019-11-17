@@ -178,3 +178,8 @@ baidusitemap:
     path: baidusitemap.xml
 sitemap:
     path: sitemap.xml
+
+lazyload:
+  enable: true 
+  onlypost: false  # 是否只对文章的图片做懒加载
+  loadingImg: /medias/loading.gif # eg ./images/loading.gif
