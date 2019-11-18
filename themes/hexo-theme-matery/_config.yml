@@ -271,7 +271,7 @@ postCalendar: true
 gitalk:
   enable: true
   owner: hiyoung123
-  repo: hiyoung.github,io
+  repo: hiyoung.github.io
   oauth:
     clientId: 2809c671d3e9827bdb20
     clientSecret: 5f216884763890b0ef3751b9206ab5eade091708
