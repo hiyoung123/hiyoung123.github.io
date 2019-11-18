@@ -8,5 +8,5 @@ layout: "friends"
 想要交换友链的大佬，欢迎在留言板留言，留言格式：
 * **名称：**hiyoung
 * **地址：**https://hiyoungai.com/
-* **简介：**对知识技术保持饥渴难耐^_^！
-* **头像：**https://hiyoungai.com/medias/avatar.jpg
+* **简介：**宠辱不惊，看庭前花开花落；去留无意，望天空云卷云舒。
+* **头像：**https://cdn.jsdelivr.net/gh/hiyoung123/cdn/img/avatar.jpg
