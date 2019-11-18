@@ -181,5 +181,5 @@ sitemap:
 
 lazyload:
   enable: true 
-  onlypost: false  # 是否只对文章的图片做懒加载
-  loadingImg: /medias/loading.gif # eg ./images/loading.gif
+  onlypost: true  # 是否只对文章的图片做懒加载
+  loadingImg: https://cdn.jsdelivr.net/gh/hiyoung123/cdn/img/loading.gif # eg ./images/loading.gif

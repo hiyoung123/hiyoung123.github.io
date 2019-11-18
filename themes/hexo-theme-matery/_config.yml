@@ -111,8 +111,8 @@ recommend:
 
 # Configure website favicon and LOGO
 # 配置网站favicon和网站LOGO
-favicon: /favicon.png
-logo: /medias/logo.png
+favicon: https://cdn.jsdelivr.net/gh/hiyoung123/cdn/img/favicon.png
+logo: https://cdn.jsdelivr.net/gh/hiyoung123/cdn/img/logo.png
 
 # The configuration of the second button in the home banner,
 # including the display name of the button, the font awesome icon, and the hyperlink to the button.
@@ -201,7 +201,7 @@ clicklove:
 # profile in about page, including avatars, career, and personal introductions.
 # 在”关于”页面中配置个人信息，包括头像、职业和个人介绍.
 profile:
-  avatar: /medias/avatar.jpg
+  avatar: https://cdn.jsdelivr.net/gh/hiyoung123/cdn/img/avatar.jpg
   career: Bytedance | Software Engineer
   introduction: 一个不务正业的码农，主业移动端BSP，业余NLP爱好者，有空写写爬虫，没事玩玩游戏，偶尔看看电影看看书。
 

@@ -50,7 +50,7 @@ categories:
 * 修改字体(未实现)https://licardo.cn/posts/16590/
 
 ## sitoi
-* 图床(未实现)https://sitoi.cn/posts/39161.html
+* 图床cdn:https://sitoi.cn/posts/39161.html完成
 
 ## sunhwee洪卫
 * 添加天气插件(未实现)
@@ -58,8 +58,9 @@ categories:
 * 添加快捷导航百度接口等信息(未实现)
 * seo优化(未实现)https://sunhwee.com/posts/6e8839eb.html
 * 部署到github和coding可加速访问速度
-* cdn优化
-* 图片优化
+* cdn优化 :目前只对logo和头像进行了cdn优化
+* 图片优化: 只进行了cdn优化，没有压缩
+* 图片懒加载 : 修改为只对文章图片懒加载
 * 每个菜单的首图样式（是统一的首页背景hiyoung标题，还是每个菜单不一样的标题一样的背景，还是每个菜单不一样的背景不一样的标题)选择了同一背景不同标题，描述是否同一后续决定
 * 首图描述动态改变(未添加)https://github.com/shw2018/hexo-blog-fly/blob/master/themes/matery/layout/_partial/bg-cover-content.ejs
 * 文章卡片长短不一（新版本已经没有该问题，老版本有）
