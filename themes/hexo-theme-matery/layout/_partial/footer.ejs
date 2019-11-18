@@ -86,3 +86,11 @@
 </footer>
 
 <div class="progress-bar"></div>
+<% if (theme.mermaid.enable) { %>
+  <script src='<%= theme.mermaid.cdn %>'></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({theme: 'forest'});
+    }
+  </script>
+<% } %>

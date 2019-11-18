@@ -72,3 +72,8 @@ categories:
 * 添加www访问网站时，出现404: 需要在coding部署设置中，绑定一下wwww的域名，同时需要申请证书，如果申请失败的话，在域名解析处将境外的解析记录关掉，然后再去申请。申请成功后再打开境外的记录。
 * 卜算子区分www和不带www的域名，导致访问数无法同步。可能需要重定向
 * gitalk评论无法使用，配置中repo写错了
+* markdown流程图需要安装如下插件：
+  hexo-filter-sequence
+  hexo-filter-mermaid-diagrams：需要配置_config和footer,ejs，配置成功后可以显示
+  hexo-filter-flowchart
+  讲解博客：https://blog.csdn.net/Olivia_Vang/article/details/92987859
