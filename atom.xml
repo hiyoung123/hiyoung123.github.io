@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://hiyoungai.com/"/>
-  <updated>2019-11-18T06:26:15.050Z</updated>
+  <updated>2019-11-18T11:09:41.138Z</updated>
   <id>http://hiyoungai.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Markdown基本语法</title>
+    <link href="http://hiyoungai.com/posts/5d36ff15.html"/>
+    <id>http://hiyoungai.com/posts/5d36ff15.html</id>
+    <published>2019-11-18T08:05:36.000Z</published>
+    <updated>2019-11-18T11:09:41.138Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Markdown基本语法&quot;&gt;&lt;a href=&quot;#Markdown基本语法&quot; class=&quot;headerlink&quot; title=&quot;Markdown基本语法&quot;&gt;&lt;/a&gt;Markdown基本语法&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;Markdown
+        
+      
+    
+    </summary>
+    
+    
+      <category term="便捷工具" scheme="http://hiyoungai.com/categories/%E4%BE%BF%E6%8D%B7%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="Markdown" scheme="http://hiyoungai.com/tags/Markdown/"/>
+    
+  </entry>
   
   <entry>
     <title>最全Hexo博客搭建教程以及优化</title>
@@ -46,34 +74,11 @@
   </entry>
   
   <entry>
-    <title>Hello World</title>
-    <link href="http://hiyoungai.com/posts/4a17b156.html"/>
-    <id>http://hiyoungai.com/posts/4a17b156.html</id>
-    <published>2019-11-16T01:17:10.132Z</published>
-    <updated>2019-11-16T03:25:10.835Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a
-        
-      
-    
-    </summary>
-    
-    
-    
-  </entry>
-  
-  <entry>
     <title>hexo博客功能记录</title>
     <link href="http://hiyoungai.com/posts/7b350200.html"/>
     <id>http://hiyoungai.com/posts/7b350200.html</id>
     <published>2019-11-15T09:35:48.000Z</published>
-    <updated>2019-11-18T06:26:15.050Z</updated>
+    <updated>2019-11-18T10:29:19.842Z</updated>
     
     <summary type="html">
     
