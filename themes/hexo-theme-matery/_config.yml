@@ -349,7 +349,7 @@ googleAnalytics:
 # 添加 baidu Analytics 配置
 baiduAnalytics:
   enable: true
-  id: k9TrDSEUhj
+  id: njr2tEZDKt
   
 # 百度搜索资源平台提交链接
 baiduPush: true
