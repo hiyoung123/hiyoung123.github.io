@@ -1,0 +1,252 @@
+diff --git a/themes/hexo-theme-matery/_config.yml b/themes/hexo-theme-matery/_config.yml
+index 2e4d3c3..fa98680 100644
+--- a/themes/hexo-theme-matery/_config.yml
++++ b/themes/hexo-theme-matery/_config.yml
+@@ -258,9 +258,9 @@ mySkills:
+ myGallery:
+   enable: true
+   data:
+-    - /medias/featureimages/0.jpg
+-    - /medias/featureimages/1.jpg
+-    - /medias/featureimages/2.jpg
++    - https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/medias/featureimages/0.jpg
++    - https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/medias/featureimages/1.jpg
++    - https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/medias/featureimages/2.jpg
+ 
+ # Whether to display post-calender in the `archive` page
+ # 设置在归档页面中是否显示'文章日历'控件
+@@ -394,34 +394,34 @@ libs:
+ # The post featured images that needs to be displayed when there is no image.
+ # 无文章特色图片时需要显示的文章特色图片.
+ featureImages: 
+-- /medias/featureimages/0.jpg
+-- /medias/featureimages/1.jpg
+-- /medias/featureimages/2.jpg
+-- /medias/featureimages/3.jpg
+-- /medias/featureimages/4.jpg
+-- /medias/featureimages/5.jpg
+-- /medias/featureimages/6.jpg
+-- /medias/featureimages/7.jpg
+-- /medias/featureimages/8.jpg
+-- /medias/featureimages/9.jpg
+-- /medias/featureimages/10.jpg
+-- /medias/featureimages/11.jpg
+-- /medias/featureimages/12.jpg
+-- /medias/featureimages/13.jpg
+-- /medias/featureimages/14.jpg
+-- /medias/featureimages/15.jpg
+-- /medias/featureimages/16.jpg
+-- /medias/featureimages/17.jpg
+-- /medias/featureimages/18.jpg
+-- /medias/featureimages/19.jpg
+-- /medias/featureimages/20.jpg
+-- /medias/featureimages/21.jpg
+-- /medias/featureimages/22.jpg
+-- /medias/featureimages/23.jpg
+-- /medias/featureimages/24.jpg
+-- /medias/featureimages/25.jpg
+-- /medias/featureimages/26.jpg
+-- /medias/featureimages/27.jpg
++- https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/medias/featureimages/0.jpg
++- https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/medias/featureimages/1.jpg
++- https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/medias/featureimages/2.jpg
++- https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/medias/featureimages/3.jpg
++- https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/medias/featureimages/4.jpg
++- https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/medias/featureimages/5.jpg
++- https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/medias/featureimages/6.jpg
++- https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/medias/featureimages/7.jpg
++- https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/medias/featureimages/8.jpg
++- https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/medias/featureimages/9.jpg
++- https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/medias/featureimages/10.jpg
++- https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/medias/featureimages/11.jpg
++- https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/medias/featureimages/12.jpg
++- https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/medias/featureimages/13.jpg
++- https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/medias/featureimages/14.jpg
++- https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/medias/featureimages/15.jpg
++- https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/medias/featureimages/16.jpg
++- https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/medias/featureimages/17.jpg
++- https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/medias/featureimages/18.jpg
++- https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/medias/featureimages/19.jpg
++- https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/medias/featureimages/20.jpg
++- https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/medias/featureimages/21.jpg
++- https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/medias/featureimages/22.jpg
++- https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/medias/featureimages/23.jpg
++- https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/medias/featureimages/24.jpg
++- https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/medias/featureimages/25.jpg
++- https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/medias/featureimages/26.jpg
++- https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/medias/featureimages/27.jpg
+ 
+ # default configs that the default policy for every articles/posts
+ # default 配置文章的默认转载规则
+diff --git a/themes/hexo-theme-matery/layout/404.ejs b/themes/hexo-theme-matery/layout/404.ejs
+index 4d7a167..c283ae8 100755
+--- a/themes/hexo-theme-matery/layout/404.ejs
++++ b/themes/hexo-theme-matery/layout/404.ejs
+@@ -24,5 +24,5 @@
+ 
+ <script>
+     // 每天切换 banner 图.  Switch banner image every day.
+-    $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay() + '.jpg)');
++    $('.bg-cover').css('background-image', 'url(https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/medias/banner/' + new Date().getDay() + '.jpg)');
+ </script>
+diff --git a/themes/hexo-theme-matery/layout/_partial/bg-cover-content.ejs b/themes/hexo-theme-matery/layout/_partial/bg-cover-content.ejs
+index 4c7e4fa..e2c279c 100755
+--- a/themes/hexo-theme-matery/layout/_partial/bg-cover-content.ejs
++++ b/themes/hexo-theme-matery/layout/_partial/bg-cover-content.ejs
+@@ -53,10 +53,10 @@
+ <% if (theme.banner.enable) { %>
+ <script>
+     // 每天切换 banner 图.  Switch banner image every day.
+-    $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay() + '.jpg)');
++    $('.bg-cover').css('background-image', 'url(https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/medias/banner/' + new Date().getDay() + '.jpg)');
+ </script>
+ <% } else { %>
+ <script>
+-    $('.bg-cover').css('background-image', 'url(/medias/banner/0.jpg)');
++    $('.bg-cover').css('background-image', 'url(https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/medias/banner/0.jpg)');
+ </script>
+ <% } %>
+diff --git a/themes/hexo-theme-matery/source/medias/banner/0.jpg b/themes/hexo-theme-matery/source/medias/banner/0.jpg
+deleted file mode 100644
+index 142d5ed..0000000
+Binary files a/themes/hexo-theme-matery/source/medias/banner/0.jpg and /dev/null differ
+diff --git a/themes/hexo-theme-matery/source/medias/banner/1.jpg b/themes/hexo-theme-matery/source/medias/banner/1.jpg
+deleted file mode 100644
+index 0500aaf..0000000
+Binary files a/themes/hexo-theme-matery/source/medias/banner/1.jpg and /dev/null differ
+diff --git a/themes/hexo-theme-matery/source/medias/banner/2.jpg b/themes/hexo-theme-matery/source/medias/banner/2.jpg
+deleted file mode 100644
+index 4ad1107..0000000
+Binary files a/themes/hexo-theme-matery/source/medias/banner/2.jpg and /dev/null differ
+diff --git a/themes/hexo-theme-matery/source/medias/banner/3.jpg b/themes/hexo-theme-matery/source/medias/banner/3.jpg
+deleted file mode 100644
+index 5d3d920..0000000
+Binary files a/themes/hexo-theme-matery/source/medias/banner/3.jpg and /dev/null differ
+diff --git a/themes/hexo-theme-matery/source/medias/banner/4.jpg b/themes/hexo-theme-matery/source/medias/banner/4.jpg
+deleted file mode 100644
+index 36c7a8e..0000000
+Binary files a/themes/hexo-theme-matery/source/medias/banner/4.jpg and /dev/null differ
+diff --git a/themes/hexo-theme-matery/source/medias/banner/5.jpg b/themes/hexo-theme-matery/source/medias/banner/5.jpg
+deleted file mode 100644
+index 06db42f..0000000
+Binary files a/themes/hexo-theme-matery/source/medias/banner/5.jpg and /dev/null differ
+diff --git a/themes/hexo-theme-matery/source/medias/banner/6.jpg b/themes/hexo-theme-matery/source/medias/banner/6.jpg
+deleted file mode 100644
+index 12bf74b..0000000
+Binary files a/themes/hexo-theme-matery/source/medias/banner/6.jpg and /dev/null differ
+diff --git a/themes/hexo-theme-matery/source/medias/banner/7.jpg b/themes/hexo-theme-matery/source/medias/banner/7.jpg
+deleted file mode 100644
+index 8e4da0b..0000000
+Binary files a/themes/hexo-theme-matery/source/medias/banner/7.jpg and /dev/null differ
+diff --git a/themes/hexo-theme-matery/source/medias/featureimages/0.jpg b/themes/hexo-theme-matery/source/medias/featureimages/0.jpg
+deleted file mode 100644
+index 9a89ed8..0000000
+Binary files a/themes/hexo-theme-matery/source/medias/featureimages/0.jpg and /dev/null differ
+diff --git a/themes/hexo-theme-matery/source/medias/featureimages/1.jpg b/themes/hexo-theme-matery/source/medias/featureimages/1.jpg
+deleted file mode 100644
+index 894c533..0000000
+Binary files a/themes/hexo-theme-matery/source/medias/featureimages/1.jpg and /dev/null differ
+diff --git a/themes/hexo-theme-matery/source/medias/featureimages/10.jpg b/themes/hexo-theme-matery/source/medias/featureimages/10.jpg
+deleted file mode 100644
+index 4811424..0000000
+Binary files a/themes/hexo-theme-matery/source/medias/featureimages/10.jpg and /dev/null differ
+diff --git a/themes/hexo-theme-matery/source/medias/featureimages/11.jpg b/themes/hexo-theme-matery/source/medias/featureimages/11.jpg
+deleted file mode 100644
+index adf9124..0000000
+Binary files a/themes/hexo-theme-matery/source/medias/featureimages/11.jpg and /dev/null differ
+diff --git a/themes/hexo-theme-matery/source/medias/featureimages/12.jpg b/themes/hexo-theme-matery/source/medias/featureimages/12.jpg
+deleted file mode 100644
+index e35904c..0000000
+Binary files a/themes/hexo-theme-matery/source/medias/featureimages/12.jpg and /dev/null differ
+diff --git a/themes/hexo-theme-matery/source/medias/featureimages/13.jpg b/themes/hexo-theme-matery/source/medias/featureimages/13.jpg
+deleted file mode 100644
+index 3294245..0000000
+Binary files a/themes/hexo-theme-matery/source/medias/featureimages/13.jpg and /dev/null differ
+diff --git a/themes/hexo-theme-matery/source/medias/featureimages/14.jpg b/themes/hexo-theme-matery/source/medias/featureimages/14.jpg
+deleted file mode 100644
+index 6d216fa..0000000
+Binary files a/themes/hexo-theme-matery/source/medias/featureimages/14.jpg and /dev/null differ
+diff --git a/themes/hexo-theme-matery/source/medias/featureimages/15.jpg b/themes/hexo-theme-matery/source/medias/featureimages/15.jpg
+deleted file mode 100644
+index 8c00386..0000000
+Binary files a/themes/hexo-theme-matery/source/medias/featureimages/15.jpg and /dev/null differ
+diff --git a/themes/hexo-theme-matery/source/medias/featureimages/16.jpg b/themes/hexo-theme-matery/source/medias/featureimages/16.jpg
+deleted file mode 100644
+index 3204ac7..0000000
+Binary files a/themes/hexo-theme-matery/source/medias/featureimages/16.jpg and /dev/null differ
+diff --git a/themes/hexo-theme-matery/source/medias/featureimages/17.jpg b/themes/hexo-theme-matery/source/medias/featureimages/17.jpg
+deleted file mode 100644
+index 4c633f8..0000000
+Binary files a/themes/hexo-theme-matery/source/medias/featureimages/17.jpg and /dev/null differ
+diff --git a/themes/hexo-theme-matery/source/medias/featureimages/18.jpg b/themes/hexo-theme-matery/source/medias/featureimages/18.jpg
+deleted file mode 100644
+index 533e8b6..0000000
+Binary files a/themes/hexo-theme-matery/source/medias/featureimages/18.jpg and /dev/null differ
+diff --git a/themes/hexo-theme-matery/source/medias/featureimages/19.jpg b/themes/hexo-theme-matery/source/medias/featureimages/19.jpg
+deleted file mode 100644
+index def4974..0000000
+Binary files a/themes/hexo-theme-matery/source/medias/featureimages/19.jpg and /dev/null differ
+diff --git a/themes/hexo-theme-matery/source/medias/featureimages/2.jpg b/themes/hexo-theme-matery/source/medias/featureimages/2.jpg
+deleted file mode 100644
+index b6c3227..0000000
+Binary files a/themes/hexo-theme-matery/source/medias/featureimages/2.jpg and /dev/null differ
+diff --git a/themes/hexo-theme-matery/source/medias/featureimages/20.jpg b/themes/hexo-theme-matery/source/medias/featureimages/20.jpg
+deleted file mode 100644
+index 58976bb..0000000
+Binary files a/themes/hexo-theme-matery/source/medias/featureimages/20.jpg and /dev/null differ
+diff --git a/themes/hexo-theme-matery/source/medias/featureimages/21.jpg b/themes/hexo-theme-matery/source/medias/featureimages/21.jpg
+deleted file mode 100644
+index 12b6848..0000000
+Binary files a/themes/hexo-theme-matery/source/medias/featureimages/21.jpg and /dev/null differ
+diff --git a/themes/hexo-theme-matery/source/medias/featureimages/22.jpg b/themes/hexo-theme-matery/source/medias/featureimages/22.jpg
+deleted file mode 100644
+index d59d60f..0000000
+Binary files a/themes/hexo-theme-matery/source/medias/featureimages/22.jpg and /dev/null differ
+diff --git a/themes/hexo-theme-matery/source/medias/featureimages/23.jpg b/themes/hexo-theme-matery/source/medias/featureimages/23.jpg
+deleted file mode 100644
+index c528a49..0000000
+Binary files a/themes/hexo-theme-matery/source/medias/featureimages/23.jpg and /dev/null differ
+diff --git a/themes/hexo-theme-matery/source/medias/featureimages/24.jpg b/themes/hexo-theme-matery/source/medias/featureimages/24.jpg
+deleted file mode 100644
+index 0c804a6..0000000
+Binary files a/themes/hexo-theme-matery/source/medias/featureimages/24.jpg and /dev/null differ
+diff --git a/themes/hexo-theme-matery/source/medias/featureimages/25.jpg b/themes/hexo-theme-matery/source/medias/featureimages/25.jpg
+deleted file mode 100644
+index 35f43d7..0000000
+Binary files a/themes/hexo-theme-matery/source/medias/featureimages/25.jpg and /dev/null differ
+diff --git a/themes/hexo-theme-matery/source/medias/featureimages/26.jpg b/themes/hexo-theme-matery/source/medias/featureimages/26.jpg
+deleted file mode 100644
+index 455ee2a..0000000
+Binary files a/themes/hexo-theme-matery/source/medias/featureimages/26.jpg and /dev/null differ
+diff --git a/themes/hexo-theme-matery/source/medias/featureimages/27.jpg b/themes/hexo-theme-matery/source/medias/featureimages/27.jpg
+deleted file mode 100644
+index b1de687..0000000
+Binary files a/themes/hexo-theme-matery/source/medias/featureimages/27.jpg and /dev/null differ
+diff --git a/themes/hexo-theme-matery/source/medias/featureimages/3.jpg b/themes/hexo-theme-matery/source/medias/featureimages/3.jpg
+deleted file mode 100644
+index f0d2b6d..0000000
+Binary files a/themes/hexo-theme-matery/source/medias/featureimages/3.jpg and /dev/null differ
+diff --git a/themes/hexo-theme-matery/source/medias/featureimages/4.jpg b/themes/hexo-theme-matery/source/medias/featureimages/4.jpg
+deleted file mode 100644
+index 60350c5..0000000
+Binary files a/themes/hexo-theme-matery/source/medias/featureimages/4.jpg and /dev/null differ
+diff --git a/themes/hexo-theme-matery/source/medias/featureimages/5.jpg b/themes/hexo-theme-matery/source/medias/featureimages/5.jpg
+deleted file mode 100644
+index 8f22248..0000000
+Binary files a/themes/hexo-theme-matery/source/medias/featureimages/5.jpg and /dev/null differ
+diff --git a/themes/hexo-theme-matery/source/medias/featureimages/6.jpg b/themes/hexo-theme-matery/source/medias/featureimages/6.jpg
+deleted file mode 100644
+index 3e5ad05..0000000
+Binary files a/themes/hexo-theme-matery/source/medias/featureimages/6.jpg and /dev/null differ
+diff --git a/themes/hexo-theme-matery/source/medias/featureimages/7.jpg b/themes/hexo-theme-matery/source/medias/featureimages/7.jpg
+deleted file mode 100644
+index f3c1147..0000000
+Binary files a/themes/hexo-theme-matery/source/medias/featureimages/7.jpg and /dev/null differ
+diff --git a/themes/hexo-theme-matery/source/medias/featureimages/8.jpg b/themes/hexo-theme-matery/source/medias/featureimages/8.jpg
+deleted file mode 100644
+index 193ccb8..0000000
+Binary files a/themes/hexo-theme-matery/source/medias/featureimages/8.jpg and /dev/null differ
+diff --git a/themes/hexo-theme-matery/source/medias/featureimages/9.jpg b/themes/hexo-theme-matery/source/medias/featureimages/9.jpg
+deleted file mode 100644
+index ccd7a6c..0000000
+Binary files a/themes/hexo-theme-matery/source/medias/featureimages/9.jpg and /dev/null differ
