@@ -183,7 +183,7 @@ sitemap:
 lazyload:
   enable: true 
   onlypost: true  # 是否只对文章的图片做懒加载
-  loadingImg: https://cdn.jsdelivr.net/gh/hiyoung123/cdn/img/loading.gif # eg ./images/loading.gif
+  loadingImg: /medias/loading.gif #https://cdn.jsdelivr.net/gh/hiyoung123/cdn/img/loading.gif # eg ./images/loading.gif
 
 baidu_url_submit:
   count: 80 # 提交最新的一个链接
