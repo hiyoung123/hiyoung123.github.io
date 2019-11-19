@@ -104,7 +104,7 @@ deploy:
       github: https://github.com/hiyoung123/hiyoung123.github.io
       coding: https://e.coding.net/hiyoung123/hiyoung123.coding.me.git
     branch: master
-  - type: baidu_url_submitter
+  #- type: baidu_url_submitter
 
 
 # 添加动漫人物
