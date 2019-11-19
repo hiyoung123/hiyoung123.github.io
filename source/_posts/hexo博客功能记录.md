@@ -79,3 +79,7 @@ categories:
   hexo-filter-mermaid-diagrams：需要配置_config和footer,ejs，配置成功后可以显示
   hexo-filter-flowchart
   讲解博客：https://blog.csdn.net/Olivia_Vang/article/details/92987859
+* cdn获取github图床有问题，需要github发布release版本，引用时添加release版本.
+  目前没有找到更好的解决办法。
+　当前解决：一是github release，然后引用时添加版本，这样可以修改github的内容达到替换文件的目的。
+　二是只能添加文件，引用时使用新的文件名。

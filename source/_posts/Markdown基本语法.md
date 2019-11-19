@@ -10,7 +10,7 @@ tags:
   - 流程图
 categories:
   - 便捷工具
-img: 'https://cdn.jsdelivr.net/gh/hiyoung123/cdn/img/img_markdown.jpeg'
+img: 'https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_markdown.jpeg'
 abbrlink: 5d36ff15
 date: 2019-11-18 16:05:36
 cover:
@@ -47,7 +47,7 @@ Markdown支持6种级别的标题，对应html标签 `h1` ~ `h6`，严格的Mark
 
 效果如下（实际演示会造成菜单混乱，所以此处使用截图）：
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/cdn/img/img_markdown_list_1.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_markdown_list_1.png)
 
 除此之外，Markdown还支持另外一种形式的标题展示形式，使用下划线进行文本大小的控制。但是这种形式仅有两种表现形式：即一级标题和二级标题。
 
@@ -60,7 +60,7 @@ Markdown支持6种级别的标题，对应html标签 `h1` ~ `h6`，严格的Mark
 
 效果如下：
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/cdn/img/img_markdown_list_2.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_markdown_list_2.png)
 
 -- -- --
 
@@ -372,7 +372,7 @@ $(document).ready(function () {
 
 效果如下：
 
-![Write 属性文本](https://cdn.jsdelivr.net/gh/hiyoung123/cdn/img/img_markdown.jpeg "写作")
+![Write 属性文本](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_markdown.jpeg "写作")
 
 -- -- --
 
@@ -815,7 +815,6 @@ Note right of C: 没人陪我玩
 
   <iframe                         style="margin-left: 2px; margin-bottom:-5px;"                         frameborder="0" scrolling="0" width="100px" height="20px"                         src="https://ghbtns.com/github-btn.html?user=hiyoung123&repo=hiyoung123.github.io&type=star&count=true" >                     </iframe>
 
-
 -- -- --
 
 
@@ -827,7 +826,7 @@ Note right of C: 没人陪我玩
 特点：简洁，快速，可以实现所见即所得。看下面这个视频你就会知道他的`Simple, yet Powerful`
 
 <video id="video" width="420" height="320" autoplay muted="muted" preload="preload" loop="loop" poster="https://cdn.jsdelivr.net/gh/hiyoung123/cdn/img/loading.gif">
-      <source id="mp4" src="https://cdn.jsdelivr.net/gh/hiyoung123/cdn/video/video_markdown_typora.mp4" type="video/mp4">
+      <source id="mp4" src="https://cdn.jsdelivr.net/gh/hiyoung123/CDN/video/video_markdown_typora.mp4" type="video/mp4">
       </video>
 
 [Typora官方下载](https://www.typora.io/) 
