@@ -258,9 +258,9 @@ mySkills:
 myGallery:
   enable: true
   data:
-    - /medias/featureimages/0.jpg
-    - /medias/featureimages/1.jpg
-    - /medias/featureimages/2.jpg
+    - https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/medias/featureimages/0.jpg
+    - https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/medias/featureimages/1.jpg
+    - https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/medias/featureimages/2.jpg
 
 # Whether to display post-calender in the `archive` page
 # 设置在归档页面中是否显示'文章日历'控件
@@ -359,69 +359,69 @@ baiduPush: true
 # 使用到的前端库，可按需替换成对应的CDN地址，如果下面未指定具体的版本号，使用最新的版本即可.
 libs:
   css:
-    fontAwesome: /libs/awesome/css/all.css # V5.11.1
-    materialize: /libs/materialize/materialize.min.css # 1.0.0
-    aos: /libs/aos/aos.css
-    animate: /libs/animate/animate.min.css # V3.5.1
-    lightgallery: /libs/lightGallery/css/lightgallery.min.css # V1.6.11
-    aplayer: /libs/aplayer/APlayer.min.css
-    dplayer: /libs/dplayer/DPlayer.min.css
-    gitalk: /libs/gitalk/gitalk.css
-    jqcloud: /libs/jqcloud/jqcloud.css
-    tocbot: /libs/tocbot/tocbot.css
+    fontAwesome: https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/libs/awesome/css/all.css # V5.11.1
+    materialize: https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/libs/materialize/materialize.min.css # 1.0.0
+    aos: https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/libs/aos/aos.css
+    animate: https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/libs/animate/animate.min.css # V3.5.1
+    lightgallery: https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/libs/lightGallery/css/lightgallery.min.css # V1.6.11
+    aplayer: https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/libs/aplayer/APlayer.min.css
+    dplayer: https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/libs/dplayer/DPlayer.min.css
+    gitalk: https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/libs/gitalk/gitalk.css
+    jqcloud: https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/libs/jqcloud/jqcloud.css
+    tocbot: https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/libs/tocbot/tocbot.css
   js:
-    jquery: /libs/jquery/jquery.min.js
-    materialize: /libs/materialize/materialize.min.js # 1.0.0
-    masonry: /libs/masonry/masonry.pkgd.min.js # v4.0.0
-    aos: /libs/aos/aos.js
-    scrollProgress: /libs/scrollprogress/scrollProgress.min.js
-    lightgallery: /libs/lightGallery/js/lightgallery-all.min.js # V1.6.11
-    clicklove: /libs/others/clicklove.js
-    busuanzi: /libs/others/busuanzi.pure.mini.js
-    aplayer: /libs/aplayer/APlayer.min.js
-    dplayer: /libs/dplayer/DPlayer.min.js
-    crypto: /libs/cryptojs/crypto-js.min.js
-    echarts: /libs/echarts/echarts.min.js
-    gitalk: /libs/gitalk/gitalk.min.js
-    valine: /libs/valine/Valine.min.js # 若想保持最新版，请替换为 https://unpkg.com/valine/dist/Valine.min.js  默认为 /libs/valine/Valine.min.js
-    jqcloud: /libs/jqcloud/jqcloud-1.0.4.min.js
-    tocbot: /libs/tocbot/tocbot.min.js
-    canvas_nest: /libs/background/canvas-nest.js
-    ribbon: /libs/background/ribbon.min.js
-    ribbon_dynamic: /libs/background/ribbon-dynamic.js
-    instantpage: /libs/instantpage/instantpage.js
+    jquery: https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/libs/jquery/jquery.min.js
+    materialize: https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/libs/materialize/materialize.min.js # 1.0.0
+    masonry: https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/libs/masonry/masonry.pkgd.min.js # v4.0.0
+    aos: https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/libs/aos/aos.js
+    scrollProgress: https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/libs/scrollprogress/scrollProgress.min.js
+    lightgallery: https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/libs/lightGallery/js/lightgallery-all.min.js # V1.6.11
+    clicklove: https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/libs/others/clicklove.js
+    busuanzi: https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/libs/others/busuanzi.pure.mini.js
+    aplayer: https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/libs/aplayer/APlayer.min.js
+    dplayer: https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/libs/dplayer/DPlayer.min.js
+    crypto: https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/libs/cryptojs/crypto-js.min.js
+    echarts: https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/libs/echarts/echarts.min.js
+    gitalk: https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/libs/gitalk/gitalk.min.js
+    valine: https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/libs/valine/Valine.min.js # 若想保持最新版，请替换为 https://unpkg.com/valine/dist/Valine.min.js  默认为 /libs/valine/Valine.min.js
+    jqcloud: https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/libs/jqcloud/jqcloud-1.0.4.min.js
+    tocbot: https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/libs/tocbot/tocbot.min.js
+    canvas_nest: https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/libs/background/canvas-nest.js
+    ribbon: https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/libs/background/ribbon.min.js
+    ribbon_dynamic: https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/libs/background/ribbon-dynamic.js
+    instantpage: https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/libs/instantpage/instantpage.js
 
 # The post featured images that needs to be displayed when there is no image.
 # 无文章特色图片时需要显示的文章特色图片.
 featureImages: 
-- /medias/featureimages/0.jpg
-- /medias/featureimages/1.jpg
-- /medias/featureimages/2.jpg
-- /medias/featureimages/3.jpg
-- /medias/featureimages/4.jpg
-- /medias/featureimages/5.jpg
-- /medias/featureimages/6.jpg
-- /medias/featureimages/7.jpg
-- /medias/featureimages/8.jpg
-- /medias/featureimages/9.jpg
-- /medias/featureimages/10.jpg
-- /medias/featureimages/11.jpg
-- /medias/featureimages/12.jpg
-- /medias/featureimages/13.jpg
-- /medias/featureimages/14.jpg
-- /medias/featureimages/15.jpg
-- /medias/featureimages/16.jpg
-- /medias/featureimages/17.jpg
-- /medias/featureimages/18.jpg
-- /medias/featureimages/19.jpg
-- /medias/featureimages/20.jpg
-- /medias/featureimages/21.jpg
-- /medias/featureimages/22.jpg
-- /medias/featureimages/23.jpg
-- /medias/featureimages/24.jpg
-- /medias/featureimages/25.jpg
-- /medias/featureimages/26.jpg
-- /medias/featureimages/27.jpg
+- https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/medias/featureimages/0.jpg
+- https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/medias/featureimages/1.jpg
+- https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/medias/featureimages/2.jpg
+- https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/medias/featureimages/3.jpg
+- https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/medias/featureimages/4.jpg
+- https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/medias/featureimages/5.jpg
+- https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/medias/featureimages/6.jpg
+- https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/medias/featureimages/7.jpg
+- https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/medias/featureimages/8.jpg
+- https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/medias/featureimages/9.jpg
+- https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/medias/featureimages/10.jpg
+- https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/medias/featureimages/11.jpg
+- https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/medias/featureimages/12.jpg
+- https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/medias/featureimages/13.jpg
+- https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/medias/featureimages/14.jpg
+- https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/medias/featureimages/15.jpg
+- https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/medias/featureimages/16.jpg
+- https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/medias/featureimages/17.jpg
+- https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/medias/featureimages/18.jpg
+- https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/medias/featureimages/19.jpg
+- https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/medias/featureimages/20.jpg
+- https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/medias/featureimages/21.jpg
+- https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/medias/featureimages/22.jpg
+- https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/medias/featureimages/23.jpg
+- https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/medias/featureimages/24.jpg
+- https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/medias/featureimages/25.jpg
+- https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/medias/featureimages/26.jpg
+- https://cdn.jsdelivr.net/gh/hiyoung123/CDN@latest/medias/featureimages/27.jpg
 
 # default configs that the default policy for every articles/posts
 # default 配置文章的默认转载规则
