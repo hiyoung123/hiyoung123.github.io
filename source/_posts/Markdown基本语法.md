@@ -133,7 +133,7 @@ ___这是斜体加粗的文字___
 
 **这是加粗的文字**
 __这是加粗的文字__
-*这是倾斜的文字*`
+*这是倾斜的文字*
 _这是倾斜的文字_
 ***这是斜体加粗的文字***
 ___这是斜体加粗的文字___
@@ -814,7 +814,6 @@ Note right of C: 没人陪我玩
 效果如下：
 
   <iframe                         style="margin-left: 2px; margin-bottom:-5px;"                         frameborder="0" scrolling="0" width="100px" height="20px"                         src="https://ghbtns.com/github-btn.html?user=hiyoung123&repo=hiyoung123.github.io&type=star&count=true" >                     </iframe>
-
 -- -- --
 
 
