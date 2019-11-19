@@ -814,6 +814,8 @@ Note right of C: 没人陪我玩
 效果如下：
 
   <iframe                         style="margin-left: 2px; margin-bottom:-5px;"                         frameborder="0" scrolling="0" width="100px" height="20px"                         src="https://ghbtns.com/github-btn.html?user=hiyoung123&repo=hiyoung123.github.io&type=star&count=true" >                     </iframe>
+
+
 -- -- --
 
 
@@ -824,8 +826,8 @@ Note right of C: 没人陪我玩
 
 特点：简洁，快速，可以实现所见即所得。看下面这个视频你就会知道他的`Simple, yet Powerful`
 
-<video id="video" width="420" height="320" controls="" preload="none" poster="https://cdn.jsdelivr.net/gh/hiyoung123/cdn/img/loading.gif">
-      <source id="mp4" src="https://www.typora.io/img/beta.mp4" type="video/mp4">
+<video id="video" width="420" height="320" autoplay muted="muted" preload="preload" loop="loop" poster="https://cdn.jsdelivr.net/gh/hiyoung123/cdn/img/loading.gif">
+      <source id="mp4" src="https://cdn.jsdelivr.net/gh/hiyoung123/cdn/video/video_markdown_typora.mp4" type="video/mp4">
       </video>
 
 [Typora官方下载](https://www.typora.io/) 
