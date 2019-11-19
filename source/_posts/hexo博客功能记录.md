@@ -35,7 +35,7 @@ categories:
 * 绑定域名需要添加cname文件
 * 添加去水印脚本
 * 添加交换友链卡片
-* 添加google和baidu统计(google已经完成收录，baidu目前没有验证完成后续添加同时百度需要设置自动推送)
+* 添加google和baidu统计　完成，但没有开启baidu主动推送，麻烦、
 * 添加雪花效果(未实现)
 
 ## godweiyang
@@ -47,7 +47,7 @@ categories:
 * 使用cloudflare貌似可以做到域名重定向（没有实现）
 
 ## licardo
-* 可托管至coding或者码云(未实现)
+* 可托管至coding或者码云
 * 修改字体(未实现)https://licardo.cn/posts/16590/
 
 ## sitoi
@@ -62,6 +62,8 @@ categories:
 * cdn优化 :目前只对logo和头像进行了cdn优化
 * 图片优化: 只进行了cdn优化，没有压缩
 * 图片懒加载 : 修改为只对文章图片懒加载
+* 修改为只对文章的引用资源进行CDN。
+* 代码压缩，图片压缩(没有实现)
 * 每个菜单的首图样式（是统一的首页背景hiyoung标题，还是每个菜单不一样的标题一样的背景，还是每个菜单不一样的背景不一样的标题)选择了同一背景不同标题，描述是否同一后续决定
 * 首图描述动态改变(未添加)https://github.com/shw2018/hexo-blog-fly/blob/master/themes/matery/layout/_partial/bg-cover-content.ejs
 * 文章卡片长短不一（新版本已经没有该问题，老版本有）
