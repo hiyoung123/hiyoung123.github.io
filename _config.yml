@@ -190,3 +190,23 @@ baidu_url_submit:
   host: hiyoungai.com # 在百度站长平台中注册的域名
   token:  # 请注意这是您的秘钥， 所以请不要把博客源代码发布在公众仓库里!
   path: baidu_urls.txt # 文本文档的地址， 新链接会保存在此文本文档
+
+#hexo-neat 优化提速插件（去掉HTML、css、js的blank字符）
+neat_enable: true
+neat_html:
+  enable: true
+  exclude:
+    - '**/*.md'
+neat_css:
+  enable: true
+  exclude:
+    - '**/*.min.css'
+neat_js:
+  enable: true
+  mangle: true
+  output:
+  compress:
+  exclude:
+    - '**/*.min.js'
+    - '**/**/instantpage.js'
+    - '**/matery.js'
