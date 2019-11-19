@@ -99,11 +99,12 @@ theme: hexo-theme-matery
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type: git
-  repo:
-    github: https://github.com/hiyoung123/hiyoung123.github.io
-    coding: https://e.coding.net/hiyoung123/hiyoung123.coding.me.git
-  branch: master
+  - type: git
+    repo:
+      github: https://github.com/hiyoung123/hiyoung123.github.io
+      coding: https://e.coding.net/hiyoung123/hiyoung123.coding.me.git
+    branch: master
+  - type: baidu_url_submitter
 
 
 # 添加动漫人物
@@ -183,3 +184,9 @@ lazyload:
   enable: true 
   onlypost: true  # 是否只对文章的图片做懒加载
   loadingImg: https://cdn.jsdelivr.net/gh/hiyoung123/cdn/img/loading.gif # eg ./images/loading.gif
+
+baidu_url_submit:
+  count: 80 # 提交最新的一个链接
+  host: hiyoungai.com # 在百度站长平台中注册的域名
+  token:  # 请注意这是您的秘钥， 所以请不要把博客源代码发布在公众仓库里!
+  path: baidu_urls.txt # 文本文档的地址， 新链接会保存在此文本文档
