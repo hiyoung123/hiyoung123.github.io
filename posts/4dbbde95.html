@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="最全Hexo博客搭建教程以及优化, Young Blog">
-    <meta name="baidu-site-verification" content="njr2tEZDKt" />
+    <meta name="baidu-site-verification" content="m7vWhnTCyq" />
     <meta name="google-site-verification" content="yXNWLn28ULu1e2oNTKIDLTMhXLOEd7DwMtrEmdJ0pgE" />
     <meta name="description" content="第一部分：准备1.Hexo介绍2.安装Node环境3.安装Git4.注册Github第二部分：搭建1.安装Hexo2.部署到Github3.绑定个人域名4.写文章、发布文章5.备份博客源文件第三部分：定制1.更换主题2.设置文章模板3.添加">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -783,7 +783,7 @@
     let gitalk = new Gitalk({
         clientID: '2809c671d3e9827bdb20',
         clientSecret: '5f216884763890b0ef3751b9206ab5eade091708',
-        repo: 'hiyoung.github,io',
+        repo: 'hiyoung123.github.io',
         owner: 'hiyoung123',
         admin: "hiyoung123",
         id: '2019-11-16T11-50-59',
@@ -849,6 +849,18 @@ Markdown 编写的文档可以导出
                     
                     <a href="/tags/Markdown/">
                         <span class="chip bg-color">Markdown</span>
+                    </a>
+                    
+                    <a href="/tags/Typora/">
+                        <span class="chip bg-color">Typora</span>
+                    </a>
+                    
+                    <a href="/tags/Atom/">
+                        <span class="chip bg-color">Atom</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%B5%81%E7%A8%8B%E5%9B%BE/">
+                        <span class="chip bg-color">流程图</span>
                     </a>
                     
                 </div>
@@ -1085,6 +1097,13 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 </main>
 
 
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
 
     <footer class="page-footer bg-color">
     <div class="container row center-align">
@@ -1097,7 +1116,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">2.5k</span>&nbsp;字
+                class="white-color">5.2k</span>&nbsp;字
             
             
             
@@ -1202,6 +1221,14 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
 <div class="progress-bar"></div>
 
+  <script src='https://cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js'></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({theme: 'forest'});
+    }
+  </script>
+
+
 
     <!-- 搜索遮罩框 -->
 <div id="searchModal" class="modal">
@@ -1256,7 +1283,7 @@ $(function () {
     var _hmt = _hmt || [];
     (function () {
         var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?njr2tEZDKt";
+        hm.src = "https://hm.baidu.com/hm.js?m7vWhnTCyq";
         var s = document.getElementsByTagName("script")[0];
         s.parentNode.insertBefore(hm, s);
     })();

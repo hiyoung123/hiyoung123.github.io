@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="hexo博客功能记录, Young Blog">
-    <meta name="baidu-site-verification" content="njr2tEZDKt" />
+    <meta name="baidu-site-verification" content="m7vWhnTCyq" />
     <meta name="google-site-verification" content="yXNWLn28ULu1e2oNTKIDLTMhXLOEd7DwMtrEmdJ0pgE" />
     <meta name="description" content="外部插件
 url汉语拼音
@@ -519,21 +519,21 @@ emoj表情（没用）
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2019-11-18
+                    2019-11-19
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    536
+                    713
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 				
@@ -580,6 +580,7 @@ emoj表情（没用）
 <li>解决代码和数学冲突</li>
 <li>在文章中添加网易云音乐</li>
 <li>添加动态标签栏（未实现）</li>
+<li>使用cloudflare貌似可以做到域名重定向（没有实现）</li>
 </ul>
 <h2 id="licardo"><a href="#licardo" class="headerlink" title="licardo"></a>licardo</h2><ul>
 <li>可托管至coding或者码云(未实现)</li>
@@ -604,7 +605,10 @@ emoj表情（没用）
 </ul>
 <h2 id="bug"><a href="#bug" class="headerlink" title="bug"></a>bug</h2><ul>
 <li>解决部分菜单页面，标题不显示中文</li>
-<li>添加www访问网站时，出现404</li>
+<li>添加www访问网站时，出现404: 需要在coding部署设置中，绑定一下wwww的域名，同时需要申请证书，如果申请失败的话，在域名解析处将境外的解析记录关掉，然后再去申请。申请成功后再打开境外的记录。</li>
+<li>卜算子区分www和不带www的域名，导致访问数无法同步。可能需要重定向</li>
+<li>gitalk评论无法使用，配置中repo写错了</li>
+<li>markdown流程图需要安装如下插件：<br>hexo-filter-sequence<br>hexo-filter-mermaid-diagrams：需要配置_config和footer,ejs，配置成功后可以显示<br>hexo-filter-flowchart<br>讲解博客：<a href="https://blog.csdn.net/Olivia_Vang/article/details/92987859" target="_blank" rel="noopener">https://blog.csdn.net/Olivia_Vang/article/details/92987859</a></li>
 </ul>
 
             </div>
@@ -839,7 +843,7 @@ emoj表情（没用）
     let gitalk = new Gitalk({
         clientID: '2809c671d3e9827bdb20',
         clientSecret: '5f216884763890b0ef3751b9206ab5eade091708',
-        repo: 'hiyoung.github,io',
+        repo: 'hiyoung123.github.io',
         owner: 'hiyoung123',
         admin: "hiyoung123",
         id: '2019-11-15T17-35-48',
@@ -1144,6 +1148,13 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 </main>
 
 
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
 
     <footer class="page-footer bg-color">
     <div class="container row center-align">
@@ -1156,7 +1167,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">2.5k</span>&nbsp;字
+                class="white-color">5.2k</span>&nbsp;字
             
             
             
@@ -1261,6 +1272,14 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
 <div class="progress-bar"></div>
 
+  <script src='https://cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js'></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({theme: 'forest'});
+    }
+  </script>
+
+
 
     <!-- 搜索遮罩框 -->
 <div id="searchModal" class="modal">
@@ -1315,7 +1334,7 @@ $(function () {
     var _hmt = _hmt || [];
     (function () {
         var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?njr2tEZDKt";
+        hm.src = "https://hm.baidu.com/hm.js?m7vWhnTCyq";
         var s = document.getElementsByTagName("script")[0];
         s.parentNode.insertBefore(hm, s);
     })();
