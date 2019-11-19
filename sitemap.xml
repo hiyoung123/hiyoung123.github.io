@@ -37,13 +37,6 @@
   </url>
   
   <url>
-    <loc>http://hiyoungai.com/about/index.html</loc>
-    
-    <lastmod>2019-11-16T01:17:10.132Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://hiyoungai.com/books/index.html</loc>
     
     <lastmod>2019-11-16T01:17:10.132Z</lastmod>
@@ -52,6 +45,13 @@
   
   <url>
     <loc>http://hiyoungai.com/categories/index.html</loc>
+    
+    <lastmod>2019-11-16T01:17:10.132Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://hiyoungai.com/about/index.html</loc>
     
     <lastmod>2019-11-16T01:17:10.132Z</lastmod>
     
@@ -72,14 +72,14 @@
   </url>
   
   <url>
-    <loc>http://hiyoungai.com/movies/index.html</loc>
+    <loc>http://hiyoungai.com/musics/index.html</loc>
     
     <lastmod>2019-11-16T01:17:10.132Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://hiyoungai.com/musics/index.html</loc>
+    <loc>http://hiyoungai.com/movies/index.html</loc>
     
     <lastmod>2019-11-16T01:17:10.132Z</lastmod>
     
