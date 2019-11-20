@@ -14,6 +14,10 @@ date: 2019-11-16 11:50:59
 password:
 summary:
 ---
+#  最全Hexo博客搭建教程以及优化
+
+> 使用Hexo+Github搭建一个免费的个人博客
+
 ##  前言
 
 一边上班一边搭建博客，忙了大概有一周左右的时间，终于把博客都调好了。我使用的是`Hexo`框架，主题是闪念之狐的[hexo-theme-matery](https://github.com/blinkfox/hexo-theme-matery/blob/develop/README_CN.md)，本文介绍的也是该主题的配置，大家如果喜欢可以去下载使用。
@@ -82,9 +86,64 @@ v12.13.0
 
 下载稳定版或者最新版都可以[Node.js](http://nodejs.cn/download/)，安装选项全部默认，一路点击`Next`。最后安装好之后，按`Win+R`打开命令提示符，输入`node -v`和`npm -v`，如果出现版本号，那么就安装成功了。
 
+####  npm加速
+
+一般国内通过`npm`下载东西会比较慢，所以需要添加阿里的源进行加速。
+
+```bash
+npm config set registry https://registry.npm.taobao.org
+```
+
 ### 3.安装Git
 
+为了把本地的网页文件上传到`Github`上面去，我们需要用到分布式版本控制工具 `git`。关于`git`和`Github`这里就不多介绍了。同样分为两个版本：
+
+####  Linux
+
+在Linux平台比较方便，直接使用命令就可以安装：
+
+```bash
+sudo apt-get install git
+```
+
+安装完成后即可享用。
+
+####  Windows
+
+需要去官网下载[Git]( https://git-scm.com/download/win )，下载完成后按照向导安装即可。
+
+> 注意：在安装的最后一步添加路径时选择 Use Git from the Windows Command Prompt 。这是把Git添加到了环境变量中，以便可以在cmd中使用。而本人推荐使用下载附带的git bash进行操作，比较方便。
+
+对于git的讲解和使用，大家可以自行到网上查找。`Hexo`搭建的过程中，已经封装好一个git命令，可以直接使用`hexo`的命令将生成的静态网站代码同步到`github`的仓库里。但是如果想要自己同步源码的话，那么就需要掌握一下git命令了。在这里我只列举一下常用的命令：
+
+```bash
+git init #初始化一个git库，生成.git文件夹，里面保存的是该git库的记录和配置
+git remote add origin 远程仓库地址 #将本地仓库和远程仓库链接起来
+git pull #同步代码
+git status #检查本地仓库修改状态
+git add 文件名 或者 git add .  #将本地修改的文件加入缓存
+git commit 文件名 -m "描述" 或者 git commit . -m "描述"  #提交缓存，并描述该提交
+git push -u origin code 
+# 将本地的提交推送到远程仓库.-u是代表输入账号密码，如果你已经配置了git的公钥，那么可直接push.
+```
+
 ### 4.注册Github
+
+`Git`安装完成之后就可以去[Github]( https://github.com/ )上注册账号并创建仓库， 用来存放我们的网站了。
+
+>  Github是基于 Git 做版本控制的代码托管平台，同时也是全球最大的代（同）码（性）托（交）管（友）网站。 
+
+创建完账户之后新建一个项目仓库`New repository`，如下所示 
+
+![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_hexo_github_new_rep.png)
+
+接着输入仓库名，后面一定要加`.github.io`后缀，README初始化也要勾上。 如下图配置（因为我的已经存在相同的仓库，所以报错）
+
+> 要创建一个和你用户名相同的仓库，后面加.github.io，只有这样将来要部署到GitHub page的时候，才会被识别，也就是http://xxxx.github.io，其中xxx就是你注册`GitHub`的用户名 
+
+![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_hexo_github_creat_rep.png)
+
+然后项目就建成了，点击`Settings`，向下拉到最后有个`GitHub Pages`，点击`Choose a theme`选择一个主题。然后等一会儿，再回到`GitHub Pages`，点击新出来的链接，就会进入到`github page`的界面。看到这个界面就说明`Github`的`page`已经可以使用了，接下来我们进入`Hexo`的搭建。
 
 ## 第二部分：搭建
 
