@@ -210,3 +210,4 @@ neat_js:
     - '**/*.min.js'
     - '**/**/instantpage.js'
     - '**/matery.js'
+    - '**/clicklove.js'
