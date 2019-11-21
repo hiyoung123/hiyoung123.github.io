@@ -16,7 +16,7 @@ summary:
 ---
 #  最全Hexo博客搭建教程以及优化
 
-> 使用Hexo+Github搭建一个免费的个人博客
+> 使用Hexo+Github搭建一个免费的个人博客，本文略长，大佬请自行选择阅读。
 
 ##  前言
 
@@ -148,14 +148,137 @@ git push -u origin code
 ## 第二部分：搭建
 
 ### 1.安装Hexo
+
+首先创建一个文件夹，名字自取如`YoungBlog`，用来存放自己的博客文件，然后`cd`到这个文件夹下（或者在这个文件夹下直接右键`git bash`打开）。在该目录下输入如下命令安装`Hexo`：
+
+```bash
+npm install -g hexo-cli
+```
+
+接下来初始化一下`hexo`,即初始化我们的网站，
+
+```bash
+hexo init
+```
+
+> 初始化要求必须是空的目录下进行。
+
+接着输入`npm install`安装必备的组件。
+
+初始化完成后会在目下生成几个文件和文件夹，这些就是我们需要编写的网站源码了：
+
+* `node_modules:` 依赖包，npm安装的一些插件存放的文件夹。
+* `public：`存放生成的页面，网站正式展示的内容。
+* `scaffolds：`生成文章和页面的一些模板。
+* `source：`用来存放你的文章和数据。
+* `themes：`主题存放文件夹。
+* `_config.yml:` 博客的配置文件，非主题的配置。
+* `db.json`：博客的版本信息等。
+* `package.json`和`package-lock.json`：依赖包和版本信息。
+
+这样本地的网站配置也弄好啦，输入`hexo g`生成静态网页，然后输入`hexo s`打开本地服务器，然后浏览器打开[http://localhost:4000](http://localhost:4000)就可以看到我们的博客啦，效果如下：
+
+![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_hexo_web_1.png)
+
+这里介绍一下`Hexo`常用的几个命令：
+
+```bash
+hexo clean #清除db和public文件下的内容，或可写成hexo cl
+hexo g #根据源码生成静态文件
+hexo s #开启本地的server，这样可在本地通过localhost:4000访问博客。或可写成hexo server
+hexo d #部署网站的静态文件到配置好的托管网站，如Github或者Coding，配置在_config中的Deploy。
+#后续如果安装了一些插件，可能导致缩写无法使用，所以hexo d也可以写成hexo deploy。
+```
+
+看完展示后，可以按`ctrl+c`关闭本地服务器。
+
 ### 2.部署到Github
-### 3.绑定个人域名
-### 4.写文章、发布文章
+
+首先要安装一个插件，用于`Hexo`部署代码的。
+
+```bash
+npm i hexo-deployer-git
+```
+
+安装完成之后，在`_config.yml`配置文件中加入如下代码，这样我们在使用`hexo d`的时候就可以直接部署到`Github`上了，如果你想部署到其他平台（支持`Git`），也可以添加到这里。
+
+```bash
+deploy:
+  type: git
+  repository: https://github.com/hiyoung123/hiyoung123.github.io
+  branch: master
+```
+
+> 如果不了解git那么请先自行百度学习一下git的相关配置。
+
+`Git`分为无密推送和需要输入账户密码推送。无密码推送就是需要在本地生成公钥，然后添加到代码托管平台如`Github`，这样在推送时候就不需要输入账户密码了。而反之的话，每次推送就会要求你输入账户密码。下面说一下无密推送的配置过程。
+
+首先打开`Git bash`，输入如下内容：
+
+```bash
+git config --global user.name "你的用户名"
+git config --global user.email "你的邮箱"
+```
+
+用户名和邮箱根据你注册`github`的信息自行修改。
+
+然后生成密钥SSH key：
+
+```bash
+ssh-keygen -t rsa -C "你的邮箱"
+```
+
+这个时候它会告诉你已经生成了`.ssh`的文件夹。在你的电脑中找到这个文件夹。或者`git bash`中输入
+
+```bash
+cat ~/.ssh/id_rsa.pub
+```
+
+打开[github](http://github.com/)，在头像下面点击`settings`，再点击`SSH and GPG keys`，新建一个`SSH`，名字随便取一个都可以，把你的`id_rsa.pub`里面的信息复制进去。
+
+这样你的电脑就跟`Github`建立起的安全联系，以后推送代码就不需要输入密码了。
+
+> 注意：这里使用hexo d推送代码，推送的是编译完成的静态文件，也就是上面说的public文件夹下的代码，而不是网站的源代码。
+
+### ３.写文章、发布文章
+
+输入`hexo new post "article title"`，新建一篇文章。
+
+然后打开`\source\_posts`的目录，可以发现下面多了一个文件夹和一个`.md`文件，一个用来存放你的图片等数据，另一个就是你的文章文件啦。
+
+编写完markdown文件后，根目录下输入`hexo g`生成静态网页，然后输入`hexo s`可以本地预览效果，最后输入`hexo d`上传到`github`上。这时打开你的`github.io`主页就能看到发布的文章啦。
+
+### ４.绑定个人域名
+
+现在默认的域名还是`xxx.github.io`，是不是很没有牌面？想不想也像我一样弄一个专属域名呢，首先你得购买一个域名，xx云都能买，看你个人喜好了。
+
+以我的阿里云为例，如下图所示，添加两条解析记录：
+
+![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_hexo_add_domin.png)
+
+我添加的是A记录，也就是需要添加`IP`地址的，你部署到`Github`的`IP`可以通过`ping xxx.github.io`获得。当然也可以添加`CNAME`记录，记录值填写`xxx.github.io`即可。
+
+解析域名完成后，需要在`Github`上加入你的域名。打开你的`github`博客项目，点击`settings`，拉到下面`Custom domain`处，填上你自己的域名，保存完成后如下图：
+
+![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_hexo_add_domin_github.png)
+
+> 注意：如果下面的Enforce HTTPS 没有点击的话请勾选上。这个作用是使你的网络请求以更安全的HTTPS方式请求。
+
+这时候你的项目根目录应该会出现一个名为`CNAME`的文件了，如果没有的话，打开你本地博客`/source`目录，新建`CNAME`文件，注意没有后缀。然后在里面写上你的域名，保存。因为每次推送代码的时候，都会把`Github`自动生成的`CNAME`文件删除掉，导致每次推送后域名和`Github`就失去了联系，我们在`source/`下自己创建一个`CNAME`文件，这样就可以永久保存了。
+
 ### 5.备份博客源文件
+
+这次我们提交到`Github`上的是博客的源代码，这样我们就可以在不同电脑上进行操作了。
+
+首先在`github`博客仓库下新建一个分支`code`，然后`git clone`到本地，把`.git`文件夹拿出来，放在博客根目录下（也可以博客根目录下执行`git init` , 然后 `git remote add origin 远端仓库地址的方式`）。然后`git checkout code`切换到`code`分支，然后`git add .`，然后`git commit -m "xxx"`，最后`git push origin code`提交就行了。
+
 ## 第三部分：定制
+
 ### 1.更换主题
+
 ### 2.设置文章模板
 ### 3.添加404页面
+
 ### 4.添加二级菜单
 ### 5.图片添加水印
 ### 6.动态标签栏
