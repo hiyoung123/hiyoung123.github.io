@@ -814,7 +814,6 @@ Note right of C: 没人陪我玩
 效果如下：
 
   <iframe                         style="margin-left: 2px; margin-bottom:-5px;"                         frameborder="0" scrolling="0" width="100px" height="20px"                         src="https://ghbtns.com/github-btn.html?user=hiyoung123&repo=hiyoung123.github.io&type=star&count=true" >                     </iframe>
-
 -- -- --
 
 
@@ -840,4 +839,5 @@ Note right of C: 没人陪我玩
 ###  总结
 
 作者也是刚开始接触这两个软件，所以不是特别熟悉，等使用一段时间，对比之后再来详细的写一下。
+流程图插件配置参考博客：https://blog.csdn.net/Olivia_Vang/article/details/92987859
 
