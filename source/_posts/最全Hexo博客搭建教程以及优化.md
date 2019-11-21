@@ -20,9 +20,9 @@ summary:
 
 ##  前言
 
-一边上班一边搭建博客，忙了大概有一周左右的时间，终于把博客都调好了。我使用的是`Hexo`框架，主题是闪念之狐的[hexo-theme-matery](https://github.com/blinkfox/hexo-theme-matery/blob/develop/README_CN.md)，本文介绍的也是该主题的配置，大家如果喜欢可以去下载使用。
+一边上班一边搭建博客，忙了大概有一周左右的时间，终于把博客都调好了。我使用的是`Hexo`框架，主题是闪烁之狐之狐的[hexo-theme-matery](https://github.com/blinkfox/hexo-theme-matery/blob/develop/README_CN.md)，本文介绍的也是该主题的配置，大家如果喜欢可以去下载使用。
 
-本文除了介绍了闪念主题的一些基础配置之外，也介绍了一些我个人和在其他大佬处看到的功能定制。只要你懂得操作软件，懂得键盘打字，那么就可以通过本教程搭建一个完全`免费`的个人博客。如果你是技术大佬，那么更可以通过修改源码去定制更好的功能。本文也记录了一些我搭建过程中遇到的坑，希望可以帮你在搭建过程中少走一些弯路，同时如果你也遇到一些本文没有记载的*bug*，也请你给我留言，让我们一起学习解决，多谢。
+本文除了介绍了`matery`主题的一些基础配置之外，也介绍了一些我个人和在其他大佬处看到的功能定制。只要你懂得操作软件，懂得键盘打字，那么就可以通过本教程搭建一个完全`免费`的个人博客。如果你是技术大佬，那么更可以通过修改源码去定制更好的功能。本文也记录了一些我搭建过程中遇到的坑，希望可以帮你在搭建过程中少走一些弯路，同时如果你也遇到一些本文没有记载的*bug*，也请你给我留言，让我们一起学习解决，多谢。
 
 ## 第一部分：准备
 
@@ -145,6 +145,8 @@ git push -u origin code
 
 然后项目就建成了，点击`Settings`，向下拉到最后有个`GitHub Pages`，点击`Choose a theme`选择一个主题。然后等一会儿，再回到`GitHub Pages`，点击新出来的链接，就会进入到`github page`的界面。看到这个界面就说明`Github`的`page`已经可以使用了，接下来我们进入`Hexo`的搭建。
 
+
+
 ## 第二部分：搭建
 
 ### 1.安装Hexo
@@ -240,7 +242,7 @@ cat ~/.ssh/id_rsa.pub
 
 > 注意：这里使用hexo d推送代码，推送的是编译完成的静态文件，也就是上面说的public文件夹下的代码，而不是网站的源代码。
 
-### ３.写文章、发布文章
+### 3.写文章、发布文章
 
 输入`hexo new post "article title"`，新建一篇文章。
 
@@ -248,7 +250,7 @@ cat ~/.ssh/id_rsa.pub
 
 编写完markdown文件后，根目录下输入`hexo g`生成静态网页，然后输入`hexo s`可以本地预览效果，最后输入`hexo d`上传到`github`上。这时打开你的`github.io`主页就能看到发布的文章啦。
 
-### ４.绑定个人域名
+### 4.绑定个人域名
 
 现在默认的域名还是`xxx.github.io`，是不是很没有牌面？想不想也像我一样弄一个专属域名呢，首先你得购买一个域名，xx云都能买，看你个人喜好了。
 
@@ -272,34 +274,787 @@ cat ~/.ssh/id_rsa.pub
 
 首先在`github`博客仓库下新建一个分支`code`，然后`git clone`到本地，把`.git`文件夹拿出来，放在博客根目录下（也可以博客根目录下执行`git init` , 然后 `git remote add origin 远端仓库地址的方式`）。然后`git checkout code`切换到`code`分支，然后`git add .`，然后`git commit -m "xxx"`，最后`git push origin code`提交就行了。
 
+
+
 ## 第三部分：定制
+
+这部分主要讲解一下主题的功能定制，除了基本的功能定制外，还有我参考各个大佬们的功能，有些我虽然没有加在我的博客上，但是也列在了此处。所以先在此处感谢一下各位大佬的博客文章。
+
+[闪烁之狐的原版定制](https://github.com/blinkfox/hexo-theme-matery) | [Godweiyang](https://godweiyang.com/2018/04/13/hexo-blog/) | [洪卫](https://sunhwee.com/posts/6e8839eb.html) | [Sky03](https://blog.sky03.cn/2019/42790.html)
 
 ### 1.更换主题
 
+下载主题，解压到博客目录下的`themes`目录，修改根目录下的 `_config.yml` 的 `theme` 的值：`theme: hexo-theme-matery`
+
 ### 2.设置文章模板
+
+`Hexo`的页面是包括一个`md`文件和`ejs`文件结合而成的，`md`文件中的内容是页面配置，基本信息，和显示的内容。而`ejs`文件就是`js`逻辑代码了。
+
+我们在`scaffolds/post.md`中设置文章的默认模板，这样以后创建文章的时候，这些信息就默认添加上了，不同文章你也可以修改这些信息。
+
+```bash
+---
+title: {{ title }}
+date: {{ date }}
+top: false
+cover: false
+password:
+toc: true
+mathjax: true
+summary:
+tags:
+categories:
+---
+```
+
 ### 3.添加404页面
 
+原来的主题没有404页面，所以我们自己添加一个。首先在`/source/`目录下新建一个`404.md`，内容如下：
+
+```bash
+---
+title: 404
+date: 2019-07-19 16:41:10
+type: "404"
+layout: "404"
+description: "你来到了没有知识的荒原 :("
+---
+```
+
+然后在`/themes/matery/layout/`目录下新建一个`404.ejs`文件，内容如下：
+
+```bash
+<style type="text/css">
+    /* don't remove. */
+    .about-cover {
+        height: 75vh;
+    }
+</style>
+<div class="bg-cover pd-header about-cover">
+    <div class="container">
+        <div class="row">
+            <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
+                <div class="brand">
+                    <div class="title center-align">
+                        404
+                    </div>
+                    <div class="description center-align">
+                        <%= page.description %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    // 每天切换 banner 图.  Switch banner image every day.
+    $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay() + '.jpg)');
+</script>
+```
+
 ### 4.添加二级菜单
+
+因为我使用的是最新版的主题代码，所以二级菜单可以直接在主题的配置文件`_config.yml`中配置，而不需要自己添加代码。如果你是老版本的主题，那么你可以参考上述两位大佬的博客进行添加代码。
+
+```bash
+  # 二级菜单写法如下
+  Medias:
+    icon: fas fa-list
+    children:
+      - name: Books
+        url: /books
+        icon: fas fa-book
+      - name: Musics
+        url: /musics
+        icon: fas fa-music
+      - name: Movies
+        url: /movies
+        icon: fas fa-film
+      - name: Galleries
+        url: /galleries
+        icon: fas fa-image
+```
+
+这样我们就可以在导航栏中看见媒体的图标以及二级图标了，不过由于我们没有创建对应的页面，所以无法看见内容。这里只举例说一下`musics`页面的创建。
+
+先使用命令创建`musics`对应的`md`文件
+
+```bash
+hexo new page "musics"
+```
+
+这样就在`source`目录下生成一个`musics`目录了，里面包含一个`index.md`就是`musics`页面的配置文件了。我们填入对应`layout`的`ejs`文件
+
+```bash
+---
+title: musics
+date: 2019-11-14 23:41:25
+type: "musics"
+layout: "musics"
+---
+```
+
+然后在主题的`layout`目录下创建`ejs`文件，并写入如下内容：
+
+```bash
+<%- partial('_partial/bg-cover') %>
+
+<main class="content">
+    <div id="contact" class="container chip-container">
+                <div class="card">
+                    <div class="card-content" style="text-align: center">
+                            <h3 style="margin: 5px 0 5px 5px;">如果你有好的内容推荐，欢迎在下面留言！</h3>
+                        </div>
+                </div>
+                <div class="card">
+                    <% if (theme.gitalk && theme.gitalk.enable) { %>
+                        <%- partial('_partial/gitalk') %>
+                        <% } %>
+
+                        <% if (theme.gitment.enable) { %>
+                        <%- partial('_partial/gitment') %>
+                        <% } %>
+
+                        <% if (theme.disqus.enable) { %>
+                        <%- partial('_partial/disqus') %>
+                        <% } %>
+
+                        <% if (theme.livere && theme.livere.enable) { %>
+                        <%- partial('_partial/livere') %>
+                        <% } %>
+
+                        <% if (theme.valine && theme.valine.enable) { %>
+                        <%- partial('_partial/valine') %>
+                        <% } %>
+                </div>
+        </div>
+</main>
+
+```
+
+这样一个页面就创建好了，具体内容可自行修改，其他页面也是如此创建的。
+
+> 这里有一个bug，就是二级菜单不显示中文，解决方法请见Debug部分。
+
 ### 5.图片添加水印
+
+为了防止别人抄袭你文章，可以把所有的图片都加上水印，方法很简单。首先在博客根目录下新建一个`watermark.py`，代码如下：
+
+```python
+# -*- coding: utf-8 -*-
+import sys
+import glob
+from PIL import Image
+from PIL import ImageDraw
+from PIL import ImageFont
+
+def watermark(post_name):
+    if post_name == 'all':
+        post_name = '*'
+    dir_name = 'source/_posts/' + post_name + '/*'
+    for files in glob.glob(dir_name):
+        im = Image.open(files)
+        if len(im.getbands()) < 3:
+            im = im.convert('RGB')
+            print(files)
+        font = ImageFont.truetype('STSONG.TTF', max(30, int(im.size[1] / 20)))
+        draw = ImageDraw.Draw(im)
+        draw.text((im.size[0] / 2, im.size[1] / 2),
+                  u'@hiyoung', fill=(0, 0, 0), font=font)
+        im.save(files)
+
+if __name__ == '__main__':
+    if len(sys.argv) == 2:
+        watermark(sys.argv[1])
+    else:
+        print('[usage] <input>')
+
+```
+
+字体也放根目录下，自己找字体。然后每次写完一篇文章可以运行`python3 watermark.py postname`添加水印，如果第一次运行要给所有文章添加水印，可以运行`python3 watermark.py all`。
+
+> 这个代码的逻辑就是从文章目录下拿到图片，添加水印。这个前提是要文章的图片放在source/_posts/下，所以如果在文章中直接引用了其他地方的图片链接，那么这个脚本不会去给那个图片加水印了。
+
 ### 6.动态标签栏
+
+这个功能我没有添加，只是简单的一段代码，在`theme/matery/layout/layout.ejs`下添加如下代码：
+
+```javascript
+<script type="text/javascript"> var OriginTitile = document.title, st; document.addEventListener("visibilitychange", function () { document.hidden ? (document.title = "Σ(っ °Д °;)っ喔哟，崩溃啦！", clearTimeout(st)) : (document.title = "φ(゜▽゜*)♪咦，又好了！", st = setTimeout(function () { document.title = OriginTitile }, 3e3)) }) </script>
+```
+
 ### 7.添加豆瓣插件
+
+我的二级菜单书单和电影都是通过豆瓣插件来添加内容的。
+
+首先安装插件：
+
+```bash
+npm install hexo-douban --save
+```
+
+将下面的配置写入博客的 `_config.yml` 文件里：
+
+```bash
+douban:
+  user: #填写你的豆瓣id，打开豆瓣，登入账户，然后在右上角点击 ”个人主页“，url的后面就是id。
+  builtin: true
+  book:
+    title: '我的无味书屋！'
+    quote: '沉醉于知识的hiyoung.'
+  movie:
+    title: '电影推荐'
+    quote: '沉醉于电影的hiyoung.'
+  #game:　不想要的内容可注释掉
+  #  title: 'This is my game title'
+  #  quote: 'This is my game quote'
+  timeout: 10000
+
+```
+
+然后创建对应的页面，在页面的`ejs`文件中添加如下代码：
+
+```javascript
+<%- partial('_partial/bg-cover') %>
+<style>
+    .hexo-douban-picture img {
+        width: 100%;
+        }
+</style>
+
+<main class="content">
+    <div id="contact" class="container chip-container">
+            <div class="card">
+                    <div class="card-content" style="padding: 30px">
+                            <h1 style="margin: 10px 0 10px 0px;">
+                                        <div class="tag-title center-align">
+                                        <i class="fas fa-book"></i>&nbsp;&nbsp;<%- page.title %>
+                    </div>
+                                </h1>
+                                <%- page.content %>
+                        </div>
+                </div>
+                <div class="card">
+                    <div class="card-content" style="text-align: center">
+                            <h3 style="margin: 5px 0 5px 5px;">如果你有好的内容推荐，欢迎在下面留言！</h3>
+                        </div>
+                </div>
+                <div class="card">
+                    <% if (theme.gitalk && theme.gitalk.enable) { %>
+                        <%- partial('_partial/gitalk') %>
+                        <% } %>
+
+                        <% if (theme.gitment.enable) { %>
+                        <%- partial('_partial/gitment') %>
+                        <% } %>
+
+                        <% if (theme.disqus.enable) { %>
+                        <%- partial('_partial/disqus') %>
+                        <% } %>
+
+                        <% if (theme.livere && theme.livere.enable) { %>
+                        <%- partial('_partial/livere') %>
+                        <% } %>
+
+                        <% if (theme.valine && theme.valine.enable) { %>
+                        <%- partial('_partial/valine') %>
+                        <% } %>
+                </div>
+        </div>
+</main>
+
+```
+
+在你的博客文件夹内找到这个文件夹 `/node_modules/hexo-douban/lib` ，这个文件夹内找到以下三个文件： `books-generator.js` 、`games-generator.js` 、`movies-generator.js`
+
+将每个文件内最下面的：
+
+```javascript
+layout: ['page', 'post']
+```
+
+改为：
+
+```javascript
+layout: ['page', 'books']
+```
+
+`books`是对应的呈现内容的`ejs`文件名。这样我们的豆瓣内容就设置完成了，可以进行编译部署了。
+
+> 通常大家都喜欢用 `hexo d` 来作为 `hexo deploy` 命令的简化，但是当安装了 `hexo douban` 之后，就不能用 `hexo d` 了，因为 `hexo douban` 跟 `hexo deploy` 的前缀都是 `hexo d` ，你以后执行的 `hexo d` 将不再是 Hexo 页面的生成，而是豆瓣页面的生成。
+>
+> 这里也说一下这个插件的逻辑，该插件通过你设置的豆瓣id，去爬取豆瓣信息。将爬取到的信息返回给对应的layout，然后进行展示。
+
 ### 8.统一友链卡片样式
+
+我不喜欢原版的友链显示，所以统一了颜色，打开`themes/matery/layout/friends.ejs`文件，找到如下代码并修改：
+
+```javascript
+                            <!--修改frends卡片，统一样式 -->
+                            <!--<div class="card frind-card<%- ((i % 10) +1) %>"> 修改前-->
+                            <div class="card frind-card1">
+```
+
+它的样式颜色也在该文件中，各位可自行修改。
+
 ### 9.添加交换友链卡片
+
+在`/source/friends/index.md`文件中添加要交互的信息：
+
+```bash
+# 友链交换
+想要交换友链的大佬，欢迎在留言板留言，留言格式：
+* **名称：**Hiyoung
+* **地址：**https://hiyoungai.com/
+* **简介：**宠辱不惊，看庭前花开花落；去留无意，望天空云卷云舒。
+* **头像：**https://cdn.jsdelivr.net/gh/hiyoung123/cdn/img/avatar.jpg
+```
+
+然后在`friends.ejs`文件中的如下位置添加代码：
+
+```javascript
+        <div class="card">
+            <div class="card-content">
+                <div class="card-content article-card-content">
+                    <div id="articleContent" data-aos="fade-up">
+                        <%- page.content %>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+
+            <% if (theme.gitalk && theme.gitalk.enable) { %>
+```
+
 ### 10.修改各菜单首图样式
+
+修改各个页面的首图为本页面标题，而不是统一的网站标题。
+
+打开`layout/_partial/bg-cover-content.ejs`文件，找到如下代码：
+
+```javascript
+            <div class="title center-align">
+                <% if (config.subtitle && config.subtitle.length > 0) { %>
+                <%= config.subtitle %>
+                <% } else { %>
+                subtitle
+                <% } %>
+            </div>
+```
+
+修改为：
+
+```javascript
+            <div class="title center-align">
+                <!-- <% if (config.subtitle && config.subtitle.length > 0) { %>
+                    <%= config.subtitle %>
+                <% } else { %>
+                    subtitle
+                <% } %> -->
+                <% if (is_archive()) { %>
+                    <%= __('archives') %>
+                <% } else if (is_category()) { %>
+                    <%= __('categories') %>
+                <% } else if (is_tag()) { %>
+                    <%= __('tag') %>
+                <% } else if (page.title && page.title.length > 0) { %>
+                    <%= __(page.title) %>
+                <% } else { %>
+                    <%= config.subtitle%>
+                <% } %>
+            </div>
+```
+
 ### 11.在文章中添加网易云音乐
-### 12.建站时间、卜算子计数
+
+首先打开网易云网页版，找到想听的歌曲，然后点击生成外链，复制`html`代码。粘贴到文章里就行了，为了美观，设置一下居中，具体代码如下：
+
+```bash
+<div align="middle">这里粘贴刚刚复制的代码</div>
+```
+
+### 12.建站时间、卜算子计数、全站文字统计
+
+新版本中已经集成了该功能，可以直接在主题的配置文件`_config.yml`中进行配置：
+
+首先需要安装插件：
+
+```bash
+npm i --save hexo-wordcount
+```
+
+然后在`_config.yml`配置：
+
+```bash
+wordCount:
+  enable: false # 将这个值设置为 true 即可.
+  postWordCount: true
+  min2read: true
+  totalCount: true #需要添加这个字段，原版没有　全站文字统计配置
+```
+
+建站时间配置：
+
+```bash
+# Website start time.
+# 站点运行开始时间.
+time:
+  enable: true
+  year: 2019 # 年份
+  month: 11 # 月份
+  date: 12 # 日期
+  hour: 00 # 小时
+  minute: 00 # 分钟
+  second: 00 # 秒
+```
+
 ### 13.关于页面添加简历
+
+修改`/themes/matery/layout/about.ejs`，找到`<div class="card">`标签，然后找到它对应的`</div>`标签，接在后面新增一个card，语句如下：
+
+```bash
+<div class="card"> <div class="card-content"> <div class="card-content article-card-content"> <div class="title center-align" data-aos="zoom-in-up"> <i class="fa fa-address-book"></i>&nbsp;&nbsp;<%- __('myCV') %> </div> <div id="articleContent" data-aos="fade-up"> <%- page.content %> </div> </div> </div> </div>
+```
+
+这样就会多出一张card，然后可以在`/source/about/index.md`下面写上你的简历了，当然这里的位置随你自己设置，你也可以把简历作为第一个card。
+
 ### 14.添加评论插件
+
+主题已经自带了`gitalk`插件了，所以你只需要去`github`官网配置好就行了。
+
+首先打开[github](https://github.com/settings/applications/new)申请一个应用，要填四个东西：
+
+```bash
+Application name //应用名称，随便填 
+Homepage URL //填自己的博客地址 
+Application description //应用描述，随便填 
+Authorization callback URL //填自己的博客地址
+```
+
+然后点击注册，会出现两个字符串`Client ID`和`Client Secret`，这个要复制出来。
+
+然后去主题的配置文件`_config.yml`下修改`gitalk`那里：
+
+```bash
+gitalk: enable: true 
+  owner: 你的github用户名  
+  repo: 你的github用户名.github.io 
+  oauth: 
+    clientId: 粘贴刚刚注册完显示的字符串 
+    clientSecret: 粘贴刚刚注册完显示的字符串 
+  admin: 你的github用户名
+```
+
+以后写文章的时候，只要在文章页面登陆过`github`，就会自动创建评论框，**记得每次写完文章后打开博客文章页面一下**。
+
 ### 15.添加RSS插件
+
+```bash
+npm install hexo-generator-feed --save
+```
+
+在` Hexo `根目录下的 `_config.yml` 文件中，新增以下的配置项：
+
+```bash
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
+  hub:
+  content:
+  content_limit: 140
+  content_limit_delim: ' '
+  order_by: -date
+```
+
+执行 `hexo clean && hexo g` 重新生成博客文件，然后在 `public` 文件夹中即可看到 `atom.xml` 文件，说明你已经安装成功了。
+
 ### 16.添加搜索插件
+
+```bash
+npm install hexo-generator-search --save
+```
+
+在根目录下的 `_config.yml` 文件中，新增以下的配置项：
+
+```bash
+search:
+  path: search.xml
+  field: post
+```
+
 ### 17.添加代码高亮插件
+
+```bash
+npm i -S hexo-prism-plugin
+```
+
+然后，修改根目录下 `_config.yml` 文件中 `highlight.enable` 的值为 `false`，并新增 `prism` 插件相关的配置，主要配置如下：
+
+```bash
+highlight:
+  enable: false
+
+prism_plugin:
+  mode: 'preprocess'    # realtime/preprocess
+  theme: 'tomorrow'
+  line_number: false    # default false
+  custom_css:
+```
+
 ### 18.修改打赏功能
-### 19.
-## 第四部分: 优化
+
+在主题文件的 `source/medias/reward` 文件中，你可以替换成你的的微信和支付宝的打赏二维码图片。
+
+### 19.修改页脚
+
+页脚信息可能需要做定制化修改，而且它不便于做成配置信息，所以可能需要你自己去再修改和加工。修改的地方在主题文件的 `/layout/_partial/footer.ejs` 文件中，包括站点、使用的主题、访问量等。
+
+### 20.修改社交链接
+
+在主题的 `_config.yml` 文件中，默认支持 `QQ`、`GitHub` 和邮箱等的配置，你可以在主题文件的 `/layout/_partial/social-link.ejs` 文件中，新增、修改你需要的社交链接地址，增加链接可参考如下代码：
+
+```bash
+<% if (theme.socialLink.github) { %>
+    <a href="<%= theme.socialLink.github %>" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+<% } %>
+```
+
+其中，社交图标（如：`fa-github`）你可以在 [Font Awesome](https://fontawesome.com/icons) 中搜索找到。以下是常用社交图标的标识，供你参考：
+
+* Facebook: `fab fa-facebook`
+* Twitter: `fab fa-twitter`
+* Google-plus: `fab fa-google-plus`
+* Linkedin: `fab fa-linkedin`
+* Tumblr: `fab fa-tumblr`
+* Medium: `fab fa-medium`
+* Slack: `fab fa-slack`
+* Sina Weibo: `fab fa-weibo`
+* Wechat: `fab fa-weixin`
+* QQ: `fab fa-qq`
+* Zhihu: `fab fa-zhihu`
+
+###  21.添加聊天功能
+
+前往 [DaoVoice](http://www.daovoice.io/) 官网注册并且获取 `app_id`，并将 `app_id` 填入主题的 `_config.yml` 文件中。
+
+前往 [Tidio](https://www.tidio.com/) 官网注册并且获取 `Public Key`，并将 `Public Key` 填入主题的 `_config.yml` 文件中。
+
+
+
+##  第四部分：优化
+
 ### 1.URL优化
-### 2.SEO优化
-### 3.加载速度优化
-### 4.图片懒加载
-### 5.CDN优化
-## 第五部分: Debug
+
+使用插件优化`url`，插件`hexo-abbrlink`实现了这个功能，它将原来的`URL`地址重新进行了进制转换和再编码。
+
+安装`hexo-abbrlink`：
+
+```bash
+npm install hexo-abbrlink --save
+```
+
+配置博客根目录下的`_config.yml`文件。
+
+### 2.CDN优化
+
+用法：
+
+```bash
+https://cdn.jsdelivr.net/gh/你的用户名/你的仓库名@发布的版本号/文件路径
+```
+
+如本文的图片：
+
+```bash
+https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_hexo_github_new_rep.png
+```
+
+### 3.压缩代码
+
+首先安装插件：
+
+```bash
+npm install hexo-neat --save
+```
+
+在根目录配置文件 `_config.yml` 末尾加入以下配置：
+
+```bash
+#hexo-neat 优化提速插件（去掉HTML、css、js的blank字符）
+neat_enable: true
+neat_html:
+  enable: true
+  exclude:
+    - '**/*.md'
+neat_css:
+  enable: true
+  exclude:
+    - '**/*.min.css'
+neat_js:
+  enable: true
+  mangle: true
+  output:
+  compress:
+  exclude:
+    - '**/*.min.js'
+    - '**/**/instantpage.js'
+    - '**/matery.js'
+```
+
+### 4.双部署到Coding
+
+`Github` & `Coding Pages` 双部署,对国内,国外用户进行分流访问,以提升网站的访问速度.
+`Github Pages` 的部署前面已经说了,这里就讲一讲 `Coding Pages` 如何部署.其实与 `Github Pages` 也类似,先到`coding`官网注册,创建一个与用户名同名的仓库,添加仓库地址到配置文件中,在根目录`_config.yml`对应地方添加如下:
+
+```bash
+deploy:
+  - type: git
+    repo:
+      github: https://github.com/hiyoung123/hiyoung123.github.io
+      coding: https://e.coding.net/hiyoung123/hiyoung123.coding.me.git
+    branch: master
+```
+
+### 5.图片懒加载
+
+安装插件：
+
+```bash
+npm install hexo-lazyload-image --save
+```
+
+然后在根目录配置文件末尾加入以下代码
+
+```bash
+lazyload:
+  enable: true 
+  onlypost: false  # 是否只对文章的图片做懒加载
+  loadingImg: # eg ./images/loading.gif
+```
+
+但是一般情况下懒加载和gallery插件会发生冲突，结果可能就是点开图片，左翻右翻都是loading image。`matery`主题的解决方案是：修改 `/themes/matery/source/js` 中的 `matery.js`文件
+
+在第108行加上：
+
+```javascript
+$(document).find('img[data-original]').each(function(){
+    $(this).parent().attr("href", $(this).attr("data-original"));
+});
+```
+
+做完这步之后，还有点小Bug，首页的logo点击会直接打开logo图，而不是跳到首页。
+
+伪解决方案：打开 `/themes/matery/layout/_partial/header.ejs`文件，
+
+在`img`和`span`的两个头加个`div`：
+
+```javascript
+<div class="brand-logo">
+    <a href="<%- url_for() %>" class="waves-effect waves-light">
+        <div>
+            <% if (theme.logo !== undefined && theme.logo.length > 0) { %>
+            <img src="<%= theme.logo %>" class="logo-img" alt="LOGO">
+            <% } %>
+            <span class="logo-span"><%- config.title %></span>
+        </div>
+    </a>
+</div>
+```
+
+其实第一次加载后本地都是有缓存的，如果每次都把loading显示出来就不那么好看。所以我们需要对插件进行魔改，让图片稍微提前加载，避开加载动画。
+
+打开 `Hexo根目录`>`node_modules` > `hexo-lazyload-image` > `lib` > `simple-lazyload.js` 文件第9行修改为：
+
+```javascript
+&& rect.top <= (window.innerHeight +240 || document.documentElement.clientHeight +240)
+```
+
+作用：提前240个像素加载图片；当然这个值也可以根据自己情况修改。
+
+
+
+## 第五部分：Debug
+
 ### 1.解决部分菜单页面，标签栏不显示中文标题
+
+首先需要去`/themes/matery/languages/`下，修改`default.yml`和`zh-CN.yml`添加对应的文字信息。
+
+接着在`mobile-nav.ejs`和`navigation.ejs`中添加如下代码：
+
+```javascript
+        menuMap.set("Medias", "媒体");
+        menuMap.set("Books", "书单");
+        menuMap.set("Musics", "音乐");
+        menuMap.set("Videos", "视频");
+        menuMap.set("Galleries", "相册");
+```
+
+找到下面的代码：
+
+```javascript
+<span><%- childrenLink.name %></span>
+```
+
+修改为：
+
+```javascript
+<%- (config.language === 'zh-CN' && menuMap.has(childrenLink.name)) ? menuMap.get(childrenLink.name) : childrenLink.name %>
+```
+
+并在`head.ejs`文件中修改：
+
+```javascript
+    var title = page.title;
+
+    // tags, categories, about pages title
+    if (title == 'tags') {
+        title = __('tags');
+    } else if (title == 'categories') {
+        title = __('categories');
+    } else if (title == 'about') {
+        title = __('about');
+    } else if (title == 'contact') {
+        title = __('contact');
+    } else if (title == 'friends') {
+        title = __('friends');
+    } else if (title == 'musics') {
+        title = __('musics');
+    } else if (title == 'galleries') {
+        title = __('galleries');
+    }
+```
+
+###  2.部署在coding中，使用www.访问域名时，出现404．
+
+需要在coding部署设置中，绑定一下`www`的域名，同时需要申请证书。
+
+### 3.在coding中认证失败
+
+如果申请失败的话，在域名解析处将境外的解析记录关掉，然后再去申请。申请成功后再打开境外的记录。
+
+### 4.使用neat插件压缩代码，导致鼠标点击特效消失
+
+在压缩代码插件配置中修改为如下代码：
+
+```bash
+neat_js:
+  enable: true
+  mangle: true
+  output:
+  compress:
+  exclude:
+    - '**/*.min.js'
+    - '**/**/instantpage.js'
+    - '**/matery.js'
+    - '**/clicklove.js'  #防止影响点击特效
+```
+
+## 鸣谢
+
+再次感谢下面几位大佬的博客：
+
+[闪烁之狐的原版定制](https://github.com/blinkfox/hexo-theme-matery) | [Godweiyang](https://godweiyang.com/2018/04/13/hexo-blog/) | [洪卫](https://sunhwee.com/posts/6e8839eb.html) | [Sky03](https://blog.sky03.cn/2019/42790.html)
