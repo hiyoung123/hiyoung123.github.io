@@ -4,14 +4,15 @@ top: false
 cover: false
 toc: true
 mathjax: true
-date: 2019-11-24 15:04:05
-password:
-summary:
 tags:
   - 机器学习
   - 吴恩达
 categories:
   - 机器学习
+abbrlink: 7f3faaf
+date: 2019-11-24 15:04:05
+password:
+summary:
 ---
 
 #  《Machine Learning Yearning》阅读笔记
