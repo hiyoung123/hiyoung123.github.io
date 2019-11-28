@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hiyoungai.com/"/>
-  <updated>2019-11-20T07:23:04.422Z</updated>
+  <updated>2019-11-28T03:47:04.098Z</updated>
   <id>https://hiyoungai.com/</id>
   
   <author>
@@ -15,6 +15,103 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>机器学习-Logistic回归</title>
+    <link href="https://hiyoungai.com/posts/c237bc03.html"/>
+    <id>https://hiyoungai.com/posts/c237bc03.html</id>
+    <published>2019-11-27T14:19:51.000Z</published>
+    <updated>2019-11-28T03:47:04.098Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;机器学习-Logistic回归&quot;&gt;&lt;a href=&quot;#机器学习-Logistic回归&quot; class=&quot;headerlink&quot; title=&quot;机器学习-Logistic回归&quot;&gt;&lt;/a&gt;机器学习-Logistic回归&lt;/h1&gt;&lt;h2 id=&quot;简介&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+      <category term="机器学习" scheme="https://hiyoungai.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="机器学习" scheme="https://hiyoungai.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="逻辑回归" scheme="https://hiyoungai.com/tags/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/"/>
+    
+      <category term="Logistic" scheme="https://hiyoungai.com/tags/Logistic/"/>
+    
+      <category term="Sigmoid" scheme="https://hiyoungai.com/tags/Sigmoid/"/>
+    
+      <category term="Softmax" scheme="https://hiyoungai.com/tags/Softmax/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>压缩数据</title>
+    <link href="https://hiyoungai.com/posts/4b093d11.html"/>
+    <id>https://hiyoungai.com/posts/4b093d11.html</id>
+    <published>2019-11-25T10:27:27.000Z</published>
+    <updated>2019-11-28T03:47:04.098Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;压缩数据&quot;&gt;&lt;a href=&quot;#压缩数据&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="算法" scheme="https://hiyoungai.com/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="算法" scheme="https://hiyoungai.com/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="压缩数据" scheme="https://hiyoungai.com/tags/%E5%8E%8B%E7%BC%A9%E6%95%B0%E6%8D%AE/"/>
+    
+      <category term="游程编码" scheme="https://hiyoungai.com/tags/%E6%B8%B8%E7%A8%8B%E7%BC%96%E7%A0%81/"/>
+    
+      <category term="霍夫曼编码" scheme="https://hiyoungai.com/tags/%E9%9C%8D%E5%A4%AB%E6%9B%BC%E7%BC%96%E7%A0%81/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《Machine Learning Yearning》阅读笔记</title>
+    <link href="https://hiyoungai.com/posts/7f3faaf.html"/>
+    <id>https://hiyoungai.com/posts/7f3faaf.html</id>
+    <published>2019-11-24T07:04:05.000Z</published>
+    <updated>2019-11-28T03:47:04.098Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;《Machine-Learning-Yearning》阅读笔记&quot;&gt;&lt;a href=&quot;#《Machine-Learning-Yearning》阅读笔记&quot; class=&quot;headerlink&quot; title=&quot;《Machine Learning
+        
+      
+    
+    </summary>
+    
+    
+      <category term="机器学习" scheme="https://hiyoungai.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="机器学习" scheme="https://hiyoungai.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="吴恩达" scheme="https://hiyoungai.com/tags/%E5%90%B4%E6%81%A9%E8%BE%BE/"/>
+    
+  </entry>
   
   <entry>
     <title>如何选择职业－一个美国高级工程师的建议</title>
