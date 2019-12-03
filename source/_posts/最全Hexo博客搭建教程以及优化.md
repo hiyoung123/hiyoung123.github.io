@@ -15,8 +15,6 @@ password:
 summary:
 excerpt: 最全Hexo博客搭建教程以及优化 使用Hexo+Github搭建一个免费的个人博客，本文略长，大佬请自行选择阅读。
 ---
-#  最全Hexo博客搭建教程以及优化
-
 > 使用Hexo+Github搭建一个免费的个人博客，本文略长，大佬请自行选择阅读。
 
 ##  前言

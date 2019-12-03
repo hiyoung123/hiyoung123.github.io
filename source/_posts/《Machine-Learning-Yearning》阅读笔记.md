@@ -16,8 +16,6 @@ summary:
 excerpt: 《Machine Learning Yearning》阅读笔记机器学习为什么需要策略如何使用这本书帮助你的团队。
 ---
 
-#  《Machine Learning Yearning》阅读笔记
-
 ## 机器学习为什么需要策略
 
 ## 如何使用这本书帮助你的团队

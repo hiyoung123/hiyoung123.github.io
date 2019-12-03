@@ -122,9 +122,9 @@ scheme: Mist
 menu:
   home: / || home
   categories: /categories/ || th
-  #tags: /tags/ || tags
   archives: /archives/ || archive
-  friends: /friends/ || address-book
+  tags: /tags/ || tags
+  #friends: /friends/ || address-book
   about: /about/ || user
   #schedule: /schedule/ || calendar
   #sitemap: /sitemap.xml || sitemap
@@ -207,8 +207,9 @@ links_settings:
   layout: block
 
 links:
-  #Title: http://yoursite.com
-
+ godweiyang : https://godweiyang.com
+ 千千 : https://www.dreamwings.cn
+ 
 # Table of Contents in the Sidebar
 # Front-matter variable (unsupport wrap expand_all).
 toc:

@@ -14,10 +14,8 @@ abbrlink: 9eeee454
 date: 2019-11-19 14:50:34
 password:
 summary:
-excerpt: Markdown基本语法与工具
+excerpt: 词是最小的能够独立活动的有意义的语言成分，一般分词是自然语言处理的第一项核心技术。
 ---
-
-#  NLP系列－中文分词（基于词典）
 
 ##  中文分词概述
 
