@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hiyoungai.com/"/>
-  <updated>2019-11-28T10:40:34.512Z</updated>
+  <updated>2019-12-03T09:39:52.409Z</updated>
   <id>https://hiyoungai.com/</id>
   
   <author>
@@ -21,17 +21,11 @@
     <link href="https://hiyoungai.com/posts/19883263.html"/>
     <id>https://hiyoungai.com/posts/19883263.html</id>
     <published>2019-11-28T09:45:45.000Z</published>
-    <updated>2019-11-28T10:40:34.512Z</updated>
+    <updated>2019-12-03T09:39:52.409Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h1 id=&quot;机器学习-线性回归&quot;&gt;&lt;a href=&quot;#机器学习-线性回归&quot; class=&quot;headerlink&quot; title=&quot;机器学习-线性回归&quot;&gt;&lt;/a&gt;机器学习-线性回归&lt;/h1&gt;&lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot;
-        
-      
+      机器学习-线性回归简介今天要说一下机器学习中大多数书籍第一个讲的（有的可能是KNN）模型-线性回归。
     
     </summary>
     
@@ -54,17 +48,11 @@
     <link href="https://hiyoungai.com/posts/c237bc03.html"/>
     <id>https://hiyoungai.com/posts/c237bc03.html</id>
     <published>2019-11-27T14:19:51.000Z</published>
-    <updated>2019-11-28T10:41:08.080Z</updated>
+    <updated>2019-12-03T09:40:36.457Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h1 id=&quot;机器学习-Logistic回归&quot;&gt;&lt;a href=&quot;#机器学习-Logistic回归&quot; class=&quot;headerlink&quot; title=&quot;机器学习-Logistic回归&quot;&gt;&lt;/a&gt;机器学习-Logistic回归&lt;/h1&gt;&lt;h2 id=&quot;简介&quot;&gt;&lt;a
-        
-      
+      机器学习-Logistic回归简介Logistic回归是机器学习中最常用最经典的分类方法之一，有的人称为逻辑回归或逻辑斯蒂回归。
     
     </summary>
     
@@ -89,17 +77,11 @@
     <link href="https://hiyoungai.com/posts/4b093d11.html"/>
     <id>https://hiyoungai.com/posts/4b093d11.html</id>
     <published>2019-11-25T10:27:27.000Z</published>
-    <updated>2019-11-28T03:47:04.098Z</updated>
+    <updated>2019-12-03T09:41:22.225Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h1 id=&quot;压缩数据&quot;&gt;&lt;a href=&quot;#压缩数据&quot; class=&quot;headerlink&quot;
-        
-      
+      压缩数据压缩数据的原因主要有两点：节省保存信息所需的空间和节省传输信息所需的时间。
     
     </summary>
     
@@ -122,17 +104,11 @@
     <link href="https://hiyoungai.com/posts/7f3faaf.html"/>
     <id>https://hiyoungai.com/posts/7f3faaf.html</id>
     <published>2019-11-24T07:04:05.000Z</published>
-    <updated>2019-11-28T03:47:04.098Z</updated>
+    <updated>2019-12-03T09:42:45.705Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h1 id=&quot;《Machine-Learning-Yearning》阅读笔记&quot;&gt;&lt;a href=&quot;#《Machine-Learning-Yearning》阅读笔记&quot; class=&quot;headerlink&quot; title=&quot;《Machine Learning
-        
-      
+      《Machine Learning Yearning》阅读笔记机器学习为什么需要策略如何使用这本书帮助你的团队。
     
     </summary>
     
@@ -151,17 +127,11 @@
     <link href="https://hiyoungai.com/posts/97876509.html"/>
     <id>https://hiyoungai.com/posts/97876509.html</id>
     <published>2019-11-20T07:16:07.000Z</published>
-    <updated>2019-11-20T07:23:04.422Z</updated>
+    <updated>2019-12-03T09:40:58.257Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h1 id=&quot;一个美国的高级工程师谈如何选职业&quot;&gt;&lt;a href=&quot;#一个美国的高级工程师谈如何选职业&quot; class=&quot;headerlink&quot; title=&quot;一个美国的高级工程师谈如何选职业&quot;&gt;&lt;/a&gt;一个美国的高级工程师谈如何选职业&lt;/h1&gt;&lt;p&gt;今天看到一篇&lt;a
-        
-      
+      一个美国的高级工程师谈如何选职业今天看到一篇博客，是讲述了一个美国高级工程师如何选择职业的。
     
     </summary>
     
@@ -180,17 +150,11 @@
     <link href="https://hiyoungai.com/posts/9eeee454.html"/>
     <id>https://hiyoungai.com/posts/9eeee454.html</id>
     <published>2019-11-19T06:50:34.000Z</published>
-    <updated>2019-11-19T10:31:31.480Z</updated>
+    <updated>2019-12-03T09:39:27.941Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h1 id=&quot;NLP系列－中文分词（基于词典）&quot;&gt;&lt;a href=&quot;#NLP系列－中文分词（基于词典）&quot; class=&quot;headerlink&quot; title=&quot;NLP系列－中文分词（基于词典）&quot;&gt;&lt;/a&gt;NLP系列－中文分词（基于词典）&lt;/h1&gt;&lt;h2
-        
-      
+      Markdown基本语法与工具
     
     </summary>
     
@@ -211,18 +175,11 @@
     <link href="https://hiyoungai.com/posts/5d36ff15.html"/>
     <id>https://hiyoungai.com/posts/5d36ff15.html</id>
     <published>2019-11-18T08:05:36.000Z</published>
-    <updated>2019-11-21T11:00:08.283Z</updated>
+    <updated>2019-12-03T09:31:31.519Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h1 id=&quot;Markdown基本语法&quot;&gt;&lt;a href=&quot;#Markdown基本语法&quot; class=&quot;headerlink&quot; title=&quot;Markdown基本语法&quot;&gt;&lt;/a&gt;Markdown基本语法&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;Markdown
-        
-      
+      Markdown基本语法与工具
     
     </summary>
     
@@ -245,17 +202,11 @@
     <link href="https://hiyoungai.com/posts/4dbbde95.html"/>
     <id>https://hiyoungai.com/posts/4dbbde95.html</id>
     <published>2019-11-16T03:50:59.000Z</published>
-    <updated>2019-11-21T10:58:07.658Z</updated>
+    <updated>2019-12-03T09:41:41.681Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h1 id=&quot;最全Hexo博客搭建教程以及优化&quot;&gt;&lt;a href=&quot;#最全Hexo博客搭建教程以及优化&quot; class=&quot;headerlink&quot;
-        
-      
+      最全Hexo博客搭建教程以及优化 使用Hexo+Github搭建一个免费的个人博客，本文略长，大佬请自行选择阅读。
     
     </summary>
     

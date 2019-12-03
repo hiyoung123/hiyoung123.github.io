@@ -1,4 +1,272 @@
-<!-- build time:Mon Dec 02 2019 17:15:37 GMT+0800 (GMT+08:00) --><!DOCTYPE HTML><html lang="zh-CN"><head><meta charset="utf-8"><meta name="keywords" content="NLP系列－中文分词（基于词典）, Young Blog"><meta name="baidu-site-verification" content="m7vWhnTCyq"><meta name="google-site-verification" content="yXNWLn28ULu1e2oNTKIDLTMhXLOEd7DwMtrEmdJ0pgE"><meta name="description" content="NLP系列－中文分词（基于词典）中文分词概述　　词是最小的能够独立活动的有意义的语言成分，一般分词是自然语言处理的第一项核心技术。英文中每个句子都将词用空格或标点符号分隔开来，而在中文中很难对词的边界进行界定，难以将词划分出来。在汉语中，虽"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"><meta name="renderer" content="webkit|ie-stand|ie-comp"><meta name="mobile-web-app-capable" content="yes"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><title>NLP系列－中文分词（基于词典） | Young Blog</title><link rel="icon" type="image/png" href="/favicon.png"><link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css"><link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css"><link rel="stylesheet" type="text/css" href="/libs/aos/aos.css"><link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css"><link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css"><link rel="stylesheet" type="text/css" href="/css/matery.css"><link rel="stylesheet" type="text/css" href="/css/my.css"><script src="/libs/jquery/jquery.min.js"></script><link rel="alternate" href="/atom.xml" title="Young Blog" type="application/atom+xml"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><meta name="generator" content="Hexo 4.0.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head><body><header class="navbar-fixed"><nav id="headNav" class="bg-color nav-transparent"><div id="navContainer" class="nav-wrapper head-container"><div class="brand-logo"><a href="/" class="waves-effect waves-light"><div><img src="/medias/logo.png" class="logo-img" alt="LOGO"> <span class="logo-span">Young Blog</span></div></a></div><a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a><ul class="right nav-menu"><li class="hide-on-med-and-down nav-item"><a href="/" class="waves-effect waves-light"><i class="fas fa-home" style="zoom:.6"></i> <span>首页</span></a></li><li class="hide-on-med-and-down nav-item"><a href="/tags" class="waves-effect waves-light"><i class="fas fa-tags" style="zoom:.6"></i> <span>标签</span></a></li><li class="hide-on-med-and-down nav-item"><a href="/categories" class="waves-effect waves-light"><i class="fas fa-bookmark" style="zoom:.6"></i> <span>分类</span></a></li><li class="hide-on-med-and-down nav-item"><a href="/archives" class="waves-effect waves-light"><i class="fas fa-archive" style="zoom:.6"></i> <span>归档</span></a></li><li class="hide-on-med-and-down nav-item"><a href="" class="waves-effect waves-light"><i class="fas fa-list" style="zoom:.6"></i> <span>媒体</span> <i class="fas fa-chevron-down" aria-hidden="true" style="zoom:.6"></i></a><ul class="sub-nav menus_item_child"><li><a href="/books"><i class="fas fa-book" style="margin-top:-20px;zoom:.6"></i>书单</a></li><li><a href="/musics"><i class="fas fa-music" style="margin-top:-20px;zoom:.6"></i>音乐</a></li><li><a href="/movies"><i class="fas fa-film" style="margin-top:-20px;zoom:.6"></i>电影</a></li><li><a href="/galleries"><i class="fas fa-image" style="margin-top:-20px;zoom:.6"></i>相册</a></li></ul></li><li class="hide-on-med-and-down nav-item"><a href="/about" class="waves-effect waves-light"><i class="fas fa-user-circle" style="zoom:.6"></i> <span>关于</span></a></li><li class="hide-on-med-and-down nav-item"><a href="/contact" class="waves-effect waves-light"><i class="fas fa-comments" style="zoom:.6"></i> <span>留言板</span></a></li><li class="hide-on-med-and-down nav-item"><a href="/friends" class="waves-effect waves-light"><i class="fas fa-address-book" style="zoom:.6"></i> <span>友情链接</span></a></li><li><a href="#searchModal" class="modal-trigger waves-effect waves-light"><i id="searchIcon" class="fas fa-search" title="搜索" style="zoom:.85"></i></a></li></ul><div id="mobile-nav" class="side-nav sidenav"><div class="mobile-head bg-color"><img src="/medias/logo.png" class="logo-img circle responsive-img"><div class="logo-name">Young Blog</div><div class="logo-desc">人生何所求，致富和自由。—《基督山伯爵》</div></div><ul class="menu-list mobile-menu-list"><li class="m-nav-item"><a href="/" class="waves-effect waves-light"><i class="fa-fw fas fa-home"></i> 首页</a></li><li class="m-nav-item"><a href="/tags" class="waves-effect waves-light"><i class="fa-fw fas fa-tags"></i> 标签</a></li><li class="m-nav-item"><a href="/categories" class="waves-effect waves-light"><i class="fa-fw fas fa-bookmark"></i> 分类</a></li><li class="m-nav-item"><a href="/archives" class="waves-effect waves-light"><i class="fa-fw fas fa-archive"></i> 归档</a></li><li class="m-nav-item"><a href="javascript:;" target="_blank" rel="noopener"><i class="fa-fw fas fa-list"></i> 媒体 <span class="m-icon"><i class="fas fa-chevron-right"></i></span></a><ul><li><a href="/books" style="margin-left:75px" ;><i class="fa fas fa-book" style="position:absolute;left:50px"></i>书单</a></li><li><a href="/musics" style="margin-left:75px" ;><i class="fa fas fa-music" style="position:absolute;left:50px"></i>音乐</a></li><li><a href="/movies" style="margin-left:75px" ;><i class="fa fas fa-film" style="position:absolute;left:50px"></i>电影</a></li><li><a href="/galleries" style="margin-left:75px" ;><i class="fa fas fa-image" style="position:absolute;left:50px"></i>相册</a></li></ul></li><li class="m-nav-item"><a href="/about" class="waves-effect waves-light"><i class="fa-fw fas fa-user-circle"></i> 关于</a></li><li class="m-nav-item"><a href="/contact" class="waves-effect waves-light"><i class="fa-fw fas fa-comments"></i> 留言板</a></li><li class="m-nav-item"><a href="/friends" class="waves-effect waves-light"><i class="fa-fw fas fa-address-book"></i> 友情链接</a></li></ul></div></div></nav></header><div class="bg-cover pd-header post-cover" style="background-image:url(/medias/featureimages/8.jpg)"><div class="container" style="right:0;left:0"><div class="row"><div class="col s12 m12 l12"><div class="brand"><div class="description center-align post-title">NLP系列－中文分词（基于词典）</div></div></div></div></div></div><main class="post-container content"><link rel="stylesheet" href="/libs/tocbot/tocbot.css"><style>#articleContent h1::before,#articleContent h2::before,#articleContent h3::before,#articleContent h4::before,#articleContent h5::before,#articleContent h6::before{display:block;content:" ";height:100px;margin-top:-100px;visibility:hidden}#articleContent :focus{outline:0}.toc-fixed{position:fixed;top:64px}.toc-widget{padding-left:20px}.toc-widget .toc-title{margin:35px 0 15px 0;padding-left:17px;font-size:1.5rem;font-weight:700;line-height:1.5rem}.toc-widget ol{padding:0;list-style:none}#toc-content ol{padding-left:10px}#toc-content ol li{padding-left:10px}#toc-content .toc-link:hover{color:#42b983;font-weight:700;text-decoration:underline}#toc-content .toc-link::before{background-color:transparent;max-height:25px}#toc-content .is-active-link{color:#42b983}#toc-content .is-active-link::before{background-color:#42b983}#floating-toc-btn{position:fixed;right:15px;bottom:76px;padding-top:15px;margin-bottom:0;z-index:998}#floating-toc-btn .btn-floating{width:48px;height:48px}#floating-toc-btn .btn-floating i{line-height:48px;font-size:1.4rem}</style><div class="row"><div id="main-content" class="col s12 m12 l9"><div id="artDetail"><div class="card"><div class="card-content article-info"><div class="row tag-cate"><div class="col s7"><div class="article-tag"><a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/"><span class="chip bg-color">自然语言处理</span> </a><a href="/tags/nlp/"><span class="chip bg-color">nlp</span> </a><a href="/tags/%E4%B8%AD%E6%96%87%E5%88%86%E8%AF%8D/"><span class="chip bg-color">中文分词</span></a></div></div><div class="col s5 right-align"><div class="post-cate"><i class="fas fa-bookmark fa-fw icon-category"></i> <a href="/categories/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/" class="post-category">自然语言处理</a></div></div></div><div class="post-info"><div class="post-date info-break-policy"><i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp; 2019-11-19</div><div class="post-date info-break-policy"><i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp; 2019-11-19</div><div class="info-break-policy"><i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp; 1.6k</div><div class="info-break-policy"><i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp; 5 分</div><div id="busuanzi_container_page_pv" class="info-break-policy"><i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp; <span id="busuanzi_value_page_pv"></span></div></div></div><hr class="clearfix"><div class="card-content article-card-content"><div id="articleContent"><h1 id="NLP系列－中文分词（基于词典）"><a href="#NLP系列－中文分词（基于词典）" class="headerlink" title="NLP系列－中文分词（基于词典）"></a>NLP系列－中文分词（基于词典）</h1><h2 id="中文分词概述"><a href="#中文分词概述" class="headerlink" title="中文分词概述"></a>中文分词概述</h2><p>词是最小的能够独立活动的有意义的语言成分，一般分词是自然语言处理的第一项核心技术。英文中每个句子都将词用空格或标点符号分隔开来，而在中文中很难对词的边界进行界定，难以将词划分出来。在汉语中，虽然是以字为最小单位，但是一篇文章的语义表达却仍然是以词来划分的。因此处理中文文本时，需要进行分词处理，将句子转为词的表示，这就是中文分词。</p><h2 id="中文分词的三个难题"><a href="#中文分词的三个难题" class="headerlink" title="中文分词的三个难题"></a>中文分词的三个难题</h2><p>分词规则，消除歧义和未登录词识别：</p><ul><li>构建完美的分词规则便可以将所有的句子正确的划分，但是这根本无法实现，语言是长期发展自然而然形成的，而且语言规则庞大复杂，很难做出完美的分词规则。</li><li>在中文句子中，很多词是由歧义性的，在一句话也可能有多种分词方法。比如：”结婚/的/和尚/未结婚/的“，“结婚/的/和/尚未/结婚/的”，人分辨这样的句子都是问题，更何况是机器。</li><li>此外对于未登陆词，很难对其进行正确的划分。</li></ul><h2 id="目前主流分词方法"><a href="#目前主流分词方法" class="headerlink" title="目前主流分词方法"></a>目前主流分词方法</h2><p>基于规则，基于统计以及二者混合。本篇主要介绍一下基于规则词典进行分词。</p><h2 id="基于规则的分词"><a href="#基于规则的分词" class="headerlink" title="基于规则的分词"></a>基于规则的分词</h2><p>主要是人工建立词库也叫做词典，通过词典匹配的方式对句子进行划分。其实现简单高效，但是对未登陆词很难进行处理。主要有正向最大匹配法，逆向最大匹配法以及双向最大匹配法。</p><h3 id="正向最大匹配法FMM"><a href="#正向最大匹配法FMM" class="headerlink" title="正向最大匹配法FMM"></a>正向最大匹配法FMM</h3><p><code>FMM</code>的步骤是：</p><ol><li>从左向右取待分汉语句的m个字作为匹配字段，m为词典中最长词的长度。</li><li>查找词典进行匹配。</li><li>若匹配成功，则将该字段作为一个词切分出去。</li><li>若匹配不成功，则将该字段最后一个字去掉，剩下的字作为新匹配字段，进行再次匹配。</li><li>重复上述过程，直到切分所有词为止。</li></ol><p>代码实现：</p><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">cut</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>text<span class="token punctuation">)</span><span class="token punctuation">:</span>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://hiyoungai.com').hostname,
+    root: '/',
+    scheme: 'Mist',
+    version: '7.6.0',
+    exturl: false,
+    sidebar: {"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="Markdown基本语法与工具">
+<meta name="keywords" content="自然语言处理,nlp,中文分词">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NLP系列－中文分词（基于词典）">
+<meta property="og:url" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;posts&#x2F;9eeee454.html">
+<meta property="og:site_name" content="Young Blog">
+<meta property="og:description" content="Markdown基本语法与工具">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif">
+<meta property="og:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif">
+<meta property="og:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif">
+<meta property="og:updated_time" content="2019-12-03T09:39:27.941Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif">
+
+<link rel="canonical" href="https://hiyoungai.com/posts/9eeee454.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>NLP系列－中文分词（基于词典） | Young Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Young Blog" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Young Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Hi Young !</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://hiyoungai.com/posts/9eeee454.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hiyoung">
+      <meta itemprop="description" content="人生何所求，致富和自由。—《基督山伯爵》">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Young Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          NLP系列－中文分词（基于词典）
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-11-19 14:50:34" itemprop="dateCreated datePublished" datetime="2019-11-19T14:50:34+08:00">2019-11-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-12-03 17:39:27" itemprop="dateModified" datetime="2019-12-03T17:39:27+08:00">2019-12-03</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/" itemprop="url" rel="index">
+                    <span itemprop="name">自然语言处理</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="NLP系列－中文分词（基于词典）"><a href="#NLP系列－中文分词（基于词典）" class="headerlink" title="NLP系列－中文分词（基于词典）"></a>NLP系列－中文分词（基于词典）</h1><h2 id="中文分词概述"><a href="#中文分词概述" class="headerlink" title="中文分词概述"></a>中文分词概述</h2><p>词是最小的能够独立活动的有意义的语言成分，一般分词是自然语言处理的第一项核心技术。英文中每个句子都将词用空格或标点符号分隔开来，而在中文中很难对词的边界进行界定，难以将词划分出来。在汉语中，虽然是以字为最小单位，但是一篇文章的语义表达却仍然是以词来划分的。因此处理中文文本时，需要进行分词处理，将句子转为词的表示，这就是中文分词。</p>
+<h2 id="中文分词的三个难题"><a href="#中文分词的三个难题" class="headerlink" title="中文分词的三个难题"></a>中文分词的三个难题</h2><p>分词规则，消除歧义和未登录词识别：</p>
+<ul>
+<li>构建完美的分词规则便可以将所有的句子正确的划分，但是这根本无法实现，语言是长期发展自然而然形成的，而且语言规则庞大复杂，很难做出完美的分词规则。</li>
+<li>在中文句子中，很多词是由歧义性的，在一句话也可能有多种分词方法。比如：”结婚/的/和尚/未结婚/的“，“结婚/的/和/尚未/结婚/的”，人分辨这样的句子都是问题，更何况是机器。</li>
+<li>此外对于未登陆词，很难对其进行正确的划分。</li>
+</ul>
+<h2 id="目前主流分词方法"><a href="#目前主流分词方法" class="headerlink" title="目前主流分词方法"></a>目前主流分词方法</h2><p>基于规则，基于统计以及二者混合。本篇主要介绍一下基于规则词典进行分词。</p>
+<h2 id="基于规则的分词"><a href="#基于规则的分词" class="headerlink" title="基于规则的分词"></a>基于规则的分词</h2><p>主要是人工建立词库也叫做词典，通过词典匹配的方式对句子进行划分。其实现简单高效，但是对未登陆词很难进行处理。主要有正向最大匹配法，逆向最大匹配法以及双向最大匹配法。</p>
+<h3 id="正向最大匹配法FMM"><a href="#正向最大匹配法FMM" class="headerlink" title="正向最大匹配法FMM"></a>正向最大匹配法FMM</h3><p><code>FMM</code>的步骤是：</p>
+<ol>
+<li>从左向右取待分汉语句的m个字作为匹配字段，m为词典中最长词的长度。</li>
+<li>查找词典进行匹配。</li>
+<li>若匹配成功，则将该字段作为一个词切分出去。</li>
+<li>若匹配不成功，则将该字段最后一个字去掉，剩下的字作为新匹配字段，进行再次匹配。</li>
+<li>重复上述过程，直到切分所有词为止。</li>
+</ol>
+<p>代码实现：</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">cut</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>text<span class="token punctuation">)</span><span class="token punctuation">:</span>
     result <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
     index <span class="token operator">=</span> <span class="token number">0</span>
     text_size <span class="token operator">=</span> len<span class="token punctuation">(</span>text<span class="token punctuation">)</span>
@@ -10,7 +278,12 @@
                 <span class="token keyword">break</span>
         index <span class="token operator">=</span> index <span class="token operator">+</span> <span class="token number">1</span>
         result<span class="token punctuation">.</span>append<span class="token punctuation">(</span>piece<span class="token punctuation">)</span>
-    <span class="token keyword">return</span> result<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>分词效果：</p><p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_nlp_fenci_fmm.png" alt="FMM分词结果"></p><h3 id="逆向最大匹配法RMM"><a href="#逆向最大匹配法RMM" class="headerlink" title="逆向最大匹配法RMM"></a>逆向最大匹配法RMM</h3><p><code>RMM</code>的基本原理与<code>FMM</code>基本相同，不同的是分词的方向与<code>FMM</code>相反。<code>RMM</code>是从待分词句子的末端开始，也就是从右向左开始匹配扫描，每次取末端m个字作为匹配字段，匹配失败，则去掉匹配字段前面的一个字，继续匹配。</p><p>代码实现：</p><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">cut</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>text<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> result<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>分词效果：</p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_nlp_fenci_fmm.png" alt="FMM分词结果"></p>
+<h3 id="逆向最大匹配法RMM"><a href="#逆向最大匹配法RMM" class="headerlink" title="逆向最大匹配法RMM"></a>逆向最大匹配法RMM</h3><p><code>RMM</code>的基本原理与<code>FMM</code>基本相同，不同的是分词的方向与<code>FMM</code>相反。<code>RMM</code>是从待分词句子的末端开始，也就是从右向左开始匹配扫描，每次取末端m个字作为匹配字段，匹配失败，则去掉匹配字段前面的一个字，继续匹配。</p>
+<p>代码实现：</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">cut</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>text<span class="token punctuation">)</span><span class="token punctuation">:</span>
     result <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
     index <span class="token operator">=</span> len<span class="token punctuation">(</span>text<span class="token punctuation">)</span>
     window_size <span class="token operator">=</span> min<span class="token punctuation">(</span>index<span class="token punctuation">,</span>self<span class="token punctuation">.</span>window_size<span class="token punctuation">)</span>
@@ -23,7 +296,22 @@
         index <span class="token operator">=</span> index <span class="token operator">-</span> <span class="token number">1</span>
         result<span class="token punctuation">.</span>append<span class="token punctuation">(</span>piece<span class="token punctuation">)</span>
     result<span class="token punctuation">.</span>reverse<span class="token punctuation">(</span><span class="token punctuation">)</span>　<span class="token comment" spellcheck="true">#因为是从后向前分词，所以需要将结果逆序</span>
-    <span class="token keyword">return</span> result<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>分词效果：</p><p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_nlp_fenci_rmm.png" alt="RMM分词结果"></p><h3 id="双向最大匹配法Bi-MM"><a href="#双向最大匹配法Bi-MM" class="headerlink" title="双向最大匹配法Bi-MM"></a>双向最大匹配法Bi-MM</h3><p><code>Bi-MM</code>是将正向最大匹配法得到的分词结果和逆向最大匹配法得到的结果进行比较，然后按照最大匹配原则，选取词数切分最少的作为结果。据<code>SunM.S.</code>和<code>Benjamin K.T.(1995)</code>的研究表明，中文中<code>90.0%</code>左右的句子，正向最大匹配法和逆向最大匹配法完全重合且正确，只有大概<code>9.0%</code>的句子两种切分方法得到的结果不一样，但其中必有一个是正确的（歧义检测成功），只有不到<code>1.0%</code>的句子，使用正向最大匹配法和逆向最大匹配法的切分虽然重合但是错的，或者两种方法切分不同但结果都不对（歧义检测失败）。</p><p>双向最大匹配的规则是：</p><ol><li>如果正反向分词结果词数不同，则取分词数量少的那个。</li><li>如果分词结果词数相同：<ul><li>分词结果相同，没有歧义，返回任意一个。</li><li>分词结果不同，返回其中单字数量较少的那个。</li></ul></li></ol><p>上述例子中词数相同，但结果不同，逆向最大匹配法的分词结果单字个数是<code>1</code>，所以返回的是逆向最大匹配法的结果。</p><p>代码实现：</p><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">cut</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>text<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> result<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>分词效果：</p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_nlp_fenci_rmm.png" alt="RMM分词结果"></p>
+<h3 id="双向最大匹配法Bi-MM"><a href="#双向最大匹配法Bi-MM" class="headerlink" title="双向最大匹配法Bi-MM"></a>双向最大匹配法Bi-MM</h3><p><code>Bi-MM</code>是将正向最大匹配法得到的分词结果和逆向最大匹配法得到的结果进行比较，然后按照最大匹配原则，选取词数切分最少的作为结果。据<code>SunM.S.</code>和<code>Benjamin K.T.(1995)</code>的研究表明，中文中<code>90.0%</code>左右的句子，正向最大匹配法和逆向最大匹配法完全重合且正确，只有大概<code>9.0%</code>的句子两种切分方法得到的结果不一样，但其中必有一个是正确的（歧义检测成功），只有不到<code>1.0%</code>的句子，使用正向最大匹配法和逆向最大匹配法的切分虽然重合但是错的，或者两种方法切分不同但结果都不对（歧义检测失败）。</p>
+<p>双向最大匹配的规则是：</p>
+<ol>
+<li>如果正反向分词结果词数不同，则取分词数量少的那个。</li>
+<li>如果分词结果词数相同：<ul>
+<li>分词结果相同，没有歧义，返回任意一个。</li>
+<li>分词结果不同，返回其中单字数量较少的那个。</li>
+</ul>
+</li>
+</ol>
+<p>上述例子中词数相同，但结果不同，逆向最大匹配法的分词结果单字个数是<code>1</code>，所以返回的是逆向最大匹配法的结果。</p>
+<p>代码实现：</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">cut</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>text<span class="token punctuation">)</span><span class="token punctuation">:</span>
     res_fmm <span class="token operator">=</span> self<span class="token punctuation">.</span>FMM<span class="token punctuation">.</span>cut<span class="token punctuation">(</span>text<span class="token punctuation">)</span>
     res_rmm <span class="token operator">=</span> self<span class="token punctuation">.</span>RMM<span class="token punctuation">.</span>cut<span class="token punctuation">(</span>text<span class="token punctuation">)</span>
     <span class="token keyword">if</span> len<span class="token punctuation">(</span>res_fmm<span class="token punctuation">)</span> <span class="token operator">==</span> len<span class="token punctuation">(</span>res_rmm<span class="token punctuation">)</span><span class="token punctuation">:</span>
@@ -34,92 +322,208 @@
             r_word_count <span class="token operator">=</span> len<span class="token punctuation">(</span><span class="token punctuation">[</span>w <span class="token keyword">for</span> w <span class="token keyword">in</span> res_rmm <span class="token keyword">if</span> len<span class="token punctuation">(</span>w<span class="token punctuation">)</span><span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
             <span class="token keyword">return</span> res_fmm <span class="token keyword">if</span> f_word_count <span class="token operator">&lt;</span> r_word_count <span class="token keyword">else</span> res_rmm
     <span class="token keyword">else</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> res_fmm <span class="token keyword">if</span> len<span class="token punctuation">(</span>res_fmm<span class="token punctuation">)</span> <span class="token operator">&lt;</span> len<span class="token punctuation">(</span>res_rmm<span class="token punctuation">)</span> <span class="token keyword">else</span> res_rmm<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>分词效果：</p><p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_nlp_fenci_bimm.png" alt="BIMM分词结果"></p><p>可能有人会问，如果单字的数量也相同怎么办？如果你明白了中文分词的原理和实际用处的话，那么这个问题的答案自然会知晓。中文分词目前仍然没有完全准确的结果，一句话可以分成不同的分词结果。如果单字数量也相同，按照正常的逻辑那么会继续比较双字词，但是这样却没有可比性，在中文中大多数都是双字词，所以即使双字词的数量相同，但是结果可能却有很多种可能。</p><p>我们比较单字词的数量，取数量少的那个结果，只是为了大概率更准确一些，因为中文字单字为词的情况比较少，大多数是双字或多字词。但是针对一些特殊的句子，这种判断方法不见得结果是最优的。虽然如此，但是基于规则的中文分词仍然是目前为止最简单高效的方法。</p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>基于规则的分词，一般较为简单高效，但是词典的维护很大的人力维护，同时对于未登录词也没有很好的解决办法。双向最大匹配结合了正反两种方法的结果，结果较为准确，在实用中文信息处理中使用广泛。</p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul><li>《Python自然语言处理实战-核心技术与算法》涂铭，刘祥，刘树春 著</li><li>《统计自然语言处理》 宗成庆 著</li><li>详细代码可参考<a href="https://github.com/hiyoung123/NLP" target="_blank" rel="noopener">GitHub</a></li></ul></div><hr><div class="tag_share" style="display:block"><div class="post-meta__tag-list" style="display:inline-block"><div class="article-tag"><a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/"><span class="chip bg-color">自然语言处理</span> </a><a href="/tags/nlp/"><span class="chip bg-color">nlp</span> </a><a href="/tags/%E4%B8%AD%E6%96%87%E5%88%86%E8%AF%8D/"><span class="chip bg-color">中文分词</span></a></div></div><div class="post_share" style="zoom:80%;width:fit-content;display:inline-block;float:right;margin:-.15rem 0"><link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css"><div id="article-share"><div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div><script src="/libs/share/js/social-share.min.js"></script></div></div></div><style>#reward{margin:40px 0;text-align:center}#reward .reward-link{font-size:1.8rem}#reward .btn-floating:hover{box-shadow:0 6px 12px rgba(0,0,0,.2),0 5px 15px rgba(0,0,0,.2)}#rewardModal{width:320px;height:350px}#rewardModal .reward-title{margin:15px auto;padding-bottom:5px}#rewardModal .modal-content{padding:10px}#rewardModal .close{position:absolute;right:15px;top:15px;color:rgba(0,0,0,.5);font-size:1.3rem;line-height:20px;cursor:pointer}#rewardModal .close:hover{color:#ef5350;transform:scale(1.3);-moz-transform:scale(1.3);-webkit-transform:scale(1.3);-o-transform:scale(1.3)}#rewardModal .reward-tabs{margin:0 auto;width:210px}.reward-tabs .tabs{height:38px;margin:10px auto;padding-left:0}.reward-content ul{padding-left:0!important}.reward-tabs .tabs .tab{height:38px;line-height:38px}.reward-tabs .tab a{color:#fff;background-color:#ccc}.reward-tabs .tab a:hover{background-color:#ccc;color:#fff}.reward-tabs .wechat-tab .active{color:#fff!important;background-color:#22AB38!important}.reward-tabs .alipay-tab .active{color:#fff!important;background-color:#019FE8!important}.reward-tabs .reward-img{width:210px;height:210px}</style><div id="reward"><a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-large waves-effect waves-light red">赏</a><div id="rewardModal" class="modal"><div class="modal-content"><a class="close modal-close"><i class="fas fa-times"></i></a><h4 class="reward-title">你的赏识是我前进的动力</h4><div class="reward-content"><div class="reward-tabs"><ul class="tabs row"><li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li><li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li></ul><div id="alipay"><img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码"></div><div id="wechat"><img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码"></div></div></div></div></div></div><script>$(function(){$(".tabs").tabs()})</script><div class="reprint" id="reprint-statement"><div class="reprint__author"><span class="reprint-meta" style="font-weight:700"><i class="fas fa-user">文章作者: </i></span><span class="reprint-info"><a href="https://hiyoungai.com" rel="external nofollow noreferrer">Hiyoung</a></span></div><div class="reprint__type"><span class="reprint-meta" style="font-weight:700"><i class="fas fa-link">文章链接: </i></span><span class="reprint-info"><a href="https://hiyoungai.com/posts/9eeee454.html">https://hiyoungai.com/posts/9eeee454.html</a></span></div><div class="reprint__notice"><span class="reprint-meta" style="font-weight:700"><i class="fas fa-copyright">版权声明: </i></span><span class="reprint-info">本博客所有文章除特別声明外，均采用 <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a> 许可协议。转载请注明来源 <a href="https://hiyoungai.com" target="_blank">Hiyoung</a> !</span></div></div><script async defer>document.addEventListener("copy", function (e) {
-        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
-        M.toast({html: toastHTML})
-      });
+        <span class="token keyword">return</span> res_fmm <span class="token keyword">if</span> len<span class="token punctuation">(</span>res_fmm<span class="token punctuation">)</span> <span class="token operator">&lt;</span> len<span class="token punctuation">(</span>res_rmm<span class="token punctuation">)</span> <span class="token keyword">else</span> res_rmm<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>分词效果：</p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_nlp_fenci_bimm.png" alt="BIMM分词结果"></p>
+<p>可能有人会问，如果单字的数量也相同怎么办？如果你明白了中文分词的原理和实际用处的话，那么这个问题的答案自然会知晓。中文分词目前仍然没有完全准确的结果，一句话可以分成不同的分词结果。如果单字数量也相同，按照正常的逻辑那么会继续比较双字词，但是这样却没有可比性，在中文中大多数都是双字词，所以即使双字词的数量相同，但是结果可能却有很多种可能。</p>
+<p>我们比较单字词的数量，取数量少的那个结果，只是为了大概率更准确一些，因为中文字单字为词的情况比较少，大多数是双字或多字词。但是针对一些特殊的句子，这种判断方法不见得结果是最优的。虽然如此，但是基于规则的中文分词仍然是目前为止最简单高效的方法。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>基于规则的分词，一般较为简单高效，但是词典的维护很大的人力维护，同时对于未登录词也没有很好的解决办法。双向最大匹配结合了正反两种方法的结果，结果较为准确，在实用中文信息处理中使用广泛。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li>《Python自然语言处理实战-核心技术与算法》涂铭，刘祥，刘树春 著</li>
+<li>《统计自然语言处理》 宗成庆 著</li>
+<li>详细代码可参考<a href="https://github.com/hiyoung123/NLP" target="_blank" rel="noopener">GitHub</a></li>
+</ul>
 
-      function navToReprintStatement() {
-        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
-      }</script></div></div><link rel="stylesheet" href="/libs/gitalk/gitalk.css"><link rel="stylesheet" href="/css/my-gitalk.css"><div class="card gitalk-card" data-aos="fade-up"><div class="comment_headling" style="font-size:20px;font-weight:700;position:relative;left:20px;top:15px;padding-bottom:5px"><i class="fas fa-comments fa-fw" aria-hidden="true"></i> <span>评论</span></div><div id="gitalk-container" class="card-content"></div></div><script src="/libs/gitalk/gitalk.min.js"></script><script>let gitalk = new Gitalk({
-        clientID: '2809c671d3e9827bdb20',
-        clientSecret: '5f216884763890b0ef3751b9206ab5eade091708',
-        repo: 'hiyoung123.github.io',
-        owner: 'hiyoung123',
-        admin: "hiyoung123",
-        id: '2019-11-19T14-50-34',
-        distractionFreeMode: false  // Facebook-like distraction free mode
-    });
+    </div>
 
-    gitalk.render('gitalk-container');</script><article id="prenext-posts" class="prev-next articles"><div class="row article-row"><div class="article col s12 m6" data-aos="fade-up"><div class="article-badge left-badge text-color"><i class="fas fa-chevron-left"></i>&nbsp;上一篇</div><div class="card"><a href="/posts/97876509.html"><div class="card-image"><img src="/medias/featureimages/18.jpg" class="responsive-img" alt="如何选择职业－一个美国高级工程师的建议"> <span class="card-title">如何选择职业－一个美国高级工程师的建议</span></div></a><div class="card-content article-content"><div class="summary block-with-text">一个美国的高级工程师谈如何选职业今天看到一篇博客，是讲述了一个美国高级工程师如何选择职业的，感觉很有道理，于是摘抄过来。原文地址 停滞发展、或者缓慢发展的公司，完全是一个零和游戏。 如果你想晋升，必须等别人把位置空出来。你得到的，一定是其</div><div class="publish-info"><span class="publish-date"><i class="far fa-clock fa-fw icon-date"></i>2019-11-20 </span><span class="publish-author"><i class="fas fa-bookmark fa-fw icon-category"></i> <a href="/categories/%E6%9D%82%E8%B0%88/" class="post-category">杂谈</a></span></div></div><div class="card-action article-tags"><a href="/tags/%E6%9D%82%E8%B0%88/"><span class="chip bg-color">杂谈</span> </a><a href="/tags/%E8%81%8C%E4%B8%9A%E8%A7%84%E5%88%92/"><span class="chip bg-color">职业规划</span></a></div></div></div><div class="article col s12 m6" data-aos="fade-up"><div class="article-badge right-badge text-color">下一篇&nbsp;<i class="fas fa-chevron-right"></i></div><div class="card"><a href="/posts/5d36ff15.html"><div class="card-image"><img src="https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_markdown.jpeg" class="responsive-img" alt="Markdown基本语法"> <span class="card-title">Markdown基本语法</span></div></a><div class="card-content article-content"><div class="summary block-with-text">Markdown基本语法 Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档。 Markdown 语言在 2004 由约翰·格鲁伯（英语：John Gruber）创建。 Markdown 编写的文档可以导出</div><div class="publish-info"><span class="publish-date"><i class="far fa-clock fa-fw icon-date"></i>2019-11-18 </span><span class="publish-author"><i class="fas fa-bookmark fa-fw icon-category"></i> <a href="/categories/%E4%BE%BF%E6%8D%B7%E5%B7%A5%E5%85%B7/" class="post-category">便捷工具</a></span></div></div><div class="card-action article-tags"><a href="/tags/Markdown/"><span class="chip bg-color">Markdown</span> </a><a href="/tags/Typora/"><span class="chip bg-color">Typora</span> </a><a href="/tags/Atom/"><span class="chip bg-color">Atom</span> </a><a href="/tags/%E6%B5%81%E7%A8%8B%E5%9B%BE/"><span class="chip bg-color">流程图</span></a></div></div></div></div></article></div><script>$("#articleContent").on("copy",function(e){if("undefined"!=typeof window.getSelection){var n=window.getSelection();if(!((""+n).length<Number.parseInt("120"))){var t=document.getElementsByTagName("body")[0],o=document.createElement("div");o.style.position="absolute",o.style.left="-99999px",t.appendChild(o),o.appendChild(n.getRangeAt(0).cloneContents()),"PRE"===n.getRangeAt(0).commonAncestorContainer.nodeName&&(o.innerHTML="<pre>"+o.innerHTML+"</pre>");var i=document.location.href;o.innerHTML+='<br />来源: Young Blog<br />文章作者: Hiyoung<br />文章链接: <a href="'+i+'">'+i+"</a><br />本文章著作权归作者所有，任何形式的转载都请注明出处。",n.selectAllChildren(o),window.setTimeout(function(){t.removeChild(o)},200)}}})</script><script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script><script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script><script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script><script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script><style type="text/css">code[class*=language-],pre[class*=language-]{white-space:pre!important}</style></div><div id="toc-aside" class="expanded col l3 hide-on-med-and-down"><div class="toc-widget"><div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div><div id="toc-content"></div></div></div></div><div id="floating-toc-btn" class="hide-on-med-and-down"><a class="btn-floating btn-large bg-color"><i class="fas fa-list-ul"></i></a></div><script src="/libs/tocbot/tocbot.min.js"></script><script>$(function () {
-        tocbot.init({
-            tocSelector: '#toc-content',
-            contentSelector: '#articleContent',
-            headingsOffset: -($(window).height() * 0.4 - 45),
-            // headingsOffset: -205,
-            headingSelector: 'h2, h3, h4'
-        });
+    
+    
+    
 
-        // modify the toc link href to support Chinese.
-        let i = 0;
-        let tocHeading = 'toc-heading-';
-        $('#toc-content a').each(function () {
-            $(this).attr('href', '#' + tocHeading + (++i));
-        });
-
-        // modify the heading title id to support Chinese.
-        i = 0;
-        $('#articleContent').children('h2, h3, h4').each(function () {
-            $(this).attr('id', tocHeading + (++i));
-        });
-
-        // Set scroll toc fixed.
-        let tocHeight = parseInt($(window).height() * 0.4 - 64);
-        let $tocWidget = $('.toc-widget');
-        $(window).scroll(function () {
-            let scroll = $(window).scrollTop();
-            /* add post toc fixed. */
-            if (scroll > tocHeight) {
-                $tocWidget.addClass('toc-fixed');
-            } else {
-                $tocWidget.removeClass('toc-fixed');
-            }
-        });
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/" rel="tag"># 自然语言处理</a>
+              <a href="/tags/nlp/" rel="tag"># nlp</a>
+              <a href="/tags/%E4%B8%AD%E6%96%87%E5%88%86%E8%AF%8D/" rel="tag"># 中文分词</a>
+          </div>
 
         
-        /* 修复文章卡片 div 的宽度. */
-        let fixPostCardWidth = function (srcId, targetId) {
-            let srcDiv = $('#' + srcId);
-            if (srcDiv.length === 0) {
-                return;
-            }
 
-            let w = srcDiv.width();
-            if (w >= 450) {
-                w = w + 21;
-            } else if (w >= 350 && w < 450) {
-                w = w + 18;
-            } else if (w >= 300 && w < 350) {
-                w = w + 16;
-            } else {
-                w = w + 14;
-            }
-            $('#' + targetId).width(w);
-        };
 
-        // 切换TOC目录展开收缩的相关操作.
-        const expandedClass = 'expanded';
-        let $tocAside = $('#toc-aside');
-        let $mainContent = $('#main-content');
-        $('#floating-toc-btn .btn-floating').click(function () {
-            if ($tocAside.hasClass(expandedClass)) {
-                $tocAside.removeClass(expandedClass).hide();
-                $mainContent.removeClass('l9');
-            } else {
-                $tocAside.addClass(expandedClass).show();
-                $mainContent.addClass('l9');
-            }
-            fixPostCardWidth('artDetail', 'prenext-posts');
-        });
         
-    });</script></main><footer class="page-footer bg-color"><div class="container row center-align"><div class="col s12 m8 l8 copy-right">Copyright&nbsp;&copy; <span id="year">年份</span> <a href="https://hiyoungai.com" target="_blank">Hiyoung</a> |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a> |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a><br>&nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span class="white-color">18.1k</span>&nbsp;字 <span id="busuanzi_container_site_pv">|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv" class="white-color"></span>&nbsp;次 </span><span id="busuanzi_container_site_uv">|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv" class="white-color"></span>&nbsp;人</span><br><span id="sitetime">载入运行时间...</span><script>function siteTime(){window.setTimeout("siteTime()",1e3);var e=1e3,t=60*e,n=60*t,o=24*n,i=365*o,r=new Date,a="2019",m="11",l="12",M="0",d="0",g="0",s=r.getFullYear(),T=r.getMonth()+1,u=r.getDate(),c=r.getHours(),f=r.getMinutes(),h=r.getSeconds(),y=Date.UTC(a,m,l,M,d,g),H=Date.UTC(s,T,u,c,f,h),I=H-y,B=Math.floor(I/i),D=Math.floor(I/o-365*B),E=Math.floor((I-(365*B+D)*o)/n),L=Math.floor((I-(365*B+D)*o-E*n)/t),w=Math.floor((I-(365*B+D)*o-E*n-L*t)/e);a==s?(document.getElementById("year").innerHTML=s,document.getElementById("sitetime").innerHTML="本站已安全运行 "+D+" 天 "+E+" 小时 "+L+" 分钟 "+w+" 秒"):(document.getElementById("year").innerHTML=a+" - "+s,document.getElementById("sitetime").innerHTML="本站已安全运行 "+B+" 年 "+D+" 天 "+E+" 小时 "+L+" 分钟 "+w+" 秒")}setInterval(siteTime,1e3)</script><br></div><div class="col s12 m4 l4 social-link social-statis"><a href="https://github.com/hiyoung123/" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50"><i class="fab fa-github"></i> </a><a href="mailto:liuhaiyang.x@bytedance.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50"><i class="fas fa-envelope-open"></i> </a><a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=787420787" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 787420787" data-position="top" data-delay="50"><i class="fab fa-qq"></i> </a><a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50"><i class="fas fa-rss"></i></a></div></div></footer><div class="progress-bar"></div><script src="https://cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js"></script><script>window.mermaid&&mermaid.initialize({theme:"forest"})</script><div id="searchModal" class="modal"><div class="modal-content"><div class="search-header"><span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span> <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input"></div><div id="searchResult"></div></div></div><script src="/js/search.js"></script><script type="text/javascript">$(function(){searchFunc("/search.xml","searchInput","searchResult")})</script><div id="backTop" class="top-scroll"><a class="btn-floating btn-large waves-effect waves-light" href="#!"><i class="fas fa-arrow-up"></i></a></div><script src="/libs/materialize/materialize.min.js"></script><script src="/libs/masonry/masonry.pkgd.min.js"></script><script src="/libs/aos/aos.js"></script><script src="/libs/scrollprogress/scrollProgress.min.js"></script><script src="/libs/lightGallery/js/lightgallery-all.min.js"></script><script src="/js/matery.js"></script><script async src="https://www.googletagmanager.com/gtag/js?id=yXNWLn28ULu1e2oNTKIDLTMhXLOEd7DwMtrEmdJ0pgE"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","yXNWLn28ULu1e2oNTKIDLTMhXLOEd7DwMtrEmdJ0pgE")</script><script>var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="https://hm.baidu.com/hm.js?m7vWhnTCyq";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()</script><script>!function(){var t=document.createElement("script"),s=window.location.protocol.split(":")[0];"https"===s?t.src="https://zz.bdstatic.com/linksubmit/push.js":t.src="http://push.zhanzhang.baidu.com/push.js";var e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(t,e)}()</script><script src="/libs/others/clicklove.js" async></script><script async src="/libs/others/busuanzi.pure.mini.js"></script><script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async></script><script src="/libs/instantpage/instantpage.js" type="module"></script><script>!function(t){function n(){for(var n=0;n<e.length;n++)i=e[n],0<=(o=i.getBoundingClientRect()).top&&0<=o.left&&o.top<=(t.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,i,o,c,r=e[n];t=r,i=function(){e=e.filter(function(t){return r!==t})},o=new Image,c=t.getAttribute("data-original"),o.onload=function(){t.src=c,i&&i()},o.src=c}();var i,o}var e=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));n(),t.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(n,t)})}(this)</script></body></html><!-- rebuild by neat -->
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/5d36ff15.html" rel="prev" title="Markdown基本语法">
+      <i class="fa fa-chevron-left"></i> Markdown基本语法
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/posts/97876509.html" rel="next" title="如何选择职业－一个美国高级工程师的建议">
+      如何选择职业－一个美国高级工程师的建议 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#NLP系列－中文分词（基于词典）"><span class="nav-number">1.</span> <span class="nav-text">NLP系列－中文分词（基于词典）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#中文分词概述"><span class="nav-number">1.1.</span> <span class="nav-text">中文分词概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#中文分词的三个难题"><span class="nav-number">1.2.</span> <span class="nav-text">中文分词的三个难题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#目前主流分词方法"><span class="nav-number">1.3.</span> <span class="nav-text">目前主流分词方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于规则的分词"><span class="nav-number">1.4.</span> <span class="nav-text">基于规则的分词</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#正向最大匹配法FMM"><span class="nav-number">1.4.1.</span> <span class="nav-text">正向最大匹配法FMM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#逆向最大匹配法RMM"><span class="nav-number">1.4.2.</span> <span class="nav-text">逆向最大匹配法RMM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#双向最大匹配法Bi-MM"><span class="nav-number">1.4.3.</span> <span class="nav-text">双向最大匹配法Bi-MM</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">1.5.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">1.6.</span> <span class="nav-text">参考</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Hiyoung</p>
+  <div class="site-description" itemprop="description">人生何所求，致富和自由。—《基督山伯爵》</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hiyoung</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.6.0
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
+</html>
