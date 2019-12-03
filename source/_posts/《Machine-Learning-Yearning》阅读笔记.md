@@ -13,6 +13,7 @@ abbrlink: 7f3faaf
 date: 2019-11-24 15:04:05
 password:
 summary:
+excerpt: 《Machine Learning Yearning》阅读笔记机器学习为什么需要策略如何使用这本书帮助你的团队。
 ---
 
 #  《Machine Learning Yearning》阅读笔记

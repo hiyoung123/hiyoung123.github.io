@@ -95,7 +95,8 @@ ignore:
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 #theme: landscape
-theme: hexo-theme-matery
+#theme: hexo-theme-matery
+theme: next
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
@@ -192,7 +193,7 @@ baidu_url_submit:
   path: baidu_urls.txt # 文本文档的地址， 新链接会保存在此文本文档
 
 #hexo-neat 优化提速插件（去掉HTML、css、js的blank字符）
-neat_enable: true
+neat_enable: false
 neat_html:
   enable: true
   exclude:
