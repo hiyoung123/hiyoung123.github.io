@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://hiyoungai.com/posts/9eeee454.html</loc>
+    <loc>https://hiyoungai.com/about/index.html</loc>
     
-    <lastmod>2019-12-03T11:51:30.787Z</lastmod>
+    <lastmod>2019-12-04T02:29:14.825Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://hiyoungai.com/posts/19883263.html</loc>
     
-    <lastmod>2019-12-03T11:51:01.687Z</lastmod>
+    <lastmod>2019-12-04T02:03:13.993Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://hiyoungai.com/posts/9eeee454.html</loc>
+    
+    <lastmod>2019-12-03T11:51:30.787Z</lastmod>
     
   </url>
   
@@ -72,13 +79,6 @@
   </url>
   
   <url>
-    <loc>https://hiyoungai.com/about/index.html</loc>
-    
-    <lastmod>2019-11-16T01:17:10.132Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://hiyoungai.com/books/index.html</loc>
     
     <lastmod>2019-11-16T01:17:10.132Z</lastmod>
@@ -107,7 +107,7 @@
   </url>
   
   <url>
-    <loc>https://hiyoungai.com/movies/index.html</loc>
+    <loc>https://hiyoungai.com/musics/index.html</loc>
     
     <lastmod>2019-11-16T01:17:10.132Z</lastmod>
     
@@ -121,7 +121,7 @@
   </url>
   
   <url>
-    <loc>https://hiyoungai.com/musics/index.html</loc>
+    <loc>https://hiyoungai.com/movies/index.html</loc>
     
     <lastmod>2019-11-16T01:17:10.132Z</lastmod>
     
