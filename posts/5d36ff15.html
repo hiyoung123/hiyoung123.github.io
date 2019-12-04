@@ -1,318 +1,16 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.0.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
-  <meta name="google-site-verification" content="yXNWLn28ULu1e2oNTKIDLTMhXLOEd7DwMtrEmdJ0pgE">
-  <meta name="baidu-site-verification" content="m7vWhnTCyq">
-
-<link rel="stylesheet" href="/css/main.css">
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-
-
-<script id="hexo-configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    hostname: new URL('https://hiyoungai.com').hostname,
-    root: '/',
-    scheme: 'Mist',
-    version: '7.6.0',
-    exturl: false,
-    sidebar: {"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},
-    copycode: {"enable":false,"show_result":false,"style":null},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    bookmark: {"enable":false,"color":"#222","save":"auto"},
-    fancybox: false,
-    mediumzoom: false,
-    lazyload: false,
-    pangu: false,
-    algolia: {
-      appID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: 'search.xml',
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
-  };
-</script>
-
-  <meta name="description" content="Markdown基本语法与工具">
-<meta name="keywords" content="Markdown,Typora,Atom,流程图">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Markdown基本语法">
-<meta property="og:url" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;posts&#x2F;5d36ff15.html">
-<meta property="og:site_name" content="Young Blog">
-<meta property="og:description" content="Markdown基本语法与工具">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif">
-<meta property="og:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif">
-<meta property="og:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif">
-<meta property="og:updated_time" content="2019-12-03T11:47:09.374Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif">
-
-<link rel="canonical" href="https://hiyoungai.com/posts/5d36ff15.html">
-
-
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome: false,
-    isPost: true,
-    isPage: false,
-    isArchive: false
-  };
-</script>
-
-  <title>Markdown基本语法 | Young Blog</title>
-  
-
-
-
-
-
-
-  <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
-<link rel="alternate" href="/atom.xml" title="Young Blog" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
-
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
-
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-meta">
-
-    <div>
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Young Blog</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-        <p class="site-subtitle">Hi Young !</p>
-  </div>
-
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
-    </div>
-  </div>
-</div>
-
-
-<nav class="site-nav">
-  
-  <ul id="menu" class="menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
-
-  </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
-
-  </li>
-  </ul>
-
-</nav>
-</div>
-    </header>
-
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-  <div class="reading-progress-bar"></div>
-
-
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-
-          <div class="content">
-            
-
-  <div class="posts-expand">
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hiyoungai.com/posts/5d36ff15.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Hiyoung">
-      <meta itemprop="description" content="人生何所求，致富和自由。 -《基督山伯爵》">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Young Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          Markdown基本语法
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-11-18 16:05:36" itemprop="dateCreated datePublished" datetime="2019-11-18T16:05:36+08:00">2019-11-18</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-12-03 19:47:09" itemprop="dateModified" datetime="2019-12-03T19:47:09+08:00">2019-12-03</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%BE%BF%E6%8D%B7%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index">
-                    <span itemprop="name">便捷工具</span>
-                  </a>
-                </span>
-            </span>
-
-          
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-        <blockquote>
-<p>Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档。</p>
-<p>Markdown 语言在 2004 由约翰·格鲁伯（英语：John Gruber）创建。</p>
-<p>Markdown 编写的文档可以导出 HTML 、Word、图像、PDF、Epub 等多种格式的文档。</p>
-<p>Markdown 编写的文档后缀为 <strong>.md</strong>, <strong>.markdown</strong>。</p>
-</blockquote>
-<hr>
-<h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><p>Markdown支持6种级别的标题，对应html标签 <code>h1</code> ~ <code>h6</code>，严格的Markdown语法<code>＃</code>和文本之间要有一个空格。</p>
-<pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># h1　这是一级标题</span>
+<!-- build time:Wed Dec 04 2019 14:53:47 GMT+0800 (GMT+08:00) --><!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2"><meta name="theme-color" content="#222"><meta name="generator" content="Hexo 4.0.0"><link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png"><link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png"><link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png"><link rel="mask-icon" href="/images/logo.svg" color="#222"><meta name="google-site-verification" content="yXNWLn28ULu1e2oNTKIDLTMhXLOEd7DwMtrEmdJ0pgE"><meta name="baidu-site-verification" content="m7vWhnTCyq"><link rel="stylesheet" href="/css/main.css"><link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css"><script id="hexo-configurations">var NexT=window.NexT||{},CONFIG={hostname:new URL("https://hiyoungai.com").hostname,root:"/",scheme:"Mist",version:"7.6.0",exturl:!1,sidebar:{position:"right",display:"post",padding:18,offset:12,onmobile:!1},copycode:{enable:!1,show_result:!1,style:null},back2top:{enable:!0,sidebar:!1,scrollpercent:!1},bookmark:{enable:!1,color:"#222",save:"auto"},fancybox:!1,mediumzoom:!1,lazyload:!1,pangu:!1,algolia:{appID:"",apiKey:"",indexName:"",hits:{per_page:10},labels:{input_placeholder:"Search for Posts",hits_empty:"We didn't find any results for the search: ${query}",hits_stats:"${hits} results found in ${time} ms"}},localsearch:{enable:!1,trigger:"auto",top_n_per_article:1,unescape:!1,preload:!1},path:"search.xml",motion:{enable:!0,async:!1,transition:{post_block:"fadeIn",post_header:"slideDownIn",post_body:"slideDownIn",coll_header:"slideLeftIn",sidebar:"slideUpIn"}}}</script><meta name="description" content="Markdown基本语法与工具"><meta name="keywords" content="Markdown,Typora,Atom,流程图"><meta property="og:type" content="article"><meta property="og:title" content="Markdown基本语法"><meta property="og:url" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;posts&#x2F;5d36ff15.html"><meta property="og:site_name" content="Young Blog"><meta property="og:description" content="Markdown基本语法与工具"><meta property="og:locale" content="zh-CN"><meta property="og:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif"><meta property="og:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif"><meta property="og:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif"><meta property="og:updated_time" content="2019-12-03T11:47:09.374Z"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif"><link rel="canonical" href="https://hiyoungai.com/posts/5d36ff15.html"><script id="page-configurations">CONFIG.page={sidebar:"",isHome:!1,isPost:!0,isPage:!1,isArchive:!1}</script><title>Markdown基本语法 | Young Blog</title><noscript><style>.sidebar-inner,.use-motion .brand,.use-motion .collection-header,.use-motion .comments,.use-motion .menu-item,.use-motion .pagination,.use-motion .post-block,.use-motion .post-body,.use-motion .post-header{opacity:initial}.use-motion .site-subtitle,.use-motion .site-title{opacity:initial;top:initial}.use-motion .logo-line-before i{left:initial}.use-motion .logo-line-after i{right:initial}</style></noscript><link rel="alternate" href="/atom.xml" title="Young Blog" type="application/atom+xml"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head><body itemscope itemtype="http://schema.org/WebPage"><div class="container use-motion"><div class="headband"></div><header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="header-inner"><div class="site-brand-container"><div class="site-meta"><div><a href="/" class="brand" rel="start"><span class="logo-line-before"><i></i></span> <span class="site-title">Young Blog</span> <span class="logo-line-after"><i></i></span></a></div><p class="site-subtitle">Hi Young !</p></div><div class="site-nav-toggle"><div class="toggle" aria-label="切换导航栏"><span class="toggle-line toggle-line-first"></span> <span class="toggle-line toggle-line-middle"></span> <span class="toggle-line toggle-line-last"></span></div></div></div><nav class="site-nav"><ul id="menu" class="menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a></li></ul></nav></div></header><div class="back-to-top"><i class="fa fa-arrow-up"></i> <span>0%</span></div><div class="reading-progress-bar"></div><main class="main"><div class="main-inner"><div class="content-wrap"><div class="content"><div class="posts-expand"><article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN"><link itemprop="mainEntityOfPage" href="https://hiyoungai.com/posts/5d36ff15.html"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="image" content="/images/avatar.gif"><meta itemprop="name" content="Hiyoung"><meta itemprop="description" content="人生何所求，致富和自由。 -《基督山伯爵》"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="Young Blog"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">Markdown基本语法</h1><div class="post-meta"><span class="post-meta-item"><span class="post-meta-item-icon"><i class="fa fa-calendar-o"></i> </span><span class="post-meta-item-text">发表于</span> <time title="创建时间：2019-11-18 16:05:36" itemprop="dateCreated datePublished" datetime="2019-11-18T16:05:36+08:00">2019-11-18</time> </span><span class="post-meta-item"><span class="post-meta-item-icon"><i class="fa fa-calendar-check-o"></i> </span><span class="post-meta-item-text">更新于</span> <time title="修改时间：2019-12-03 19:47:09" itemprop="dateModified" datetime="2019-12-03T19:47:09+08:00">2019-12-03</time> </span><span class="post-meta-item"><span class="post-meta-item-icon"><i class="fa fa-folder-o"></i> </span><span class="post-meta-item-text">分类于</span> <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E4%BE%BF%E6%8D%B7%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">便捷工具</span> </a></span></span><span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display:none"><span class="post-meta-item-icon"><i class="fa fa-eye"></i> </span><span class="post-meta-item-text">阅读次数：</span> <span id="busuanzi_value_page_pv"></span></span></div></header><div class="post-body" itemprop="articleBody"><blockquote><p>Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档。</p><p>Markdown 语言在 2004 由约翰·格鲁伯（英语：John Gruber）创建。</p><p>Markdown 编写的文档可以导出 HTML 、Word、图像、PDF、Epub 等多种格式的文档。</p><p>Markdown 编写的文档后缀为 <strong>.md</strong>, <strong>.markdown</strong>。</p></blockquote><hr><h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><p>Markdown支持6种级别的标题，对应html标签 <code>h1</code> ~ <code>h6</code>，严格的Markdown语法<code>＃</code>和文本之间要有一个空格。</p><pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># h1　这是一级标题</span>
 <span class="token comment" spellcheck="true">## h2　这是二级标题</span>
 <span class="token comment" spellcheck="true">### h3　这是三级标题</span>
 <span class="token comment" spellcheck="true">#### h4　这是四级标题</span>
 <span class="token comment" spellcheck="true">##### h5　这是五级标题</span>
-<span class="token comment" spellcheck="true">###### h6　这是六级标题</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>效果如下（实际演示会造成菜单混乱，所以此处使用截图）：</p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_markdown_list_1.png" alt=""></p>
-<p>除此之外，Markdown还支持另外一种形式的标题展示形式，使用下划线进行文本大小的控制。但是这种形式仅有两种表现形式：即一级标题和二级标题。</p>
-<pre class="line-numbers language-bash"><code class="language-bash">这是一级标题
+<span class="token comment" spellcheck="true">###### h6　这是六级标题</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>效果如下（实际演示会造成菜单混乱，所以此处使用截图）：</p><p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_markdown_list_1.png" alt=""></p><p>除此之外，Markdown还支持另外一种形式的标题展示形式，使用下划线进行文本大小的控制。但是这种形式仅有两种表现形式：即一级标题和二级标题。</p><pre class="line-numbers language-bash"><code class="language-bash">这是一级标题
 <span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span>
 这是二级标题
-----------<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p>效果如下：</p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_markdown_list_2.png" alt=""></p>
-<hr>
-<h2 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h2><p>使用三个或者三个以上的<code>-</code>或者<code>*</code>都可以。</p>
-<pre class="line-numbers language-bash"><code class="language-bash">---
+----------<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><p>效果如下：</p><p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_markdown_list_2.png" alt=""></p><hr><h2 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h2><p>使用三个或者三个以上的<code>-</code>或者<code>*</code>都可以。</p><pre class="line-numbers language-bash"><code class="language-bash">---
 ----
 ***
-*****<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p>效果如下：</p>
-<hr>
-<hr>
-<hr>
-<hr>
-<p>可以看出效果都是一样的。</p>
-<hr>
-<h2 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h2><ul>
-<li><p>粗体</p>
-<p>要加粗的文字左右分别用两个<code>*</code>号或下划线<code>_</code>包起来。</p>
-</li>
-<li><p>斜体</p>
-<p>要加斜的文字左右分别用一个<code>*</code>号或下划线<code>_</code>包起来。</p>
-</li>
-<li><p>斜粗体</p>
-<p>要加粗加斜的文字左右分别用三个<code>*</code>号或下划线<code>_</code>包起来。</p>
-</li>
-<li><p>删除线</p>
-<p>要加删除线的文字左右分别用两个波浪线<code>~~</code>包起来。</p>
-</li>
-<li><p>下划线</p>
-<p>要加下划线可以通过 HTML 的<code>&lt;u&gt;</code>标签来实现。</p>
-</li>
-<li><p>高亮</p>
-<p>文字高亮功能能使行内部分文字高亮，使用一对反引号。</p>
-</li>
-</ul>
-<pre class="line-numbers language-bash"><code class="language-bash">**这是加粗的文字**
+*****<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><p>效果如下：</p><hr><hr><hr><hr><p>可以看出效果都是一样的。</p><hr><h2 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h2><ul><li><p>粗体</p><p>要加粗的文字左右分别用两个<code>*</code>号或下划线<code>_</code>包起来。</p></li><li><p>斜体</p><p>要加斜的文字左右分别用一个<code>*</code>号或下划线<code>_</code>包起来。</p></li><li><p>斜粗体</p><p>要加粗加斜的文字左右分别用三个<code>*</code>号或下划线<code>_</code>包起来。</p></li><li><p>删除线</p><p>要加删除线的文字左右分别用两个波浪线<code>~~</code>包起来。</p></li><li><p>下划线</p><p>要加下划线可以通过 HTML 的<code>&lt;u&gt;</code>标签来实现。</p></li><li><p>高亮</p><p>文字高亮功能能使行内部分文字高亮，使用一对反引号。</p></li></ul><pre class="line-numbers language-bash"><code class="language-bash">**这是加粗的文字**
 __这是加粗的文字__
 *这是倾斜的文字*
 _这是倾斜的文字_
@@ -321,42 +19,9 @@ ___这是斜体加粗的文字___
 ~~这是加删除线的文字~~
 <span class="token operator">&lt;</span>u<span class="token operator">></span>这是加下划线的文字<span class="token operator">&lt;</span>/u<span class="token operator">></span>
 
-这是要<span class="token variable"><span class="token variable">`</span>高亮<span class="token variable">`</span></span>的文字<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>效果如下：</p>
-<p><strong>这是加粗的文字</strong><br><strong>这是加粗的文字</strong><br><em>这是倾斜的文字</em><br>_这是倾斜的文字_<br><strong><em>这是斜体加粗的文字</em></strong><br><strong>_这是斜体加粗的文字_</strong><br><del>这是加删除线的文字</del><br><u>这是加下划线的文字</u></p>
-<p>这是要<code>高亮</code>的文字</p>
-<hr>
-<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p>在引用的文字前加<code>&gt;</code>即可，同样严格语法需要中间加一个空格。引用也可以嵌套，如加两个<code>&gt;&gt;</code>三个<code>&gt;&gt;&gt;</code>n个…</p>
-<pre class="line-numbers language-bash"><code class="language-bash"><span class="token operator">></span>最外层嵌套
+这是要<span class="token variable"><span class="token variable">`</span>高亮<span class="token variable">`</span></span>的文字<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>效果如下：</p><p><strong>这是加粗的文字</strong><br><strong>这是加粗的文字</strong><br><em>这是倾斜的文字</em><br>_这是倾斜的文字_<br><strong><em>这是斜体加粗的文字</em></strong><br><strong>_这是斜体加粗的文字_</strong><br><del>这是加删除线的文字</del><br><u>这是加下划线的文字</u></p><p>这是要<code>高亮</code>的文字</p><hr><h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p>在引用的文字前加<code>&gt;</code>即可，同样严格语法需要中间加一个空格。引用也可以嵌套，如加两个<code>&gt;&gt;</code>三个<code>&gt;&gt;&gt;</code>n个…</p><pre class="line-numbers language-bash"><code class="language-bash"><span class="token operator">></span>最外层嵌套
 <span class="token operator">>></span>第一层嵌套
-<span class="token operator">>></span><span class="token operator">>></span><span class="token operator">>></span><span class="token operator">>></span><span class="token operator">>></span>最内层嵌套<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p>效果如下：</p>
-<blockquote>
-<p>最外层嵌套</p>
-<blockquote>
-<p>第一层嵌套</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>最内层嵌套</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-<hr>
-<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><p>Markdown 支持有序列表和无序列表。无序列表使用星号<code>*</code>、加号<code>+</code>或是减号<code>-</code>作为列表标记：</p>
-<pre class="line-numbers language-bash"><code class="language-bash">* 第一项
+<span class="token operator">>></span><span class="token operator">>></span><span class="token operator">>></span><span class="token operator">>></span><span class="token operator">>></span>最内层嵌套<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><p>效果如下：</p><blockquote><p>最外层嵌套</p><blockquote><p>第一层嵌套</p><blockquote><blockquote><blockquote><blockquote><blockquote><blockquote><blockquote><blockquote><p>最内层嵌套</p></blockquote></blockquote></blockquote></blockquote></blockquote></blockquote></blockquote></blockquote></blockquote></blockquote><hr><h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><p>Markdown 支持有序列表和无序列表。无序列表使用星号<code>*</code>、加号<code>+</code>或是减号<code>-</code>作为列表标记：</p><pre class="line-numbers language-bash"><code class="language-bash">* 第一项
 * 第二项
 * 第三项
 
@@ -366,100 +31,34 @@ ___这是斜体加粗的文字___
 
 - 第一项
 - 第二项
-- 第三项<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>效果如下：</p>
-<ul>
-<li>第一项</li>
-<li>第二项</li>
-<li>第三项</li>
-</ul>
-<ul>
-<li>第一项</li>
-<li>第二项</li>
-<li>第三项</li>
-</ul>
-<ul>
-<li>第一项</li>
-<li>第二项</li>
-<li>第三项</li>
-</ul>
-<p>有序列表使用数字并加上 <code>.</code> 号来表示，如：</p>
-<pre class="line-numbers language-bash"><code class="language-bash">1. 第一项
+- 第三项<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>效果如下：</p><ul><li>第一项</li><li>第二项</li><li>第三项</li></ul><ul><li>第一项</li><li>第二项</li><li>第三项</li></ul><ul><li>第一项</li><li>第二项</li><li>第三项</li></ul><p>有序列表使用数字并加上 <code>.</code> 号来表示，如：</p><pre class="line-numbers language-bash"><code class="language-bash">1. 第一项
 2. 第二项
-3. 第三项<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p>效果如下：</p>
-<ol>
-<li>第一项</li>
-<li>第二项</li>
-<li>第三项</li>
-</ol>
-<p>列表可以嵌套使用，只需在子列表中的选项添加四个空格即可：</p>
-<pre class="line-numbers language-bash"><code class="language-bash">1. 第一项：
+3. 第三项<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><p>效果如下：</p><ol><li>第一项</li><li>第二项</li><li>第三项</li></ol><p>列表可以嵌套使用，只需在子列表中的选项添加四个空格即可：</p><pre class="line-numbers language-bash"><code class="language-bash">1. 第一项：
     - 第一项嵌套的第一个元素
     - 第一项嵌套的第二个元素
 2. 第二项：
     - 第二项嵌套的第一个元素
-    - 第二项嵌套的第二个元素<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>效果如下：</p>
-<ol>
-<li>第一项：<ul>
-<li>第一项嵌套的第一个元素</li>
-<li>第一项嵌套的第二个元素</li>
-</ul>
-</li>
-<li>第二项：<ul>
-<li>第二项嵌套的第一个元素</li>
-<li>第二项嵌套的第二个元素</li>
-</ul>
-</li>
-</ol>
-<hr>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>如果是段落上的一个函数或片段的代码可以用反引号把它包起来，例如：</p>
-<pre class="line-numbers language-bash"><code class="language-bash"><span class="token variable"><span class="token variable">`</span>print<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token variable">`</span></span>函数<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>效果如下：</p>
-<p><code>print()</code>函数</p>
-<p>代码块需要使用４个空格或者一个制表符（Tab键）：</p>
-<pre class="line-numbers language-bash"><code class="language-bash">    fun <span class="token punctuation">(</span>x: Int, y: Int<span class="token punctuation">)</span>: Int <span class="token punctuation">{</span>
+    - 第二项嵌套的第二个元素<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>效果如下：</p><ol><li>第一项：<ul><li>第一项嵌套的第一个元素</li><li>第一项嵌套的第二个元素</li></ul></li><li>第二项：<ul><li>第二项嵌套的第一个元素</li><li>第二项嵌套的第二个元素</li></ul></li></ol><hr><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>如果是段落上的一个函数或片段的代码可以用反引号把它包起来，例如：</p><pre class="line-numbers language-bash"><code class="language-bash"><span class="token variable"><span class="token variable">`</span>print<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token variable">`</span></span>函数<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>效果如下：</p><p><code>print()</code>函数</p><p>代码块需要使用４个空格或者一个制表符（Tab键）：</p><pre class="line-numbers language-bash"><code class="language-bash">    fun <span class="token punctuation">(</span>x: Int, y: Int<span class="token punctuation">)</span>: Int <span class="token punctuation">{</span>
       <span class="token keyword">return</span> x + y
-    <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p>​    效果如下</p>
-<pre class="line-numbers language-kotlin"><code class="language-kotlin"><span class="token keyword">fun</span> <span class="token punctuation">(</span>x<span class="token operator">:</span> Int<span class="token punctuation">,</span> y<span class="token operator">:</span> Int<span class="token punctuation">)</span><span class="token operator">:</span> Int <span class="token punctuation">{</span>
+    <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><p>​ 效果如下</p><pre class="line-numbers language-kotlin"><code class="language-kotlin"><span class="token keyword">fun</span> <span class="token punctuation">(</span>x<span class="token operator">:</span> Int<span class="token punctuation">,</span> y<span class="token operator">:</span> Int<span class="token punctuation">)</span><span class="token operator">:</span> Int <span class="token punctuation">{</span>
   <span class="token keyword">return</span> x <span class="token operator">+</span> y
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p>或者使用’’’code’’’把代码包裹起来，也可以指定代码语言，这样可以进行代码高亮：</p>
-<pre><code>​```javascript
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><p>或者使用’’’code’’’把代码包裹起来，也可以指定代码语言，这样可以进行代码高亮：</p><pre><code>​```javascript
 $(document).ready(function () {
     alert(&#39;RUNOOB&#39;);
 });
-​```</code></pre><p>效果如下：</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token function">$</span><span class="token punctuation">(</span>document<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">ready</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+​```</code></pre><p>效果如下：</p><pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token function">$</span><span class="token punctuation">(</span>document<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">ready</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">'RUNOOB'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<hr>
-<h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><h3 id="基本链接的使用方法"><a href="#基本链接的使用方法" class="headerlink" title="基本链接的使用方法"></a>基本链接的使用方法</h3><pre><code>[链接名称](链接地址 &quot;描述&quot;)　其中描述为鼠标放到url的显示文字，可加可不加。
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><hr><h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><h3 id="基本链接的使用方法"><a href="#基本链接的使用方法" class="headerlink" title="基本链接的使用方法"></a>基本链接的使用方法</h3><pre><code>[链接名称](链接地址 &quot;描述&quot;)　其中描述为鼠标放到url的显示文字，可加可不加。
 
 或者
 
-&lt;链接地址&gt;</code></pre><pre class="line-numbers language-bash"><code class="language-bash">这是一个链接 <span class="token punctuation">[</span>hiyoung blog<span class="token punctuation">]</span><span class="token punctuation">(</span>https://hiyoungai.com　<span class="token string">"我的博客"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>效果如下：</p>
-<p>这是一个链接 <a href="https://hiyoungai.com" title="我的博客">hiyoung blog</a></p>
-<p>直接使用链接地址：</p>
-<pre><code>(https://hiyoungai.com)</code></pre><p>效果如下：</p>
-<p><a href="https://hiyoungai.com">https://hiyoungai.com</a></p>
-<h3 id="高级链接的使用方法"><a href="#高级链接的使用方法" class="headerlink" title="高级链接的使用方法"></a>高级链接的使用方法</h3><pre><code>链接使用变量代替，文档末尾定义变量且带有链接地址。
+&lt;链接地址&gt;</code></pre><pre class="line-numbers language-bash"><code class="language-bash">这是一个链接 <span class="token punctuation">[</span>hiyoung blog<span class="token punctuation">]</span><span class="token punctuation">(</span>https://hiyoungai.com　<span class="token string">"我的博客"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>效果如下：</p><p>这是一个链接 <a href="https://hiyoungai.com" title="我的博客">hiyoung blog</a></p><p>直接使用链接地址：</p><pre><code>(https://hiyoungai.com)</code></pre><p>效果如下：</p><p><a href="https://hiyoungai.com">https://hiyoungai.com</a></p><h3 id="高级链接的使用方法"><a href="#高级链接的使用方法" class="headerlink" title="高级链接的使用方法"></a>高级链接的使用方法</h3><pre><code>链接使用变量代替，文档末尾定义变量且带有链接地址。
 
 这个链接使用１作为链接变量[Google][1]
 这个链接使用url作为链接变量[baidu][url]
 
 [1]:https://www.google.com
-[url]:https://www.baidu.com</code></pre><p>效果如下：</p>
-<p>这个链接使用１作为链接变量<a href="https://www.google.com" target="_blank" rel="noopener">Google</a><br>这个链接使用url作为链接变量<a href="https://www.baidu.com" target="_blank" rel="noopener">baidu</a></p>
-<h3 id="锚点链接"><a href="#锚点链接" class="headerlink" title="锚点链接"></a>锚点链接</h3><p>每一个标题都是一个锚点，和HTML的锚点<code>#</code>类似：</p>
-<pre><code>[回到顶部](#Markdown基本语法)</code></pre><p>效果如下：</p>
-<p><a href="#Markdown基本语法">回到顶部</a></p>
-<hr>
-<h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><p>基本语法：</p>
-<pre><code>![alt 属性文本](图片地址)
+[url]:https://www.baidu.com</code></pre><p>效果如下：</p><p>这个链接使用１作为链接变量<a href="https://www.google.com" target="_blank" rel="noopener">Google</a><br>这个链接使用url作为链接变量<a href="https://www.baidu.com" target="_blank" rel="noopener">baidu</a></p><h3 id="锚点链接"><a href="#锚点链接" class="headerlink" title="锚点链接"></a>锚点链接</h3><p>每一个标题都是一个锚点，和HTML的锚点<code>#</code>类似：</p><pre><code>[回到顶部](#Markdown基本语法)</code></pre><p>效果如下：</p><p><a href="#Markdown基本语法">回到顶部</a></p><hr><h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><p>基本语法：</p><pre><code>![alt 属性文本](图片地址)
 ![alt 属性文本](图片地址 &quot;可选标题title&quot;)
 
 图片alt就是显示在图片下面的文字，相当于对图片内容的解释。
@@ -468,71 +67,14 @@ $(document).ready(function () {
 也可以使用高级链接的方式，此处不再演示。
 
 例子：
-![Write](https://cdn.jsdelivr.net/gh/hiyoung123/cdn/img/img_markdown.jpeg &quot;写作&quot;)</code></pre><p>效果如下：</p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_markdown.jpeg" alt="Write 属性文本" title="写作"></p>
-<hr>
-<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><p>Markdown 制作表格使用 <code>|</code> 来分隔不同的单元格，使用 <code>-</code> 来分隔表头和其他行。</p>
-<h3 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h3><pre><code>|  表头   | 表头  |
+![Write](https://cdn.jsdelivr.net/gh/hiyoung123/cdn/img/img_markdown.jpeg &quot;写作&quot;)</code></pre><p>效果如下：</p><p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_markdown.jpeg" alt="Write 属性文本" title="写作"></p><hr><h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><p>Markdown 制作表格使用 <code>|</code> 来分隔不同的单元格，使用 <code>-</code> 来分隔表头和其他行。</p><h3 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h3><pre><code>|  表头   | 表头  |
 |  ----  | ----  |
 | 单元格  | 单元格 |
-| 单元格  | 单元格 |</code></pre><p>效果如下：</p>
-<table>
-<thead>
-<tr>
-<th>表头</th>
-<th>表头</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>单元格</td>
-<td>单元格</td>
-</tr>
-<tr>
-<td>单元格</td>
-<td>单元格</td>
-</tr>
-</tbody></table>
-<h3 id="对齐方式"><a href="#对齐方式" class="headerlink" title="对齐方式"></a>对齐方式</h3><p>我们可以设置表格的对齐方式：</p>
-<ul>
-<li><code>-:</code> 设置内容和标题栏居右对齐。</li>
-<li><code>:-</code> 设置内容和标题栏居左对齐。</li>
-<li><code>:-:</code> 设置内容和标题栏居中对齐。</li>
-</ul>
-<p>效果如下：</p>
-<pre><code>| 左对齐 | 右对齐 | 居中对齐 |
+| 单元格  | 单元格 |</code></pre><p>效果如下：</p><table><thead><tr><th>表头</th><th>表头</th></tr></thead><tbody><tr><td>单元格</td><td>单元格</td></tr><tr><td>单元格</td><td>单元格</td></tr></tbody></table><h3 id="对齐方式"><a href="#对齐方式" class="headerlink" title="对齐方式"></a>对齐方式</h3><p>我们可以设置表格的对齐方式：</p><ul><li><code>-:</code> 设置内容和标题栏居右对齐。</li><li><code>:-</code> 设置内容和标题栏居左对齐。</li><li><code>:-:</code> 设置内容和标题栏居中对齐。</li></ul><p>效果如下：</p><pre><code>| 左对齐 | 右对齐 | 居中对齐 |
 | :-----| ----: | :----: |
 | 单元格 | 单元格 | 单元格 |
-| 单元格 | 单元格 | 单元格 |</code></pre><p>效果如下：</p>
-<table>
-<thead>
-<tr>
-<th align="left">左对齐</th>
-<th align="right">右对齐</th>
-<th align="center">居中对齐</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">单元格</td>
-<td align="right">单元格</td>
-<td align="center">单元格</td>
-</tr>
-<tr>
-<td align="left">单元格</td>
-<td align="right">单元格</td>
-<td align="center">单元格</td>
-</tr>
-</tbody></table>
-<p>而且表格中也可以混用其他语法：如粗体斜体，插入图片等。</p>
-<hr>
-<h2 id="高级技巧"><a href="#高级技巧" class="headerlink" title="高级技巧"></a>高级技巧</h2><h3 id="支持html元素"><a href="#支持html元素" class="headerlink" title="支持html元素"></a>支持html元素</h3><p>不在 Markdown 涵盖范围之内的标签，都可以直接在文档里面用 HTML 撰写。目前支持的 HTML 元素有：<code>&lt;kbd&gt; &lt;b&gt; &lt;i&gt; &lt;em&gt; &lt;sup&gt; &lt;sub&gt; &lt;br&gt;</code>等 ，如：</p>
-<pre><code>使用 &lt;kbd&gt;Ctrl&lt;/kbd&gt;+&lt;kbd&gt;Alt&lt;/kbd&gt;+&lt;kbd&gt;Del&lt;/kbd&gt; 重启电脑</code></pre><p>效果如下：</p>
-<p>使用 <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Del</kbd> 重启电脑</p>
-<h3 id="转义字符"><a href="#转义字符" class="headerlink" title="转义字符"></a>转义字符</h3><p> Markdown 使用了很多特殊符号来表示特定的意义，如果需要显示特定的符号则需要使用转义字符，Markdow使用反斜杠转义特殊字符：</p>
-<pre><code>**文本加粗**
-\*\* 正常显示星号 \*\*</code></pre><p> 效果如下：</p>
-<p><strong>文本加粗</strong><br>** 正常显示星号 **</p>
-<p> Markdown 支持以下这些符号前面加上反斜杠来帮助插入普通的符号：</p>
-<pre><code>\   反斜线
+| 单元格 | 单元格 | 单元格 |</code></pre><p>效果如下：</p><table><thead><tr><th align="left">左对齐</th><th align="right">右对齐</th><th align="center">居中对齐</th></tr></thead><tbody><tr><td align="left">单元格</td><td align="right">单元格</td><td align="center">单元格</td></tr><tr><td align="left">单元格</td><td align="right">单元格</td><td align="center">单元格</td></tr></tbody></table><p>而且表格中也可以混用其他语法：如粗体斜体，插入图片等。</p><hr><h2 id="高级技巧"><a href="#高级技巧" class="headerlink" title="高级技巧"></a>高级技巧</h2><h3 id="支持html元素"><a href="#支持html元素" class="headerlink" title="支持html元素"></a>支持html元素</h3><p>不在 Markdown 涵盖范围之内的标签，都可以直接在文档里面用 HTML 撰写。目前支持的 HTML 元素有：<code>&lt;kbd&gt; &lt;b&gt; &lt;i&gt; &lt;em&gt; &lt;sup&gt; &lt;sub&gt; &lt;br&gt;</code>等 ，如：</p><pre><code>使用 &lt;kbd&gt;Ctrl&lt;/kbd&gt;+&lt;kbd&gt;Alt&lt;/kbd&gt;+&lt;kbd&gt;Del&lt;/kbd&gt; 重启电脑</code></pre><p>效果如下：</p><p>使用 <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Del</kbd> 重启电脑</p><h3 id="转义字符"><a href="#转义字符" class="headerlink" title="转义字符"></a>转义字符</h3><p>Markdown 使用了很多特殊符号来表示特定的意义，如果需要显示特定的符号则需要使用转义字符，Markdow使用反斜杠转义特殊字符：</p><pre><code>**文本加粗**
+\*\* 正常显示星号 \*\*</code></pre><p>效果如下：</p><p><strong>文本加粗</strong><br>** 正常显示星号 **</p><p>Markdown 支持以下这些符号前面加上反斜杠来帮助插入普通的符号：</p><pre><code>\   反斜线
 `   反引号
 *   星号
 _   下划线
@@ -543,27 +85,21 @@ _   下划线
 +   加号
 -   减号
 .   英文句点
-!   感叹号</code></pre><h3 id="数学公式"><a href="#数学公式" class="headerlink" title="数学公式"></a>数学公式</h3><p>当你需要在编辑器中插入数学公式时，可以使用两个美元符 <code>$$</code> 包裹 <code>TeX</code> 或 <code>LaTeX</code> 格式的数学公式来实现。提交后，问答和文章页会根据需要加载 <code>Mathjax</code> 对数学公式进行渲染。如：</p>
-<pre><code>$$
+!   感叹号</code></pre><h3 id="数学公式"><a href="#数学公式" class="headerlink" title="数学公式"></a>数学公式</h3><p>当你需要在编辑器中插入数学公式时，可以使用两个美元符 <code>$$</code> 包裹 <code>TeX</code> 或 <code>LaTeX</code> 格式的数学公式来实现。提交后，问答和文章页会根据需要加载 <code>Mathjax</code> 对数学公式进行渲染。如：</p><pre><code>$$
 \mathbf{V}_1 \times \mathbf{V}_2 =  \begin{vmatrix}
 \mathbf{i} &amp; \mathbf{j} &amp; \mathbf{k} \\
 \frac{\partial X}{\partial u} &amp;  \frac{\partial Y}{\partial u} &amp; 0 \\
 \frac{\partial X}{\partial v} &amp;  \frac{\partial Y}{\partial v} &amp; 0 \\
 \end{vmatrix}
-$$</code></pre><p>效果如下：<br>$$<br>\mathbf{V}_1 \times \mathbf{V}_2 =  \begin{vmatrix}<br>\mathbf{i} &amp; \mathbf{j} &amp; \mathbf{k} \<br>\frac{\partial X}{\partial u} &amp;  \frac{\partial Y}{\partial u} &amp; 0 \<br>\frac{\partial X}{\partial v} &amp;  \frac{\partial Y}{\partial v} &amp; 0 \<br>\end{vmatrix}<br>$$</p>
-<h3 id="流程图"><a href="#流程图" class="headerlink" title="流程图"></a>流程图</h3><p>流程图需要平台支持，而我使用的hexo，需要安装如下三个插件：</p>
-<pre><code>npm install --save hexo-filter-flowchart
+$$</code></pre><p>效果如下：<br>$$<br>\mathbf{V}_1 \times \mathbf{V}_2 = \begin{vmatrix}<br>\mathbf{i} &amp; \mathbf{j} &amp; \mathbf{k} \<br>\frac{\partial X}{\partial u} &amp; \frac{\partial Y}{\partial u} &amp; 0 \<br>\frac{\partial X}{\partial v} &amp; \frac{\partial Y}{\partial v} &amp; 0 \<br>\end{vmatrix}<br>$$</p><h3 id="流程图"><a href="#流程图" class="headerlink" title="流程图"></a>流程图</h3><p>流程图需要平台支持，而我使用的hexo，需要安装如下三个插件：</p><pre><code>npm install --save hexo-filter-flowchart
 npm install --save hexo-filter-mermaid-diagrams
-npm install --save hexo-filter-sequence</code></pre><p>同时，对于<code>Matery</code>主题的博客还需要配置一下_config.xml和修改footer.ejs。</p>
-<p>在主题的_config.yml中添加如下代码：</p>
-<pre><code># Mermaid tag
+npm install --save hexo-filter-sequence</code></pre><p>同时，对于<code>Matery</code>主题的博客还需要配置一下_config.xml和修改footer.ejs。</p><p>在主题的_config.yml中添加如下代码：</p><pre><code># Mermaid tag
 mermaid:
   enable: true
   # Available themes: default | dark | forest | neutral
   theme: forest
   cdn: https://cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js
-  #cdn: //cdnjs.cloudflare.com/ajax/libs/mermaid/8.0.0/mermaid.min.js</code></pre><p>在footer.ejs的结尾处添加：</p>
-<pre><code>&lt;div class=&quot;progress-bar&quot;&gt;&lt;/div&gt;
+  #cdn: //cdnjs.cloudflare.com/ajax/libs/mermaid/8.0.0/mermaid.min.js</code></pre><p>在footer.ejs的结尾处添加：</p><pre><code>&lt;div class=&quot;progress-bar&quot;&gt;&lt;/div&gt;
 &lt;% if (theme.mermaid.enable) { %&gt;
   &lt;script src=&#39;&lt;%= theme.mermaid.cdn %&gt;&#39;&gt;&lt;/script&gt;
   &lt;script&gt;
@@ -571,8 +107,7 @@ mermaid:
       mermaid.initialize({theme: &#39;forest&#39;});
     }
   &lt;/script&gt;
-&lt;% } %&gt;</code></pre><p>如果不使用<code>mermaid</code>的话那么不需要上述配置。</p>
-<h4 id="横向流程图"><a href="#横向流程图" class="headerlink" title="横向流程图"></a>横向流程图</h4><pre><code>​&lt;pre class=&quot;mermaid&quot;&gt;graph LR
+&lt;% } %&gt;</code></pre><p>如果不使用<code>mermaid</code>的话那么不需要上述配置。</p><h4 id="横向流程图"><a href="#横向流程图" class="headerlink" title="横向流程图"></a>横向流程图</h4><pre><code>​&lt;pre class=&quot;mermaid&quot;&gt;graph LR
 A[方形] --&gt;B(圆角)
     B --&gt; C{条件a}
     C --&gt;|a=1| D[结果1]
@@ -583,9 +118,7 @@ A[方形] -->B(圆角)
     B --> C{条件a}
     C -->|a=1| D[结果1]
     C -->|a=2| E[结果2]
-    F[横向流程图]</pre>
-
-<h4 id="纵向流程图"><a href="#纵向流程图" class="headerlink" title="纵向流程图"></a>纵向流程图</h4><pre><code>​&lt;pre class=&quot;mermaid&quot;&gt;graph TD
+    F[横向流程图]</pre><h4 id="纵向流程图"><a href="#纵向流程图" class="headerlink" title="纵向流程图"></a>纵向流程图</h4><pre><code>​&lt;pre class=&quot;mermaid&quot;&gt;graph TD
 A[方形] --&gt; B(圆角)
     B --&gt; C{条件a}
     C --&gt; |a=1| D[结果1]
@@ -596,17 +129,7 @@ A[方形] --> B(圆角)
     B --> C{条件a}
     C --> |a=1| D[结果1]
     C --> |a=2| E[结果2]
-    F[竖向流程图]</pre>
-
-<h4 id="标准流程图"><a href="#标准流程图" class="headerlink" title="标准流程图"></a>标准流程图</h4><pre><code>​&lt;div id=&quot;flowchart-0&quot; class=&quot;flow-chart&quot;&gt;&lt;/div&gt;</code></pre><div id="flowchart-1" class="flow-chart"></div>
-
-<h4 id="标准流程图（横向）"><a href="#标准流程图（横向）" class="headerlink" title="标准流程图（横向）"></a>标准流程图（横向）</h4><pre><code>​&lt;div id=&quot;flowchart-2&quot; class=&quot;flow-chart&quot;&gt;&lt;/div&gt;</code></pre><div id="flowchart-3" class="flow-chart"></div>
-
-<h4 id="UML时序图"><a href="#UML时序图" class="headerlink" title="UML时序图"></a>UML时序图</h4><pre><code>​&lt;div id=&quot;sequence-0&quot;&gt;&lt;/div&gt;</code></pre><div id="sequence-1"></div>
-
-<h4 id="UML时序图（复杂样例）"><a href="#UML时序图（复杂样例）" class="headerlink" title="UML时序图（复杂样例）"></a>UML时序图（复杂样例）</h4><pre><code>​&lt;div id=&quot;sequence-2&quot;&gt;&lt;/div&gt;</code></pre><div id="sequence-3"></div>
-
-<h4 id="UML标准时序图"><a href="#UML标准时序图" class="headerlink" title="UML标准时序图"></a>UML标准时序图</h4><pre><code>​&lt;pre class=&quot;mermaid&quot;&gt;%% 时序图例子,-&gt; 直线，--&gt;虚线，-&gt;&gt;实线箭头
+    F[竖向流程图]</pre><h4 id="标准流程图"><a href="#标准流程图" class="headerlink" title="标准流程图"></a>标准流程图</h4><pre><code>​&lt;div id=&quot;flowchart-0&quot; class=&quot;flow-chart&quot;&gt;&lt;/div&gt;</code></pre><div id="flowchart-1" class="flow-chart"></div><h4 id="标准流程图（横向）"><a href="#标准流程图（横向）" class="headerlink" title="标准流程图（横向）"></a>标准流程图（横向）</h4><pre><code>​&lt;div id=&quot;flowchart-2&quot; class=&quot;flow-chart&quot;&gt;&lt;/div&gt;</code></pre><div id="flowchart-3" class="flow-chart"></div><h4 id="UML时序图"><a href="#UML时序图" class="headerlink" title="UML时序图"></a>UML时序图</h4><pre><code>​&lt;div id=&quot;sequence-0&quot;&gt;&lt;/div&gt;</code></pre><div id="sequence-1"></div><h4 id="UML时序图（复杂样例）"><a href="#UML时序图（复杂样例）" class="headerlink" title="UML时序图（复杂样例）"></a>UML时序图（复杂样例）</h4><pre><code>​&lt;div id=&quot;sequence-2&quot;&gt;&lt;/div&gt;</code></pre><div id="sequence-3"></div><h4 id="UML标准时序图"><a href="#UML标准时序图" class="headerlink" title="UML标准时序图"></a>UML标准时序图</h4><pre><code>​&lt;pre class=&quot;mermaid&quot;&gt;%% 时序图例子,-&gt; 直线，--&gt;虚线，-&gt;&gt;实线箭头
   sequenceDiagram
     participant 张三
     participant 李四
@@ -626,12 +149,10 @@ A[方形] --> B(圆角)
     loop 健康检查
         王五->王五: 与疾病战斗
     end
-    Note right of 王五: 合理 食物 <br/>看医生...
+    Note right of 王五: 合理 食物 <br>看医生...
     李四-->>张三: 很好!
     王五->李四: 你怎么样?
-    李四-->王五: 很好!</pre>
-
-<h4 id="甘特图"><a href="#甘特图" class="headerlink" title="甘特图"></a>甘特图</h4><pre><code>​&lt;pre class=&quot;mermaid&quot;&gt;%% 语法示例
+    李四-->王五: 很好!</pre><h4 id="甘特图"><a href="#甘特图" class="headerlink" title="甘特图"></a>甘特图</h4><pre><code>​&lt;pre class=&quot;mermaid&quot;&gt;%% 语法示例
         gantt
         dateFormat  YYYY-MM-DD
         title 软件开发甘特图
@@ -668,38 +189,14 @@ A[方形] --> B(圆角)
         section 测试
         功能测试                              :active, a1, after des3, 3d
         压力测试                               :after a1  , 20h
-        测试报告                               : 48h</pre>
-
-
-
-<h3 id="Emoj表情"><a href="#Emoj表情" class="headerlink" title="Emoj表情"></a>Emoj表情</h3><p><code>Github</code>的<code>Markdown</code>语法支持添加emoji表情，输入不同的符号码（两个冒号包着的字符）可以显示出不同的表情（本网站没有添加该插件，需要支持Github的markdwon才可以正常显示）：</p>
-<pre><code>:bluesh:</code></pre><p>效果如下：</p>
-<p>😀</p>
-<p> 具体每一个表情的符号码，可以查询<code>Github</code>的官方网页<a href="http://www.emoji-cheat-sheet.com/" target="_blank" rel="noopener">http://www.emoji-cheat-sheet.com</a>。 </p>
-<h3 id="插入视频"><a href="#插入视频" class="headerlink" title="插入视频"></a>插入视频</h3><pre><code>&lt;video id=&quot;video&quot; controls=&quot;&quot; preload=&quot;none&quot; poster=&quot;缩略图&quot;&gt;
+        测试报告                               : 48h</pre><h3 id="Emoj表情"><a href="#Emoj表情" class="headerlink" title="Emoj表情"></a>Emoj表情</h3><p><code>Github</code>的<code>Markdown</code>语法支持添加emoji表情，输入不同的符号码（两个冒号包着的字符）可以显示出不同的表情（本网站没有添加该插件，需要支持Github的markdwon才可以正常显示）：</p><pre><code>:bluesh:</code></pre><p>效果如下：</p><p>😀</p><p>具体每一个表情的符号码，可以查询<code>Github</code>的官方网页<a href="http://www.emoji-cheat-sheet.com/" target="_blank" rel="noopener">http://www.emoji-cheat-sheet.com</a>。</p><h3 id="插入视频"><a href="#插入视频" class="headerlink" title="插入视频"></a>插入视频</h3><pre><code>&lt;video id=&quot;video&quot; controls=&quot;&quot; preload=&quot;none&quot; poster=&quot;缩略图&quot;&gt;
       &lt;source id=&quot;视频url&quot; type=&quot;video/mp4&quot;&gt;
       &lt;/video&gt;
 
 例子：
 &lt;video id=&quot;video&quot; controls=&quot;&quot; preload=&quot;none&quot; poster=&quot;&quot;&gt;
       &lt;source id=&quot;mp4&quot; src=&quot;https://www.typora.io/img/beta.mp4&quot;&gt;
-      &lt;/video&gt;</code></pre><p>效果可在<a href="#Typora">Typora</a>看到。</p>
-<h3 id="插入Github-Star"><a href="#插入Github-Star" class="headerlink" title="插入Github Star"></a>插入Github Star</h3><pre><code>  &lt;iframe                         style=&quot;margin-left: 2px; margin-bottom:-5px;&quot;                         frameborder=&quot;0&quot; scrolling=&quot;0&quot; width=&quot;100px&quot; height=&quot;20px&quot;                         src=&quot;https://ghbtns.com/github-btn.html?user=hiyoung123&amp;repo=hiyoung123.github.io&amp;type=star&amp;count=true&quot; &gt;                     &lt;/iframe&gt;</code></pre><p>效果如下：</p>
-  <iframe                         style="margin-left: 2px; margin-bottom:-5px;"                         frameborder="0" scrolling="0" width="100px" height="20px"                         src="https://ghbtns.com/github-btn.html?user=hiyoung123&repo=hiyoung123.github.io&type=star&count=true" >                     </iframe>
--- -- --
-
-
-
-<h2 id="工具介绍"><a href="#工具介绍" class="headerlink" title="工具介绍"></a>工具介绍</h2><h3 id="Typora"><a href="#Typora" class="headerlink" title="Typora"></a>Typora</h3><p>特点：简洁，快速，可以实现所见即所得。看下面这个视频你就会知道他的<code>Simple, yet Powerful</code></p>
-<video id="video" width="420" height="320" autoplay muted="muted" preload="preload" loop="loop" poster="https://cdn.jsdelivr.net/gh/hiyoung123/cdn/img/loading.gif">
-      <source id="mp4" src="https://cdn.jsdelivr.net/gh/hiyoung123/CDN/video/video_markdown_typora.mp4" type="video/mp4">
-      </video>
-
-<p><a href="https://www.typora.io/" target="_blank" rel="noopener">Typora官方下载</a> </p>
-<h3 id="Atom"><a href="#Atom" class="headerlink" title="Atom"></a>Atom</h3><p>特点：插件丰富（毕竟是Github推出的），并且可以用作其他语言的编辑器。其实也可以做到一边编辑一边看结果，只不过是需要多开一个窗口，😄！</p>
-<p><a href="https://github.com/atom/atom" target="_blank" rel="noopener">Atom下载地址</a></p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>作者也是刚开始接触这两个软件，所以不是特别熟悉，等使用一段时间，对比之后再来详细的写一下。<br>流程图插件配置参考博客：<a href="https://blog.csdn.net/Olivia_Vang/article/details/92987859" target="_blank" rel="noopener">https://blog.csdn.net/Olivia_Vang/article/details/92987859</a></p>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script><textarea id="flowchart-0-code" style="display: none">st=>start: 开始框
+      &lt;/video&gt;</code></pre><p>效果可在<a href="#Typora">Typora</a>看到。</p><h3 id="插入Github-Star"><a href="#插入Github-Star" class="headerlink" title="插入Github Star"></a>插入Github Star</h3><pre><code>  &lt;iframe                         style=&quot;margin-left: 2px; margin-bottom:-5px;&quot;                         frameborder=&quot;0&quot; scrolling=&quot;0&quot; width=&quot;100px&quot; height=&quot;20px&quot;                         src=&quot;https://ghbtns.com/github-btn.html?user=hiyoung123&amp;repo=hiyoung123.github.io&amp;type=star&amp;count=true&quot; &gt;                     &lt;/iframe&gt;</code></pre><p>效果如下：</p><iframe style="margin-left:2px;margin-bottom:-5px" frameborder="0" scrolling="0" width="100px" height="20px" src="https://ghbtns.com/github-btn.html?user=hiyoung123&repo=hiyoung123.github.io&type=star&count=true"></iframe>-- -- --<h2 id="工具介绍"><a href="#工具介绍" class="headerlink" title="工具介绍"></a>工具介绍</h2><h3 id="Typora"><a href="#Typora" class="headerlink" title="Typora"></a>Typora</h3><p>特点：简洁，快速，可以实现所见即所得。看下面这个视频你就会知道他的<code>Simple, yet Powerful</code></p><video id="video" width="420" height="320" autoplay muted preload="preload" loop poster="https://cdn.jsdelivr.net/gh/hiyoung123/cdn/img/loading.gif"><source id="mp4" src="https://cdn.jsdelivr.net/gh/hiyoung123/CDN/video/video_markdown_typora.mp4" type="video/mp4"></video><p><a href="https://www.typora.io/" target="_blank" rel="noopener">Typora官方下载</a></p><h3 id="Atom"><a href="#Atom" class="headerlink" title="Atom"></a>Atom</h3><p>特点：插件丰富（毕竟是Github推出的），并且可以用作其他语言的编辑器。其实也可以做到一边编辑一边看结果，只不过是需要多开一个窗口，😄！</p><p><a href="https://github.com/atom/atom" target="_blank" rel="noopener">Atom下载地址</a></p><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>作者也是刚开始接触这两个软件，所以不是特别熟悉，等使用一段时间，对比之后再来详细的写一下。<br>流程图插件配置参考博客：<a href="https://blog.csdn.net/Olivia_Vang/article/details/92987859" target="_blank" rel="noopener">https://blog.csdn.net/Olivia_Vang/article/details/92987859</a></p><script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script><textarea id="flowchart-0-code" style="display:none">st=>start: 开始框
 op=>operation: 处理框
 cond=>condition: 判断框(是或否?)
 sub1=>subroutine: 子流程
@@ -708,7 +205,7 @@ e=>end: 结束框
 st->op->cond
 cond(yes)->io->e
 cond(no)->sub1(right)->op
-​</textarea><textarea id="flowchart-0-options" style="display: none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-0", options);</script><textarea id="flowchart-1-code" style="display: none">st=>start: 开始框
+​</textarea><textarea id="flowchart-0-options" style="display:none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>var code=document.getElementById("flowchart-0-code").value,options=JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value)),diagram=flowchart.parse(code);diagram.drawSVG("flowchart-0",options)</script><textarea id="flowchart-1-code" style="display:none">st=>start: 开始框
 op=>operation: 处理框
 cond=>condition: 判断框(是或否?)
 sub1=>subroutine: 子流程
@@ -716,7 +213,7 @@ io=>inputoutput: 输入输出框
 e=>end: 结束框
 st->op->cond
 cond(yes)->io->e
-cond(no)->sub1(right)->op</textarea><textarea id="flowchart-1-options" style="display: none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-1-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-1-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-1", options);</script><textarea id="flowchart-2-code" style="display: none">st=>start: 开始框
+cond(no)->sub1(right)->op</textarea><textarea id="flowchart-1-options" style="display:none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>var code=document.getElementById("flowchart-1-code").value,options=JSON.parse(decodeURIComponent(document.getElementById("flowchart-1-options").value)),diagram=flowchart.parse(code);diagram.drawSVG("flowchart-1",options)</script><textarea id="flowchart-2-code" style="display:none">st=>start: 开始框
 op=>operation: 处理框
 cond=>condition: 判断框(是或否?)
 sub1=>subroutine: 子流程
@@ -725,7 +222,7 @@ e=>end: 结束框
 st(right)->op(right)->cond
 cond(yes)->io(bottom)->e
 cond(no)->sub1(right)->op
-​</textarea><textarea id="flowchart-2-options" style="display: none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-2-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-2-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-2", options);</script><textarea id="flowchart-3-code" style="display: none">st=>start: 开始框
+​</textarea><textarea id="flowchart-2-options" style="display:none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>var code=document.getElementById("flowchart-2-code").value,options=JSON.parse(decodeURIComponent(document.getElementById("flowchart-2-options").value)),diagram=flowchart.parse(code);diagram.drawSVG("flowchart-2",options)</script><textarea id="flowchart-3-code" style="display:none">st=>start: 开始框
 op=>operation: 处理框
 cond=>condition: 判断框(是或否?)
 sub1=>subroutine: 子流程
@@ -733,16 +230,16 @@ io=>inputoutput: 输入输出框
 e=>end: 结束框
 st(right)->op(right)->cond
 cond(yes)->io(bottom)->e
-cond(no)->sub1(right)->op</textarea><textarea id="flowchart-3-options" style="display: none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-3-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-3-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-3", options);</script><script src="https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.27/webfontloader.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.4.1/snap.svg-min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script><textarea id="sequence-0-code" style="display: none">对象A->对象B: 对象B你好吗?（请求）
+cond(no)->sub1(right)->op</textarea><textarea id="flowchart-3-options" style="display:none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>var code=document.getElementById("flowchart-3-code").value,options=JSON.parse(decodeURIComponent(document.getElementById("flowchart-3-options").value)),diagram=flowchart.parse(code);diagram.drawSVG("flowchart-3",options)</script><script src="https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.27/webfontloader.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.4.1/snap.svg-min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script><textarea id="sequence-0-code" style="display:none">对象A->对象B: 对象B你好吗?（请求）
 Note right of 对象B: 对象B的描述
 Note left of 对象A: 对象A的描述(提示)
 对象B-->对象A: 我很好(响应)
 对象A->对象B: 你真的好吗？
-​</textarea><textarea id="sequence-0-options" style="display: none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("sequence-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("sequence-0-options").value));  var diagram = Diagram.parse(code);  diagram.drawSVG("sequence-0", options);</script><textarea id="sequence-1-code" style="display: none">对象A->对象B: 对象B你好吗?（请求）
+​</textarea><textarea id="sequence-0-options" style="display:none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>var code=document.getElementById("sequence-0-code").value,options=JSON.parse(decodeURIComponent(document.getElementById("sequence-0-options").value)),diagram=Diagram.parse(code);diagram.drawSVG("sequence-0",options)</script><textarea id="sequence-1-code" style="display:none">对象A->对象B: 对象B你好吗?（请求）
 Note right of 对象B: 对象B的描述
 Note left of 对象A: 对象A的描述(提示)
 对象B-->对象A: 我很好(响应)
-对象A->对象B: 你真的好吗？</textarea><textarea id="sequence-1-options" style="display: none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("sequence-1-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("sequence-1-options").value));  var diagram = Diagram.parse(code);  diagram.drawSVG("sequence-1", options);</script><textarea id="sequence-2-code" style="display: none">Title: 标题：复杂使用
+对象A->对象B: 你真的好吗？</textarea><textarea id="sequence-1-options" style="display:none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>var code=document.getElementById("sequence-1-code").value,options=JSON.parse(decodeURIComponent(document.getElementById("sequence-1-options").value)),diagram=Diagram.parse(code);diagram.drawSVG("sequence-1",options)</script><textarea id="sequence-2-code" style="display:none">Title: 标题：复杂使用
 对象A->对象B: 对象B你好吗?（请求）
 Note right of 对象B: 对象B的描述
 Note left of 对象A: 对象A的描述(提示)
@@ -753,7 +250,7 @@ Note left of 对象A: 对象A的描述(提示)
 Note over 小三,对象B: 我们是朋友
 participant C
 Note right of C: 没人陪我玩
-​</textarea><textarea id="sequence-2-options" style="display: none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("sequence-2-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("sequence-2-options").value));  var diagram = Diagram.parse(code);  diagram.drawSVG("sequence-2", options);</script><textarea id="sequence-3-code" style="display: none">Title: 标题：复杂使用
+​</textarea><textarea id="sequence-2-options" style="display:none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>var code=document.getElementById("sequence-2-code").value,options=JSON.parse(decodeURIComponent(document.getElementById("sequence-2-options").value)),diagram=Diagram.parse(code);diagram.drawSVG("sequence-2",options)</script><textarea id="sequence-3-code" style="display:none">Title: 标题：复杂使用
 对象A->对象B: 对象B你好吗?（请求）
 Note right of 对象B: 对象B的描述
 Note left of 对象A: 对象A的描述(提示)
@@ -763,238 +260,7 @@ Note left of 对象A: 对象A的描述(提示)
 对象A->对象B: 你真的好吗？
 Note over 小三,对象B: 我们是朋友
 participant C
-Note right of C: 没人陪我玩</textarea><textarea id="sequence-3-options" style="display: none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("sequence-3-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("sequence-3-options").value));  var diagram = Diagram.parse(code);  diagram.drawSVG("sequence-3", options);</script>
-    </div>
-
-    
-    
-    
-
-      <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/Markdown/" rel="tag"># Markdown</a>
-              <a href="/tags/Typora/" rel="tag"># Typora</a>
-              <a href="/tags/Atom/" rel="tag"># Atom</a>
-              <a href="/tags/%E6%B5%81%E7%A8%8B%E5%9B%BE/" rel="tag"># 流程图</a>
-          </div>
-
-        
-
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/posts/4dbbde95.html" rel="prev" title="最全Hexo博客搭建教程以及优化">
-      <i class="fa fa-chevron-left"></i> 最全Hexo博客搭建教程以及优化
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/posts/9eeee454.html" rel="next" title="NLP系列－中文分词（基于词典）">
-      NLP系列－中文分词（基于词典） <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
-      </footer>
-    
-  </article>
-  
-  
-  
-
-  </div>
-
-
-          </div>
-              
-    <div class="comments" id="gitalk-container"></div>
-
-        </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#标题"><span class="nav-number">1.</span> <span class="nav-text">标题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分割线"><span class="nav-number">2.</span> <span class="nav-text">分割线</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字体"><span class="nav-number">3.</span> <span class="nav-text">字体</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引用"><span class="nav-number">4.</span> <span class="nav-text">引用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列表"><span class="nav-number">5.</span> <span class="nav-text">列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">6.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#链接"><span class="nav-number">7.</span> <span class="nav-text">链接</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本链接的使用方法"><span class="nav-number">7.1.</span> <span class="nav-text">基本链接的使用方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#高级链接的使用方法"><span class="nav-number">7.2.</span> <span class="nav-text">高级链接的使用方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#锚点链接"><span class="nav-number">7.3.</span> <span class="nav-text">锚点链接</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图片"><span class="nav-number">8.</span> <span class="nav-text">图片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表格"><span class="nav-number">9.</span> <span class="nav-text">表格</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本语法"><span class="nav-number">9.1.</span> <span class="nav-text">基本语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对齐方式"><span class="nav-number">9.2.</span> <span class="nav-text">对齐方式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#高级技巧"><span class="nav-number">10.</span> <span class="nav-text">高级技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#支持html元素"><span class="nav-number">10.1.</span> <span class="nav-text">支持html元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#转义字符"><span class="nav-number">10.2.</span> <span class="nav-text">转义字符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数学公式"><span class="nav-number">10.3.</span> <span class="nav-text">数学公式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#流程图"><span class="nav-number">10.4.</span> <span class="nav-text">流程图</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#横向流程图"><span class="nav-number">10.4.1.</span> <span class="nav-text">横向流程图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#纵向流程图"><span class="nav-number">10.4.2.</span> <span class="nav-text">纵向流程图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#标准流程图"><span class="nav-number">10.4.3.</span> <span class="nav-text">标准流程图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#标准流程图（横向）"><span class="nav-number">10.4.4.</span> <span class="nav-text">标准流程图（横向）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UML时序图"><span class="nav-number">10.4.5.</span> <span class="nav-text">UML时序图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UML时序图（复杂样例）"><span class="nav-number">10.4.6.</span> <span class="nav-text">UML时序图（复杂样例）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UML标准时序图"><span class="nav-number">10.4.7.</span> <span class="nav-text">UML标准时序图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#甘特图"><span class="nav-number">10.4.8.</span> <span class="nav-text">甘特图</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Emoj表情"><span class="nav-number">10.5.</span> <span class="nav-text">Emoj表情</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插入视频"><span class="nav-number">10.6.</span> <span class="nav-text">插入视频</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插入Github-Star"><span class="nav-number">10.7.</span> <span class="nav-text">插入Github Star</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工具介绍"><span class="nav-number">11.</span> <span class="nav-text">工具介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Typora"><span class="nav-number">11.1.</span> <span class="nav-text">Typora</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Atom"><span class="nav-number">11.2.</span> <span class="nav-text">Atom</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">11.3.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="Hiyoung"
-      src="/images/avatar.gif">
-  <p class="site-author-name" itemprop="name">Hiyoung</p>
-  <div class="site-description" itemprop="description">人生何所求，致富和自由。 -《基督山伯爵》</div>
-</div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">8</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-            <a href="/categories/">
-          
-        <span class="site-state-item-count">6</span>
-        <span class="site-state-item-name">分类</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
-        <span class="site-state-item-count">24</span>
-        <span class="site-state-item-name">标签</span></a>
-      </div>
-  </nav>
-</div>
-  <div class="links-of-author motion-element">
-      <span class="links-of-author-item">
-        <a href="https://github.com/hiyoung123/" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;hiyoung123&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="/liuhaiyang.x@bytedance.com" title="E-Mail → liuhaiyang.x@bytedance.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-fw fa-rss"></i>RSS</a>
-      </span>
-  </div>
-
-
-  <div class="links-of-blogroll motion-element">
-    <div class="links-of-blogroll-title">
-      <i class="fa fa-fw fa-link"></i>
-      Links
-    </div>
-    <ul class="links-of-blogroll-list">
-        <li class="links-of-blogroll-item">
-          <a href="https://godweiyang.com/" title="https:&#x2F;&#x2F;godweiyang.com" rel="noopener" target="_blank">godweiyang</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://www.dreamwings.cn/" title="https:&#x2F;&#x2F;www.dreamwings.cn" rel="noopener" target="_blank">千千</a>
-        </li>
-    </ul>
-  </div>
-
-      </div>
-
-    </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-<div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2019</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Hiyoung</span>
-</div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
-  </div>
-  <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.6.0
-  </div>
-
-        
-<div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-user"></i>
-      </span>
-      <span class="site-uv" title="总访客量">
-        <span id="busuanzi_value_site_uv"></span>
-      </span>
-    </span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-eye"></i>
-      </span>
-      <span class="site-pv" title="总访问量">
-        <span id="busuanzi_value_site_pv"></span>
-      </span>
-    </span>
-</div>
-
-
-
-
-
-
-
-
-      </div>
-    </footer>
-  </div>
-
-  
-  <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
-<script src="/js/schemes/muse.js"></script>
-<script src="/js/next-boot.js"></script>
-
-
-
-  
-  <script>
-    (function(){
-      var bp = document.createElement('script');
-      var curProtocol = window.location.protocol.split(':')[0];
-      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(bp, s);
-    })();
-  </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  
-      
-<script type="text/x-mathjax-config">
-
-  MathJax.Hub.Config({
+Note right of C: 没人陪我玩</textarea><textarea id="sequence-3-options" style="display:none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>var code=document.getElementById("sequence-3-code").value,options=JSON.parse(decodeURIComponent(document.getElementById("sequence-3-options").value)),diagram=Diagram.parse(code);diagram.drawSVG("sequence-3",options)</script></div><footer class="post-footer"><div class="post-tags"><a href="/tags/Markdown/" rel="tag"># Markdown</a> <a href="/tags/Typora/" rel="tag"># Typora</a> <a href="/tags/Atom/" rel="tag"># Atom</a> <a href="/tags/%E6%B5%81%E7%A8%8B%E5%9B%BE/" rel="tag"># 流程图</a></div><div class="post-nav"><div class="post-nav-item"><a href="/posts/4dbbde95.html" rel="prev" title="最全Hexo博客搭建教程以及优化"><i class="fa fa-chevron-left"></i> 最全Hexo博客搭建教程以及优化</a></div><div class="post-nav-item"><a href="/posts/9eeee454.html" rel="next" title="NLP系列－中文分词（基于词典）">NLP系列－中文分词（基于词典） <i class="fa fa-chevron-right"></i></a></div></div></footer></article></div></div><div class="comments" id="gitalk-container"></div></div><div class="toggle sidebar-toggle"><span class="toggle-line toggle-line-first"></span> <span class="toggle-line toggle-line-middle"></span> <span class="toggle-line toggle-line-last"></span></div><aside class="sidebar"><div class="sidebar-inner"><ul class="sidebar-nav motion-element"><li class="sidebar-nav-toc">文章目录</li><li class="sidebar-nav-overview">站点概览</li></ul><div class="post-toc-wrap sidebar-panel"><div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#标题"><span class="nav-number">1.</span> <span class="nav-text">标题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分割线"><span class="nav-number">2.</span> <span class="nav-text">分割线</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字体"><span class="nav-number">3.</span> <span class="nav-text">字体</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引用"><span class="nav-number">4.</span> <span class="nav-text">引用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列表"><span class="nav-number">5.</span> <span class="nav-text">列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">6.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#链接"><span class="nav-number">7.</span> <span class="nav-text">链接</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本链接的使用方法"><span class="nav-number">7.1.</span> <span class="nav-text">基本链接的使用方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#高级链接的使用方法"><span class="nav-number">7.2.</span> <span class="nav-text">高级链接的使用方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#锚点链接"><span class="nav-number">7.3.</span> <span class="nav-text">锚点链接</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图片"><span class="nav-number">8.</span> <span class="nav-text">图片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表格"><span class="nav-number">9.</span> <span class="nav-text">表格</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本语法"><span class="nav-number">9.1.</span> <span class="nav-text">基本语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对齐方式"><span class="nav-number">9.2.</span> <span class="nav-text">对齐方式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#高级技巧"><span class="nav-number">10.</span> <span class="nav-text">高级技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#支持html元素"><span class="nav-number">10.1.</span> <span class="nav-text">支持html元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#转义字符"><span class="nav-number">10.2.</span> <span class="nav-text">转义字符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数学公式"><span class="nav-number">10.3.</span> <span class="nav-text">数学公式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#流程图"><span class="nav-number">10.4.</span> <span class="nav-text">流程图</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#横向流程图"><span class="nav-number">10.4.1.</span> <span class="nav-text">横向流程图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#纵向流程图"><span class="nav-number">10.4.2.</span> <span class="nav-text">纵向流程图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#标准流程图"><span class="nav-number">10.4.3.</span> <span class="nav-text">标准流程图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#标准流程图（横向）"><span class="nav-number">10.4.4.</span> <span class="nav-text">标准流程图（横向）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UML时序图"><span class="nav-number">10.4.5.</span> <span class="nav-text">UML时序图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UML时序图（复杂样例）"><span class="nav-number">10.4.6.</span> <span class="nav-text">UML时序图（复杂样例）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UML标准时序图"><span class="nav-number">10.4.7.</span> <span class="nav-text">UML标准时序图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#甘特图"><span class="nav-number">10.4.8.</span> <span class="nav-text">甘特图</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Emoj表情"><span class="nav-number">10.5.</span> <span class="nav-text">Emoj表情</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插入视频"><span class="nav-number">10.6.</span> <span class="nav-text">插入视频</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插入Github-Star"><span class="nav-number">10.7.</span> <span class="nav-text">插入Github Star</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工具介绍"><span class="nav-number">11.</span> <span class="nav-text">工具介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Typora"><span class="nav-number">11.1.</span> <span class="nav-text">Typora</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Atom"><span class="nav-number">11.2.</span> <span class="nav-text">Atom</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">11.3.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div></div><div class="site-overview-wrap sidebar-panel"><div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person"><img class="site-author-image" itemprop="image" alt="Hiyoung" src="/images/avatar.gif"><p class="site-author-name" itemprop="name">Hiyoung</p><div class="site-description" itemprop="description">人生何所求，致富和自由。 -《基督山伯爵》</div></div><div class="site-state-wrap motion-element"><nav class="site-state"><div class="site-state-item site-state-posts"><a href="/archives/"><span class="site-state-item-count">8</span> <span class="site-state-item-name">日志</span></a></div><div class="site-state-item site-state-categories"><a href="/categories/"><span class="site-state-item-count">6</span> <span class="site-state-item-name">分类</span></a></div><div class="site-state-item site-state-tags"><a href="/tags/"><span class="site-state-item-count">24</span> <span class="site-state-item-name">标签</span></a></div></nav></div><div class="links-of-author motion-element"><span class="links-of-author-item"><a href="https://github.com/hiyoung123/" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;hiyoung123&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a> </span><span class="links-of-author-item"><a href="/liuhaiyang.x@bytedance.com" title="E-Mail → liuhaiyang.x@bytedance.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</a> </span><span class="links-of-author-item"><a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-fw fa-rss"></i>RSS</a></span></div><div class="links-of-blogroll motion-element"><div class="links-of-blogroll-title"><i class="fa fa-fw fa-link"></i> Links</div><ul class="links-of-blogroll-list"><li class="links-of-blogroll-item"><a href="https://godweiyang.com/" title="https:&#x2F;&#x2F;godweiyang.com" rel="noopener" target="_blank">godweiyang</a></li><li class="links-of-blogroll-item"><a href="https://www.dreamwings.cn/" title="https:&#x2F;&#x2F;www.dreamwings.cn" rel="noopener" target="_blank">千千</a></li></ul></div></div></div></aside><div id="sidebar-dimmer"></div></div></main><footer class="footer"><div class="footer-inner"><div class="copyright">&copy; <span itemprop="copyrightYear">2019</span> <span class="with-love"><i class="fa fa-user"></i> </span><span class="author" itemprop="copyrightHolder">Hiyoung</span></div><div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0</div><span class="post-meta-divider">|</span><div class="theme-info">主题 – <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.6.0</div><div class="busuanzi-count"><script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span class="post-meta-item" id="busuanzi_container_site_uv" style="display:none"><span class="post-meta-item-icon"><i class="fa fa-user"></i> </span><span class="site-uv" title="总访客量"><span id="busuanzi_value_site_uv"></span> </span></span><span class="post-meta-divider">|</span> <span class="post-meta-item" id="busuanzi_container_site_pv" style="display:none"><span class="post-meta-item-icon"><i class="fa fa-eye"></i> </span><span class="site-pv" title="总访问量"><span id="busuanzi_value_site_pv"></span></span></span></div></div></footer></div><script src="/lib/anime.min.js"></script><script src="/lib/velocity/velocity.min.js"></script><script src="/lib/velocity/velocity.ui.min.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script><script>!function(){var t=document.createElement("script"),e=window.location.protocol.split(":")[0];t.src="https"===e?"https://zz.bdstatic.com/linksubmit/push.js":"http://push.zhanzhang.baidu.com/push.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}()</script><script type="text/x-mathjax-config">MathJax.Hub.Config({
     tex2jax: {
       inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
       processEscapes: true,
@@ -1030,22 +296,9 @@ Note right of C: 没人陪我玩</textarea><textarea id="sequence-3-options" sty
       }
       element.classList.add('has-jax');
     }
-  });
-</script>
-<script>
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+  });</script><script>NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
     MathJax.Hub.Typeset();
-  }, window.MathJax);
-</script>
-
-    
-
-  
-
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
-
-<script>
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+  }, window.MathJax);</script><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css"><script>NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
     var gitalk = new Gitalk({
       clientID: '2809c671d3e9827bdb20',
       clientSecret: '5f216884763890b0ef3751b9206ab5eade091708',
@@ -1057,8 +310,4 @@ Note right of C: 没人陪我玩</textarea><textarea id="sequence-3-options" sty
       distractionFreeMode: 'true'
     });
     gitalk.render('gitalk-container');
-  }, window.Gitalk);
-</script>
-
-<script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
-</html>
+  }, window.Gitalk);</script><script>!function(t){function n(){for(var n=0;n<e.length;n++)i=e[n],0<=(o=i.getBoundingClientRect()).top&&0<=o.left&&o.top<=(t.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,i,o,c,r=e[n];t=r,i=function(){e=e.filter(function(t){return r!==t})},o=new Image,c=t.getAttribute("data-original"),o.onload=function(){t.src=c,i&&i()},o.src=c}();var i,o}var e=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));n(),t.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(n,t)})}(this)</script></body></html><!-- rebuild by neat -->
