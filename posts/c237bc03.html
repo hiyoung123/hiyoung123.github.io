@@ -1,5 +1,537 @@
-<!-- build time:Wed Dec 04 2019 14:53:47 GMT+0800 (GMT+08:00) --><!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2"><meta name="theme-color" content="#222"><meta name="generator" content="Hexo 4.0.0"><link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png"><link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png"><link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png"><link rel="mask-icon" href="/images/logo.svg" color="#222"><meta name="google-site-verification" content="yXNWLn28ULu1e2oNTKIDLTMhXLOEd7DwMtrEmdJ0pgE"><meta name="baidu-site-verification" content="m7vWhnTCyq"><link rel="stylesheet" href="/css/main.css"><link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css"><script id="hexo-configurations">var NexT=window.NexT||{},CONFIG={hostname:new URL("https://hiyoungai.com").hostname,root:"/",scheme:"Mist",version:"7.6.0",exturl:!1,sidebar:{position:"right",display:"post",padding:18,offset:12,onmobile:!1},copycode:{enable:!1,show_result:!1,style:null},back2top:{enable:!0,sidebar:!1,scrollpercent:!1},bookmark:{enable:!1,color:"#222",save:"auto"},fancybox:!1,mediumzoom:!1,lazyload:!1,pangu:!1,algolia:{appID:"",apiKey:"",indexName:"",hits:{per_page:10},labels:{input_placeholder:"Search for Posts",hits_empty:"We didn't find any results for the search: ${query}",hits_stats:"${hits} results found in ${time} ms"}},localsearch:{enable:!1,trigger:"auto",top_n_per_article:1,unescape:!1,preload:!1},path:"search.xml",motion:{enable:!0,async:!1,transition:{post_block:"fadeIn",post_header:"slideDownIn",post_body:"slideDownIn",coll_header:"slideLeftIn",sidebar:"slideUpIn"}}}</script><meta name="description" content="Logistic回归是机器学习中最常用最经典的分类方法之一，有的人称为逻辑回归或逻辑斯蒂回归。"><meta name="keywords" content="机器学习,逻辑回归,Logistic,Sigmoid,Softmax"><meta property="og:type" content="article"><meta property="og:title" content="机器学习-Logistic回归"><meta property="og:url" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;posts&#x2F;c237bc03.html"><meta property="og:site_name" content="Young Blog"><meta property="og:description" content="Logistic回归是机器学习中最常用最经典的分类方法之一，有的人称为逻辑回归或逻辑斯蒂回归。"><meta property="og:locale" content="zh-CN"><meta property="og:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif"><meta property="og:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif"><meta property="og:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif"><meta property="og:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif"><meta property="og:updated_time" content="2019-12-03T11:50:31.340Z"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif"><link rel="canonical" href="https://hiyoungai.com/posts/c237bc03.html"><script id="page-configurations">CONFIG.page={sidebar:"",isHome:!1,isPost:!0,isPage:!1,isArchive:!1}</script><title>机器学习-Logistic回归 | Young Blog</title><noscript><style>.sidebar-inner,.use-motion .brand,.use-motion .collection-header,.use-motion .comments,.use-motion .menu-item,.use-motion .pagination,.use-motion .post-block,.use-motion .post-body,.use-motion .post-header{opacity:initial}.use-motion .site-subtitle,.use-motion .site-title{opacity:initial;top:initial}.use-motion .logo-line-before i{left:initial}.use-motion .logo-line-after i{right:initial}</style></noscript><link rel="alternate" href="/atom.xml" title="Young Blog" type="application/atom+xml"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head><body itemscope itemtype="http://schema.org/WebPage"><div class="container use-motion"><div class="headband"></div><header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="header-inner"><div class="site-brand-container"><div class="site-meta"><div><a href="/" class="brand" rel="start"><span class="logo-line-before"><i></i></span> <span class="site-title">Young Blog</span> <span class="logo-line-after"><i></i></span></a></div><p class="site-subtitle">Hi Young !</p></div><div class="site-nav-toggle"><div class="toggle" aria-label="切换导航栏"><span class="toggle-line toggle-line-first"></span> <span class="toggle-line toggle-line-middle"></span> <span class="toggle-line toggle-line-last"></span></div></div></div><nav class="site-nav"><ul id="menu" class="menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a></li></ul></nav></div></header><div class="back-to-top"><i class="fa fa-arrow-up"></i> <span>0%</span></div><div class="reading-progress-bar"></div><main class="main"><div class="main-inner"><div class="content-wrap"><div class="content"><div class="posts-expand"><article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN"><link itemprop="mainEntityOfPage" href="https://hiyoungai.com/posts/c237bc03.html"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="image" content="/images/avatar.gif"><meta itemprop="name" content="Hiyoung"><meta itemprop="description" content="人生何所求，致富和自由。 -《基督山伯爵》"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="Young Blog"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">机器学习-Logistic回归</h1><div class="post-meta"><span class="post-meta-item"><span class="post-meta-item-icon"><i class="fa fa-calendar-o"></i> </span><span class="post-meta-item-text">发表于</span> <time title="创建时间：2019-11-27 22:19:51" itemprop="dateCreated datePublished" datetime="2019-11-27T22:19:51+08:00">2019-11-27</time> </span><span class="post-meta-item"><span class="post-meta-item-icon"><i class="fa fa-calendar-check-o"></i> </span><span class="post-meta-item-text">更新于</span> <time title="修改时间：2019-12-03 19:50:31" itemprop="dateModified" datetime="2019-12-03T19:50:31+08:00">2019-12-03</time> </span><span class="post-meta-item"><span class="post-meta-item-icon"><i class="fa fa-folder-o"></i> </span><span class="post-meta-item-text">分类于</span> <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">机器学习</span> </a></span></span><span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display:none"><span class="post-meta-item-icon"><i class="fa fa-eye"></i> </span><span class="post-meta-item-text">阅读次数：</span> <span id="busuanzi_value_page_pv"></span></span></div></header><div class="post-body" itemprop="articleBody"><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Logistic回归是机器学习中最常用最经典的分类方法之一，有的人称为逻辑回归或逻辑斯蒂回归。虽然它称为回归模型，但是却处理的是分类问题，这主要是因为它的本质是一个线性模型加上一个映射函数sigmoid，将线性模型得到的连续结果映射到离散型上。它常用于二分类问题，在多分类问题的推广叫做softmax。</p><h2 id="Logisitc回归"><a href="#Logisitc回归" class="headerlink" title="Logisitc回归"></a>Logisitc回归</h2><p>由于Logistic回归是将线性模型的输出$ \theta x+b$经过$f(z)$数处理后，映射到离散值上形成分类问题，所以我们可以假设分类值$y=\{0，1\}$，所以Logistic回归模型可以写成：$h(x)=f(θx+b) $，也就是当$ \theta x+b$的值大于0时$h(x)=+1$，当$θx+b$的值小于0时$h(x)=-1$。但是这样的$f(z)$函数称为单位阶跃函数，但是它的数学性质不好，不连续也不方便求导，所以我们使用它的替代函数sigmoid函数也叫s型函数，我们用$g(x)$表示。这样线性模型的输出经过sigmoid的映射就变成了求出样本属于哪一类别的概率，即$θx+b&gt;0$的话，那么样本属于分类1的概率大一点，如果$θx+b&lt;0$的话就是样本属于1的概率小属于类别0的概率大一些。图1是单位阶跃函数（红线）与sigmoid函数（黑线）。</p><p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_ml_logic_sigmoid.webp" alt="图1"></p><p>sigmoid的函数表达式为：</p><center>$y={1\over1+e^{-z}}$<br><br></center>其中z在Logistic回归中就是$θx+b$。那么为什么要用sigmoid函数呢？<h2 id="Sigmoid函数"><a href="#Sigmoid函数" class="headerlink" title="Sigmoid函数"></a>Sigmoid函数</h2><p>从概率的角度看Logistic回归，如果将样本分为正类的概率看成$h(x)$，那么分为负类的概率就是$1-h(x)$，则Logistic回归模型的概率表达式符合$0-1$分布：</p><center>$P(y=1|x;θ) = h_θ(x)$<br><br></center><center>$P(y=0|x;θ) = 1 - h_θ(x)$<br><br></center>对上式结合就是Logistic回归的概率分布函数，也就是从概率角度的目标函数：<center>$P(y|x;θ) = (h_θ(x))^y(1 - h_θ(x))^{1-y}$<br><br></center>我们对该式进行变换，可以得到指数族分布，最后可以得出函数$h(x)$就是sigmoid函数。以下是推导过程：<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_logist_sigmoid_process.webp" alt="图2"></p><p>其中图2中的p是图4中的$h(x)$，而图2的z是线性模型的输出$θx+b$。这样从指数族分布就可以推出sigmoid函数。换一个思路，我们将一个事件发生的概率$p$与其不发生的概率$1-p$的比值叫做几率，对其取对数后称为对数几率（logit）：</p><center>$log{p\over{1-p}}$<br><br></center>令它等于线性函数θx+b，最后也可以推出$p$就是sigmoid函数，也就是图2的后半段，这样说明了sigmoid函数的值是概率值。另外，如果我们不让对数几率函数等于线性函数，让他等于其他的函数呢？这也是可以的，只不过是sigmoid函数中$z$的表达方式改变而已。<h2 id="求解Logistic回归模型参数"><a href="#求解Logistic回归模型参数" class="headerlink" title="求解Logistic回归模型参数"></a>求解Logistic回归模型参数</h2><p>我们重新整理一下Logistic回归的目标函数，他的最终形式为：</p><center>$h_θ(x) = g(θ^Tx) = {1\over{1 + e^{-θ^Tx}}}$<br><br></center>因为这是一个概率问题，所以我们可以使用极大似然估计的方式求解Logistic回归的参数$θ$。以下是求导过程：<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_loggist_process.webp" alt="图3"></p><p>其中$g()$函数是sigmoid函数，它的导数为：</p><center>$g\prime(x) = ({1\over{1 + e^{-x}}})\prime= {e^{-x}\over(1 + e^{-x})^2}$<br><br></center><center>$= {1\over{1 + e^{-x}}}\cdot{e^{-x}\over{1 + e^{-x}}} = {1\over{1 + e^{-x}}}\cdot(1 - {1\over{1 + e^{-x}}})$<br><br></center><center>$= {g(x)\cdot(1 - g(x))}$<br><br></center>这样图3得到的结果就是关于$θ$的梯度，我们通过梯度提升算法（因为目标函数是最大似然估计，求极大值所以用梯度上升，如果想用梯度下降，可以对似然函数取负就是求极小值）更新$θ$，最后就求出Logistic回归模型的参数$θ$，这与线性回归方法相同（有没有发现他们的更新梯度的目标函数也相同）。<center>$\theta_j:= \theta_j + \alpha (y^{(i)} - h_\theta(x^{(i)}))x_j^{(i)}$<br><br></center>以上就是Logistic回归模型的建立与参数估计过程，下面我们要说一下他在多分类问题中的推广-----softmax回归。<h2 id="Softmax函数"><a href="#Softmax函数" class="headerlink" title="Softmax函数"></a>Softmax函数</h2><p>Softmax与Logistic回归的主要区别就是，Logistic处理二分类问题，只有一组权重参数$θ$。而softmax处理多分类问题，如果有k个类别，那么Softmax就有k组权值参数。每组权值对应一种分类，通过k组权值求解出样本数据对应每个类别的概率，最后取概率最大的类别作为该数据的分类结果。它的概率函数为：</p><center>$p(c=k|x;\theta) = {exp(\theta^T_kx)\over{\sum^k_{I=1}exp(\theta^T_ix)}},k = 1,2,3\cdots$<br><br></center>Softmax经常用于神经网络的最后一层，用于对神经网络已经处理好的特征进行分类。<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>个人实现了一个二分类的逻辑回归，并与sklearn中的logistic回归做对比：</p><p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_logist_compare_result.webp" alt="图4"></p><p>数据只使用了鸢尾花数据的0/1两个类别，由于本代码实现的比较简单，只能处理类别为0/1的数据，有兴趣的朋友可以自己做补充，本代码只做参考。</p><p>详细代码可参考<a href="https://github.com/hiyoung123/ML" target="_blank" rel="noopener">Github</a></p></div><footer class="post-footer"><div class="post-tags"><a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag"># 机器学习</a> <a href="/tags/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/" rel="tag"># 逻辑回归</a> <a href="/tags/Logistic/" rel="tag"># Logistic</a> <a href="/tags/Sigmoid/" rel="tag"># Sigmoid</a> <a href="/tags/Softmax/" rel="tag"># Softmax</a></div><div class="post-nav"><div class="post-nav-item"><a href="/posts/4b093d11.html" rel="prev" title="压缩数据"><i class="fa fa-chevron-left"></i> 压缩数据</a></div><div class="post-nav-item"><a href="/posts/19883263.html" rel="next" title="机器学习-线性回归">机器学习-线性回归 <i class="fa fa-chevron-right"></i></a></div></div></footer></article></div></div><div class="comments" id="gitalk-container"></div></div><div class="toggle sidebar-toggle"><span class="toggle-line toggle-line-first"></span> <span class="toggle-line toggle-line-middle"></span> <span class="toggle-line toggle-line-last"></span></div><aside class="sidebar"><div class="sidebar-inner"><ul class="sidebar-nav motion-element"><li class="sidebar-nav-toc">文章目录</li><li class="sidebar-nav-overview">站点概览</li></ul><div class="post-toc-wrap sidebar-panel"><div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Logisitc回归"><span class="nav-number">2.</span> <span class="nav-text">Logisitc回归</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sigmoid函数"><span class="nav-number">3.</span> <span class="nav-text">Sigmoid函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#求解Logistic回归模型参数"><span class="nav-number">4.</span> <span class="nav-text">求解Logistic回归模型参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Softmax函数"><span class="nav-number">5.</span> <span class="nav-text">Softmax函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a></li></ol></div></div><div class="site-overview-wrap sidebar-panel"><div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person"><img class="site-author-image" itemprop="image" alt="Hiyoung" src="/images/avatar.gif"><p class="site-author-name" itemprop="name">Hiyoung</p><div class="site-description" itemprop="description">人生何所求，致富和自由。 -《基督山伯爵》</div></div><div class="site-state-wrap motion-element"><nav class="site-state"><div class="site-state-item site-state-posts"><a href="/archives/"><span class="site-state-item-count">8</span> <span class="site-state-item-name">日志</span></a></div><div class="site-state-item site-state-categories"><a href="/categories/"><span class="site-state-item-count">6</span> <span class="site-state-item-name">分类</span></a></div><div class="site-state-item site-state-tags"><a href="/tags/"><span class="site-state-item-count">24</span> <span class="site-state-item-name">标签</span></a></div></nav></div><div class="links-of-author motion-element"><span class="links-of-author-item"><a href="https://github.com/hiyoung123/" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;hiyoung123&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a> </span><span class="links-of-author-item"><a href="/liuhaiyang.x@bytedance.com" title="E-Mail → liuhaiyang.x@bytedance.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</a> </span><span class="links-of-author-item"><a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-fw fa-rss"></i>RSS</a></span></div><div class="links-of-blogroll motion-element"><div class="links-of-blogroll-title"><i class="fa fa-fw fa-link"></i> Links</div><ul class="links-of-blogroll-list"><li class="links-of-blogroll-item"><a href="https://godweiyang.com/" title="https:&#x2F;&#x2F;godweiyang.com" rel="noopener" target="_blank">godweiyang</a></li><li class="links-of-blogroll-item"><a href="https://www.dreamwings.cn/" title="https:&#x2F;&#x2F;www.dreamwings.cn" rel="noopener" target="_blank">千千</a></li></ul></div></div></div></aside><div id="sidebar-dimmer"></div></div></main><footer class="footer"><div class="footer-inner"><div class="copyright">&copy; <span itemprop="copyrightYear">2019</span> <span class="with-love"><i class="fa fa-user"></i> </span><span class="author" itemprop="copyrightHolder">Hiyoung</span></div><div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0</div><span class="post-meta-divider">|</span><div class="theme-info">主题 – <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.6.0</div><div class="busuanzi-count"><script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span class="post-meta-item" id="busuanzi_container_site_uv" style="display:none"><span class="post-meta-item-icon"><i class="fa fa-user"></i> </span><span class="site-uv" title="总访客量"><span id="busuanzi_value_site_uv"></span> </span></span><span class="post-meta-divider">|</span> <span class="post-meta-item" id="busuanzi_container_site_pv" style="display:none"><span class="post-meta-item-icon"><i class="fa fa-eye"></i> </span><span class="site-pv" title="总访问量"><span id="busuanzi_value_site_pv"></span></span></span></div></div></footer></div><script src="/lib/anime.min.js"></script><script src="/lib/velocity/velocity.min.js"></script><script src="/lib/velocity/velocity.ui.min.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script><script>!function(){var t=document.createElement("script"),e=window.location.protocol.split(":")[0];t.src="https"===e?"https://zz.bdstatic.com/linksubmit/push.js":"http://push.zhanzhang.baidu.com/push.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}()</script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="yXNWLn28ULu1e2oNTKIDLTMhXLOEd7DwMtrEmdJ0pgE">
+  <meta name="baidu-site-verification" content="m7vWhnTCyq">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://hiyoungai.com').hostname,
+    root: '/',
+    scheme: 'Mist',
+    version: '7.6.0',
+    exturl: false,
+    sidebar: {"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="Logistic回归是机器学习中最常用最经典的分类方法之一，有的人称为逻辑回归或逻辑斯蒂回归。">
+<meta name="keywords" content="机器学习,逻辑回归,Logistic,Sigmoid,Softmax">
+<meta property="og:type" content="article">
+<meta property="og:title" content="机器学习-Logistic回归">
+<meta property="og:url" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;posts&#x2F;c237bc03.html">
+<meta property="og:site_name" content="Young Blog">
+<meta property="og:description" content="Logistic回归是机器学习中最常用最经典的分类方法之一，有的人称为逻辑回归或逻辑斯蒂回归。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif">
+<meta property="og:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif">
+<meta property="og:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif">
+<meta property="og:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif">
+<meta property="og:updated_time" content="2019-12-03T11:50:31.340Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif">
+
+<link rel="canonical" href="https://hiyoungai.com/posts/c237bc03.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>机器学习-Logistic回归 | Young Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Young Blog" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Young Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Hi Young !</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://hiyoungai.com/posts/c237bc03.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hiyoung">
+      <meta itemprop="description" content="人生何所求，致富和自由。 -《基督山伯爵》">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Young Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          机器学习-Logistic回归
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-11-27 22:19:51" itemprop="dateCreated datePublished" datetime="2019-11-27T22:19:51+08:00">2019-11-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-12-03 19:50:31" itemprop="dateModified" datetime="2019-12-03T19:50:31+08:00">2019-12-03</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Logistic回归是机器学习中最常用最经典的分类方法之一，有的人称为逻辑回归或逻辑斯蒂回归。虽然它称为回归模型，但是却处理的是分类问题，这主要是因为它的本质是一个线性模型加上一个映射函数sigmoid，将线性模型得到的连续结果映射到离散型上。它常用于二分类问题，在多分类问题的推广叫做softmax。 </p>
+<h2 id="Logisitc回归"><a href="#Logisitc回归" class="headerlink" title="Logisitc回归"></a>Logisitc回归</h2><p>由于Logistic回归是将线性模型的输出$ \theta x+b$经过$f(z)$数处理后，映射到离散值上形成分类问题，所以我们可以假设分类值$y=\{0，1\}$，所以Logistic回归模型可以写成：$h(x)=f(θx+b) $，也就是当$ \theta x+b$的值大于0时$h(x)=+1$，当$θx+b$的值小于0时$h(x)=-1$。但是这样的$f(z)$函数称为单位阶跃函数，但是它的数学性质不好，不连续也不方便求导，所以我们使用它的替代函数sigmoid函数也叫s型函数，我们用$g(x)$表示。这样线性模型的输出经过sigmoid的映射就变成了求出样本属于哪一类别的概率，即$θx+b&gt;0$的话，那么样本属于分类1的概率大一点，如果$θx+b&lt;0$的话就是样本属于1的概率小属于类别0的概率大一些。图1是单位阶跃函数（红线）与sigmoid函数（黑线）。 </p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_ml_logic_sigmoid.webp" alt="图1"></p>
+<p>sigmoid的函数表达式为： </p>
+ <center> $y={1\over1+e^{-z}}$ <br><br> </center >
+其中z在Logistic回归中就是$θx+b$。那么为什么要用sigmoid函数呢？ 
+
+<h2 id="Sigmoid函数"><a href="#Sigmoid函数" class="headerlink" title="Sigmoid函数"></a>Sigmoid函数</h2><p>从概率的角度看Logistic回归，如果将样本分为正类的概率看成$h(x)$，那么分为负类的概率就是$1-h(x)$，则Logistic回归模型的概率表达式符合$0-1$分布： </p>
+<center> $P(y=1|x;θ) = h_θ(x)$ <br><br> </center >
+<center> $P(y=0|x;θ) = 1 - h_θ(x)$ <br><br> </center >
+对上式结合就是Logistic回归的概率分布函数，也就是从概率角度的目标函数： 
+
+<center> $P(y|x;θ) = (h_θ(x))^y(1 - h_θ(x))^{1-y}$  <br><br> </center >
+我们对该式进行变换，可以得到指数族分布，最后可以得出函数$h(x)$就是sigmoid函数。以下是推导过程： 
+
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_logist_sigmoid_process.webp" alt="图2"></p>
+<p>其中图2中的p是图4中的$h(x)$，而图2的z是线性模型的输出$θx+b$。这样从指数族分布就可以推出sigmoid函数。换一个思路，我们将一个事件发生的概率$p$与其不发生的概率$1-p$的比值叫做几率，对其取对数后称为对数几率（logit）：</p>
+<center> $log{p\over{1-p}}$ <br><br> </center >
+令它等于线性函数θx+b，最后也可以推出$p$就是sigmoid函数，也就是图2的后半段，这样说明了sigmoid函数的值是概率值。另外，如果我们不让对数几率函数等于线性函数，让他等于其他的函数呢？这也是可以的，只不过是sigmoid函数中$z$的表达方式改变而已。 
+
+<h2 id="求解Logistic回归模型参数"><a href="#求解Logistic回归模型参数" class="headerlink" title="求解Logistic回归模型参数"></a>求解Logistic回归模型参数</h2><p> 我们重新整理一下Logistic回归的目标函数，他的最终形式为： </p>
+<center> $h_θ(x) = g(θ^Tx) = {1\over{1 + e^{-θ^Tx}}}$ <br><br> </center >
+因为这是一个概率问题，所以我们可以使用极大似然估计的方式求解Logistic回归的参数$θ$。以下是求导过程： 
+
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_loggist_process.webp" alt="图3"></p>
+<p> 其中$g()$函数是sigmoid函数，它的导数为： </p>
+<center> $g\prime(x) = ({1\over{1 + e^{-x}}})\prime= {e^{-x}\over(1 + e^{-x})^2}$ <br><br> </center >
+<center> $= {1\over{1 + e^{-x}}}\cdot{e^{-x}\over{1 + e^{-x}}} = {1\over{1 + e^{-x}}}\cdot(1 - {1\over{1 + e^{-x}}})$ <br><br> </center >
+<center> $= {g(x)\cdot(1 - g(x))}$ <br><br> </center >
+这样图3得到的结果就是关于$θ$的梯度，我们通过梯度提升算法（因为目标函数是最大似然估计，求极大值所以用梯度上升，如果想用梯度下降，可以对似然函数取负就是求极小值）更新$θ$，最后就求出Logistic回归模型的参数$θ$，这与线性回归方法相同（有没有发现他们的更新梯度的目标函数也相同）。 
+
+<center> $\theta_j:= \theta_j +  \alpha (y^{(i)} - h_\theta(x^{(i)}))x_j^{(i)}$ <br><br> </center >
+以上就是Logistic回归模型的建立与参数估计过程，下面我们要说一下他在多分类问题中的推广-----softmax回归。 
+
+<h2 id="Softmax函数"><a href="#Softmax函数" class="headerlink" title="Softmax函数"></a>Softmax函数</h2><p>Softmax与Logistic回归的主要区别就是，Logistic处理二分类问题，只有一组权重参数$θ$。而softmax处理多分类问题，如果有k个类别，那么Softmax就有k组权值参数。每组权值对应一种分类，通过k组权值求解出样本数据对应每个类别的概率，最后取概率最大的类别作为该数据的分类结果。它的概率函数为： </p>
+<center> $p(c=k|x;\theta) = {exp(\theta^T_kx)\over{\sum^k_{I=1}exp(\theta^T_ix)}},k = 1,2,3\cdots$ <br><br> </center >
+Softmax经常用于神经网络的最后一层，用于对神经网络已经处理好的特征进行分类。
+
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>个人实现了一个二分类的逻辑回归，并与sklearn中的logistic回归做对比：</p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_logist_compare_result.webp" alt="图4"></p>
+<p>数据只使用了鸢尾花数据的0/1两个类别，由于本代码实现的比较简单，只能处理类别为0/1的数据，有兴趣的朋友可以自己做补充，本代码只做参考。 </p>
+<p>详细代码可参考<a href="https://github.com/hiyoung123/ML" target="_blank" rel="noopener">Github</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag"># 机器学习</a>
+              <a href="/tags/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/" rel="tag"># 逻辑回归</a>
+              <a href="/tags/Logistic/" rel="tag"># Logistic</a>
+              <a href="/tags/Sigmoid/" rel="tag"># Sigmoid</a>
+              <a href="/tags/Softmax/" rel="tag"># Softmax</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/4b093d11.html" rel="prev" title="压缩数据">
+      <i class="fa fa-chevron-left"></i> 压缩数据
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/posts/19883263.html" rel="next" title="机器学习-线性回归">
+      机器学习-线性回归 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+              
+    <div class="comments" id="gitalk-container"></div>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Logisitc回归"><span class="nav-number">2.</span> <span class="nav-text">Logisitc回归</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sigmoid函数"><span class="nav-number">3.</span> <span class="nav-text">Sigmoid函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#求解Logistic回归模型参数"><span class="nav-number">4.</span> <span class="nav-text">求解Logistic回归模型参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Softmax函数"><span class="nav-number">5.</span> <span class="nav-text">Softmax函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Hiyoung"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Hiyoung</p>
+  <div class="site-description" itemprop="description">人生何所求，致富和自由。 -《基督山伯爵》</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/hiyoung123/" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;hiyoung123&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/liuhaiyang.x@bytedance.com" title="E-Mail → liuhaiyang.x@bytedance.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-fw fa-rss"></i>RSS</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://godweiyang.com/" title="https:&#x2F;&#x2F;godweiyang.com" rel="noopener" target="_blank">godweiyang</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.dreamwings.cn/" title="https:&#x2F;&#x2F;www.dreamwings.cn" rel="noopener" target="_blank">千千</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hiyoung</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.6.0
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
     tex2jax: {
       inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
       processEscapes: true,
@@ -35,9 +567,22 @@
       }
       element.classList.add('has-jax');
     }
-  });</script><script>NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
     MathJax.Hub.Typeset();
-  }, window.MathJax);</script><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css"><script>NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+  }, window.MathJax);
+</script>
+
+    
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
     var gitalk = new Gitalk({
       clientID: '2809c671d3e9827bdb20',
       clientSecret: '5f216884763890b0ef3751b9206ab5eade091708',
@@ -49,4 +594,8 @@
       distractionFreeMode: 'true'
     });
     gitalk.render('gitalk-container');
-  }, window.Gitalk);</script><script>!function(t){function n(){for(var n=0;n<e.length;n++)i=e[n],0<=(o=i.getBoundingClientRect()).top&&0<=o.left&&o.top<=(t.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,i,o,c,r=e[n];t=r,i=function(){e=e.filter(function(t){return r!==t})},o=new Image,c=t.getAttribute("data-original"),o.onload=function(){t.src=c,i&&i()},o.src=c}();var i,o}var e=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));n(),t.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(n,t)})}(this)</script></body></html><!-- rebuild by neat -->
+  }, window.Gitalk);
+</script>
+
+<script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
+</html>
