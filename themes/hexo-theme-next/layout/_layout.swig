@@ -26,7 +26,11 @@
           <div class="content">
             {% block content %}{% endblock %}
           </div>
-          {% include '_partials/comments.swig' %}
+          {%- if page.type === 'tags' %}
+          {% elif page.type === 'categories' %}
+          {% else %}
+              {% include '_partials/comments.swig' %}
+          {%- endif %}
         </div>
         {%- if theme.sidebar.display !== 'remove' %}
           {% block sidebar %}{% endblock %}
