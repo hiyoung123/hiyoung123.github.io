@@ -4,10 +4,12 @@
   {% block title %}
     {%- set page_title_suffix = ' | ' + title %}
 
-    {%- if page.type === 'categories' and not page.title %}
+    {%- if page.type === 'categories' %}
       {{- __('title.category') + page_title_suffix }}
-    {%- elif page.type === 'tags' and not page.title %}
+    {%- elif page.type === 'tags' %}
       {{- __('title.tag') + page_title_suffix }}
+    {%- elif page.type === 'about' %}
+      {{- __('title.about') + page_title_suffix }}
     {%- elif page.type === 'schedule' and not page.title %}
       {{- __('title.schedule') + page_title_suffix }}
     {%- else %}
