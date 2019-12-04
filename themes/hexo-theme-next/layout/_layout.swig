@@ -39,9 +39,14 @@
     </main>
 
     <footer class="footer">
-      <div class="footer-inner">
+      <div class="container row footer-inner">
+      <div class="col">
         {{ partial('_partials/footer.swig', {}, {cache: theme.cache.enable}) }}
         {{ partial('_third-party/statistics/index.swig', {}, {cache: theme.cache.enable}) }}
+      </div>
+      <div class="col s12 m4 l4 social-link">
+        {{ partial('_partials/social-link.swig', {}, {cache: theme.cache.enable}) }}
+      </div>
       </div>
     </footer>
   </div>
