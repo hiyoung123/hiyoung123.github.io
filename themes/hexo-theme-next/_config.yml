@@ -183,7 +183,8 @@ site_state: true
 # Value before `||` delimiter is the target permalink, value after `||` delimiter is the name of Font Awesome icon.
 social:
   GitHub: https://github.com/hiyoung123/ || github
-  E-Mail: liuhaiyang.x@bytedance.com || envelope
+  E-Mail: hiyoungliu@gmail.com || envelope
+  QQ: 787420787 || qq
   #Weibo: https://weibo.com/yourname || weibo
   #Google: https://plus.google.com/yourname || google
   #Twitter: https://twitter.com/yourname || twitter

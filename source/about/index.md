@@ -3,9 +3,13 @@ title: about
 date: 2019-11-12 16:23:20
 type: "about"
 layout: "about"
+toc:
+  enable: false
 ---
 
-## About me
+<center ><h1>
+    About me
+    </h1>  </center>
 
 
 
