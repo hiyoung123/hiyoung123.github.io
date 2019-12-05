@@ -28,6 +28,7 @@
           </div>
           {%- if page.type === 'tags' %}
           {% elif page.type === 'categories' %}
+          {% elif page.type === 'coding' %}
           {% else %}
               {% include '_partials/comments.swig' %}
           {%- endif %}
