@@ -7,9 +7,3 @@ toc:
   enable: false
 ---
 
-<center ><h1>
-    About me
-    </h1>  </center>
-
-
-

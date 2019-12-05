@@ -24,6 +24,14 @@
     {### PAGE BLOCK ###}
     {##################}
     <div class="post-block" lang="{{ page.lang or page.language or config.language }}">
+      <div class="post-meta">
+      {%- if page.type === 'about' %}
+      <{%- if theme.seo %}h2{% else %}h1{%- endif %} class="post-title" itemprop="name headline">
+      About me
+      </{%- if theme.seo %}h2{% else %}h1{%- endif %}>
+      {{ partial('_partials/social-link.swig', {}, {cache: theme.cache.enable}) }}
+      </div>
+      {%- endif %}
       {#################}
       {### PAGE BODY ###}
       {#################}
