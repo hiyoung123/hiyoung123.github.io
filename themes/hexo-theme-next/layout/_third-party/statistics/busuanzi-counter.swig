@@ -1,7 +1,20 @@
 {%- if theme.busuanzi_count.enable %}
 <div class="busuanzi-count">
   <script{{ pjax }} async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  {%- if (theme.wordCount.totalCount) %}
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-area-chart"></i>
+      </span>
+      <span class="site-uv" title="站点总字数">
+        <span class="post-count">{{ totalcount(site) }}</span>
+      </span>
+    </span>
 
+  {%- endif %}
+  {%- if theme.busuanzi_count.total_visitors and theme.wordCount.totalCount %}
+    <span class="post-meta-divider">|</span>
+  {%- endif %}
   {%- if theme.busuanzi_count.total_visitors %}
     <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
       <span class="post-meta-item-icon">
