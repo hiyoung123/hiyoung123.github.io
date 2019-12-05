@@ -76,6 +76,74 @@
 
 {%- if theme.social %}
   <div class="links-of-author motion-element">
+
+
+{%- if (theme.social.GitHub) %}
+    <span class="links-of-author-item">
+    <a href="{{ theme.social.GitHub.split("||")[0] }}" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-fw fa-github"></i>GitHub
+    </a>
+    </span>
+{%- endif %}
+
+{%- if (theme.social.Email) %}
+    <span class="links-of-author-item">
+    <a href="mailto:{{ theme.social.Email.split("||")[0] }}" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-fw fa-envelope"></i>Email
+    </a>
+    </span>
+{%- endif %}
+
+{%- if (theme.social.facebook) %}
+    <span class="links-of-author-item">
+    <a href="{{ theme.social.facebook.split("||")[0] }}" class="tooltipped" target="_blank" data-tooltip="关注我的Facebook: {{ theme.social.facebook.split("||")[0] }}" data-position="top" data-delay="50">
+        <i class="fa fa-fw fa-facebook-f"></i>Facebook
+    </a>
+    </span>
+{%- endif %}
+
+{%- if (theme.social.twitter) %}
+    <span class="links-of-author-item">
+    <a href="{{ theme.social.twitter.split("||")[0] }}" class="tooltipped" target="_blank" data-tooltip="关注我的Twitter: {{ theme.social.twitter.split("||")[0] }}" data-position="top" data-delay="50">
+        <i class="fa fa-fw fa-twitter"></i>Twitter
+    </a>
+    </span>
+{%- endif %}
+
+{%- if (theme.social.QQ) %}
+    <span class="links-of-author-item">
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin={{ theme.social.QQ.split("||")[0] }}" class="tooltipped" target="_blank" data-tooltip="QQ联系我: {{ theme.social.QQ.split("||")[0] }}" data-position="top" data-delay="50">
+        <i class="fa fa-fw fa-qq"></i>QQ
+    </a>
+    </span>
+{%- endif %}
+
+{%- if (theme.social.weibo) %}
+    <span class="links-of-author-item">
+    <a href="{{ theme.social.weibo.split("||")[0] }}" class="tooltipped" target="_blank" data-tooltip="关注我的微博: {{ theme.social.weibo.split("||")[0] }}" data-position="top" data-delay="50">
+        <i class="fa fa-fw fa-weibo"></i>WeiBo
+    </a>
+    </span>
+{%- endif %}
+
+{%- if (theme.social.zhihu) %}
+    <span class="links-of-author-item">
+    <a href="{{ theme.social.zhihu.split("||")[0] }}" class="tooltipped" target="_blank" data-tooltip="关注我的知乎: {{ theme.social.zhihu.split("||")[0] }}" data-position="top" data-delay="50">
+        <i class="fa fa-fw fa-zhihu1">知</i>ZhiHu
+    </a>
+    </span>
+{%- endif %}
+
+{%- if (theme.social.RSS) %}
+    <span class="links-of-author-item">
+    <a href="{{ url_for('/atom.xml') }}" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fa fa-fw fa-rss"></i>RSS
+    </a>
+    </span>
+{%- endif %}
+
+
+<!--
     {%- for name, link in theme.social %}
       <span class="links-of-author-item">
       {%- set sidebarURL = link.split('||')[0] | trim %}
@@ -92,6 +160,7 @@
         {{ next_url(sidebarURL, sidebarIcon + sidebarText, {title: name + ' → ' + sidebarURL}) }}
       </span>
     {%- endfor %}
+-->
   </div>
 {%- endif %}
 
