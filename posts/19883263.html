@@ -47,13 +47,13 @@
   };
 </script>
 
-  <meta name="description" content="今天要说一下机器学习中大多数书籍第一个讲的（有的可能是KNN）模型-线性回归。">
+  <meta name="description" content="在监督学习中（也就是有标签的数据中），标签值为连续值时是回归任务，标志值是离散值时是分类任务。">
 <meta name="keywords" content="机器学习,线性回归,岭回归,Lasso回归">
 <meta property="og:type" content="article">
-<meta property="og:title" content="机器学习-线性回归">
+<meta property="og:title" content="机器学习 - 线性回归">
 <meta property="og:url" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;posts&#x2F;19883263.html">
 <meta property="og:site_name" content="Young Blog">
-<meta property="og:description" content="今天要说一下机器学习中大多数书籍第一个讲的（有的可能是KNN）模型-线性回归。">
+<meta property="og:description" content="在监督学习中（也就是有标签的数据中），标签值为连续值时是回归任务，标志值是离散值时是分类任务。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif">
 <meta property="og:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif">
@@ -62,7 +62,7 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif">
 <meta property="og:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif">
 <meta property="og:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif">
-<meta property="og:updated_time" content="2019-12-04T02:03:13.993Z">
+<meta property="og:updated_time" content="2019-12-05T10:05:01.546Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif">
 
@@ -80,7 +80,7 @@
   };
 </script>
 
-  <title>机器学习-线性回归 | Young Blog</title>
+  <title>机器学习 - 线性回归 | Young Blog</title>
   
 
 
@@ -156,6 +156,11 @@
     <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
 
   </li>
+        <li class="menu-item menu-item-coding">
+
+    <a href="/coding/" rel="section"><i class="fa fa-fw fa-code"></i>编程</a>
+
+  </li>
         <li class="menu-item menu-item-archives">
 
     <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
@@ -211,7 +216,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          机器学习-线性回归
+          机器学习 - 线性回归
         </h1>
 
         <div class="post-meta">
@@ -228,7 +233,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-12-04 10:03:13" itemprop="dateModified" datetime="2019-12-04T10:03:13+08:00">2019-12-04</time>
+                <time title="修改时间：2019-12-05 18:05:01" itemprop="dateModified" datetime="2019-12-05T18:05:01+08:00">2019-12-05</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -305,11 +310,12 @@
 <p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_lr_gd_2.webp" alt="图6"></p>
 <h2 id="其他回归模型"><a href="#其他回归模型" class="headerlink" title="其他回归模型"></a>其他回归模型</h2><p>在机器学习中，有时为了防止模型太复杂容易过拟合，通常会在模型上加入正则项，抑制模型复杂度，防止过拟合。在线性回归中有两种常用的正则，一个是$L1$正则，一个是$L2$正则，加入$L1$正则的称为$Lasso$回归，加入$L2$正则的为$Ridge$回归也叫岭回归。</p>
 <h3 id="Lasso回归"><a href="#Lasso回归" class="headerlink" title="Lasso回归"></a>Lasso回归</h3><center> $J({\vec\theta}) = {1\over2}\sum^m_{i=1}(h_{\vec\theta}(x^{(i)}) - y^{(i)}) + \lambda\sum^n_{j=1}{|\theta_j|}$ <br><br> </center>
+-- -- --
 
-<hr>
 <h3 id="岭回归"><a href="#岭回归" class="headerlink" title="岭回归"></a>岭回归</h3><center> $J({\vec\theta}) = {1\over2}\sum^m_{i=1}(h_{\vec\theta}(x^{(i)}) - y^{(i)}) + \lambda\sum^n_{j=1}{\theta_j^2}$ <br><br> </center>
+-- -- --
 
-<hr>
+
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>下图是个人实现代码结果与真实值对比图：</p>
 <p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_lr_compare_result.webp" alt="图7"></p>
 <p>详细代码可参考<a href="https://github.com/hiyoung123/ML" target="_blank" rel="noopener">GitHub</a></p>
@@ -334,8 +340,8 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/posts/c237bc03.html" rel="prev" title="机器学习-Logistic回归">
-      <i class="fa fa-chevron-left"></i> 机器学习-Logistic回归
+    <a href="/posts/c237bc03.html" rel="prev" title="机器学习 - Logistic回归">
+      <i class="fa fa-chevron-left"></i> 机器学习 - Logistic回归
     </a></div>
       <div class="post-nav-item"></div>
     </div>

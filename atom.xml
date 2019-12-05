@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hiyoungai.com/"/>
-  <updated>2019-12-04T02:03:13.993Z</updated>
+  <updated>2019-12-05T10:05:01.546Z</updated>
   <id>https://hiyoungai.com/</id>
   
   <author>
@@ -17,15 +17,15 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>机器学习-线性回归</title>
+    <title>机器学习 - 线性回归</title>
     <link href="https://hiyoungai.com/posts/19883263.html"/>
     <id>https://hiyoungai.com/posts/19883263.html</id>
     <published>2019-11-28T09:45:45.000Z</published>
-    <updated>2019-12-04T02:03:13.993Z</updated>
+    <updated>2019-12-05T10:05:01.546Z</updated>
     
     <summary type="html">
     
-      今天要说一下机器学习中大多数书籍第一个讲的（有的可能是KNN）模型-线性回归。
+      在监督学习中（也就是有标签的数据中），标签值为连续值时是回归任务，标志值是离散值时是分类任务。
     
     </summary>
     
@@ -44,11 +44,11 @@
   </entry>
   
   <entry>
-    <title>机器学习-Logistic回归</title>
+    <title>机器学习 - Logistic回归</title>
     <link href="https://hiyoungai.com/posts/c237bc03.html"/>
     <id>https://hiyoungai.com/posts/c237bc03.html</id>
     <published>2019-11-27T14:19:51.000Z</published>
-    <updated>2019-12-03T11:50:31.340Z</updated>
+    <updated>2019-12-05T09:46:44.823Z</updated>
     
     <summary type="html">
     
@@ -123,11 +123,11 @@
   </entry>
   
   <entry>
-    <title>如何选择职业－一个美国高级工程师的建议</title>
+    <title>如何选择职业 - 一个美国高级工程师的建议</title>
     <link href="https://hiyoungai.com/posts/97876509.html"/>
     <id>https://hiyoungai.com/posts/97876509.html</id>
     <published>2019-11-20T07:16:07.000Z</published>
-    <updated>2019-12-03T11:46:48.102Z</updated>
+    <updated>2019-12-05T09:46:52.419Z</updated>
     
     <summary type="html">
     
@@ -146,11 +146,11 @@
   </entry>
   
   <entry>
-    <title>NLP系列－中文分词（基于词典）</title>
+    <title>NLP系列 - 基于词典的中文分词</title>
     <link href="https://hiyoungai.com/posts/9eeee454.html"/>
     <id>https://hiyoungai.com/posts/9eeee454.html</id>
     <published>2019-11-19T06:50:34.000Z</published>
-    <updated>2019-12-03T11:51:30.787Z</updated>
+    <updated>2019-12-05T09:47:01.019Z</updated>
     
     <summary type="html">
     
