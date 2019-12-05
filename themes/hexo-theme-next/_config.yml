@@ -122,6 +122,7 @@ scheme: Mist
 menu:
   home: / || home
   categories: /categories/ || th
+  coding : /coding/ || code
   archives: /archives/ || archive
   tags: /tags/ || tags
   #friends: /friends/ || address-book

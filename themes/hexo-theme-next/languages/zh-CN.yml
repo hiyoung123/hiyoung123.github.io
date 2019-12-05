@@ -1,6 +1,7 @@
 ---
 title:
   archive: 归档
+  coding: 编程
   category: 分类
   tag: 标签
   schedule: 日程表
@@ -9,6 +10,7 @@ title:
 menu:
   home: 首页
   archives: 归档
+  coding: 编程
   categories: 分类
   tags: 标签
   friends: 友情链接

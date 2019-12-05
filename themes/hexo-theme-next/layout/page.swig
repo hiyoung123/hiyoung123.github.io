@@ -6,6 +6,8 @@
 
     {%- if page.type === 'categories' %}
       {{- __('title.category') + page_title_suffix }}
+    {%- elif page.type === 'coding' %}
+      {{- __('title.coding') + page_title_suffix }}
     {%- elif page.type === 'tags' %}
       {{- __('title.tag') + page_title_suffix }}
     {%- elif page.type === 'about' %}
@@ -24,8 +26,8 @@
     {### PAGE BLOCK ###}
     {##################}
     <div class="post-block" lang="{{ page.lang or page.language or config.language }}">
-      <div class="post-meta">
       {%- if page.type === 'about' %}
+      <div class="post-meta">
       <{%- if theme.seo %}h2{% else %}h1{%- endif %} class="post-title" itemprop="name headline">
       About me
       </{%- if theme.seo %}h2{% else %}h1{%- endif %}>
@@ -35,7 +37,7 @@
       {#################}
       {### PAGE BODY ###}
       {#################}
-      <div class="post-body{%- if page.direction and page.direction.toLowerCase() === 'rtl' %} rtl{%- endif %}">
+
         {%- if page.type === 'tags' %}
           <div class="tag-cloud">
             <div class="tag-cloud-title">
@@ -60,10 +62,12 @@
           {% include '_scripts/pages/schedule.swig' %}
         {% elif page.type === 'about' %}
           {{ page.content }}
+        {% elif page.type === 'coding' %}
+          {{ page.content }}
         {% else %}
           {{ page.content }}
         {%- endif %}
-      </div>
+
       {#####################}
       {### END PAGE BODY ###}
       {#####################}

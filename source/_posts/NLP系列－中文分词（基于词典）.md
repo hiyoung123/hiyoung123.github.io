@@ -1,5 +1,5 @@
 ---
-title: NLP系列－中文分词（基于词典）
+title: NLP系列 - 基于词典的中文分词
 top: false
 cover: false
 toc: true
