@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hiyoungai.com/sgyy/index.html</loc>
+    
+    <lastmod>2019-12-09T13:29:53.787Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://hiyoungai.com/coding/index.html</loc>
     
     <lastmod>2019-12-05T10:36:38.552Z</lastmod>
@@ -114,6 +121,13 @@
   </url>
   
   <url>
+    <loc>https://hiyoungai.com/musics/index.html</loc>
+    
+    <lastmod>2019-11-16T01:17:10.132Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://hiyoungai.com/galleries/index.html</loc>
     
     <lastmod>2019-11-16T01:17:10.132Z</lastmod>
@@ -122,13 +136,6 @@
   
   <url>
     <loc>https://hiyoungai.com/movies/index.html</loc>
-    
-    <lastmod>2019-11-16T01:17:10.132Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://hiyoungai.com/musics/index.html</loc>
     
     <lastmod>2019-11-16T01:17:10.132Z</lastmod>
     
