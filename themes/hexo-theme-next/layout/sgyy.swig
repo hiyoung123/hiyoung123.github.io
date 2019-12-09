@@ -1,5 +1,5 @@
 {% extends '_layout.swig' %}
-{% import '_macro/post-collapse.swig' as post_template with context %}
+
 {% import '_macro/sidebar.swig' as sidebar_template with context %}
 
 {% block title %}{{ __('title.sgyy') }} | {{ title }}{% endblock %}
@@ -11,9 +11,10 @@
   {#####################}
   {### ARCHIVE BLOCK ###}
   {#####################}
+  <svg width="960" height="600"></svg>
     <script>
 var marge = {top:60,bottom:60,left:60,right:60}
-    	var svg = d3.select("body").append("svg")
+        var svg = d3.select("svg")
     	var width = svg.attr("width")
     	var height = svg.attr("height")
     	var g = svg.append("g")
