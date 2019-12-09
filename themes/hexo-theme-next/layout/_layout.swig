@@ -7,6 +7,10 @@
   <title>{% block title %}{% endblock %}</title>
   {{ partial('_third-party/analytics/index.swig', {}, {cache: theme.cache.enable}) }}
   {{ partial('_scripts/noscript.swig', {}, {cache: theme.cache.enable}) }}
+  {%- if page.d3js %}
+    <!-- d3js -->
+    {{ partial('_partials/d3js.swig', {}, {cache: theme.cache.enable}) }}
+  {%- endif %}
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
