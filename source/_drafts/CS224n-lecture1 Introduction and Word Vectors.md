@@ -1,5 +1,6 @@
 ---
-title: "CS224n-lecture1 Introduction and Word Vectors"
+title: CS224n-lecture1 Introduction and Word Vectors
+abbrlink: 2878d2b0
 tags:
 ---
 
