@@ -4,7 +4,15 @@ abbrlink: 2878d2b0
 tags:
 ---
 
+>  CS224n 深度学习自然语言处理2019版Lecture-1学习笔记。 
+
 ## Human language and word meaning
+
+Human Language也就是所谓的自然语言，我们人类所用于沟通交流传递信息的语言。
+
+### How do we represent the meaning of a word?
+
+
 
 nltk是什么
 
