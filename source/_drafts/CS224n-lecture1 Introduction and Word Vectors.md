@@ -55,9 +55,3 @@ Cosine,余弦距离
 Euclidean欧氏距离
 
 NCE Noise Contrastive Estimation 噪声对比估计
-
-* 
-* Word2vec introduction
-* Word2vec objective function gradients
-* Optimization basics
-* Looking at word vectors
