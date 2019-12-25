@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="yXNWLn28ULu1e2oNTKIDLTMhXLOEd7DwMtrEmdJ0pgE">
+  <meta name="baidu-site-verification" content="m7vWhnTCyq">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://hiyoungai.com').hostname,
+    root: '/',
+    scheme: 'Mist',
+    version: '7.6.0',
+    exturl: false,
+    sidebar: {"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="CS224n 深度学习自然语言处理2019版Lecture-1学习笔记。">
+<meta name="keywords" content="NLP,CS224n,人工智能">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CS224n-lecture1 Introduction and Word Vectors">
+<meta property="og:url" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;posts&#x2F;2878d2b0.html">
+<meta property="og:site_name" content="Young Blog">
+<meta property="og:description" content="CS224n 深度学习自然语言处理2019版Lecture-1学习笔记。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif">
+<meta property="og:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif">
+<meta property="og:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif">
+<meta property="og:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif">
+<meta property="og:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif">
+<meta property="og:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif">
+<meta property="og:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif">
+<meta property="og:updated_time" content="2019-12-25T06:00:48.704Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif">
+
+<link rel="canonical" href="https://hiyoungai.com/posts/2878d2b0.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>CS224n-lecture1 Introduction and Word Vectors | Young Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Young Blog" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Young Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Hi Young !</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-coding">
+
+    <a href="/coding/" rel="section"><i class="fa fa-fw fa-code"></i>编程</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://hiyoungai.com/posts/2878d2b0.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hiyoung">
+      <meta itemprop="description" content="人生何所求，致富和自由。 -《基督山伯爵》">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Young Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          CS224n-lecture1 Introduction and Word Vectors
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-11-28 17:45:45" itemprop="dateCreated datePublished" datetime="2019-11-28T17:45:45+08:00">2019-11-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-12-25 14:00:48" itemprop="dateModified" datetime="2019-12-25T14:00:48+08:00">2019-12-25</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/" itemprop="url" rel="index">
+                    <span itemprop="name">自然语言处理</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote>
+<p> CS224n 深度学习自然语言处理2019版Lecture-1学习笔记。 </p>
+</blockquote>
+<p>这次的课程相比以往没有那么多的介绍，而是简短的介绍了人类语言的作用和特殊之外就开始讲主要课程。所以这里也不说多余的废话，直接进入主题。</p>
+<h2 id="Human-language-and-word-meaning"><a href="#Human-language-and-word-meaning" class="headerlink" title="Human language and word meaning"></a>Human language and word meaning</h2><h3 id="How-do-we-represent-the-meaning-of-a-word"><a href="#How-do-we-represent-the-meaning-of-a-word" class="headerlink" title="How do we represent the meaning of a word?"></a>How do we represent the meaning of a word?</h3><p>词是自然语言组成的基本单位（汉语体系是以字为基本单位），它表达了最基本的意思，通过不同词的不同排列组合才形成了我们丰富的语言世界。所以想让机器了解自然语言，首先要解决最基本的问题就是要让机器明白词的含义<strong>meaning of a word</strong>。</p>
+<h3 id="WordNet"><a href="#WordNet" class="headerlink" title="WordNet"></a>WordNet</h3><blockquote>
+<p>WordNet是由Princeton 大学的心理学家，语言学家和计算机工程师联合设计的一种基于认知语言学的英语词典。它不是光把单词以字母顺序排列，而且按照单词的意义组成一个“单词的网络”。– 百度百科</p>
+</blockquote>
+<p>说白了$WordNet$是一个网络词典，包含同义词集和上位词(“is a”关系) <strong>synonym sets and hypernyms</strong>。在$WordNet$中，用一个词的同义词和上位词来表示这个词的意思。</p>
+<p>我们可以通过Python库来访问WordNet，看看它具体是什么样子的。</p>
+<blockquote>
+<p>让jupter-notebook使用conda的虚拟环境：conda install nb_conda</p>
+<p>通过nltk访问wordnet之前，需要执行nltk.download(‘wordnet’)去下载对应的数据。</p>
+</blockquote>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">from</span> nltk<span class="token punctuation">.</span>corpus <span class="token keyword">import</span> wordnet <span class="token keyword">as</span> wn
+poses <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token string">'n'</span><span class="token punctuation">:</span><span class="token string">'noun'</span><span class="token punctuation">,</span> <span class="token string">'v'</span><span class="token punctuation">:</span><span class="token string">'verb'</span><span class="token punctuation">,</span> <span class="token string">'s'</span><span class="token punctuation">:</span><span class="token string">'adj (s)'</span><span class="token punctuation">,</span> <span class="token string">'a'</span><span class="token punctuation">:</span><span class="token string">'adj'</span><span class="token punctuation">,</span> <span class="token string">'r'</span><span class="token punctuation">:</span><span class="token string">'adv'</span><span class="token punctuation">}</span>
+<span class="token keyword">for</span> synset <span class="token keyword">in</span> wn<span class="token punctuation">.</span>synsets<span class="token punctuation">(</span><span class="token string">"good"</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"{}: {}"</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>poses<span class="token punctuation">[</span>synset<span class="token punctuation">.</span>pos<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token string">", "</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token punctuation">[</span>l<span class="token punctuation">.</span>name<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">for</span> l <span class="token keyword">in</span> synset<span class="token punctuation">.</span>lemmas<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>同义词集效果如下：</p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n_19_lec1_wn_1.png" alt=""></p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">from</span> nltk<span class="token punctuation">.</span>corpus <span class="token keyword">import</span> wordnet <span class="token keyword">as</span> wn
+panda <span class="token operator">=</span> wn<span class="token punctuation">.</span>synset<span class="token punctuation">(</span><span class="token string">"panda.n.01"</span><span class="token punctuation">)</span>
+hyper <span class="token operator">=</span> <span class="token keyword">lambda</span> s<span class="token punctuation">:</span> s<span class="token punctuation">.</span>hypernyms<span class="token punctuation">(</span><span class="token punctuation">)</span>
+list<span class="token punctuation">(</span>panda<span class="token punctuation">.</span>closure<span class="token punctuation">(</span>hyper<span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>上位词效果如下：</p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n-19-lec1-wn-2.png" alt=""></p>
+<p>NLTK：Natural Language Toolkit，自然语言处理工具包，在NLP领域中，最常使用的一个Python库。</p>
+<p>$WordNet$作为资源库很好，但是有一些缺点：</p>
+<ul>
+<li>缺少语义差别，如上面实验的”proficient”被列为“good”的同义词，只是在某些场景下是可行的。</li>
+<li>缺少新词或者词的新含义，需要不断的去更新。</li>
+<li>主观的，是通过建立者的主观意识创建的。</li>
+<li>需要人类劳动来创造和调整。</li>
+<li>无法计算单词相似度。</li>
+</ul>
+<h3 id="独热编码（one-hot）"><a href="#独热编码（one-hot）" class="headerlink" title="独热编码（one-hot）"></a>独热编码（one-hot）</h3><p>在传统的自然语言处理中，我们把词语看作离散的符号: hotel, conference, motel - a <strong>localist</strong> representation。单词可以通过独热向量（one-hot vectors，只有一个1，其余均为0的稀疏向量）。</p>
+<center> $motel=[0 0 0 0 0 0 0 0 0 0 1 0 0 0 0]$</center>
+<center>$hotel=[0 0 0 0 0 0 0 1 0 0 0 0 0 0 0]$</center> </br></br>
+向量的维度等于词库的词个数。虽然 one-hot 编码可以用作词的向量表示，但是弊端也是很明显的：
+
+<ul>
+<li>当语料库也就是词库的单词个数过大时，one-hot 编码的词向量的维度也会很大。</li>
+<li>由于one-hot 编码都是由0-1组成，并且只有表示该词的位置是１，其余位置都是０，所以过于稀疏。</li>
+<li>并且用one-hot 编码的词之间都是正交的（两个词向量的内积为０），所以无法表示两个词的相关性。</li>
+</ul>
+<h3 id="通过上下文表示词"><a href="#通过上下文表示词" class="headerlink" title="通过上下文表示词"></a>通过上下文表示词</h3><blockquote>
+<p>分布式语义：一个单词的意思是由经常出现在它附近的单词给出的。</p>
+</blockquote>
+<p>这个很容易理解，一个词实际所表达的意思往往取决于它所在的句子。有点物以类聚，人以群分的感觉。这个概念被称为现代统计$NLP$最成功的理念之一，所以才有了后来的$Word2Vec$词嵌入框架。</p>
+<p>当一个单词$w$出现在文本中时，它的上下文$context$是出现在其附近的一组单词（在一个固定大小的窗口$Window$中）。在大量的语料库中，词$w$会出现在不同的语句中，所以也就有了许多不同的上下文$context$。我们可以通过这些$context$去得到该词的有效表示。</p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n-19-lec1-context.png" alt=""></p>
+<h3 id="词向量（Word-Vector）"><a href="#词向量（Word-Vector）" class="headerlink" title="词向量（Word Vector）"></a>词向量（Word Vector）</h3><p>词向量也叫词的表示（word representations）或者词嵌入（word embeddings），它是一种分布式表示。上文说的独热和通过上下文表示都属于分布式表示，但是独热编码的方式是稀疏的高纬的，而通过上下文表示得到的向量是低纬度的稠密的（dense）。我们希望在相似的$context$下的$word vector$也较为相似。</p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n_19_lec1_dens_vector.png" alt=""></p>
+<p>词向量在NLP中非常重要，一个训练好的词向量模型，可以很好的表达出词与词之间的关系。使得可以很好的进行下游任务的处理，有助于提高模型的性能和准确率。</p>
+<h2 id="Word2Vec"><a href="#Word2Vec" class="headerlink" title="Word2Vec"></a>Word2Vec</h2><h3 id="Word2vec-introduction"><a href="#Word2vec-introduction" class="headerlink" title="Word2vec introduction"></a>Word2vec introduction</h3><p>$Word2Vec(Mikolov et al. 2013)$是一个学习词向量的框架，通过模型将自然语言的单词映射到n维空间中，这个n就是词向量的维度。在该空间中，语义相近的词向量位置相对比较接近。</p>
+<p>它的主要思路是：</p>
+<ul>
+<li>我们有大量的语料文本 (corpus means ‘body’ in Latin. 复数为corpora)。</li>
+<li>固定词汇表中的每个单词都由一个向量表示。</li>
+<li>文本中的每个位置$t$，其中有一个中心词$c$和上下文$context$单词$o$。</li>
+<li>使用$c$和$o$的词向量的相似性来计算给定$c$的$o$的概率$P(o|c)$（反之亦然）。</li>
+<li>不断调整词向量来最大化这个概率。</li>
+</ul>
+<p>下图为窗口大小$j=2$时的$P(w_t+j|w_t)$计算过程，center word分别为$into$和$banking$。</p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n_19_lec1_w2v_ov.png" alt=""></p>
+<p>当我们扫到下一个位置时，banking就成为center word。</p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n_19_lec1_w2v_ov1.png" alt=""></p>
+<h3 id="Word2vec-objective-function"><a href="#Word2vec-objective-function" class="headerlink" title="Word2vec objective function"></a>Word2vec objective function</h3><p>对于每个位置$t=1,\dots,T$，其中$T$为一句话中单词的个数。在大小为$m$的固定窗口$Window$内预测上下文单词，给定中心词$w_j$。</p>
+<center>$Likelihood = L(\theta) = \prod_{t=1}^T \prod_{-m \leq j \leq m , j\neq 0} P(w_{t+j}|w_t;\theta)$</center></br></br>
+其中，$\theta$是所有需要优化的变量。
+
+<p>目标函数$J(\theta)$也叫代价函数或者损失函数。上述公式中求乘的方式最后得到一个非常小的值，因为每个概率$P$都是小于１大于０的小数，通过不断相乘（我们知道小于１的小数乘以一个小于１的小数会比这两个小数值更小）最后得到一个非常小的小数。所以我们通常会转为求对数，也就是在上述公式的两边加上$Log$，其中右边就可以转化为对数求和的形式。同时根据凸优化理论，我们将求最大化转为求最小化，变形后的目标函数为（平均）负对数似然：</p>
+<center>$J(\theta) = -{1\over T}LogL(\theta) = -{1\over T}\sum^T_{t=1} \sum_{-m\leq j\leq m,j\neq 0}LogP(w_{t+j}|w_t;\theta)$</center></br></br>
+那么问题来了，我们如何计算$P(w_{t+j}|w_t)$呢？答案是使用$Softmax$函数来计算概率。
+
+<h3 id="Softmax"><a href="#Softmax" class="headerlink" title="Softmax"></a>Softmax</h3><p>在这里对于每个单词$w$使用两个向量：</p>
+<ul>
+<li>$v_w$当$w$是中心词的时候。</li>
+<li>$u_w$当$w$是上下文词的时候。</li>
+</ul>
+<p>然后对于一个中心词$c$和一个上下文词$o$的概率$P$：</p>
+<center> $P(o|c) = {exp(u_o^T v_c)\over \sum_{w\in V}exp(u_w^T v_c)}$</center></br></br>
+其中，$T$表示的是向量$u_o$的转置，而不是上文所代表的单词数量T。
+
+<center> $u^T v = u\cdot v = \sum_{i=1}^n u_i v_i$</center> </br></br>
+公式中向量$u_o$和向量$v_c$进行了点乘来计算词向量之间的相似度，向量之间相似度越高点乘的结果越大。模型的训练正是为了使得具有相似上下文的单词，具有相似的向量。
+
+<blockquote>
+<p>两个向量内积的几何含义是什么</p>
+<p>定义：两个向量a与b的内积为 a·b = |a||b|cos∠(a, b)，特别地，0·a =a·0 = 0；若a，b是非零向量，则a与b正交的充要条件是a·b = 0。</p>
+</blockquote>
+<p>分子中加上$exp$指数，一是为了防止内积为负数，二是为了使得内积大的概率值更大，内积小的概率值更小。</p>
+<p>分母中对整个词汇进行归一化以给出概率分布，其中$V$是整个词汇表中单词的个数。</p>
+<p>上述的内容就是一个$softmax$函数的应用例子。</p>
+<center>$softmax(x_i) = {exp(x_i) \over \sum_{j=1}^n exp(x_j)} = p_i$</center></br></br>
+$softmax$函数将一个值$x_i$映射成对应的概率值$p_i$。
+
+<ul>
+<li><strong>max</strong> ：因为放大了最大的概率。</li>
+<li><strong>soft</strong> ：因为仍然为较小的$x_i$赋予了一定概率。</li>
+<li>$softmax$通常用于深度学习中。</li>
+</ul>
+<h3 id="Training-a-model-by-optimizing-parameters"><a href="#Training-a-model-by-optimizing-parameters" class="headerlink" title="Training a model by optimizing parameters"></a>Training a model by optimizing parameters</h3><p>有了目标函数，我们就可以通过梯度下降法来优化参数$\theta$，在这里$\theta$就是我们的词向量，也就是模型中所有的参数。比如，我们有$V$个单词，每个单词取$d$维度。那么$\theta$可以表示为：</p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n-19-lec1-theta.png" alt=""></p>
+<p>要记住的是这里每个单词都有两个向量作为中心词时的$v_w$和作为上下文词时的$u_w$。在训练时首先要随机初始化两个向量，通过梯度下降法不断更新向量，最后取平均值来表示该词的词向量。</p>
+<h2 id="Word2vec-objective-function-gradients"><a href="#Word2vec-objective-function-gradients" class="headerlink" title="Word2vec objective function gradients"></a>Word2vec objective function gradients</h2><h3 id="储备知识"><a href="#储备知识" class="headerlink" title="储备知识"></a>储备知识</h3><p>现在我们来求解目标函数的梯度，这需要用到一些高等数学和线性代数的知识。</p>
+<ul>
+<li>求偏导数</li>
+<li>对数的导数求法</li>
+<li>指数的导数求法</li>
+<li>链式求导法则</li>
+</ul>
+<h3 id="Calculating-all-gradients"><a href="#Calculating-all-gradients" class="headerlink" title="Calculating all gradients"></a>Calculating all gradients</h3><p>根据求导法则偏导数可以移进求和中：</p>
+<center>${\partial \over \partial x }\sum_i y_i = \sum_i { {\partial \over \partial x} y_i}$ </center></br></br>
+
+<p>所以我们对$J(\theta)$求偏导可以只关注累加内部的$P$的求导，最后将前面的两个累加填上去就可以了。</p>
+<p>先求中心词$v_c$的偏导：</p>
+<center> ${\partial \over \partial v_c} log P(o|c)={\partial \over \partial v_c}log{exp(u^T_o v_c)\over {\sum_{w\in V} exp(u^T_w v_c)}}$</center>
+<center> $ = {\partial \over \partial v_c} {(log exp(u^T_o v_c) - log\sum_{w\in V}exp(u^T_w v_c))} $</center>
+<center> $ = { {\partial \over \partial v_c}(u^T_o v_c - log\sum_{w\in V}exp(u^T_w v_c))}$</center>
+<center> $ = {u_o - {\sum_{w\in V}exp(u^T_w v_c)u_w \over \sum_{w\in V}exp(u^T_w v_c)}}$</center>
+<center> $ = {u_o - \sum_{w\in V}{exp(u^T_w v_c)\over \sum_{w\in V}exp(u^T_w) v_c} u_w}$</center>
+<center> $ = {u_o - \sum_{w\in V}P(w|c)u_w}$</center></br></br>
+
+<p>再求上下文词$u_o$的偏导：</p>
+<center>${\partial \over \partial u_o} log P(o|c)={\partial \over \partial u_o}log{exp(u^T_o v_c)\over {\sum_{w\in V} exp(u^T_w v_c)}}$</center>
+<center>$ = {\partial \over \partial u_o} {(log exp(u^T_o v_c) - log\sum_{w\in V}exp(u^T_w v_c))} $</center>
+<center>$ = { {\partial \over \partial u_o}(u^T_o v_c - log\sum_{w\in V}exp(u^T_w v_c))}$</center>
+<center>$ = {v_c - {log\sum_{w\in V}{\partial \over \partial u_o} exp(u^T_w v_c) \over \sum_{w\in V}exp(u^T_w v_c)}}$</center>
+<center>$ = {v_c - {exp(u^T_o v_c) v_c\over \sum_{w\in V}exp(u^T_w v_c)}}$</center>
+<center>$ = {v_c - {exp(u^T_o v_c)\over \sum_{w\in V}exp(u^T_w v_c)}v_c}$</center>
+<center>$ = {v_c - P(o|c)v_c}$</center>
+<center>$ = {(1 - P(o|c))v_c}$</center> </br></br>
+
+<p>这样我们就得到了某一时刻的中心词和上下文词的梯度，这样通过下面的公式去更新梯度也就是对应的词向量：</p>
+<center>$\theta ^{new}_j = \theta ^{old}_j - \alpha {\partial\over \partial \theta _j^{old}}J(\theta)$</center></br></br>
+
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这里的$word2vec$算法又被叫做Skip-Gram model，还有另一种$word2vec$算法是Continuous Bag of Words，简称$CBOW$，它们的原理区别是Skip-Gram是求context word相对于center word的条件概率，也就是知道通过中心词求上下文词。而$CBOW$是求center相对于context word的条件概率，也就是通过上下文词求中心词。其他方面基本类似。</p>
+<p>加快训练的$trick$有负采样（Negative sampling）和层次$Softmax$。</p>
+<p>这些内容会在Notes中介绍，这里不再赘述。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/NLP/" rel="tag"># NLP</a>
+              <a href="/tags/CS224n/" rel="tag"># CS224n</a>
+              <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag"># 人工智能</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/19883263.html" rel="prev" title="机器学习 - 线性回归">
+      <i class="fa fa-chevron-left"></i> 机器学习 - 线性回归
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/posts/f17e61a2.html" rel="next" title="人工智能名校课程汇总">
+      人工智能名校课程汇总 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+              
+    <div class="comments" id="gitalk-container"></div>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Human-language-and-word-meaning"><span class="nav-text">Human language and word meaning</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#How-do-we-represent-the-meaning-of-a-word"><span class="nav-text">How do we represent the meaning of a word?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#WordNet"><span class="nav-text">WordNet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#独热编码（one-hot）"><span class="nav-text">独热编码（one-hot）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过上下文表示词"><span class="nav-text">通过上下文表示词</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#词向量（Word-Vector）"><span class="nav-text">词向量（Word Vector）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Word2Vec"><span class="nav-text">Word2Vec</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Word2vec-introduction"><span class="nav-text">Word2vec introduction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Word2vec-objective-function"><span class="nav-text">Word2vec objective function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Softmax"><span class="nav-text">Softmax</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Training-a-model-by-optimizing-parameters"><span class="nav-text">Training a model by optimizing parameters</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Word2vec-objective-function-gradients"><span class="nav-text">Word2vec objective function gradients</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#储备知识"><span class="nav-text">储备知识</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Calculating-all-gradients"><span class="nav-text">Calculating all gradients</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-text">总结</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Hiyoung"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Hiyoung</p>
+  <div class="site-description" itemprop="description">人生何所求，致富和自由。 -《基督山伯爵》</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">34</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+    <span class="links-of-author-item">
+    <a href="https://github.com/hiyoung123/ " class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-fw fa-github"></i>GitHub
+    </a>
+    </span>
+    <span class="links-of-author-item">
+    <a href="mailto:hiyoungliu@gmail.com " class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-fw fa-envelope"></i>Email
+    </a>
+    </span>
+    <span class="links-of-author-item">
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=787420787 " class="tooltipped" target="_blank" data-tooltip="QQ联系我: 787420787 " data-position="top" data-delay="50">
+        <i class="fa fa-fw fa-qq"></i>QQ
+    </a>
+    </span>
+    <span class="links-of-author-item">
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fa fa-fw fa-rss"></i>RSS
+    </a>
+    </span>
+
+
+<!--
+      <span class="links-of-author-item">
+        <a href="https://github.com/hiyoung123/" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;hiyoung123&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/hiyoungliu@gmail.com" title="Email → hiyoungliu@gmail.com"><i class="fa fa-fw fa-envelope"></i>Email</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/787420787" title="QQ → 787420787"><i class="fa fa-fw fa-qq"></i>QQ</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-fw fa-rss"></i>RSS</a>
+      </span>
+-->
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://godweiyang.com/" title="https:&#x2F;&#x2F;godweiyang.com" rel="noopener" target="_blank">godweiyang</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.dreamwings.cn/" title="https:&#x2F;&#x2F;www.dreamwings.cn" rel="noopener" target="_blank">千千</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://wdxtub.com/" title="https:&#x2F;&#x2F;wdxtub.com" rel="noopener" target="_blank">小土刀</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://codewithzhangyi.com/" title="http:&#x2F;&#x2F;codewithzhangyi.com" rel="noopener" target="_blank">Zhang Yi</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hiyoung</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.6.0
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-area-chart"></i>
+      </span>
+      <span class="site-uv" title="站点总字数">
+        <span class="post-count">24.1k</span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID: '2809c671d3e9827bdb20',
+      clientSecret: '5f216884763890b0ef3751b9206ab5eade091708',
+      repo: 'hiyoung123.github.io',
+      owner: 'hiyoung123',
+      admin: ['hiyoung123'],
+      id: 'a9a09ff118185f3772ffcd227e10d857',
+        language: '',
+      distractionFreeMode: 'true'
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+</script>
+
+<script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
+</html>
