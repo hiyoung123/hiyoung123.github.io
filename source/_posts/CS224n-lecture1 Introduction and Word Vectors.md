@@ -1,7 +1,18 @@
 ---
 title: CS224n-lecture1 Introduction and Word Vectors
 abbrlink: 2878d2b0
+top: false
+cover: false
+toc: true
+mathjax: true
 tags:
+  - NLP
+  - CS224n
+  - 人工智能
+categories:
+  - 自然语言处理
+date: 2019-11-28 17:45:45
+excerpt: CS224n 深度学习自然语言处理2019版Lecture-1学习笔记。
 ---
 
 >  CS224n 深度学习自然语言处理2019版Lecture-1学习笔记。 
@@ -123,7 +134,6 @@ $Word2Vec(Mikolov et al. 2013)$是一个学习词向量的框架，通过模型�
 目标函数$J(\theta)$也叫代价函数或者损失函数。上述公式中求乘的方式最后得到一个非常小的值，因为每个概率$P$都是小于１大于０的小数，通过不断相乘（我们知道小于１的小数乘以一个小于１的小数会比这两个小数值更小）最后得到一个非常小的小数。所以我们通常会转为求对数，也就是在上述公式的两边加上$Log$，其中右边就可以转化为对数求和的形式。同时根据凸优化理论，我们将求最大化转为求最小化，变形后的目标函数为（平均）负对数似然：
 
 <center>$J(\theta) = -{1\over T}LogL(\theta) = -{1\over T}\sum^T_{t=1} \sum_{-m\leq j\leq m,j\neq 0}LogP(w_{t+j}|w_t;\theta)$</center></br></br>
-
 那么问题来了，我们如何计算$P(w_{t+j}|w_t)$呢？答案是使用$Softmax$函数来计算概率。
 
 ### Softmax
@@ -136,11 +146,9 @@ $Word2Vec(Mikolov et al. 2013)$是一个学习词向量的框架，通过模型�
 然后对于一个中心词$c$和一个上下文词$o$的概率$P$：
 
 <center> $P(o|c) = {exp(u_o^T v_c)\over \sum_{w\in V}exp(u_w^T v_c)}$</center></br></br>
-
 其中，$T$表示的是向量$u_o$的转置，而不是上文所代表的单词数量T。
 
 <center> $u^T v = u\cdot v = \sum_{i=1}^n u_i v_i$</center> </br></br>
-
 公式中向量$u_o$和向量$v_c$进行了点乘来计算词向量之间的相似度，向量之间相似度越高点乘的结果越大。模型的训练正是为了使得具有相似上下文的单词，具有相似的向量。
 
 > 两个向量内积的几何含义是什么
@@ -154,7 +162,6 @@ $Word2Vec(Mikolov et al. 2013)$是一个学习词向量的框架，通过模型�
 上述的内容就是一个$softmax$函数的应用例子。
 
 <center>$softmax(x_i) = {exp(x_i) \over \sum_{j=1}^n exp(x_j)} = p_i$</center></br></br>
-
 $softmax$函数将一个值$x_i$映射成对应的概率值$p_i$。
 
 * **max** ：因为放大了最大的概率。
@@ -163,30 +170,65 @@ $softmax$函数将一个值$x_i$映射成对应的概率值$p_i$。
 
 ### Training a model by optimizing parameters
 
+有了目标函数，我们就可以通过梯度下降法来优化参数$\theta$，在这里$\theta$就是我们的词向量，也就是模型中所有的参数。比如，我们有$V$个单词，每个单词取$d$维度。那么$\theta$可以表示为：
+
+![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n-19-lec1-theta.png)
+
+要记住的是这里每个单词都有两个向量作为中心词时的$v_w$和作为上下文词时的$u_w$。在训练时首先要随机初始化两个向量，通过梯度下降法不断更新向量，最后取平均值来表示该词的词向量。
 
 
-优化
 
-log的导数
+## Word2vec objective function gradients
 
-指数的导数
+### 储备知识
 
-语言模型
+现在我们来求解目标函数的梯度，这需要用到一些高等数学和线性代数的知识。
 
-SVD
+* 求偏导数
+* 对数的导数求法
+* 指数的导数求法
+* 链式求导法则
 
-Skip-gram
+### Calculating all gradients
 
-CBOW
+根据求导法则偏导数可以移进求和中：
 
-负采样
+<center>${\partial \over \partial x }\sum_i y_i = \sum_i { {\partial \over \partial x} y_i}$ </center></br></br>
 
-层次SoftMax
+所以我们对$J(\theta)$求偏导可以只关注累加内部的$P$的求导，最后将前面的两个累加填上去就可以了。
 
-Jaccard,
+先求中心词$v_c$的偏导：
 
-Cosine,余弦距离
+<center> ${\partial \over \partial v_c} log P(o|c)={\partial \over \partial v_c}log{exp(u^T_o v_c)\over {\sum_{w\in V} exp(u^T_w v_c)}}$</center>
+<center> $ = {\partial \over \partial v_c} {(log exp(u^T_o v_c) - log\sum_{w\in V}exp(u^T_w v_c))} $</center>
+<center> $ = { {\partial \over \partial v_c}(u^T_o v_c - log\sum_{w\in V}exp(u^T_w v_c))}$</center>
+<center> $ = {u_o - {\sum_{w\in V}exp(u^T_w v_c)u_w \over \sum_{w\in V}exp(u^T_w v_c)}}$</center>
+<center> $ = {u_o - \sum_{w\in V}{exp(u^T_w v_c)\over \sum_{w\in V}exp(u^T_w) v_c} u_w}$</center>
+<center> $ = {u_o - \sum_{w\in V}P(w|c)u_w}$</center></br></br>
 
-Euclidean欧氏距离
+再求上下文词$u_o$的偏导：
 
-NCE Noise Contrastive Estimation 噪声对比估计
+<center>${\partial \over \partial u_o} log P(o|c)={\partial \over \partial u_o}log{exp(u^T_o v_c)\over {\sum_{w\in V} exp(u^T_w v_c)}}$</center>
+<center>$ = {\partial \over \partial u_o} {(log exp(u^T_o v_c) - log\sum_{w\in V}exp(u^T_w v_c))} $</center>
+<center>$ = { {\partial \over \partial u_o}(u^T_o v_c - log\sum_{w\in V}exp(u^T_w v_c))}$</center>
+<center>$ = {v_c - {log\sum_{w\in V}{\partial \over \partial u_o} exp(u^T_w v_c) \over \sum_{w\in V}exp(u^T_w v_c)}}$</center>
+<center>$ = {v_c - {exp(u^T_o v_c) v_c\over \sum_{w\in V}exp(u^T_w v_c)}}$</center>
+<center>$ = {v_c - {exp(u^T_o v_c)\over \sum_{w\in V}exp(u^T_w v_c)}v_c}$</center>
+<center>$ = {v_c - P(o|c)v_c}$</center>
+<center>$ = {(1 - P(o|c))v_c}$</center> </br></br>
+
+这样我们就得到了某一时刻的中心词和上下文词的梯度，这样通过下面的公式去更新梯度也就是对应的词向量：
+
+<center>$\theta ^{new}_j = \theta ^{old}_j - \alpha {\partial\over \partial \theta _j^{old}}J(\theta)$</center></br></br>
+
+## 总结
+
+这里的$word2vec$算法又被叫做Skip-Gram model，还有另一种$word2vec$算法是Continuous Bag of Words，简称$CBOW$，它们的原理区别是Skip-Gram是求context word相对于center word的条件概率，也就是知道通过中心词求上下文词。而$CBOW$是求center相对于context word的条件概率，也就是通过上下文词求中心词。其他方面基本类似。
+
+加快训练的$trick$有负采样（Negative sampling）和层次$Softmax$。
+
+这些内容会在Notes中介绍，这里不再赘述。
+
+
+
+

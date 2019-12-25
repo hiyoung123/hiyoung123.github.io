@@ -27,7 +27,7 @@ toc:
 [NLP系列 - 基于词典的中文分词](https://hiyoungai.com/posts/9eeee454.html)
 
 **CS224n深度学习自然语言处理笔记**
-[CS224n-lecture1 Introduction to NLP and Deep Learning](https://hiyoungai.com/posts/7a6083ba.html)
+[CS224n-lecture1 Introduction and Word Vectors](https://hiyoungai.com/posts/2878d2b0.html)
 
 # 搜索引擎系列
 
