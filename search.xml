@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>Ubuntu下划词翻译工具-GoldenDict</title>
+      <link href="/posts/7e57c477.html"/>
+      <url>/posts/7e57c477.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p><a href="http://goldendict.org/" target="_blank" rel="noopener">Goldendict</a> 是一款跨平台的翻译软件，支持划词翻译等功能。它更像一种词典或者词典的API工具，通过外挂好本地词典或者网站词典进行翻译，返回的样式就是设置词典的样式。</p><p>Golendict 有以下几大特点：</p><ul><li>自定义词本地典库，可加载外挂词典，可自定义分组；</li><li>自定义在线词典和百科；</li><li>支持屏幕取词（虽然有时不是很灵），但搭配上 Autohotkey 无敌；</li><li>支持全文搜索，有生词本且可导出。</li></ul><p>官方效果图：</p><p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_tool_goldendict_heron-single.png" alt=""></p><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>这里主要介绍一下 Ubuntu 下的安装，其他平台的安装进入<a href="http://goldendict.org/" target="_blank" rel="noopener">官网</a>自行查看。</p><p>在 Ubuntu 上安装 Goldendict 比较简单，直接在命令行输入如下命令即可：</p><pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> goldendict<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><h3 id="添加在线词典"><a href="#添加在线词典" class="headerlink" title="添加在线词典"></a>添加在线词典</h3><p>我们可以通过如下步骤添加在线词典，左上角菜单栏找到“编辑“选项,然后 编辑-&gt;词典-&gt;网站-&gt;添加：</p><p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_tool_glodendict_add_net_dict.png" alt=""></p><p>如何获取到在线词典呢？百度搜索必应词典，随便搜索一个单词，例如 welcome，会得到一个网址：<br><code>http://cn.bing.com/dict/search?q=welcome&amp;;qs=n&amp;;form=Z9LH5&amp;;pq=welcome&amp;;sc=0-7&amp;;sp=-1&amp;;sk=&amp;;cvid=127D88B2AD4E4842A79BCB32B430FC33</code><br>然后将其中的 welcome 全部替换成 %GDWORD% 得到：<br><code>http://cn.bing.com/dict/search?q=%GDWORD%&amp;;qs=n&amp;;form=Z9LH5&amp;;pq=%GDWORD%&amp;;sc=0-7&amp;;sp=-1&amp;;sk=&amp;;cvid=127D88B2AD4E4842A79BCB32B430FC33</code></p><ul><li>有道： <code>http://dict.youdao.com/search?q=%GDWORD%&amp;ue=utf8</code></li><li>必应： <code>http://cn.bing.com/dict/search?q=%GDWORD%</code></li><li>海词：<code>http://dict.cn/%GDWORD%</code></li></ul><p>需要注意的是，添加完在线词典之后需要勾选上才可以使用。</p><h3 id="添加本地词典"><a href="#添加本地词典" class="headerlink" title="添加本地词典"></a>添加本地词典</h3><p>在编辑里选择词典&gt;词典来源&gt;文件，点击添加，我们可以新建一个文件夹来存放我们的字典文件。然后我们将下载好的字典文件解压后，放到这个文件夹中，点击重新扫描就可以识别出本地词典了。</p><p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_tool_glodendict_add_local_dict_1.png" alt=""></p><p>这样我们就可以在词典中查看已经添加进来的词典了。</p><p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_tool_glodendict_add_local_dict_2.png" alt=""></p><h2 id="资源"><a href="#资源" class="headerlink" title="资源"></a>资源</h2><p>推荐几部精选的词典并附上图片以及下载地址：</p><h3 id="牛津高阶-8-简体-spx-（带发音）"><a href="#牛津高阶-8-简体-spx-（带发音）" class="headerlink" title="牛津高阶 8 简体 spx （带发音）"></a>牛津高阶 8 简体 spx （带发音）</h3><p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_tool_glodendict_niujin_dict.png" alt=""></p><p><a href="https://pan.baidu.com/s/1MupVJbBl4KxGjQ-PYo2pTQ" target="_blank" rel="noopener">百度网盘</a></p><p>提取码：enp6</p><h3 id="Vocabulary-com-Dictionary-英文版（联网发音）"><a href="#Vocabulary-com-Dictionary-英文版（联网发音）" class="headerlink" title="Vocabulary.com Dictionary 英文版（联网发音）"></a>Vocabulary.com Dictionary 英文版（联网发音）</h3><p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_tool_glodendict_vocabulary.png" alt=""></p><p><a href="https://pan.baidu.com/s/1d2pb-myWwXMZslwwQ1Hg2g" target="_blank" rel="noopener">百度网盘</a></p><p>提取码：fsug</p><h3 id="简明英汉必应版（增强版升级）-432万词条"><a href="#简明英汉必应版（增强版升级）-432万词条" class="headerlink" title="简明英汉必应版（增强版升级） 432万词条"></a>简明英汉必应版（增强版升级） 432万词条</h3><p><a href="https://github.com/skywind3000/ECDICT-ultimate/releases" target="_blank" rel="noopener">Github</a></p><h3 id="星际译王"><a href="#星际译王" class="headerlink" title="星际译王"></a>星际译王</h3><p>向大家推荐星际译王的词典<a href="http://download.huzheng.org/" target="_blank" rel="noopener">下载网站</a>，这个网站几乎包含了所有的字典，我们可以选择下载。</p><p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_tool_glodendict_xingji.png" alt=""></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 便捷工具 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 划词翻译 </tag>
+            
+            <tag> GoldenDict </tag>
+            
+            <tag> 词典 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Windows下命令行工具-Cmder</title>
       <link href="/posts/7d402318.html"/>
       <url>/posts/7d402318.html</url>
