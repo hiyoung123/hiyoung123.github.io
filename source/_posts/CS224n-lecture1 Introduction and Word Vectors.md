@@ -194,7 +194,6 @@ $softmax$函数将一个值$x_i$映射成对应的概率值$p_i$。
 根据求导法则偏导数可以移进求和中：
 
 <center>${\partial \over \partial x }\sum_i y_i = \sum_i { {\partial \over \partial x} y_i}$ </center></br></br>
-
 所以我们对$J(\theta)$求偏导可以只关注累加内部的$P$的求导，最后将前面的两个累加填上去就可以了。
 
 先求中心词$v_c$的偏导：
@@ -205,7 +204,6 @@ $softmax$函数将一个值$x_i$映射成对应的概率值$p_i$。
 <center> $ = {u_o - {\sum_{w\in V}exp(u^T_w v_c)u_w \over \sum_{w\in V}exp(u^T_w v_c)}}$</center>
 <center> $ = {u_o - \sum_{w\in V}{exp(u^T_w v_c)\over \sum_{w\in V}exp(u^T_w) v_c} u_w}$</center>
 <center> $ = {u_o - \sum_{w\in V}P(w|c)u_w}$</center></br></br>
-
 再求上下文词$u_o$的偏导：
 
 <center>${\partial \over \partial u_o} log P(o|c)={\partial \over \partial u_o}log{exp(u^T_o v_c)\over {\sum_{w\in V} exp(u^T_w v_c)}}$</center>
@@ -216,19 +214,19 @@ $softmax$函数将一个值$x_i$映射成对应的概率值$p_i$。
 <center>$ = {v_c - {exp(u^T_o v_c)\over \sum_{w\in V}exp(u^T_w v_c)}v_c}$</center>
 <center>$ = {v_c - P(o|c)v_c}$</center>
 <center>$ = {(1 - P(o|c))v_c}$</center> </br></br>
-
 这样我们就得到了某一时刻的中心词和上下文词的梯度，这样通过下面的公式去更新梯度也就是对应的词向量：
 
 <center>$\theta ^{new}_j = \theta ^{old}_j - \alpha {\partial\over \partial \theta _j^{old}}J(\theta)$</center></br></br>
-
 ## 总结
 
 这里的$word2vec$算法又被叫做Skip-Gram model，还有另一种$word2vec$算法是Continuous Bag of Words，简称$CBOW$，它们的原理区别是Skip-Gram是求context word相对于center word的条件概率，也就是知道通过中心词求上下文词。而$CBOW$是求center相对于context word的条件概率，也就是通过上下文词求中心词。其他方面基本类似。
 
 加快训练的$trick$有负采样（Negative sampling）和层次$Softmax$。
 
-这些内容会在Notes中介绍，这里不再赘述。
 
 
+## 推荐阅读
+
+[论文阅读《Efficient Estimation of Word Representations in Vector Space》](https://hiyoungai.com/posts/fcba888f.html)
 
 

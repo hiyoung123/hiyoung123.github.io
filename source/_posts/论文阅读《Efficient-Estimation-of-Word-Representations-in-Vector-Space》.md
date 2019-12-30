@@ -1,16 +1,25 @@
 ---
 title: 论文阅读《Efficient Estimation of Word Representations in Vector Space》
 abbrlink: fcba888f
+top: false
+cover: false
+toc: true
+mathjax: true
 tags:
+  - NLP
+  - 人工智能
+  - 分布式词向量
+  - CBOW
+  - Skip-gram
+categories:
+  - 自然语言处理
+date: 2019-12-30 17:45:45
+excerpt: 论文《Efficient Estimation of Word Representations in Vector Space》阅读笔记。
 ---
 
 ## 前言
 
 这篇论文发表于 2013 年，作者是 Tomas Mikolov，也就是提出 Word2vec（Google 时期）和 Fasttext（Facebook 时期）的大佬。本篇文章主要讲的就是 Word2vec 框架，也就是从这开始，Mikolov 将大家从语言模型时代带入了词嵌入的时代。
-
-
-
-## 摘要
 
 论文提出了两种可以从大规模语料库中学习到词向量表示的模型，可以用于计算词相似度的任务。并且相比以往的模型取得了不错的性能和准确度。在 1.6 亿规模的数据集训练只花了一天的时间。
 
@@ -29,9 +38,6 @@ tags:
 该论文还发现了单词的向量表示，不仅可以简单的表示相似性，还可以通过词偏移技术进行代数运算：
 
 <center> $\vec{King} - \vec{Man} + \vec{Woman} = \vec{Queen}$</center> </br></br>
-### 先前工作
-
-
 
 ## 模型结构
 
@@ -44,7 +50,7 @@ tags:
 
 ### 前向神经网络语言模型（NNLM）
 
-概率前向神经网络语言模型已经在[1]提出了，它包括输入层 Input，投影层 Projection，隐藏层 Hidden 和输出层 Output。输入层中前 N 个词编码为 1-of-V 的向量，V 是词汇表的大小。Input 和 Projection 之间是一个 N$\times$D 的权重矩阵，经过矩阵变换后，在 Projection 中任意时刻只有 N 个输入是激活的。而隐藏层用来计算整个词汇表的概率分布，所以输出层的维度是词汇表的大小 V。如果设隐藏层的节点个数为 H，那么每个训练实例的计算复杂度为：
+概率前向神经网络语言模型已经提出了，它包括输入层 Input，投影层 Projection，隐藏层 Hidden 和输出层 Output。输入层中前 N 个词编码为 1-of-V 的向量，V 是词汇表的大小。Input 和 Projection 之间是一个 N$\times$D 的权重矩阵，经过矩阵变换后，在 Projection 中任意时刻只有 N 个输入是激活的。而隐藏层用来计算整个词汇表的概率分布，所以输出层的维度是词汇表的大小 V。如果设隐藏层的节点个数为 H，那么每个训练实例的计算复杂度为：
 
 <center>$Q = N\times D + N\times D\times H + H\times V$</center></br></br>
 主要的计算量是在H $\times$ V，但是可以通过层次 Softmax，避免数据归一化或者对词汇表使用二叉树存储等操作减少计算量至 log(v)。这样主要的复杂度就落在了 N$\times$ D$\times$ H的头上。
@@ -53,7 +59,7 @@ tags:
 
 ### 循环神经网络语言模型（RNNLM）
 
-循环神经网络语言模型已经在[2]中被提出，以克服前向神经网络语言模型的局限性，例如需要指定上下文长度。RNNs 比浅层神经网络更能表达复杂的模式，它没有投影层 Projection，只有输入层 Input 隐藏层 Hidden和输出层 Output。RNN 的不同之处在于可以保存短暂的记忆或者说是上文的信息可以用于下文中。每个训练实例的计算复杂度为：
+循环神经网络语言模型已经被提出，以克服前向神经网络语言模型的局限性，例如需要指定上下文长度。RNNs 比浅层神经网络更能表达复杂的模式，它没有投影层 Projection，只有输入层 Input 隐藏层 Hidden和输出层 Output。RNN 的不同之处在于可以保存短暂的记忆或者说是上文的信息可以用于下文中。每个训练实例的计算复杂度为：
 
 <center>$Q = H\times H + H\times V$</center></br></br>
 同样的，H $\times$ V 可以通过层次 Softmax 进行优化减少计算量至 log(v)，所以主要计算量在于H $\times$ H。
@@ -73,7 +79,6 @@ tags:
 第一个模型与 NNML 有些相似，但是去掉了非线性隐藏层，只有输入层，投影层和输出层。区别于 NNML 的投影层，这里的投影层是对所有单词共享的，即所有的单词都投影到同一个位置（所有向量取平均值）。这样不考虑单词的位置顺序信息，叫做词袋模型。同时也会用到将来的词，例如如果窗口 windows 为 2，这样训练中心词的词向量时，会选取中心词附近的 4 个上下文词（前面 2 个后面 2 个）。然后输出层是一个 log-linear 分类器，也就是上面所说的加上了霍夫曼二叉树的 Softmax，所以整体的复杂度是：
 
 <center>$Q = N\times D + D \times log(V)$</center></br></br>
-
 这个模型就称之为 Continuous Bag-of-Words Model 连续词袋模型，它区别于传统的词袋模型是因为使用了上下文的连续词向量表示。模型结构如下（图片中的 windows 为 2）：
 
 ![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_paper_001_cbow.png)
@@ -83,7 +88,6 @@ tags:
 第二个模型跟 CBOW 相似，但是它不是像 CBOW 那样根据上下文词学习中心词，而相反的根据中心词去学习上下文中的一个词。更准确地说，使用每个当前单词作为一个具有连续投影层的对数线性分类器的输入，并在当前单词前后的一定范围内（windows）预测单词。通过实验发现，增加 windows 可以提高结果词向量的质量，但同时也增加了计算的复杂性。由于距离较远的单词通常与当前单词的关联性比与当前单词的关联性小，因此我们通过从训练示例中的单词中抽取较少的样本来减少对距离较远的单词的权重。模型整体的复杂度为：
 
 <center>$Q = C \times (D + D \times log(V))$</center></br></br>
-
 其中 C 为 windows 的 2 倍，也是中心词前后上下文词的个数。模型结构为：
 
 ![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_paper_001_skipgram.png)
@@ -95,7 +99,6 @@ tags:
 根据以往的实验和观察，单词之间可以有许多不同类型的相似性，例如 big 和 bigger 类似于 small 和 smaller 具有相同的含义。另一种关系类型的例子可以是单词对 big - biggest 和 small - smallest。令人惊讶的是，这些关系都可以通过词向量之间的线性运算得到正确的结果。就像big-biggest，我们可以通过下面的公式计算：
 
 <center>$\vec{X} = \vec{biggest} - \vec{big} + \vec{small} $</center></br></br>
-
 然后通过余弦距离在向量空间中找到里$\vec{X}$最近的一个词向量，经过良好的训练后，可以正确的找到这个词向量 smallest。
 
 还有的就是，通过加大词向量的维度并且在大数据集上训练的话，可以得到更微妙的语义关系。例如城市和它所属的国家，例如法国对巴黎，德国对柏林。具有这种语义关系的词向量可用于改进现有的许多NLP应用程序，如机器翻译、信息检索和问答系统等。下图是语义-句法词关系测试集中五类语义和九类句法问题的实例：
@@ -118,13 +121,31 @@ tags:
 
 ### 模型比较
 
-作者也做了和传统模型的比较工作，使用相同的数据集，相同 640 维度的词向量，也不仅限使用 30k 的单词，并且使用了全部的测试集数据。
+作者也做了和传统模型的比较工作，使用相同的数据集，相同 640 维度的词向量，也不仅限使用 30k 的单词，并且使用了全部的测试集数据。以下是训练结果的比较：
+
+![使用在相同数据上训练的模型与640维字向量对模型进行比较。本文语义-句法关系测试集和[20]的句法关系测试集报告精确度。](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_paper_001_result_002.png)
+
+![比较语义句法词汇关系测试集上的公共可用词汇向量和我们模型中的词汇向量。使用完整词汇表。](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_paper_001_result_003.png)
+
+![在相同数据上三个epoch训练的模型与为一个epoch训练的模型的比较,使用完整的语义-句法数据集。](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_paper_001_result_004.png)
 
 ### 大规模并行训练模型
 
+在 DistBelief 上使用谷歌 News 6B 数据集训练的几个模型的结果对比：
+
+![使用DistBelief分布式框架训练的模型的比较，请注意使用1000维向量训练NNLM将花费很长时间才能完成。](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_paper_001_result_005.png)
+
 ### Microsoft Research Sentence Completion Challenge
 
-## Examples of the Learned Relationships
+微软的句子完成挑战最近被作为一项推进语言建模和其他NLP技术的任务引入，这个任务由1040个句子组成，每个句子中有一个单词丢失，目标从五个合理的选择列表中选择与句子其余部分最连贯的单词。本论文的模型与传统模型在该比赛中的分数对比：
 
-## 结论
+![Microsoft Sentence完成挑战中模型的比较和组合。](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_paper_001_result_006.png)
+
+
+
+## 总结
+
+词向量已经成为现在 NLP 深度学习中不可缺少的一部分，从 Word2vec 到 Bert 都是促进 NLP 得到飞跃式提升的重要技术。训练出质量高覆盖率广的词向量，可以有效的提高下游任务的性能准确率，如机器翻译，情感分类等。而词向量训练的难点主要就是词汇表和语料库的规模，目前 Bert 使用的语料量级已经很难超越，不知道这是不是词向量的顶点？
+
+
 
