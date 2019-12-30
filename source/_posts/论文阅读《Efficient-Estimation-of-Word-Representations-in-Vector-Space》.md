@@ -38,6 +38,8 @@ excerpt: 论文《Efficient Estimation of Word Representations in Vector Space�
 该论文还发现了单词的向量表示，不仅可以简单的表示相似性，还可以通过词偏移技术进行代数运算：
 
 <center> $\vec{King} - \vec{Man} + \vec{Woman} = \vec{Queen}$</center> </br></br>
+
+
 ## 模型结构
 
 已经有许多种类的模型用来表示连续的词向量，比较出名的有 LSA 和 LDA。而本篇论文着力于使用神经网络模型来学习词向量的表示。实验证明，在保持词向量的线性规律方面，神经网络模型比 LSA 等模型有更好的性能。而且 LDA 在大数据量情况下计算会很吃力。
