@@ -62,7 +62,7 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif">
 <meta property="og:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif">
 <meta property="og:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif">
-<meta property="og:updated_time" content="2019-12-25T06:00:48.704Z">
+<meta property="og:updated_time" content="2019-12-30T06:24:20.301Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif">
 
@@ -228,7 +228,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-12-25 14:00:48" itemprop="dateModified" datetime="2019-12-25T14:00:48+08:00">2019-12-25</time>
+                <time title="修改时间：2019-12-30 14:24:20" itemprop="dateModified" datetime="2019-12-30T14:24:20+08:00">2019-12-30</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -375,8 +375,8 @@ $softmax$函数将一个值$x_i$映射成对应的概率值$p_i$。
 </ul>
 <h3 id="Calculating-all-gradients"><a href="#Calculating-all-gradients" class="headerlink" title="Calculating all gradients"></a>Calculating all gradients</h3><p>根据求导法则偏导数可以移进求和中：</p>
 <center>${\partial \over \partial x }\sum_i y_i = \sum_i { {\partial \over \partial x} y_i}$ </center></br></br>
+所以我们对$J(\theta)$求偏导可以只关注累加内部的$P$的求导，最后将前面的两个累加填上去就可以了。
 
-<p>所以我们对$J(\theta)$求偏导可以只关注累加内部的$P$的求导，最后将前面的两个累加填上去就可以了。</p>
 <p>先求中心词$v_c$的偏导：</p>
 <center> ${\partial \over \partial v_c} log P(o|c)={\partial \over \partial v_c}log{exp(u^T_o v_c)\over {\sum_{w\in V} exp(u^T_w v_c)}}$</center>
 <center> $ = {\partial \over \partial v_c} {(log exp(u^T_o v_c) - log\sum_{w\in V}exp(u^T_w v_c))} $</center>
@@ -384,8 +384,8 @@ $softmax$函数将一个值$x_i$映射成对应的概率值$p_i$。
 <center> $ = {u_o - {\sum_{w\in V}exp(u^T_w v_c)u_w \over \sum_{w\in V}exp(u^T_w v_c)}}$</center>
 <center> $ = {u_o - \sum_{w\in V}{exp(u^T_w v_c)\over \sum_{w\in V}exp(u^T_w) v_c} u_w}$</center>
 <center> $ = {u_o - \sum_{w\in V}P(w|c)u_w}$</center></br></br>
+再求上下文词$u_o$的偏导：
 
-<p>再求上下文词$u_o$的偏导：</p>
 <center>${\partial \over \partial u_o} log P(o|c)={\partial \over \partial u_o}log{exp(u^T_o v_c)\over {\sum_{w\in V} exp(u^T_w v_c)}}$</center>
 <center>$ = {\partial \over \partial u_o} {(log exp(u^T_o v_c) - log\sum_{w\in V}exp(u^T_w v_c))} $</center>
 <center>$ = { {\partial \over \partial u_o}(u^T_o v_c - log\sum_{w\in V}exp(u^T_w v_c))}$</center>
@@ -394,13 +394,14 @@ $softmax$函数将一个值$x_i$映射成对应的概率值$p_i$。
 <center>$ = {v_c - {exp(u^T_o v_c)\over \sum_{w\in V}exp(u^T_w v_c)}v_c}$</center>
 <center>$ = {v_c - P(o|c)v_c}$</center>
 <center>$ = {(1 - P(o|c))v_c}$</center> </br></br>
+这样我们就得到了某一时刻的中心词和上下文词的梯度，这样通过下面的公式去更新梯度也就是对应的词向量：
 
-<p>这样我们就得到了某一时刻的中心词和上下文词的梯度，这样通过下面的公式去更新梯度也就是对应的词向量：</p>
 <center>$\theta ^{new}_j = \theta ^{old}_j - \alpha {\partial\over \partial \theta _j^{old}}J(\theta)$</center></br></br>
+## 总结
 
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这里的$word2vec$算法又被叫做Skip-Gram model，还有另一种$word2vec$算法是Continuous Bag of Words，简称$CBOW$，它们的原理区别是Skip-Gram是求context word相对于center word的条件概率，也就是知道通过中心词求上下文词。而$CBOW$是求center相对于context word的条件概率，也就是通过上下文词求中心词。其他方面基本类似。</p>
+<p>这里的$word2vec$算法又被叫做Skip-Gram model，还有另一种$word2vec$算法是Continuous Bag of Words，简称$CBOW$，它们的原理区别是Skip-Gram是求context word相对于center word的条件概率，也就是知道通过中心词求上下文词。而$CBOW$是求center相对于context word的条件概率，也就是通过上下文词求中心词。其他方面基本类似。</p>
 <p>加快训练的$trick$有负采样（Negative sampling）和层次$Softmax$。</p>
-<p>这些内容会在Notes中介绍，这里不再赘述。</p>
+<h2 id="推荐阅读"><a href="#推荐阅读" class="headerlink" title="推荐阅读"></a>推荐阅读</h2><p><a href="https://hiyoungai.com/posts/fcba888f.html">论文阅读《Efficient Estimation of Word Representations in Vector Space》</a></p>
 
     </div>
 
@@ -466,7 +467,7 @@ $softmax$函数将一个值$x_i$映射成对应的概率值$p_i$。
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Human-language-and-word-meaning"><span class="nav-text">Human language and word meaning</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#How-do-we-represent-the-meaning-of-a-word"><span class="nav-text">How do we represent the meaning of a word?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#WordNet"><span class="nav-text">WordNet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#独热编码（one-hot）"><span class="nav-text">独热编码（one-hot）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过上下文表示词"><span class="nav-text">通过上下文表示词</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#词向量（Word-Vector）"><span class="nav-text">词向量（Word Vector）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Word2Vec"><span class="nav-text">Word2Vec</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Word2vec-introduction"><span class="nav-text">Word2vec introduction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Word2vec-objective-function"><span class="nav-text">Word2vec objective function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Softmax"><span class="nav-text">Softmax</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Training-a-model-by-optimizing-parameters"><span class="nav-text">Training a model by optimizing parameters</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Word2vec-objective-function-gradients"><span class="nav-text">Word2vec objective function gradients</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#储备知识"><span class="nav-text">储备知识</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Calculating-all-gradients"><span class="nav-text">Calculating all gradients</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-text">总结</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Human-language-and-word-meaning"><span class="nav-text">Human language and word meaning</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#How-do-we-represent-the-meaning-of-a-word"><span class="nav-text">How do we represent the meaning of a word?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#WordNet"><span class="nav-text">WordNet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#独热编码（one-hot）"><span class="nav-text">独热编码（one-hot）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过上下文表示词"><span class="nav-text">通过上下文表示词</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#词向量（Word-Vector）"><span class="nav-text">词向量（Word Vector）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Word2Vec"><span class="nav-text">Word2Vec</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Word2vec-introduction"><span class="nav-text">Word2vec introduction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Word2vec-objective-function"><span class="nav-text">Word2vec objective function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Softmax"><span class="nav-text">Softmax</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Training-a-model-by-optimizing-parameters"><span class="nav-text">Training a model by optimizing parameters</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Word2vec-objective-function-gradients"><span class="nav-text">Word2vec objective function gradients</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#储备知识"><span class="nav-text">储备知识</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Calculating-all-gradients"><span class="nav-text">Calculating all gradients</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#推荐阅读"><span class="nav-text">推荐阅读</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -482,7 +483,7 @@ $softmax$函数将一个值$x_i$映射成对应的概率值$p_i$。
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">14</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -494,7 +495,7 @@ $softmax$函数将一个值$x_i$映射成对应的概率值$p_i$。
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-count">40</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -597,7 +598,7 @@ $softmax$函数将一个值$x_i$映射成对应的概率值$p_i$。
         <i class="fa fa-area-chart"></i>
       </span>
       <span class="site-uv" title="站点总字数">
-        <span class="post-count">24.8k</span>
+        <span class="post-count">27.9k</span>
       </span>
     </span>
     <span class="post-meta-divider">|</span>
