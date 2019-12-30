@@ -38,7 +38,6 @@ excerpt: 论文《Efficient Estimation of Word Representations in Vector Space�
 该论文还发现了单词的向量表示，不仅可以简单的表示相似性，还可以通过词偏移技术进行代数运算：
 
 <center> $\vec{King} - \vec{Man} + \vec{Woman} = \vec{Queen}$</center> </br></br>
-
 ## 模型结构
 
 已经有许多种类的模型用来表示连续的词向量，比较出名的有 LSA 和 LDA。而本篇论文着力于使用神经网络模型来学习词向量的表示。实验证明，在保持词向量的线性规律方面，神经网络模型比 LSA 等模型有更好的性能。而且 LDA 在大数据量情况下计算会很吃力。
@@ -148,4 +147,9 @@ excerpt: 论文《Efficient Estimation of Word Representations in Vector Space�
 词向量已经成为现在 NLP 深度学习中不可缺少的一部分，从 Word2vec 到 Bert 都是促进 NLP 得到飞跃式提升的重要技术。训练出质量高覆盖率广的词向量，可以有效的提高下游任务的性能准确率，如机器翻译，情感分类等。而词向量训练的难点主要就是词汇表和语料库的规模，目前 Bert 使用的语料量级已经很难超越，不知道这是不是词向量的顶点？
 
 
+
+## References
+
+测试集：http://www.fit.vutbr.cz/~imikolov/rnnlm/word-test.v1.txt
+官方源码：https://code.google.com/archive/p/word2vec/
 
