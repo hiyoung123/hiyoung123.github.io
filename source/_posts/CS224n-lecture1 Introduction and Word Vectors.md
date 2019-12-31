@@ -228,5 +228,4 @@ $softmax$函数将一个值$x_i$映射成对应的概率值$p_i$。
 ## 推荐阅读
 
 [论文阅读《Efficient Estimation of Word Representations in Vector Space》](https://hiyoungai.com/posts/fcba888f.html)
-
-
+[论文阅读《Distributed Representations of Words and Phrases and their Compositionality》](https://hiyoungai.com/posts/28911bbb.html)
