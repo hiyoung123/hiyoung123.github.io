@@ -75,7 +75,8 @@ $WordNet$作为资源库很好，但是有一些缺点：
 在传统的自然语言处理中，我们把词语看作离散的符号: hotel, conference, motel - a **localist** representation。单词可以通过独热向量（one-hot vectors，只有一个1，其余均为0的稀疏向量）。
 
 <center> $motel=[0 0 0 0 0 0 0 0 0 0 1 0 0 0 0]$</center>
-<center>$hotel=[0 0 0 0 0 0 0 1 0 0 0 0 0 0 0]$</center> </br></br>
+<center>$hotel=[0 0 0 0 0 0 0 1 0 0 0 0 0 0 0]$</center> </br>
+
 向量的维度等于词库的词个数。虽然 one-hot 编码可以用作词的向量表示，但是弊端也是很明显的：
 
 * 当语料库也就是词库的单词个数过大时，one-hot 编码的词向量的维度也会很大。
@@ -128,12 +129,14 @@ $Word2Vec(Mikolov et al. 2013)$是一个学习词向量的框架，通过模型�
 
 对于每个位置$t=1,\dots,T$，其中$T$为一句话中单词的个数。在大小为$m$的固定窗口$Window$内预测上下文单词，给定中心词$w_j$。
 
-<center>$Likelihood = L(\theta) = \prod_{t=1}^T \prod_{-m \leq j \leq m , j\neq 0} P(w_{t+j}|w_t;\theta)$</center></br></br>
+<center>$Likelihood = L(\theta) = \prod_{t=1}^T \prod_{-m \leq j \leq m , j\neq 0} P(w_{t+j}|w_t;\theta)$</center></br>
+
 其中，$\theta$是所有需要优化的变量。
 
 目标函数$J(\theta)$也叫代价函数或者损失函数。上述公式中求乘的方式最后得到一个非常小的值，因为每个概率$P$都是小于１大于０的小数，通过不断相乘（我们知道小于１的小数乘以一个小于１的小数会比这两个小数值更小）最后得到一个非常小的小数。所以我们通常会转为求对数，也就是在上述公式的两边加上$Log$，其中右边就可以转化为对数求和的形式。同时根据凸优化理论，我们将求最大化转为求最小化，变形后的目标函数为（平均）负对数似然：
 
-<center>$J(\theta) = -{1\over T}LogL(\theta) = -{1\over T}\sum^T_{t=1} \sum_{-m\leq j\leq m,j\neq 0}LogP(w_{t+j}|w_t;\theta)$</center></br></br>
+<center>$J(\theta) = -{1\over T}LogL(\theta) = -{1\over T}\sum^T_{t=1} \sum_{-m\leq j\leq m,j\neq 0}LogP(w_{t+j}|w_t;\theta)$</center></br>
+
 那么问题来了，我们如何计算$P(w_{t+j}|w_t)$呢？答案是使用$Softmax$函数来计算概率。
 
 ### Softmax
@@ -145,10 +148,12 @@ $Word2Vec(Mikolov et al. 2013)$是一个学习词向量的框架，通过模型�
 
 然后对于一个中心词$c$和一个上下文词$o$的概率$P$：
 
-<center> $P(o|c) = {exp(u_o^T v_c)\over \sum_{w\in V}exp(u_w^T v_c)}$</center></br></br>
+<center> $P(o|c) = {exp(u_o^T v_c)\over \sum_{w\in V}exp(u_w^T v_c)}$</center></br>
+
 其中，$T$表示的是向量$u_o$的转置，而不是上文所代表的单词数量T。
 
-<center> $u^T v = u\cdot v = \sum_{i=1}^n u_i v_i$</center> </br></br>
+<center> $u^T v = u\cdot v = \sum_{i=1}^n u_i v_i$</center> </br>
+
 公式中向量$u_o$和向量$v_c$进行了点乘来计算词向量之间的相似度，向量之间相似度越高点乘的结果越大。模型的训练正是为了使得具有相似上下文的单词，具有相似的向量。
 
 > 两个向量内积的几何含义是什么
@@ -161,7 +166,8 @@ $Word2Vec(Mikolov et al. 2013)$是一个学习词向量的框架，通过模型�
 
 上述的内容就是一个$softmax$函数的应用例子。
 
-<center>$softmax(x_i) = {exp(x_i) \over \sum_{j=1}^n exp(x_j)} = p_i$</center></br></br>
+<center>$softmax(x_i) = {exp(x_i) \over \sum_{j=1}^n exp(x_j)} = p_i$</center></br>
+
 $softmax$函数将一个值$x_i$映射成对应的概率值$p_i$。
 
 * **max** ：因为放大了最大的概率。
@@ -193,7 +199,8 @@ $softmax$函数将一个值$x_i$映射成对应的概率值$p_i$。
 
 根据求导法则偏导数可以移进求和中：
 
-<center>${\partial \over \partial x }\sum_i y_i = \sum_i { {\partial \over \partial x} y_i}$ </center></br></br>
+<center>${\partial \over \partial x }\sum_i y_i = \sum_i { {\partial \over \partial x} y_i}$ </center></br>
+
 所以我们对$J(\theta)$求偏导可以只关注累加内部的$P$的求导，最后将前面的两个累加填上去就可以了。
 
 先求中心词$v_c$的偏导：
@@ -203,7 +210,8 @@ $softmax$函数将一个值$x_i$映射成对应的概率值$p_i$。
 <center> $ = { {\partial \over \partial v_c}(u^T_o v_c - log\sum_{w\in V}exp(u^T_w v_c))}$</center>
 <center> $ = {u_o - {\sum_{w\in V}exp(u^T_w v_c)u_w \over \sum_{w\in V}exp(u^T_w v_c)}}$</center>
 <center> $ = {u_o - \sum_{w\in V}{exp(u^T_w v_c)\over \sum_{w\in V}exp(u^T_w) v_c} u_w}$</center>
-<center> $ = {u_o - \sum_{w\in V}P(w|c)u_w}$</center></br></br>
+<center> $ = {u_o - \sum_{w\in V}P(w|c)u_w}$</center></br>
+
 再求上下文词$u_o$的偏导：
 
 <center>${\partial \over \partial u_o} log P(o|c)={\partial \over \partial u_o}log{exp(u^T_o v_c)\over {\sum_{w\in V} exp(u^T_w v_c)}}$</center>
@@ -213,10 +221,12 @@ $softmax$函数将一个值$x_i$映射成对应的概率值$p_i$。
 <center>$ = {v_c - {exp(u^T_o v_c) v_c\over \sum_{w\in V}exp(u^T_w v_c)}}$</center>
 <center>$ = {v_c - {exp(u^T_o v_c)\over \sum_{w\in V}exp(u^T_w v_c)}v_c}$</center>
 <center>$ = {v_c - P(o|c)v_c}$</center>
-<center>$ = {(1 - P(o|c))v_c}$</center> </br></br>
+<center>$ = {(1 - P(o|c))v_c}$</center> </br>
+
 这样我们就得到了某一时刻的中心词和上下文词的梯度，这样通过下面的公式去更新梯度也就是对应的词向量：
 
-<center>$\theta ^{new}_j = \theta ^{old}_j - \alpha {\partial\over \partial \theta _j^{old}}J(\theta)$</center></br></br>
+<center>$\theta ^{new}_j = \theta ^{old}_j - \alpha {\partial\over \partial \theta _j^{old}}J(\theta)$</center></br>
+
 ## 总结
 
 这里的$word2vec$算法又被叫做Skip-Gram model，还有另一种$word2vec$算法是Continuous Bag of Words，简称$CBOW$，它们的原理区别是Skip-Gram是求context word相对于center word的条件概率，也就是知道通过中心词求上下文词。而$CBOW$是求center相对于context word的条件概率，也就是通过上下文词求中心词。其他方面基本类似。
