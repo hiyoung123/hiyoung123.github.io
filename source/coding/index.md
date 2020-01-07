@@ -28,6 +28,7 @@ toc:
 
 **CS224n深度学习自然语言处理笔记**
 [CS224n-lecture1 Introduction and Word Vectors](https://hiyoungai.com/posts/2878d2b0.html)
+[CS224n-lecture2 Word Vectors and Word Senses](https://hiyoungai.com/posts/ad770643.html)
 
 # 搜索引擎系列
 
