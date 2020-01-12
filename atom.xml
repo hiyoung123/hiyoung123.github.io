@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hiyoungai.com/"/>
-  <updated>2019-12-30T07:49:26.631Z</updated>
+  <updated>2020-01-12T09:37:51.532Z</updated>
   <id>https://hiyoungai.com/</id>
   
   <author>
@@ -15,6 +15,93 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>论文阅读《GloVe: Global Vectors for Word Representation》</title>
+    <link href="https://hiyoungai.com/posts/fb292938.html"/>
+    <id>https://hiyoungai.com/posts/fb292938.html</id>
+    <published>2020-01-12T09:29:02.000Z</published>
+    <updated>2020-01-12T09:37:51.532Z</updated>
+    
+    <summary type="html">
+    
+      论文《GloVe: Global Vectors for Word Representation》阅读笔记。
+    
+    </summary>
+    
+    
+      <category term="自然语言处理" scheme="https://hiyoungai.com/categories/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/"/>
+    
+    
+      <category term="NLP" scheme="https://hiyoungai.com/tags/NLP/"/>
+    
+      <category term="人工智能" scheme="https://hiyoungai.com/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+    
+      <category term="GloVe" scheme="https://hiyoungai.com/tags/GloVe/"/>
+    
+      <category term="全局词向量" scheme="https://hiyoungai.com/tags/%E5%85%A8%E5%B1%80%E8%AF%8D%E5%90%91%E9%87%8F/"/>
+    
+      <category term="共现矩阵" scheme="https://hiyoungai.com/tags/%E5%85%B1%E7%8E%B0%E7%9F%A9%E9%98%B5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CS224n-lecture2 Word Vectors and Word Senses</title>
+    <link href="https://hiyoungai.com/posts/ad770643.html"/>
+    <id>https://hiyoungai.com/posts/ad770643.html</id>
+    <published>2020-01-08T09:45:45.000Z</published>
+    <updated>2020-01-08T02:22:29.198Z</updated>
+    
+    <summary type="html">
+    
+      CS224n 深度学习自然语言处理 2019 版 Lecture-2 学习笔记。
+    
+    </summary>
+    
+    
+      <category term="自然语言处理" scheme="https://hiyoungai.com/categories/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/"/>
+    
+    
+      <category term="NLP" scheme="https://hiyoungai.com/tags/NLP/"/>
+    
+      <category term="CS224n" scheme="https://hiyoungai.com/tags/CS224n/"/>
+    
+      <category term="词向量" scheme="https://hiyoungai.com/tags/%E8%AF%8D%E5%90%91%E9%87%8F/"/>
+    
+      <category term="GloVe" scheme="https://hiyoungai.com/tags/GloVe/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>论文阅读《Distributed Representations of Words and Phrases and their Compositionality》</title>
+    <link href="https://hiyoungai.com/posts/28911bbb.html"/>
+    <id>https://hiyoungai.com/posts/28911bbb.html</id>
+    <published>2019-12-31T09:45:45.000Z</published>
+    <updated>2020-01-02T11:55:55.850Z</updated>
+    
+    <summary type="html">
+    
+      论文《Distributed Representations of Words and Phrases and their Compositionality》阅读笔记。
+    
+    </summary>
+    
+    
+      <category term="自然语言处理" scheme="https://hiyoungai.com/categories/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/"/>
+    
+    
+      <category term="NLP" scheme="https://hiyoungai.com/tags/NLP/"/>
+    
+      <category term="人工智能" scheme="https://hiyoungai.com/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+    
+      <category term="分布式词表示" scheme="https://hiyoungai.com/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AF%8D%E8%A1%A8%E7%A4%BA/"/>
+    
+      <category term="Hierarchical Softmax" scheme="https://hiyoungai.com/tags/Hierarchical-Softmax/"/>
+    
+      <category term="负采样" scheme="https://hiyoungai.com/tags/%E8%B4%9F%E9%87%87%E6%A0%B7/"/>
+    
+      <category term="Skip-gram" scheme="https://hiyoungai.com/tags/Skip-gram/"/>
+    
+  </entry>
   
   <entry>
     <title>论文阅读《Efficient Estimation of Word Representations in Vector Space》</title>
@@ -37,11 +124,11 @@
     
       <category term="人工智能" scheme="https://hiyoungai.com/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
     
+      <category term="Skip-gram" scheme="https://hiyoungai.com/tags/Skip-gram/"/>
+    
       <category term="分布式词向量" scheme="https://hiyoungai.com/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AF%8D%E5%90%91%E9%87%8F/"/>
     
       <category term="CBOW" scheme="https://hiyoungai.com/tags/CBOW/"/>
-    
-      <category term="Skip-gram" scheme="https://hiyoungai.com/tags/Skip-gram/"/>
     
   </entry>
   
@@ -148,11 +235,11 @@
     <link href="https://hiyoungai.com/posts/2878d2b0.html"/>
     <id>https://hiyoungai.com/posts/2878d2b0.html</id>
     <published>2019-11-28T09:45:45.000Z</published>
-    <updated>2019-12-30T06:24:20.301Z</updated>
+    <updated>2020-01-08T02:22:29.198Z</updated>
     
     <summary type="html">
     
-      CS224n 深度学习自然语言处理2019版Lecture-1学习笔记。
+      CS224n 深度学习自然语言处理 2019 版 Lecture-1 学习笔记。
     
     </summary>
     
@@ -164,7 +251,9 @@
     
       <category term="CS224n" scheme="https://hiyoungai.com/tags/CS224n/"/>
     
-      <category term="人工智能" scheme="https://hiyoungai.com/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+      <category term="Word2vec" scheme="https://hiyoungai.com/tags/Word2vec/"/>
+    
+      <category term="词向量" scheme="https://hiyoungai.com/tags/%E8%AF%8D%E5%90%91%E9%87%8F/"/>
     
   </entry>
   
