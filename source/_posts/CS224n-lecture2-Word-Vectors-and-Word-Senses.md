@@ -213,3 +213,9 @@ GloVe 模型的优点有：
 
 总的来说，各种词向量模型各有好坏，每篇论文选取的数据肯定都是对自己的模型有利的，所以不能只靠论文中的数据就去一味选取模型，自己使用的时候要根据实际任务以及各个模型的优缺点去选取模型。
 
+
+
+## 推荐阅读
+
+[论文阅读《GloVe: Global Vectors for Word Representation》](https://hiyoungai.com/posts/fb292938.html)
+
