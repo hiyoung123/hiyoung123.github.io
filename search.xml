@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>线代学习笔记</title>
+      <link href="/posts/65bf62c6.html"/>
+      <url>/posts/65bf62c6.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="Basic-Concepts-and-Notation"><a href="#Basic-Concepts-and-Notation" class="headerlink" title="Basic Concepts and Notation"></a>Basic Concepts and Notation</h2><p>线性代数提供了一种紧凑表示和操作线性方程式集合的方法。如下面的方程组：</p><center>$\begin {aligned}4x_1 - 5x_2 &= -13 \\\ -2x_1 + 3x_2 &= 9\end {aligned}$</center></br><p>除了传统的解方程组求解之外，还可以使用更简洁的矩阵方法表示：</p><center>$Ax = b$</center></br>其中：<center>$A = \left[ \begin{matrix}4 &-5 \\ -2 &3 \end{matrix} \right], b = \left[\begin{matrix} -13\\ 9 \end{matrix} \right]. $</center></br>从上面的例子可以看出矩阵形式更加简洁。下面来认识一下常用的基本符号：<h3 id="基本符号"><a href="#基本符号" class="headerlink" title="基本符号"></a>基本符号</h3><ul><li><p>使用 $A \in R^{m \times n}$ 表示一个 m 行 n 列的矩阵，其中矩阵 A 中的每个元素都是实数。</p></li><li><p>使用 $x \in R^n$ 表示包含 n 个元素的向量。传统意义上，一个 n 维向量通常认为是一个 n 行 1 列的矩阵，叫做列向量。如果想表示行向量 - 一个 1 行 n 列的矩阵，那么可以写作 $x^T$，叫做 x 的转置。</p><center>$x = \left[ \begin{matrix}x_1\\x_2\\ \vdots \\ x_n \end{matrix} \right]$</center></br></li><li><p>使用 $x_i$ 表示 x 向量的第 i 个元素。</p></li><li><p>使用 $a_{ij}$（或者 $A_{ij},A_{i,j}$）表示矩阵 A 中的第 i 行第 j 列的元素。</p><center>$A = \left[\begin{matrix}a_{11}\ &a_{12}\ &\dots \ &a_{1n} \\ a_{21} \ &a_{22} \ &\dots \ &a_{2n} \\ \vdots \ &\vdots \ &\ddots \ &\vdots \\ a_{m1} \ &a_{m2} \ &\dots &a_{mn} \end{matrix}\right]$</center></br></li></ul><p>需要注意的是，这些符号并不是一成不变的，具体使用还是要在具体的应用当中去抉择。</p><h2 id="Matrix-Multiplication"><a href="#Matrix-Multiplication" class="headerlink" title="Matrix Multiplication"></a>Matrix Multiplication</h2><p>两个矩阵相乘，结果还是一个矩阵。例如矩阵 $A \in R^{m \times n}$ 和矩阵 $B \in R^{n \times p}$相乘：</p><center>$C = AB \in R^{m\times p}$</center></br><p>其中：</p><center>$C_{ij} = \sum^n_{k=1} A_{ik}B_{ik}$</center></br><blockquote><p>注意：两个矩阵相乘的前提条件是，前一个矩阵 A 的列数必须等于后一个矩阵 B 的行数。</p></blockquote><p>下面从几个特殊的例子来研究一下矩阵乘法。</p><h3 id="向量与向量"><a href="#向量与向量" class="headerlink" title="向量与向量"></a>向量与向量</h3><p>两个向量 $x,y \in R^n$ 的乘积 $x^Ty$ 也叫作内积、点积或者点乘。符号表示为：</p><center>$x^Ty\in R = \left[ \begin{matrix} x_1\ x_2\ \dots \ x_n \end{matrix}\right] \left[ \begin{matrix} y_1 \\ y_2 \\ \vdots \\ y_n \end{matrix}\right] = \sum^n_{i=1}x_i y_i$</center></br><p>内积是矩阵乘法的特例，并且它总是符合交换律：$x^Ty = y^Tx$。</p><p>另外一种两个向量相乘的例子，向量 $x \in R^m$ 和向量 $y \in R^n$，维度大小不是必须一致的。这个两个向量的乘积 $xy^T\in R^{m\times n}$ 称为外积或者叫做叉乘。相乘后得到的矩阵每个元素表示为：$(xy^T)_{ij} = x_i y_j$：</p><center>$xy^T \in R^{m \times n} = \left[\begin{matrix}x_1 \\ x_2 \\ \vdots \\ x_m \end{matrix}\right] \left[\begin{matrix}y_1 \ y_2 \ \dots \ y_n \end{matrix} \right] = \left[\begin{matrix}x_1y_1  &x_1y_2 &\dots  &x_1y_n \\ x_2y_1 &x_2y_2 &\dots &x_2y_n \\ \vdots &\vdots &\ddots &\vdots \\ x_my_1 &x_my_2 &\dots &x_my_n \end{matrix} \right]$</center></br><p>外积一个有用的例子是，定义一个 n 维且每个元素都是 1 的单位向量 $I\in R^n$ ，并且定义矩阵 $A\in R^{m \times n}$ 每一列都是相同的向量 $x \in R^m$。这样可以用如下式子来表示 A：</p><center>$A = \left[\begin{matrix}\mid &\mid &\mid \\ x &x &x \\ \mid &\mid &\mid \end{matrix} \right] = \left[\begin{matrix}x_1 &x_1 &\dots &x_1 \\ x_2 &x_2 &\dots &x_2 \\ \vdots & \vdots &\ddots &\vdots \\ x_m &x_m &\dots &x_m \end{matrix} \right] = \left[\begin{matrix}x_1 \\ x_2 \\ \vdots \\x_m \end{matrix} \right]\left[\begin{matrix}1 \ 1 \dots \ 1 \end{matrix} \right] = xI^T$</center></br><h3 id="矩阵与向量"><a href="#矩阵与向量" class="headerlink" title="矩阵与向量"></a>矩阵与向量</h3><h3 id="矩阵与矩阵"><a href="#矩阵与矩阵" class="headerlink" title="矩阵与矩阵"></a>矩阵与矩阵</h3><h2 id="Operations-and-Properties"><a href="#Operations-and-Properties" class="headerlink" title="Operations and Properties"></a>Operations and Properties</h2><h3 id="单位矩阵和对角矩阵"><a href="#单位矩阵和对角矩阵" class="headerlink" title="单位矩阵和对角矩阵"></a>单位矩阵和对角矩阵</h3><h3 id="转置"><a href="#转置" class="headerlink" title="转置"></a>转置</h3><h3 id="对称矩阵"><a href="#对称矩阵" class="headerlink" title="对称矩阵"></a>对称矩阵</h3><h3 id="矩阵的迹"><a href="#矩阵的迹" class="headerlink" title="矩阵的迹"></a>矩阵的迹</h3><h3 id="正则化"><a href="#正则化" class="headerlink" title="正则化"></a>正则化</h3><h3 id="线性无关与秩"><a href="#线性无关与秩" class="headerlink" title="线性无关与秩"></a>线性无关与秩</h3><h3 id="逆矩阵"><a href="#逆矩阵" class="headerlink" title="逆矩阵"></a>逆矩阵</h3><h3 id="正交矩阵"><a href="#正交矩阵" class="headerlink" title="正交矩阵"></a>正交矩阵</h3><h3 id="矩阵的值域和零空间"><a href="#矩阵的值域和零空间" class="headerlink" title="矩阵的值域和零空间"></a>矩阵的值域和零空间</h3><h3 id="行列式"><a href="#行列式" class="headerlink" title="行列式"></a>行列式</h3><h3 id="二次型和半正定矩阵"><a href="#二次型和半正定矩阵" class="headerlink" title="二次型和半正定矩阵"></a>二次型和半正定矩阵</h3><h3 id="特征值和特征向量"><a href="#特征值和特征向量" class="headerlink" title="特征值和特征向量"></a>特征值和特征向量</h3><h3 id="对称矩阵的特征值和特征向量"><a href="#对称矩阵的特征值和特征向量" class="headerlink" title="对称矩阵的特征值和特征向量"></a>对称矩阵的特征值和特征向量</h3><h2 id="Matrix-Calculus"><a href="#Matrix-Calculus" class="headerlink" title="Matrix Calculus"></a>Matrix Calculus</h2><h3 id="矩阵梯度"><a href="#矩阵梯度" class="headerlink" title="矩阵梯度"></a>矩阵梯度</h3><h3 id="海森矩阵"><a href="#海森矩阵" class="headerlink" title="海森矩阵"></a>海森矩阵</h3><h3 id="二次函数和线性函数的梯度和海森矩阵"><a href="#二次函数和线性函数的梯度和海森矩阵" class="headerlink" title="二次函数和线性函数的梯度和海森矩阵"></a>二次函数和线性函数的梯度和海森矩阵</h3><h3 id="行列式的梯度"><a href="#行列式的梯度" class="headerlink" title="行列式的梯度"></a>行列式的梯度</h3><h3 id="特征值优化"><a href="#特征值优化" class="headerlink" title="特征值优化"></a>特征值优化</h3>]]></content>
+      
+      
+      <categories>
+          
+          <category> 线性代数 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 线性代数 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>论文阅读《GloVe: Global Vectors for Word Representation》</title>
       <link href="/posts/fb292938.html"/>
       <url>/posts/fb292938.html</url>
@@ -88,13 +113,13 @@
             
             <tag> 人工智能 </tag>
             
+            <tag> Skip-gram </tag>
+            
             <tag> 分布式词表示 </tag>
             
             <tag> Hierarchical Softmax </tag>
             
             <tag> 负采样 </tag>
-            
-            <tag> Skip-gram </tag>
             
         </tags>
       
@@ -123,11 +148,11 @@
             
             <tag> 人工智能 </tag>
             
-            <tag> Skip-gram </tag>
-            
             <tag> 分布式词向量 </tag>
             
             <tag> CBOW </tag>
+            
+            <tag> Skip-gram </tag>
             
         </tags>
       

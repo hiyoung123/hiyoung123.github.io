@@ -47,26 +47,18 @@
   };
 </script>
 
-  <meta name="description" content="在监督学习中（也就是有标签的数据中），标签值为连续值时是回归任务，标志值是离散值时是分类任务。">
-<meta name="keywords" content="机器学习,线性回归,岭回归,Lasso回归">
+  <meta name="description" content="机器学习深度学习等领域需要的线性代数知识总结。">
+<meta name="keywords" content="线性代数">
 <meta property="og:type" content="article">
-<meta property="og:title" content="机器学习 - 线性回归">
-<meta property="og:url" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;posts&#x2F;19883263.html">
+<meta property="og:title" content="线代学习笔记">
+<meta property="og:url" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;posts&#x2F;65bf62c6.html">
 <meta property="og:site_name" content="Young Blog">
-<meta property="og:description" content="在监督学习中（也就是有标签的数据中），标签值为连续值时是回归任务，标志值是离散值时是分类任务。">
+<meta property="og:description" content="机器学习深度学习等领域需要的线性代数知识总结。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif">
-<meta property="og:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif">
-<meta property="og:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif">
-<meta property="og:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif">
-<meta property="og:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif">
-<meta property="og:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif">
-<meta property="og:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif">
-<meta property="og:updated_time" content="2019-12-05T10:05:01.546Z">
+<meta property="og:updated_time" content="2020-01-15T05:25:33.233Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif">
 
-<link rel="canonical" href="https://hiyoungai.com/posts/19883263.html">
+<link rel="canonical" href="https://hiyoungai.com/posts/65bf62c6.html">
 
 
 <script id="page-configurations">
@@ -80,7 +72,7 @@
   };
 </script>
 
-  <title>机器学习 - 线性回归 | Young Blog</title>
+  <title>线代学习笔记 | Young Blog</title>
   
 
 
@@ -198,7 +190,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hiyoungai.com/posts/19883263.html">
+    <link itemprop="mainEntityOfPage" href="https://hiyoungai.com/posts/65bf62c6.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -211,7 +203,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          机器学习 - 线性回归
+          线代学习笔记
         </h1>
 
         <div class="post-meta">
@@ -220,24 +212,18 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2019-11-28 17:45:45" itemprop="dateCreated datePublished" datetime="2019-11-28T17:45:45+08:00">2019-11-28</time>
+              <time title="创建时间：2020-01-15 13:22:36 / 修改时间：13:25:33" itemprop="dateCreated datePublished" datetime="2020-01-15T13:22:36+08:00">2020-01-15</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-12-05 18:05:01" itemprop="dateModified" datetime="2019-12-05T18:05:01+08:00">2019-12-05</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习</span>
+                  <a href="/categories/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/" itemprop="url" rel="index">
+                    <span itemprop="name">线性代数</span>
                   </a>
                 </span>
             </span>
@@ -260,61 +246,55 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>今天要说一下机器学习中大多数书籍第一个讲的（有的可能是KNN）模型-线性回归。说起线性回归，首先要介绍一下机器学习中的两个常见的问题：回归任务和分类任务。那什么是回归任务和分类任务呢？简单的来说，在监督学习中（也就是有标签的数据中），标签值为连续值时是回归任务，标志值是离散值时是分类任务。而线性回归模型就是处理回归任务的最基础的模型。</p>
-<h2 id="形式"><a href="#形式" class="headerlink" title="形式"></a>形式</h2><p>在只有一个变量的情况下，线性回归可以用方程：$y = ax+b$表示。而如果有多个变量，也就是n元线性回归的形式如下：</p>
-<center> $h_\theta(x) = \theta_0 + \theta_1x_1 + \theta_2x_2 + \cdots$ <br><br> </center >
-<center> $h_\theta(x) = \sum^n_{i=0}{\theta_ix_i} = {\theta^Tx}$<br><br> </center >
-在这里我们将截断$b$用$\theta_0$代替，同时数据集X也需要添加一列1用于与$\theta_0$相乘，表示$+b$。最后写成矩阵的形式就是$\theta$的转置乘以x。其中如果数据集有n个特征，则$\theta$就是$n+1$维的向量并非矩阵，其中包括截断$b$。
+        <h2 id="Basic-Concepts-and-Notation"><a href="#Basic-Concepts-and-Notation" class="headerlink" title="Basic Concepts and Notation"></a>Basic Concepts and Notation</h2><p>线性代数提供了一种紧凑表示和操作线性方程式集合的方法。如下面的方程组：</p>
+<center>$
+\begin {aligned}
+4x_1 - 5x_2 &= -13 \\\ -2x_1 + 3x_2 &= 9
+\end {aligned}
+$</center></br>
 
-<h2 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h2><p>线性回归的目的就是求解出合适的$\theta$，在一元的情况下拟合出一条直线（多元情况下是平面或者曲面），可以近似的代表各个数据样本的标签值。所以最好的直线要距离各个样本点都很接近，而如何求出这条直线就是本篇文章重点要将的内容。</p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_lr_compare.webp" alt="图1"></p>
-<h2 id="最小二乘法"><a href="#最小二乘法" class="headerlink" title="最小二乘法"></a>最小二乘法</h2><p>求解线性回归模型的方法叫做最小二乘法，最小二乘法的核心就是保证所有数据偏差的平方和最小。它的具体形式是：</p>
-<center> $J(\theta) = {1\over2}\sum^m_{i=1}(h_\theta(x^{(i)}) - y^{(i)})^2$ <br><br> </center >
-其中$h_\theta(x^{(i)})$代表每个样本通过我们模型的预测值，$y^{(i)}$代表每个样本标签的真实值，$m$为样本个数。因为模型预测值和真实值间存在误差$e$，可以写作：
+<p>除了传统的解方程组求解之外，还可以使用更简洁的矩阵方法表示：</p>
+<center>$Ax = b$</center></br>
+其中：
 
-<center> $y^{(i)} = {\theta^Tx^{(i)} + \epsilon^{(i)}}$ <br><br> </center >
-根据中心极限定理，$e^{(i)}$是独立同分布的(IID)，服从均值为0，方差为某定值$σ$的平方的正太分布。具体推导过程如下：
+<center>$A = \left[ \begin{matrix}4 &-5 \\ -2 &3 \end{matrix} \right], b = \left[\begin{matrix} -13\\ 9 \end{matrix} \right]. $</center></br>
+从上面的例子可以看出矩阵形式更加简洁。下面来认识一下常用的基本符号：
 
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_lr_zuixiaoercheng.webp" alt="图2"></p>
-<h2 id="求解最小二乘法"><a href="#求解最小二乘法" class="headerlink" title="求解最小二乘法"></a>求解最小二乘法</h2><p>我们要求得就是当$\theta$取某个值时使$J(\theta)$最小，求解最小二乘法的方法一般有两种方法:矩阵式和梯度下降法。</p>
-<h3 id="矩阵式求解"><a href="#矩阵式求解" class="headerlink" title="矩阵式求解"></a>矩阵式求解</h3><p>当我们的数据集含有m个样本，每个样本有n个特征时，数据x可以写成$m\cdot(n+1)$维的矩阵（$+1$是添加一列1，用于与截断$b$相乘），$\theta$则为$n+1$维的列向量（$+1$是截断b），y为m维的列向量代表每m个样本结果的预测值。则矩阵式的推导如下所示：</p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_lr_zuixiaoercheng_qiujie_juzhen.webp" alt="图3"></p>
-<p>因为$X^TX$为方阵，如果$X^TX$是可逆的，则参数$\theta$得解析式可以写成：</p>
-<center> $\theta = (X^TX)^{-1}X^Ty$ <br><br> </center >
-如果$X$的特征数n不是很大，通常情况下$X^TX$是可以求逆的，但是如果n非常大，$X^TX$不可逆，则用梯度下降法求解参数$\theta$的值。
-
-<h3 id="梯度下降法求解（GD）"><a href="#梯度下降法求解（GD）" class="headerlink" title="梯度下降法求解（GD）"></a>梯度下降法求解（GD）</h3><p>在一元函数中叫做求导，在多元函数中就叫做求梯度。梯度下降是一个最优化算法，通俗的来讲也就是沿着梯度下降的方向来求出一个函数的极小值。比如一元函数中，加速度减少的方向，总会找到一个点使速度达到最小。通常情况下，数据不可能完全符合我们的要求，所以很难用矩阵去求解，所以机器学习就应该用学习的方法，因此我们采用梯度下降，不断迭代，沿着梯度下降的方向来移动，求出极小值。梯度下降法包括批量梯度下降法和随机梯度下降法（SGD）以及二者的结合mini批量下降法（通常与SGD认为是同一种，常用于深度学习中）。</p>
-<p>梯度下降法的一般过程如下：</p>
-<ol>
-<li>初始化$\theta$（随机）</li>
-<li>求$J(\theta)$对$\theta$的偏导：</li>
-</ol>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_lr_zuixiaoercheng_gd.webp" alt="图4"></p>
-<ol start="3">
-<li><p>更新$\theta$</p>
-<center> $\theta = \theta - \alpha \cdot {\partial J(\theta)\over{\partial \theta}}$ <br><br> </center >
-
-
+<h3 id="基本符号"><a href="#基本符号" class="headerlink" title="基本符号"></a>基本符号</h3><ul>
+<li><p>使用 $A \in R^{m \times n}$ 表示一个 m 行 n 列的矩阵，其中矩阵 A 中的每个元素都是实数。</p>
+</li>
+<li><p>使用 $x \in R^n$ 表示包含 n 个元素的向量。传统意义上，一个 n 维向量通常认为是一个 n 行 1 列的矩阵，叫做列向量。如果想表示行向量 - 一个 1 行 n 列的矩阵，那么可以写作 $x^T$，叫做 x 的转置。</p>
+<center>$x = \left[ \begin{matrix}x_1\\x_2\\ \vdots \\ x_n \end{matrix} \right]$</center></br>
+</li>
+<li><p>使用 $x_i$ 表示 x 向量的第 i 个元素。</p>
+</li>
+<li><p>使用 $a_{ij}$（或者 $A_{ij},A_{i,j}$）表示矩阵 A 中的第 i 行第 j 列的元素。</p>
+<center>$A = \left[\begin{matrix}a_{11}\ &a_{12}\ &\dots \ &a_{1n} \\ a_{21} \ &a_{22} \ &\dots \ &a_{2n} \\ \vdots \ &\vdots \ &\ddots \ &\vdots \\ a_{m1} \ &a_{m2} \ &\dots &a_{mn} \end{matrix}\right]$</center></br>
 
 </li>
-</ol>
-<p>其中$\alpha$为学习率，调节学习率这个超参数也是建模中的一个重要内容。因为$J(\theta)$是凸函数，所以GD求出的最优解是全局最优解。</p>
-<p>批量梯度下降法是求出整个数据集的梯度，再去更新$\theta$ ，所以每次迭代都是在求全局最优解。</p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_lr_gd_1.webp" alt="图5"></p>
-<p>而随机梯度下降法是求一个样本的梯度后就去跟新$\theta$，所以每次迭代都是求局部最优解，但是总是朝着全局最优解前进，最后总会到达全局最优解。</p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_lr_gd_2.webp" alt="图6"></p>
-<h2 id="其他回归模型"><a href="#其他回归模型" class="headerlink" title="其他回归模型"></a>其他回归模型</h2><p>在机器学习中，有时为了防止模型太复杂容易过拟合，通常会在模型上加入正则项，抑制模型复杂度，防止过拟合。在线性回归中有两种常用的正则，一个是$L1$正则，一个是$L2$正则，加入$L1$正则的称为$Lasso$回归，加入$L2$正则的为$Ridge$回归也叫岭回归。</p>
-<h3 id="Lasso回归"><a href="#Lasso回归" class="headerlink" title="Lasso回归"></a>Lasso回归</h3><center> $J({\vec\theta}) = {1\over2}\sum^m_{i=1}(h_{\vec\theta}(x^{(i)}) - y^{(i)}) + \lambda\sum^n_{j=1}{|\theta_j|}$ <br><br> </center>
--- -- --
+</ul>
+<p>需要注意的是，这些符号并不是一成不变的，具体使用还是要在具体的应用当中去抉择。</p>
+<h2 id="Matrix-Multiplication"><a href="#Matrix-Multiplication" class="headerlink" title="Matrix Multiplication"></a>Matrix Multiplication</h2><p>两个矩阵相乘，结果还是一个矩阵。例如矩阵 $A \in R^{m \times n}$ 和矩阵 $B \in R^{n \times p}$相乘：</p>
+<center>$C = AB \in R^{m\times p}$</center></br>
 
-<h3 id="岭回归"><a href="#岭回归" class="headerlink" title="岭回归"></a>岭回归</h3><center> $J({\vec\theta}) = {1\over2}\sum^m_{i=1}(h_{\vec\theta}(x^{(i)}) - y^{(i)}) + \lambda\sum^n_{j=1}{\theta_j^2}$ <br><br> </center>
--- -- --
+<p>其中：</p>
+<center>$C_{ij} = \sum^n_{k=1} A_{ik}B_{ik}$</center></br>
 
+<blockquote>
+<p>注意：两个矩阵相乘的前提条件是，前一个矩阵 A 的列数必须等于后一个矩阵 B 的行数。</p>
+</blockquote>
+<p>下面从几个特殊的例子来研究一下矩阵乘法。</p>
+<h3 id="向量与向量"><a href="#向量与向量" class="headerlink" title="向量与向量"></a>向量与向量</h3><p>两个向量 $x,y \in R^n$ 的乘积 $x^Ty$ 也叫作内积、点积或者点乘。符号表示为：</p>
+<center>$x^Ty\in R = \left[ \begin{matrix} x_1\ x_2\ \dots \ x_n \end{matrix}\right] \left[ \begin{matrix} y_1 \\ y_2 \\ \vdots \\ y_n \end{matrix}\right] = \sum^n_{i=1}x_i y_i$</center></br>
 
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>下图是个人实现代码结果与真实值对比图：</p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_lr_compare_result.webp" alt="图7"></p>
-<p>详细代码可参考<a href="https://github.com/hiyoung123/ML" target="_blank" rel="noopener">GitHub</a></p>
+<p>内积是矩阵乘法的特例，并且它总是符合交换律：$x^Ty = y^Tx$。</p>
+<p>另外一种两个向量相乘的例子，向量 $x \in R^m$ 和向量 $y \in R^n$，维度大小不是必须一致的。这个两个向量的乘积 $xy^T\in R^{m\times n}$ 称为外积或者叫做叉乘。相乘后得到的矩阵每个元素表示为：$(xy^T)_{ij} = x_i y_j$：</p>
+<center>$xy^T \in R^{m \times n} = \left[\begin{matrix}x_1 \\ x_2 \\ \vdots \\ x_m \end{matrix}\right] \left[\begin{matrix}y_1 \ y_2 \ \dots \ y_n \end{matrix} \right] = \left[\begin{matrix}x_1y_1  &x_1y_2 &\dots  &x_1y_n \\ x_2y_1 &x_2y_2 &\dots &x_2y_n \\ \vdots &\vdots &\ddots &\vdots \\ x_my_1 &x_my_2 &\dots &x_my_n \end{matrix} \right]$</center></br>
 
+<p>外积一个有用的例子是，定义一个 n 维且每个元素都是 1 的单位向量 $I\in R^n$ ，并且定义矩阵 $A\in R^{m \times n}$ 每一列都是相同的向量 $x \in R^m$。这样可以用如下式子来表示 A：</p>
+<center>$A = \left[\begin{matrix}\mid &\mid &\mid \\ x &x &x \\ \mid &\mid &\mid \end{matrix} \right] = \left[\begin{matrix}x_1 &x_1 &\dots &x_1 \\ x_2 &x_2 &\dots &x_2 \\ \vdots & \vdots &\ddots &\vdots \\ x_m &x_m &\dots &x_m \end{matrix} \right] = \left[\begin{matrix}x_1 \\ x_2 \\ \vdots \\x_m \end{matrix} \right]\left[\begin{matrix}1 \ 1 \dots \ 1 \end{matrix} \right] = xI^T$</center></br>
+
+<h3 id="矩阵与向量"><a href="#矩阵与向量" class="headerlink" title="矩阵与向量"></a>矩阵与向量</h3><h3 id="矩阵与矩阵"><a href="#矩阵与矩阵" class="headerlink" title="矩阵与矩阵"></a>矩阵与矩阵</h3><h2 id="Operations-and-Properties"><a href="#Operations-and-Properties" class="headerlink" title="Operations and Properties"></a>Operations and Properties</h2><h3 id="单位矩阵和对角矩阵"><a href="#单位矩阵和对角矩阵" class="headerlink" title="单位矩阵和对角矩阵"></a>单位矩阵和对角矩阵</h3><h3 id="转置"><a href="#转置" class="headerlink" title="转置"></a>转置</h3><h3 id="对称矩阵"><a href="#对称矩阵" class="headerlink" title="对称矩阵"></a>对称矩阵</h3><h3 id="矩阵的迹"><a href="#矩阵的迹" class="headerlink" title="矩阵的迹"></a>矩阵的迹</h3><h3 id="正则化"><a href="#正则化" class="headerlink" title="正则化"></a>正则化</h3><h3 id="线性无关与秩"><a href="#线性无关与秩" class="headerlink" title="线性无关与秩"></a>线性无关与秩</h3><h3 id="逆矩阵"><a href="#逆矩阵" class="headerlink" title="逆矩阵"></a>逆矩阵</h3><h3 id="正交矩阵"><a href="#正交矩阵" class="headerlink" title="正交矩阵"></a>正交矩阵</h3><h3 id="矩阵的值域和零空间"><a href="#矩阵的值域和零空间" class="headerlink" title="矩阵的值域和零空间"></a>矩阵的值域和零空间</h3><h3 id="行列式"><a href="#行列式" class="headerlink" title="行列式"></a>行列式</h3><h3 id="二次型和半正定矩阵"><a href="#二次型和半正定矩阵" class="headerlink" title="二次型和半正定矩阵"></a>二次型和半正定矩阵</h3><h3 id="特征值和特征向量"><a href="#特征值和特征向量" class="headerlink" title="特征值和特征向量"></a>特征值和特征向量</h3><h3 id="对称矩阵的特征值和特征向量"><a href="#对称矩阵的特征值和特征向量" class="headerlink" title="对称矩阵的特征值和特征向量"></a>对称矩阵的特征值和特征向量</h3><h2 id="Matrix-Calculus"><a href="#Matrix-Calculus" class="headerlink" title="Matrix Calculus"></a>Matrix Calculus</h2><h3 id="矩阵梯度"><a href="#矩阵梯度" class="headerlink" title="矩阵梯度"></a>矩阵梯度</h3><h3 id="海森矩阵"><a href="#海森矩阵" class="headerlink" title="海森矩阵"></a>海森矩阵</h3><h3 id="二次函数和线性函数的梯度和海森矩阵"><a href="#二次函数和线性函数的梯度和海森矩阵" class="headerlink" title="二次函数和线性函数的梯度和海森矩阵"></a>二次函数和线性函数的梯度和海森矩阵</h3><h3 id="行列式的梯度"><a href="#行列式的梯度" class="headerlink" title="行列式的梯度"></a>行列式的梯度</h3><h3 id="特征值优化"><a href="#特征值优化" class="headerlink" title="特征值优化"></a>特征值优化</h3>
     </div>
 
     
@@ -323,10 +303,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag"># 机器学习</a>
-              <a href="/tags/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/" rel="tag"># 线性回归</a>
-              <a href="/tags/%E5%B2%AD%E5%9B%9E%E5%BD%92/" rel="tag"># 岭回归</a>
-              <a href="/tags/Lasso%E5%9B%9E%E5%BD%92/" rel="tag"># Lasso回归</a>
+              <a href="/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/" rel="tag"># 线性代数</a>
           </div>
 
         
@@ -335,13 +312,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/posts/c237bc03.html" rel="prev" title="机器学习 - Logistic回归">
-      <i class="fa fa-chevron-left"></i> 机器学习 - Logistic回归
+    <a href="/posts/fb292938.html" rel="prev" title="论文阅读《GloVe: Global Vectors for Word Representation》">
+      <i class="fa fa-chevron-left"></i> 论文阅读《GloVe: Global Vectors for Word Representation》
     </a></div>
-      <div class="post-nav-item">
-    <a href="/posts/2878d2b0.html" rel="next" title="CS224n-lecture1 Introduction and Word Vectors">
-      CS224n-lecture1 Introduction and Word Vectors <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -380,7 +354,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#形式"><span class="nav-text">形式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#目的"><span class="nav-text">目的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最小二乘法"><span class="nav-text">最小二乘法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#求解最小二乘法"><span class="nav-text">求解最小二乘法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#矩阵式求解"><span class="nav-text">矩阵式求解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#梯度下降法求解（GD）"><span class="nav-text">梯度下降法求解（GD）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他回归模型"><span class="nav-text">其他回归模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Lasso回归"><span class="nav-text">Lasso回归</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#岭回归"><span class="nav-text">岭回归</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-text">总结</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Basic-Concepts-and-Notation"><span class="nav-text">Basic Concepts and Notation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本符号"><span class="nav-text">基本符号</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Matrix-Multiplication"><span class="nav-text">Matrix Multiplication</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#向量与向量"><span class="nav-text">向量与向量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#矩阵与向量"><span class="nav-text">矩阵与向量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#矩阵与矩阵"><span class="nav-text">矩阵与矩阵</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Operations-and-Properties"><span class="nav-text">Operations and Properties</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#单位矩阵和对角矩阵"><span class="nav-text">单位矩阵和对角矩阵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#转置"><span class="nav-text">转置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对称矩阵"><span class="nav-text">对称矩阵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#矩阵的迹"><span class="nav-text">矩阵的迹</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正则化"><span class="nav-text">正则化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线性无关与秩"><span class="nav-text">线性无关与秩</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#逆矩阵"><span class="nav-text">逆矩阵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正交矩阵"><span class="nav-text">正交矩阵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#矩阵的值域和零空间"><span class="nav-text">矩阵的值域和零空间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#行列式"><span class="nav-text">行列式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二次型和半正定矩阵"><span class="nav-text">二次型和半正定矩阵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特征值和特征向量"><span class="nav-text">特征值和特征向量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对称矩阵的特征值和特征向量"><span class="nav-text">对称矩阵的特征值和特征向量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Matrix-Calculus"><span class="nav-text">Matrix Calculus</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#矩阵梯度"><span class="nav-text">矩阵梯度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#海森矩阵"><span class="nav-text">海森矩阵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二次函数和线性函数的梯度和海森矩阵"><span class="nav-text">二次函数和线性函数的梯度和海森矩阵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#行列式的梯度"><span class="nav-text">行列式的梯度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特征值优化"><span class="nav-text">特征值优化</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -644,7 +618,7 @@
       repo: 'hiyoung123.github.io',
       owner: 'hiyoung123',
       admin: ['hiyoung123'],
-      id: '758f36975a6d3665666132a1f76b8b23',
+      id: '42369510251910f7008104c45f8774d9',
         language: '',
       distractionFreeMode: 'true'
     });

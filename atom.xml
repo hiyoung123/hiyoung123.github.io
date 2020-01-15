@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hiyoungai.com/"/>
-  <updated>2020-01-12T09:37:56.592Z</updated>
+  <updated>2020-01-15T05:25:33.233Z</updated>
   <id>https://hiyoungai.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>线代学习笔记</title>
+    <link href="https://hiyoungai.com/posts/65bf62c6.html"/>
+    <id>https://hiyoungai.com/posts/65bf62c6.html</id>
+    <published>2020-01-15T05:22:36.000Z</published>
+    <updated>2020-01-15T05:25:33.233Z</updated>
+    
+    <summary type="html">
+    
+      机器学习深度学习等领域需要的线性代数知识总结。
+    
+    </summary>
+    
+    
+      <category term="线性代数" scheme="https://hiyoungai.com/categories/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/"/>
+    
+    
+      <category term="线性代数" scheme="https://hiyoungai.com/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>论文阅读《GloVe: Global Vectors for Word Representation》</title>
@@ -93,13 +114,13 @@
     
       <category term="人工智能" scheme="https://hiyoungai.com/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
     
+      <category term="Skip-gram" scheme="https://hiyoungai.com/tags/Skip-gram/"/>
+    
       <category term="分布式词表示" scheme="https://hiyoungai.com/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AF%8D%E8%A1%A8%E7%A4%BA/"/>
     
       <category term="Hierarchical Softmax" scheme="https://hiyoungai.com/tags/Hierarchical-Softmax/"/>
     
       <category term="负采样" scheme="https://hiyoungai.com/tags/%E8%B4%9F%E9%87%87%E6%A0%B7/"/>
-    
-      <category term="Skip-gram" scheme="https://hiyoungai.com/tags/Skip-gram/"/>
     
   </entry>
   
@@ -124,11 +145,11 @@
     
       <category term="人工智能" scheme="https://hiyoungai.com/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
     
-      <category term="Skip-gram" scheme="https://hiyoungai.com/tags/Skip-gram/"/>
-    
       <category term="分布式词向量" scheme="https://hiyoungai.com/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AF%8D%E5%90%91%E9%87%8F/"/>
     
       <category term="CBOW" scheme="https://hiyoungai.com/tags/CBOW/"/>
+    
+      <category term="Skip-gram" scheme="https://hiyoungai.com/tags/Skip-gram/"/>
     
   </entry>
   
