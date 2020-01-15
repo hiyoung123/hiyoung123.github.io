@@ -113,13 +113,13 @@
             
             <tag> 人工智能 </tag>
             
-            <tag> Skip-gram </tag>
-            
             <tag> 分布式词表示 </tag>
             
             <tag> Hierarchical Softmax </tag>
             
             <tag> 负采样 </tag>
+            
+            <tag> Skip-gram </tag>
             
         </tags>
       
@@ -148,11 +148,11 @@
             
             <tag> 人工智能 </tag>
             
+            <tag> Skip-gram </tag>
+            
             <tag> 分布式词向量 </tag>
             
             <tag> CBOW </tag>
-            
-            <tag> Skip-gram </tag>
             
         </tags>
       
