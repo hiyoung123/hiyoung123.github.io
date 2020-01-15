@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hiyoungai.com/"/>
-  <updated>2020-01-15T05:25:33.233Z</updated>
+  <updated>2020-01-15T06:22:11.268Z</updated>
   <id>https://hiyoungai.com/</id>
   
   <author>
@@ -20,8 +20,8 @@
     <title>线代学习笔记</title>
     <link href="https://hiyoungai.com/posts/65bf62c6.html"/>
     <id>https://hiyoungai.com/posts/65bf62c6.html</id>
-    <published>2020-01-15T05:22:36.000Z</published>
-    <updated>2020-01-15T05:25:33.233Z</updated>
+    <published>2020-01-15T04:45:45.000Z</published>
+    <updated>2020-01-15T06:22:11.268Z</updated>
     
     <summary type="html">
     
@@ -56,9 +56,9 @@
     
       <category term="NLP" scheme="https://hiyoungai.com/tags/NLP/"/>
     
-      <category term="GloVe" scheme="https://hiyoungai.com/tags/GloVe/"/>
-    
       <category term="人工智能" scheme="https://hiyoungai.com/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+    
+      <category term="GloVe" scheme="https://hiyoungai.com/tags/GloVe/"/>
     
       <category term="全局词向量" scheme="https://hiyoungai.com/tags/%E5%85%A8%E5%B1%80%E8%AF%8D%E5%90%91%E9%87%8F/"/>
     
@@ -243,9 +243,9 @@
       <category term="资源" scheme="https://hiyoungai.com/categories/%E8%B5%84%E6%BA%90/"/>
     
     
-      <category term="学习资料" scheme="https://hiyoungai.com/tags/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99/"/>
-    
       <category term="人工智能" scheme="https://hiyoungai.com/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+    
+      <category term="学习资料" scheme="https://hiyoungai.com/tags/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99/"/>
     
       <category term="课程资源" scheme="https://hiyoungai.com/tags/%E8%AF%BE%E7%A8%8B%E8%B5%84%E6%BA%90/"/>
     
