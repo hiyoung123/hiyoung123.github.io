@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hiyoungai.com/coding/index.html</loc>
+    
+    <lastmod>2020-01-16T07:23:31.363Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://hiyoungai.com/posts/b38e2b22.html</loc>
     
     <lastmod>2020-01-16T07:20:23.001Z</lastmod>
@@ -26,13 +33,6 @@
     <loc>https://hiyoungai.com/posts/fb292938.html</loc>
     
     <lastmod>2020-01-12T09:37:56.592Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://hiyoungai.com/coding/index.html</loc>
-    
-    <lastmod>2020-01-08T02:22:29.202Z</lastmod>
     
   </url>
   
