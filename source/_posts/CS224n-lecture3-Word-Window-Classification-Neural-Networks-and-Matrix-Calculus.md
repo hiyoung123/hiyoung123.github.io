@@ -3,7 +3,19 @@ title: >-
   CS224n-lecture3 Word Window Classification, Neural Networks, and Matrix
   Calculus
 abbrlink: b38e2b22
+top: false
+cover: false
+toc: true
+mathjax: true
 tags:
+  - NLP
+  - CS224n
+  - 分类任务
+  - NER
+categories:
+  - 自然语言处理
+date: 2020-01-16 14:45:45
+excerpt: CS224n 深度学习自然语言处理 2019 版 Lecture-3 学习笔记。
 ---
 
 > CS224n 深度学习自然语言处理 2019 版 Lecture-3 学习笔记。
@@ -12,7 +24,7 @@ tags:
 
 
 
-## Classification setup and notation 
+## Classification setup and notation
 
 首先看一下分类任务情况下的一般符号表示，通常会有一个训练数据集，包含的数据一般形式为：
 
@@ -33,6 +45,9 @@ tags:
 使用 softmax 回归的公式为：
 
 <center>$p(y|x) = {exp(W_y,x)\over \sum^C_{c=1} exp(W_Cx)}$</center></br>
+
+ 
+
 ### Details of the softmax classifier
 
 将上述的预测函数分为两个步骤介绍：
@@ -53,11 +68,16 @@ tags:
 对于每个训练样本 $(x,y)$，目标函数是最大化正确分类 y 的概率，等价于该类最小化负对数概率（一般优化算法中都喜欢使用最小化，凸优化理论相关的知识）。
 
 <center>$-logp(y|x) = -log({exp(f_y)\over\sum^C_{c=1}exp(f_c)})$</center></br>
+
+ 
+
 ###　What is “cross entropy” loss/error?
 
 交叉熵是信息论中的概念，用于衡量两个分布 p 和 q 之间的差异。在这里使用 p 代表真实值，使用 q 代表模型预测值，那么交叉熵损失函数的公式为：
 
 <center>$H(p,q) = -\sum^C_{c=1} p(c)log q(c)$</center></br>
+ 
+
 具体交叉熵的介绍可以看我另外一篇博客[信息熵总结](https://hiyoungai.com/posts/686d9456.html)。
 
 ### Classification over a full dataset
@@ -71,6 +91,8 @@ tags:
 使用矩阵的方式表示 f：
 
 <center>$f = Wx$</center></br>
+ 
+
 ### Traditional ML optimization
 
 通常基本的机器学习模型参数 $\theta$ 只包含一列 W：
@@ -80,6 +102,7 @@ tags:
 
 <center>$\nabla_\theta J(\theta) = \left[ \begin{matrix} \nabla W_{.1} \\ \vdots \\ \nabla W_{.d} \end{matrix} \right] \in R^{Cd}$</center></br>
 
+ 
 
 
 ## Neural Network Classifiers
@@ -92,7 +115,7 @@ tags:
 
 剩下的内容主要是前馈神经网络的介绍，这里不详细介绍了，后续会在深度学习中讲解。
 
-
+ 
 
 ## Named Entity Recognition (NER)
 
@@ -138,12 +161,10 @@ NER 的难点是有的时候很难区分Named Entity的边界，有的时候很�
 得到了输入向量 $x_{windows}$ 后，就可以使用 softmax 分类器进行分类了，softmax 已经说过很多次就不重复说了：
 
 <center>$\widehat{y}_y = p(y|x) = {exp(W_y \cdot x) \over \sum ^C_{c=1}exp(W_c \cdot x)}$</center>
-
 其中 $\widehat{y}_y$ 是模型的预测值，C 为类别数量。对应的交叉熵损失函数表达式：
 
 <center>$J(\theta) = {1\over N} \sum^N_{i=1} -log({e^{f_{yi}}\over \sum^C_{c=1}e^{f_c}})$</center></br>
-
-这里说明一下，上面的式子不像交叉熵是因为这里把真实值得概率当作1，所以这个式子只有一个概率分布。然后通过求导、梯度下降优化算法去更新参数。
+这里说明一下，上面的式子不像交叉熵是因为这里把真实值得概率当作 1，所以这个式子只有一个概率分布。然后通过求导、梯度下降优化算法去更新参数。
 
 ### Binary classification with unnormalized scores
 
@@ -157,3 +178,24 @@ Binary classification with unnormalized scores 是 Collobert & Weston 在（2008
 
 ![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n_19_lec3_class_score_nn_001.png)
 
+### The max-margin loss
+
+对于目标函数的一些想法，就是让正确窗口的得分 $s$ 越大，而错误窗口的得分 $s_c$ 越小。则朴素的思路是最大化 $s−s_c$ 或最小化 $s_c−s$。让正确窗口的得分和错误窗口的得分差距最大化。
+
+$s $　= score(museums in Paris are amazing)
+$s_c$  = score(Not all museums in Paris)
+
+> 注意只有命名实体在窗口的中心位置才认为该窗口为正确的。
+
+目标函数为最大间隔目标函数，它通常作为 SVM 的目标函数：
+
+<center>$J = max(0,1-s+s_c)$</center></br>
+同样优化算法使用的是随机梯度下降算法，梯度计算时用到的技术叫做反向传播，以后会在深度学习中介绍。同时需要提醒的是，使用矩阵向量计算，会比迭代的方式计算梯度快的多很多。
+
+
+
+## Conclusion
+
+最后剩下时间都是在练习矩阵梯度的计算、雅可比矩阵等其他矩阵知识，重复的内容这里就不再多说，后续会有专门的文章记录一下。
+
+本节课的内容，对于我个人来说感觉没有特别深入的内容，不像之前讲解 word2vec 的时候。提到的分类和 NER 都是很潜的说一下，更像是引出神经网络一样。看来具体的技术内容还需要去阅读其他论文才可以。
