@@ -55,7 +55,7 @@
 <meta property="og:site_name" content="Young Blog">
 <meta property="og:description" content="机器学习深度学习等领域需要的线性代数知识总结。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-01-15T11:01:28.107Z">
+<meta property="og:updated_time" content="2020-01-16T05:21:31.199Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="https://hiyoungai.com/posts/58c9c51f.html">
@@ -212,10 +212,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-01-15 15:43:27 / 修改时间：19:01:28" itemprop="dateCreated datePublished" datetime="2020-01-15T15:43:27+08:00">2020-01-15</time>
+              <time title="创建时间：2020-01-15 15:43:27" itemprop="dateCreated datePublished" datetime="2020-01-15T15:43:27+08:00">2020-01-15</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-01-16 13:21:31" itemprop="dateModified" datetime="2020-01-16T13:21:31+08:00">2020-01-16</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -292,7 +298,6 @@ $</center></br>
 
 <center>$A = \left[\begin{matrix}\mid &\mid &\mid \\ x &x &x \\ \mid &\mid &\mid \end{matrix} \right] = \left[\begin{matrix}x_1 &x_1 &\dots &x_1 \\ x_2 &x_2 &\dots &x_2 \\ \vdots & \vdots &\ddots &\vdots \\ x_m &x_m &\dots &x_m \end{matrix} \right] = \left[\begin{matrix}x_1 \\ x_2 \\ \vdots \\x_m \end{matrix} \right]\left[\begin{matrix}1 \ 1 \dots \ 1 \end{matrix} \right] = xI^T$</center></br>
 
-
 <h3 id="矩阵与向量"><a href="#矩阵与向量" class="headerlink" title="矩阵与向量"></a>矩阵与向量</h3><p>矩阵 $A\in R^{m\times n}$ 和向量 $x\in R^n$ 相乘，它们的乘积是 $y = Ax \in R^m$ 。矩阵与向量相乘有几种不同的形式，下面一个个来说：</p>
 <p>首先按行写 A ，然后 Ax 可以表示为：</p>
 <center>$y = Ax = \left[\begin{matrix}— &a_1^T &— \\ — &a_2^T &— \\ &\vdots \\ — &a_m^T &—\end{matrix} \right]x = \left[\begin{matrix}a_1^Tx\\a_2^Tx\\ \vdots \\ a_m^Tx \end{matrix} \right]$</center></br>
@@ -336,7 +341,34 @@ $</center></br>
 <li>不可交换：$AB \neq BA$</li>
 </ul>
 <p>总结一下，其实只要记住矩阵乘法存在的前提就是前一个矩阵的列数必须等于后一个矩阵的行数，最后相乘的结果矩阵行列数分别为前一个矩阵的行数和后一个矩阵的列数，记住这一点就可以解决大多数矩阵乘法。</p>
-<h2 id="Operations-and-Properties"><a href="#Operations-and-Properties" class="headerlink" title="Operations and Properties"></a>Operations and Properties</h2><h3 id="单位矩阵和对角矩阵"><a href="#单位矩阵和对角矩阵" class="headerlink" title="单位矩阵和对角矩阵"></a>单位矩阵和对角矩阵</h3><h3 id="转置"><a href="#转置" class="headerlink" title="转置"></a>转置</h3><h3 id="对称矩阵"><a href="#对称矩阵" class="headerlink" title="对称矩阵"></a>对称矩阵</h3><h3 id="矩阵的迹"><a href="#矩阵的迹" class="headerlink" title="矩阵的迹"></a>矩阵的迹</h3><h3 id="正则化"><a href="#正则化" class="headerlink" title="正则化"></a>正则化</h3><h3 id="线性无关与秩"><a href="#线性无关与秩" class="headerlink" title="线性无关与秩"></a>线性无关与秩</h3><h3 id="逆矩阵"><a href="#逆矩阵" class="headerlink" title="逆矩阵"></a>逆矩阵</h3><h3 id="正交矩阵"><a href="#正交矩阵" class="headerlink" title="正交矩阵"></a>正交矩阵</h3><h3 id="矩阵的值域和零空间"><a href="#矩阵的值域和零空间" class="headerlink" title="矩阵的值域和零空间"></a>矩阵的值域和零空间</h3><h3 id="行列式"><a href="#行列式" class="headerlink" title="行列式"></a>行列式</h3><h3 id="二次型和半正定矩阵"><a href="#二次型和半正定矩阵" class="headerlink" title="二次型和半正定矩阵"></a>二次型和半正定矩阵</h3><h3 id="特征值和特征向量"><a href="#特征值和特征向量" class="headerlink" title="特征值和特征向量"></a>特征值和特征向量</h3><h3 id="对称矩阵的特征值和特征向量"><a href="#对称矩阵的特征值和特征向量" class="headerlink" title="对称矩阵的特征值和特征向量"></a>对称矩阵的特征值和特征向量</h3><h2 id="Matrix-Calculus"><a href="#Matrix-Calculus" class="headerlink" title="Matrix Calculus"></a>Matrix Calculus</h2><h3 id="矩阵梯度"><a href="#矩阵梯度" class="headerlink" title="矩阵梯度"></a>矩阵梯度</h3><h3 id="海森矩阵"><a href="#海森矩阵" class="headerlink" title="海森矩阵"></a>海森矩阵</h3><h3 id="二次函数和线性函数的梯度和海森矩阵"><a href="#二次函数和线性函数的梯度和海森矩阵" class="headerlink" title="二次函数和线性函数的梯度和海森矩阵"></a>二次函数和线性函数的梯度和海森矩阵</h3><h3 id="行列式的梯度"><a href="#行列式的梯度" class="headerlink" title="行列式的梯度"></a>行列式的梯度</h3><h3 id="特征值优化"><a href="#特征值优化" class="headerlink" title="特征值优化"></a>特征值优化</h3>
+<h2 id="Operations-and-Properties"><a href="#Operations-and-Properties" class="headerlink" title="Operations and Properties"></a>Operations and Properties</h2><p>这一节主要介绍矩阵和向量的一些运算和性质，记住这些内容可以帮助在矩阵运算时更方便一些。</p>
+<h3 id="单位矩阵和对角矩阵"><a href="#单位矩阵和对角矩阵" class="headerlink" title="单位矩阵和对角矩阵"></a>单位矩阵和对角矩阵</h3><p>单位矩阵（Identity Matrix） $I\in R^{n\times n}$ 是一个方阵（行数和列数相等），它的对角线上元素全是 1，其余位置元素全是 0：</p>
+<center>$I_{ij} = \begin{cases}1 & i=j \\ 0 & i \neq j \end{cases}$</center></br>
+
+<p>对于任意矩阵 $A \in R^{m\times n}$ 有：</p>
+<center>$AI = A = IA$</center></br>
+
+<p>需要注意的是，单位矩阵 $I$ 的表示方法是模糊的，因为没有指定维度大小，它是随着矩阵运算的变化而变化。在上面的公式 $AI = A$ 中，$I$ 的维度是 $n \times n$；在公式 $A = IA$ 中，$I$ 的维度是 $m \times m$。</p>
+<p>对角矩阵（Diagonal Matrices）是一个非对角线上的元素都为 0 的矩阵，通常用 $D = diag(d_1,d_2,\dots,d_n)$ 表示，它的每个元素表达式：</p>
+<center>$D_{ij} = \begin{cases}d_i &i=j \\ 0 &i\neq j \end{cases}$</center></br>
+
+<p>由上可以看出单位矩阵 $I = diag(1,1,\dots,1)$ 是特别的对角矩阵。</p>
+<h3 id="转置"><a href="#转置" class="headerlink" title="转置"></a>转置</h3><p>矩阵的转置（Transpose）是由一个矩阵的行和列翻转得到的。比如一个矩阵 $A \in R^{m\times n}$，它的转置为 $A^T \in R^{n \times m}$。它的每个元素为：</p>
+<center>$A^T_{ij} = A_{ji}$</center></br>
+
+<p>其实在上一节内容中就已经提出了转置的概念，列向量的转置就是行向量。</p>
+<p>下面一些性质可以很容易得到验证：</p>
+<ul>
+<li>$(A^T)^T = A$</li>
+<li>$(AB)^T = B^TA^T$</li>
+<li>$(A+B)^T = A^T + B^T$</li>
+</ul>
+<h3 id="对称矩阵"><a href="#对称矩阵" class="headerlink" title="对称矩阵"></a>对称矩阵</h3><p>对称矩阵（Symmetric Matrices），也就是以对角线为界，右上角的元素和左下角的元素成对称。如果 $A = A^T$ 那么矩阵 $A \in R^{m\times  n}$ 就是对称矩阵。如果 $A = -A^T$ 那么矩阵 A 就是反对称矩阵。</p>
+<p>给定一个矩阵 $A \in R^{n \times n}$，有 $A + A^T$ 是对称矩阵，$A - A^T$ 是反对称矩阵。由此可以得出，任何一个方阵都可以由一个对称矩阵和反对称矩阵的和得到：</p>
+<center>$A = {1\over2}(A+A^T)+{1\over 2}(A-A^T)$</center></br>
+
+<p>对称矩阵有很好的性质，在实际应用中经常遇到，所以将所有维度为 n 的对称矩阵用符号 $S^n$ 表示。如果一个矩阵 $A \in S^n$ 那么说明 A 是一个 $n\times n$ 的对称矩阵。</p>
+<h3 id="矩阵的迹"><a href="#矩阵的迹" class="headerlink" title="矩阵的迹"></a>矩阵的迹</h3><h3 id="正则化"><a href="#正则化" class="headerlink" title="正则化"></a>正则化</h3><h3 id="线性无关与秩"><a href="#线性无关与秩" class="headerlink" title="线性无关与秩"></a>线性无关与秩</h3><h3 id="逆矩阵"><a href="#逆矩阵" class="headerlink" title="逆矩阵"></a>逆矩阵</h3><h3 id="正交矩阵"><a href="#正交矩阵" class="headerlink" title="正交矩阵"></a>正交矩阵</h3><h3 id="矩阵的值域和零空间"><a href="#矩阵的值域和零空间" class="headerlink" title="矩阵的值域和零空间"></a>矩阵的值域和零空间</h3><h3 id="行列式"><a href="#行列式" class="headerlink" title="行列式"></a>行列式</h3><h3 id="二次型和半正定矩阵"><a href="#二次型和半正定矩阵" class="headerlink" title="二次型和半正定矩阵"></a>二次型和半正定矩阵</h3><h3 id="特征值和特征向量"><a href="#特征值和特征向量" class="headerlink" title="特征值和特征向量"></a>特征值和特征向量</h3><h3 id="对称矩阵的特征值和特征向量"><a href="#对称矩阵的特征值和特征向量" class="headerlink" title="对称矩阵的特征值和特征向量"></a>对称矩阵的特征值和特征向量</h3><h2 id="Matrix-Calculus"><a href="#Matrix-Calculus" class="headerlink" title="Matrix Calculus"></a>Matrix Calculus</h2><h3 id="矩阵梯度"><a href="#矩阵梯度" class="headerlink" title="矩阵梯度"></a>矩阵梯度</h3><h3 id="海森矩阵"><a href="#海森矩阵" class="headerlink" title="海森矩阵"></a>海森矩阵</h3><h3 id="二次函数和线性函数的梯度和海森矩阵"><a href="#二次函数和线性函数的梯度和海森矩阵" class="headerlink" title="二次函数和线性函数的梯度和海森矩阵"></a>二次函数和线性函数的梯度和海森矩阵</h3><h3 id="行列式的梯度"><a href="#行列式的梯度" class="headerlink" title="行列式的梯度"></a>行列式的梯度</h3><h3 id="特征值优化"><a href="#特征值优化" class="headerlink" title="特征值优化"></a>特征值优化</h3>
     </div>
 
     
@@ -527,7 +559,7 @@ $</center></br>
         <i class="fa fa-area-chart"></i>
       </span>
       <span class="site-uv" title="站点总字数">
-        <span class="post-count">37.2k</span>
+        <span class="post-count">37.8k</span>
       </span>
     </span>
     <span class="post-meta-divider">|</span>
