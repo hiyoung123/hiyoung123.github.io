@@ -47,20 +47,25 @@
   };
 </script>
 
-  <meta name="description" content="机器学习、深度学习、自然语言处理中常用的信息熵相关知识总结。">
-<meta name="keywords" content="信息熵,交叉熵,信息增益,基尼系数">
+  <meta name="description" content="CS224n 深度学习自然语言处理 2019 版 Lecture-3 学习笔记。">
+<meta name="keywords" content="NLP,CS224n,分类任务,NER">
 <meta property="og:type" content="article">
-<meta property="og:title" content="信息熵总结">
-<meta property="og:url" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;posts&#x2F;686d9456.html">
+<meta property="og:title" content="CS224n-lecture3 Word Window Classification, Neural Networks, and Matrix Calculus">
+<meta property="og:url" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;posts&#x2F;b38e2b22.html">
 <meta property="og:site_name" content="Young Blog">
-<meta property="og:description" content="机器学习、深度学习、自然语言处理中常用的信息熵相关知识总结。">
+<meta property="og:description" content="CS224n 深度学习自然语言处理 2019 版 Lecture-3 学习笔记。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif">
-<meta property="og:updated_time" content="2019-12-16T03:20:27.839Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif">
+<meta property="og:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif">
+<meta property="og:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif">
+<meta property="og:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif">
+<meta property="og:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif">
+<meta property="og:updated_time" content="2020-01-16T07:20:23.001Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif">
 
-<link rel="canonical" href="https://hiyoungai.com/posts/686d9456.html">
+<link rel="canonical" href="https://hiyoungai.com/posts/b38e2b22.html">
 
 
 <script id="page-configurations">
@@ -74,7 +79,7 @@
   };
 </script>
 
-  <title>信息熵总结 | Young Blog</title>
+  <title>CS224n-lecture3 Word Window Classification, Neural Networks, and Matrix Calculus | Young Blog</title>
   
 
 
@@ -192,7 +197,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hiyoungai.com/posts/686d9456.html">
+    <link itemprop="mainEntityOfPage" href="https://hiyoungai.com/posts/b38e2b22.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -205,7 +210,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          信息熵总结
+          CS224n-lecture3 Word Window Classification, Neural Networks, and Matrix Calculus
         </h1>
 
         <div class="post-meta">
@@ -216,7 +221,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2019-12-16 09:53:36 / 修改时间：11:20:27" itemprop="dateCreated datePublished" datetime="2019-12-16T09:53:36+08:00">2019-12-16</time>
+              <time title="创建时间：2020-01-16 14:45:45 / 修改时间：15:20:23" itemprop="dateCreated datePublished" datetime="2020-01-16T14:45:45+08:00">2020-01-16</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -224,8 +229,8 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习</span>
+                  <a href="/categories/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/" itemprop="url" rel="index">
+                    <span itemprop="name">自然语言处理</span>
                   </a>
                 </span>
             </span>
@@ -248,70 +253,117 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>学习决策树时会接触到一些信息熵,条件熵和信息增益的知识,此外还有互信息,相对熵,交叉熵和互信息,KL散度等等乱七八糟的知识和名字,我本人已经记得大脑混乱了,还没有全部记住,所以在这里记录一下.</p>
-<h2 id="信息熵"><a href="#信息熵" class="headerlink" title="信息熵"></a>信息熵</h2><p>信息的度量，信息的不确定程度，是乱七八糟熵的基础。吴军大大的数学之美中用了猜球队冠军的方式引出了信息熵的概念。我觉得这种方法印象很深刻，所以在这里提出一下。如果有32支球队，使用二分查找法去猜哪支球队是冠军，如：冠军在1-16号球队内。这样一共需要猜5次就可以找到结果，也就是$log32=5$。但是某些球队的获胜率大一些，所以它的准确信息量的表示应该如下:</p>
-<center>$H(X) = - \sum_{x\in X}P(x)logP(x)$ </br> </br> </center>
-
-<p>香农称它为信息熵，表示信息的不确定程度。不确定性越大，信息熵也就越大。图1中的$P(x)$表示随机变量$x$的概率，信息熵$H(X)$的取值范围：$0&lt;=H(X)&lt;=logn$，其中$n$是随机变量$X$取值的种类数。</p>
-<h2 id="条件熵"><a href="#条件熵" class="headerlink" title="条件熵"></a>条件熵</h2><p>有两个随机变量$X$和$Y$，在已知$Y$的情况下，求$X$的信息熵称之为条件熵：</p>
-<center>$H(X|Y) = -\sum_{x\in X,y\in Y}P(x,y)logP(x|y)$ </br> </br> </center>
-
-
-<p>其中$P(x|y)$是已知$y$求$x$的条件概率，$P(x,y)$是联合概率。</p>
-<h2 id="联合熵"><a href="#联合熵" class="headerlink" title="联合熵"></a>联合熵</h2><p>联合熵可以表示为两个事件$X$、$Y$的熵的并集：</p>
-<center> $H(X,Y) = -\sum_{i=1}^n \sum_{j=1}^n P(x_i,y_i)logP(x_i,y_i)$</center><center>
-$= \sum_{i=1}^n \sum_{j=1}^n P(x_i,y_i)log{1\over P(x_i,y_i    )}$ </br></br>  </center> 
-
-<p>它的取值范围是：$max(H(x),H(y)) &lt;= H(x,y) &lt;= H(x)+H(y)$</p>
-<h2 id="信息增益"><a href="#信息增益" class="headerlink" title="信息增益"></a>信息增益</h2><p>表示在确定某条件Y后，随机变量$X$的信息不确定性减少的程度，也称为互信息($Mutual Information$).</p>
-<center> $I(X;Y) = H(X) - H(X|Y)$</br> </br> </center>
-
-
-<p>它的取值是$0$到$min(H(X),H(Y))$之间的数值，取值为$0$时表示两个事件$X$和$Y$完全不相关。在决策树算法中$ID3$算法就是使用信息增益来划分特征的。在某个特征条件下，求数据的信息增益，信息增益大的特征说明对数据划分帮助很大。优先选择该特征进行决策树的划分，这就是$ID3$算法。</p>
-<h2 id="信息增益比（率）"><a href="#信息增益比（率）" class="headerlink" title="信息增益比（率）"></a>信息增益比（率）</h2><p>信息增益比是信息增益的进化版，用于解决信息增益对属性选择取值较多的问题。信息增益率为信息增益与该特征的信息熵之比。在决策树中算法中，$C4.5$算法就是使用信息增益比来划分特征。公式如下：</p>
-<center> $g_R(D,A) = {g(D,A)\over H(D)} $</br> </br> </center>
-
-
-<p>信息熵，条件熵和互信息的关系：</p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_xinxishang_relation.png" alt=""></p>
-<h2 id="基尼系数（Gini）"><a href="#基尼系数（Gini）" class="headerlink" title="基尼系数（Gini）"></a>基尼系数（Gini）</h2><p>在决策树的$CART$(分类回归树)中有两类树，一是回归树，划分特征使用的是平方误差最小化的方法。二是分类树，采用的就是$Gini$系数最小化进行划分数据集。</p>
-<center> $Gini(P) = \sum_{k=1}^K p_k(1-p_k) = 1 - \sum_{k=1}^K p_k^2$ </br> </br> </center>
-
-
-<p>其中$k$为$label$的种类数。基尼指数越大，信息的不确定性越大，这与信息熵相同。（$CART$树是如何使用$Gini$指数的这里就不详细介绍了，以后会在决策树中详细介绍的。）</p>
-<h2 id="相对熵（KL散度）"><a href="#相对熵（KL散度）" class="headerlink" title="相对熵（KL散度）"></a>相对熵（KL散度）</h2><p>用来描述两个概率分布$P$、$Q$之间的差异，数学之美中介绍是用来衡量两个取值为正数函数的相似性：</p>
-<center> $KL（P||Q）= \sum_{i=1}^n P(x_i)log{P(x_i)\over Q(x_i)}$ </br></br> </center>
-
-
-<p>如果两个函数(分布)完全相同，那么它们的相对熵为0。同理如果相对熵越大，说明它们之间的差异越大，反之相对熵越小，说明它们之间的差异越小。需要注意的是相对熵不是对称的，也就是：</p>
-<center> $KL(P||Q)\neq KL(Q||P)$ </br> </br> </center>
-
-
-<p>但是这样计算很不方便，所以香农和杰森（不是郭达斯坦森）提出了一个新的对称的相对熵公式：</p>
-<center> $JS(P||Q) = {1\over 2}[KL(P||Q) + KL(Q||P)]$ </br></br> </center>
-
-
-<p>上面的相对熵公式可以用于计算两个文本的相似度。吴军大大在《数学之美》中介绍，$Google$的问答系统就是用这个公式计算答案相似性的（现在还是不是就不清楚了）。</p>
-<h2 id="交叉熵（Cross-Entropy）"><a href="#交叉熵（Cross-Entropy）" class="headerlink" title="交叉熵（Cross-Entropy）"></a>交叉熵（Cross-Entropy）</h2><p>我们知道通常深度学习模型最后一般都会使用交叉熵作为模型的损失函数。那是为什么呢？首先我们先将相对熵$KL$公式进行变换（$log$中除法可以拆分为两个$log$相减）:</p>
-<center> $D_{KL}(P||Q) = \sum_{i=1}^n P(x_i)log(P(x_i)) - \sum_{i=1}^n P(x_i)log(Q(x_i))$ </center>
-<center> $= -H(P(x)) + [-\sum_{i=1}^n P(x_i)log(Q(x_i))]$</br></br> </center>
-
-
-<p>其中前一部分的$-H(P(x))$是$P$的信息熵，后一部分就是我们所说的交叉熵。</p>
-<center> $H(P,Q) = -\sum_{i=1}^n P(x_i)log(Q(x_i))$ </br></br> </center>
-
-
-<p>损失函数是计算模型预测值和数据真实值之间的相关性，所以可以使用相对熵（$KL$散度）计算。根据上述公式可以看出：$-H(P(x))$是不变的，所以我们可以通过计算后一部分的交叉熵来求得$Loss$。所以通常会使用交叉熵来作为$Loss$函数。同理交叉熵越小，预测值和真实值之间相似度越高，模型越好。</p>
-<blockquote>
-<p>LR的损失函数就是交叉熵。</p>
+        <blockquote>
+<p>CS224n 深度学习自然语言处理 2019 版 Lecture-3 学习笔记。</p>
 </blockquote>
-<h2 id="困惑度（Perplexity，PPL）"><a href="#困惑度（Perplexity，PPL）" class="headerlink" title="困惑度（Perplexity，PPL）"></a>困惑度（Perplexity，PPL）</h2><p>在$NLP$中，通常使用困惑度作为衡量语言模型好坏的指标。</p>
-<center> $PP(S) = P(w_1w_2\dots w_n)^{-{1\over N}}$</center>
-<center> $= \sqrt[N]{1\over{P(w_1w_2\dots w_n)}}$</center>
-<center> $= \sqrt[N]{\prod_{i=1}^n {1\over P(w_i|w_1w_2\dots w_{i-1})}}$ </br></br> </center>
+<p>本节课主要内容是通过分类和实体命名识别两个任务来认识一下深度学习在 NLP 中的应用，后续又讲解了神经网络以及梯度计算。</p>
+<h2 id="Classification-setup-and-notation"><a href="#Classification-setup-and-notation" class="headerlink" title="Classification setup and notation"></a>Classification setup and notation</h2><p>首先看一下分类任务情况下的一般符号表示，通常会有一个训练数据集，包含的数据一般形式为：</p>
+<center>$\begin{Bmatrix}x_i,y_i\end{Bmatrix}^N_{i=1}$</center></br>
+其中
+
+<ul>
+<li><p>$x_i$ 是输入，例如单词（索引或者是词向量），句子或者文档等。维度一般表示为 d。</p>
+</li>
+<li><p>$y_i$ 是我们需要预测的标签，是类别中的一种，例如感情色彩，命名实体或者购买/卖出的决定等。</p>
+</li>
+<li><p>N 是数据集的大小。</p>
+</li>
+</ul>
+<h3 id="Classification-intuition"><a href="#Classification-intuition" class="headerlink" title="Classification intuition"></a>Classification intuition</h3><p>对于基本的二分类任务，通常最简单的办法是使用 softmax/logistic 回归模型，训练权重 w，找到决策边界将数据集进行正确划分。可视化表示：</p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n_19_lec3_class_visa_001.png" alt=""></p>
+<p>使用 softmax 回归的公式为：</p>
+<center>$p(y|x) = {exp(W_y,x)\over \sum^C_{c=1} exp(W_Cx)}$</center></br>
 
 
-<p>其中$S$为句子，$N$是句子中单词的个数，$P(w_i)$代表第$i$个单词的概率。所以$PPL$越小$P(w_i)$的概率越高，则这句话$S$属于自然语言的概率也就越高。</p>
+
+<h3 id="Details-of-the-softmax-classifier"><a href="#Details-of-the-softmax-classifier" class="headerlink" title="Details of the softmax classifier"></a>Details of the softmax classifier</h3><p>将上述的预测函数分为两个步骤介绍：</p>
+<ul>
+<li><p>取 W 的第 y 行与 x 相乘：</p>
+<center>$W_y x = \sum^d_{i=1} W_{yi} x_i = f_y$</center></br>
+计算所有的 $f_c, c\in 1,2,\dots,C$。
+</li>
+<li><p>使用 softmax 函数得到归一化的概率：</p>
+<center>$p(y|x) = {exp(f_y)\over \sum^C_{c=1}exp(f_c)} = softmax(f_y)$</center></br>
+
+</li>
+</ul>
+<p>通俗一点的讲，就是将要预测的数据 x 与每一个分类类别所对应的权重 $W_y$ 相乘（有几个类别就有几组权重），然后将相乘的结果送入到 softmax 中计算分类得分，这样一个输入数据 x 就有了 C 组得分，C 是分类的类别个数。而最终在这些得分里，哪组的得分最高，也就是数据 x 属于该类别的概率最高，最后就认为 x 属于该类别。</p>
+<h3 id="Training-with-softmax-and-cross-entropy-loss"><a href="#Training-with-softmax-and-cross-entropy-loss" class="headerlink" title="Training with softmax and cross-entropy loss"></a>Training with softmax and cross-entropy loss</h3><p>对于每个训练样本 $(x,y)$，目标函数是最大化正确分类 y 的概率，等价于该类最小化负对数概率（一般优化算法中都喜欢使用最小化，凸优化理论相关的知识）。</p>
+<center>$-logp(y|x) = -log({exp(f_y)\over\sum^C_{c=1}exp(f_c)})$</center></br>
+
+
+
+<p>###　What is “cross entropy” loss/error?</p>
+<p>交叉熵是信息论中的概念，用于衡量两个分布 p 和 q 之间的差异。在这里使用 p 代表真实值，使用 q 代表模型预测值，那么交叉熵损失函数的公式为：</p>
+<center>$H(p,q) = -\sum^C_{c=1} p(c)log q(c)$</center></br>
+
+
+<p>具体交叉熵的介绍可以看我另外一篇博客<a href="https://hiyoungai.com/posts/686d9456.html">信息熵总结</a>。</p>
+<h3 id="Classification-over-a-full-dataset"><a href="#Classification-over-a-full-dataset" class="headerlink" title="Classification over a full dataset"></a>Classification over a full dataset</h3><p>交叉熵损失函数在整个数据集上的表达形式：</p>
+<center>$J(\theta) = {1\over N} \sum^N_{i=1} -log({e^{f_{yi}}\over\sum_{c=1}^Ce^{f_c}})$</center></br>
+其中：
+
+<center>$f_y = f_y(x) = W_yx = \sum^d_{j=1}W_{yj}x_j$</center></br>
+使用矩阵的方式表示 f：
+
+<center>$f = Wx$</center></br>
+
+
+<h3 id="Traditional-ML-optimization"><a href="#Traditional-ML-optimization" class="headerlink" title="Traditional ML optimization"></a>Traditional ML optimization</h3><p>通常基本的机器学习模型参数 $\theta$ 只包含一列 W：</p>
+<center>$\theta = \left[ \begin{matrix} W_{.1} \\ \vdots \\ W_{.d} \end{matrix} \right]$</center></br>
+所以只需要根据参数 $\theta$ 的梯度来更新决策边界：
+
+<center>$\nabla_\theta J(\theta) = \left[ \begin{matrix} \nabla W_{.1} \\ \vdots \\ \nabla W_{.d} \end{matrix} \right] \in R^{Cd}$</center></br>
+
+
+
+
+<h2 id="Neural-Network-Classifiers"><a href="#Neural-Network-Classifiers" class="headerlink" title="Neural Network Classifiers"></a>Neural Network Classifiers</h2><p>一般使用简单传统的 softmax 或者 logistic 回归能进行线性分类，有局限性。而现在的神经网络模型不仅可以学习到线性决策边界还可以学习到非线性的决策边界（依赖于非线性激活单元）。</p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n_19_lec3_compare_001.png" alt=""></p>
+<p>上图左边是传统机器学习的分类决策边界，右边是神经网络学习到的分类决策边界，可以看出神经网络模型是非线性的，更好的处理一些不易区分的数据。</p>
+<p>剩下的内容主要是前馈神经网络的介绍，这里不详细介绍了，后续会在深度学习中讲解。</p>
+<h2 id="Named-Entity-Recognition-NER"><a href="#Named-Entity-Recognition-NER" class="headerlink" title="Named Entity Recognition (NER)"></a>Named Entity Recognition (NER)</h2><p>命名实体识别，自然语言处理基本任务之一。该技术的主要工作就是从文本中找出命名实体，比如人名，地址名，组织名等。</p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n_19_lec3_ner_example.png" alt=""></p>
+<p>NER 的用途有：</p>
+<ul>
+<li>跟踪文档中提到的特定实体（组织、个人、地点、歌曲名、电影名等）</li>
+<li>对于问题回答，答案通常是命名实体</li>
+<li>许多需要的信息实际上是命名实体之间的关联</li>
+<li>同样的技术可以扩展到其他 slot-filling 槽填充分类</li>
+</ul>
+<p>通常后面是命名实体链接/规范化到知识库，做知识图谱时 NER 是一项不可缺少的技术。</p>
+<h3 id="Named-Entity-Recognition-on-word-sequences"><a href="#Named-Entity-Recognition-on-word-sequences" class="headerlink" title="Named Entity Recognition on word sequences"></a>Named Entity Recognition on word sequences</h3><p>NER 的实现有多种方法，课程中提出了一种可以通过上下文对词进行分类，然后提取词的子序列来预测实体。</p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n_19_lec3_ner_example_001.png" alt=""></p>
+<h3 id="Why-might-NER-be-hard"><a href="#Why-might-NER-be-hard" class="headerlink" title="Why might NER be hard?"></a>Why might NER be hard?</h3><p>NER 的难点是有的时候很难区分Named Entity的边界，有的时候很难判断一个词是不是 Named Entity，而且 Named Entity 依赖于上下文，同一个名词可能在某些语境中是机构名，在其他语境中又是人名。</p>
+<h2 id="Binary-word-window-classification"><a href="#Binary-word-window-classification" class="headerlink" title="Binary word window classification"></a>Binary word window classification</h2><p>通常情况下很少对一个词进行分类，鉴于同一个词在不同上下文可能是不同的 Named Entity，一个思路是通过对该词在某一窗口内附近的词来对其进行分类（这里的类别是人名，地点，机构名等等）。对窗口中的单词向量进行平均，并对平均向量进行分类。但是这种方法的缺点是会丢失词的位置信息。</p>
+<h3 id="Window-classification-Softmax"><a href="#Window-classification-Softmax" class="headerlink" title="Window classification: Softmax"></a>Window classification: Softmax</h3><p>为了不丢失位置信息，可以将取平均向量改成将窗口内的各个词的向量串联起来，组成一个大的向量。</p>
+<p>例如对于 museums in Paris are amazing, 我们希望探测到地点名 Paris。假设窗口大小为2，并且通过词向量方法如word2vec 得到窗口内 5 个单词的词向量（前两个 + 后两个 + 中心词），则我们可以将这 5 个向量连在一起得到更大的向量，再对该向量进行分类。</p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n_19_lec3_class_softmax_001.png" alt=""></p>
+<p>其中列向量 $x_{window} = x \in R^{5d}$。</p>
+<p>得到了输入向量 $x_{windows}$ 后，就可以使用 softmax 分类器进行分类了，softmax 已经说过很多次就不重复说了：</p>
+<center>$\widehat{y}_y = p(y|x) = {exp(W_y \cdot x) \over \sum ^C_{c=1}exp(W_c \cdot x)}$</center>
+其中 $\widehat{y}_y$ 是模型的预测值，C 为类别数量。对应的交叉熵损失函数表达式：
+
+<center>$J(\theta) = {1\over N} \sum^N_{i=1} -log({e^{f_{yi}}\over \sum^C_{c=1}e^{f_c}})$</center></br>
+这里说明一下，上面的式子不像交叉熵是因为这里把真实值得概率当作 1，所以这个式子只有一个概率分布。然后通过求导、梯度下降优化算法去更新参数。
+
+<h3 id="Binary-classification-with-unnormalized-scores"><a href="#Binary-classification-with-unnormalized-scores" class="headerlink" title="Binary classification with unnormalized scores"></a>Binary classification with unnormalized scores</h3><p>Binary classification with unnormalized scores 是 Collobert &amp; Weston 在（2008, 2011）年提出的一个方法，并且在 2018 年获得了 ICML 2018 Test of time award。</p>
+<p>主要思路就是通过有监督的学习，跟 word2vec 一样，遍历语料库中的所有位置信息，当中心词是一个实际真实的位置实体时，它会得到一个很高的 score。</p>
+<h3 id="Neural-Network-Feed-forward-Computation"><a href="#Neural-Network-Feed-forward-Computation" class="headerlink" title="Neural Network Feed-forward Computation"></a>Neural Network Feed-forward Computation</h3><p>使用一个三层的神经网络来计算窗口的得分：</p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n_19_lec3_class_score_nn_001.png" alt=""></p>
+<h3 id="The-max-margin-loss"><a href="#The-max-margin-loss" class="headerlink" title="The max-margin loss"></a>The max-margin loss</h3><p>对于目标函数的一些想法，就是让正确窗口的得分 $s$ 越大，而错误窗口的得分 $s_c$ 越小。则朴素的思路是最大化 $s−s_c$ 或最小化 $s_c−s$。让正确窗口的得分和错误窗口的得分差距最大化。</p>
+<p>$s $　= score(museums in Paris are amazing)<br>$s_c$  = score(Not all museums in Paris)</p>
+<blockquote>
+<p>注意只有命名实体在窗口的中心位置才认为该窗口为正确的。</p>
+</blockquote>
+<p>目标函数为最大间隔目标函数，它通常作为 SVM 的目标函数：</p>
+<center>$J = max(0,1-s+s_c)$</center></br>
+同样优化算法使用的是随机梯度下降算法，梯度计算时用到的技术叫做反向传播，以后会在深度学习中介绍。同时需要提醒的是，使用矩阵向量计算，会比迭代的方式计算梯度快的多很多。
+
+
+
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>最后剩下时间都是在练习矩阵梯度的计算、雅可比矩阵等其他矩阵知识，重复的内容这里就不再多说，后续会有专门的文章记录一下。</p>
+<p>本节课的内容，对于我个人来说感觉没有特别深入的内容，不像之前讲解 word2vec 的时候。提到的分类和 NER 都是很潜的说一下，更像是引出神经网络一样。看来具体的技术内容还需要去阅读其他论文才可以。</p>
 
     </div>
 
@@ -321,10 +373,10 @@ $= \sum_{i=1}^n \sum_{j=1}^n P(x_i,y_i)log{1\over P(x_i,y_i    )}$ </br></br>  <
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E4%BF%A1%E6%81%AF%E7%86%B5/" rel="tag"># 信息熵</a>
-              <a href="/tags/%E4%BA%A4%E5%8F%89%E7%86%B5/" rel="tag"># 交叉熵</a>
-              <a href="/tags/%E4%BF%A1%E6%81%AF%E5%A2%9E%E7%9B%8A/" rel="tag"># 信息增益</a>
-              <a href="/tags/%E5%9F%BA%E5%B0%BC%E7%B3%BB%E6%95%B0/" rel="tag"># 基尼系数</a>
+              <a href="/tags/NLP/" rel="tag"># NLP</a>
+              <a href="/tags/CS224n/" rel="tag"># CS224n</a>
+              <a href="/tags/%E5%88%86%E7%B1%BB%E4%BB%BB%E5%8A%A1/" rel="tag"># 分类任务</a>
+              <a href="/tags/NER/" rel="tag"># NER</a>
           </div>
 
         
@@ -333,13 +385,10 @@ $= \sum_{i=1}^n \sum_{j=1}^n P(x_i,y_i)log{1\over P(x_i,y_i    )}$ </br></br>  <
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/posts/f17e61a2.html" rel="prev" title="人工智能名校课程汇总">
-      <i class="fa fa-chevron-left"></i> 人工智能名校课程汇总
+    <a href="/posts/58c9c51f.html" rel="prev" title="线性代数概要">
+      <i class="fa fa-chevron-left"></i> 线性代数概要
     </a></div>
-      <div class="post-nav-item">
-    <a href="/posts/7d402318.html" rel="next" title="Windows下命令行工具-Cmder">
-      Windows下命令行工具-Cmder <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -378,7 +427,7 @@ $= \sum_{i=1}^n \sum_{j=1}^n P(x_i,y_i)log{1\over P(x_i,y_i    )}$ </br></br>  <
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#信息熵"><span class="nav-text">信息熵</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#条件熵"><span class="nav-text">条件熵</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#联合熵"><span class="nav-text">联合熵</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#信息增益"><span class="nav-text">信息增益</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#信息增益比（率）"><span class="nav-text">信息增益比（率）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基尼系数（Gini）"><span class="nav-text">基尼系数（Gini）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相对熵（KL散度）"><span class="nav-text">相对熵（KL散度）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#交叉熵（Cross-Entropy）"><span class="nav-text">交叉熵（Cross-Entropy）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#困惑度（Perplexity，PPL）"><span class="nav-text">困惑度（Perplexity，PPL）</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Classification-setup-and-notation"><span class="nav-text">Classification setup and notation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Classification-intuition"><span class="nav-text">Classification intuition</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Details-of-the-softmax-classifier"><span class="nav-text">Details of the softmax classifier</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Training-with-softmax-and-cross-entropy-loss"><span class="nav-text">Training with softmax and cross-entropy loss</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Classification-over-a-full-dataset"><span class="nav-text">Classification over a full dataset</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Traditional-ML-optimization"><span class="nav-text">Traditional ML optimization</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Neural-Network-Classifiers"><span class="nav-text">Neural Network Classifiers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Named-Entity-Recognition-NER"><span class="nav-text">Named Entity Recognition (NER)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Named-Entity-Recognition-on-word-sequences"><span class="nav-text">Named Entity Recognition on word sequences</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Why-might-NER-be-hard"><span class="nav-text">Why might NER be hard?</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Binary-word-window-classification"><span class="nav-text">Binary word window classification</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Window-classification-Softmax"><span class="nav-text">Window classification: Softmax</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Binary-classification-with-unnormalized-scores"><span class="nav-text">Binary classification with unnormalized scores</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Neural-Network-Feed-forward-Computation"><span class="nav-text">Neural Network Feed-forward Computation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-max-margin-loss"><span class="nav-text">The max-margin loss</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Conclusion"><span class="nav-text">Conclusion</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -642,7 +691,7 @@ $= \sum_{i=1}^n \sum_{j=1}^n P(x_i,y_i)log{1\over P(x_i,y_i    )}$ </br></br>  <
       repo: 'hiyoung123.github.io',
       owner: 'hiyoung123',
       admin: ['hiyoung123'],
-      id: '68549e53e7aad03d5f95d2e3aa66df95',
+      id: '54327d5a11892fe59302c5b5828d78ac',
         language: '',
       distractionFreeMode: 'true'
     });
