@@ -48,7 +48,7 @@
     <link href="https://hiyoungai.com/posts/58c9c51f.html"/>
     <id>https://hiyoungai.com/posts/58c9c51f.html</id>
     <published>2020-01-15T07:43:27.000Z</published>
-    <updated>2020-01-16T05:21:31.199Z</updated>
+    <updated>2020-01-17T05:42:12.017Z</updated>
     
     <summary type="html">
     
@@ -141,13 +141,13 @@
     
       <category term="人工智能" scheme="https://hiyoungai.com/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
     
+      <category term="Skip-gram" scheme="https://hiyoungai.com/tags/Skip-gram/"/>
+    
       <category term="分布式词表示" scheme="https://hiyoungai.com/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AF%8D%E8%A1%A8%E7%A4%BA/"/>
     
       <category term="Hierarchical Softmax" scheme="https://hiyoungai.com/tags/Hierarchical-Softmax/"/>
     
       <category term="负采样" scheme="https://hiyoungai.com/tags/%E8%B4%9F%E9%87%87%E6%A0%B7/"/>
-    
-      <category term="Skip-gram" scheme="https://hiyoungai.com/tags/Skip-gram/"/>
     
   </entry>
   
@@ -172,11 +172,11 @@
     
       <category term="人工智能" scheme="https://hiyoungai.com/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
     
-      <category term="Skip-gram" scheme="https://hiyoungai.com/tags/Skip-gram/"/>
-    
       <category term="分布式词向量" scheme="https://hiyoungai.com/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AF%8D%E5%90%91%E9%87%8F/"/>
     
       <category term="CBOW" scheme="https://hiyoungai.com/tags/CBOW/"/>
+    
+      <category term="Skip-gram" scheme="https://hiyoungai.com/tags/Skip-gram/"/>
     
   </entry>
   
