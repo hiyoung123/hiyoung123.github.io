@@ -55,7 +55,7 @@
 <meta property="og:site_name" content="Young Blog">
 <meta property="og:description" content="机器学习深度学习等领域需要的线性代数知识总结。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-01-17T05:42:12.017Z">
+<meta property="og:updated_time" content="2020-01-20T09:38:38.062Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="https://hiyoungai.com/posts/58c9c51f.html">
@@ -220,7 +220,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-01-17 13:42:12" itemprop="dateModified" datetime="2020-01-17T13:42:12+08:00">2020-01-17</time>
+                <time title="修改时间：2020-01-20 17:38:38" itemprop="dateModified" datetime="2020-01-20T17:38:38+08:00">2020-01-20</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -371,8 +371,8 @@ $</center></br>
 
 <h3 id="矩阵的迹"><a href="#矩阵的迹" class="headerlink" title="矩阵的迹"></a>矩阵的迹</h3><p>一个方阵 $A\in R^{n\times n}$ 的迹记作 tr(A)，它表示矩阵对角线的和：</p>
 <center>$trA = \sum _{i=1}^n A_{ii}$</center></br>
+迹具有下面这些性质：
 
-<p>迹具有下面这些性质：</p>
 <ul>
 <li>对于 $A \in R^{n\times n},trA = trA^T$</li>
 <li>对于 $A,B \in R^{n\times n},tr(A+B) = trA + trB$</li>
@@ -382,14 +382,12 @@ $</center></br>
 </ul>
 <p>下面来证明一下性质四：</p>
 <center>$\begin{align}trAB &= \sum ^m_{i=1} (AB)_{ii} = \sum^m_{i=1}(\sum ^n_{j=1}A_{ij}B_{ji})\\ &=\sum_{i=1}^m\sum_{j=1}^nA_{ij}B_{ji}=\sum_{j=1}^n\sum_{i=1}^m B_{ji}A_{ij} \\ &=\sum ^n_{j=1}(\sum^m_{i=1}B_{ji}A_{ij})=\sum^n_{j=1}(BA)_{jj} = trBA \end{align}$</center></br>
+该性质的主要用途是利用可换性来交换公式中的乘项，并利用结合性重新排序乘积的顺序。
 
-<p>该性质的主要用途是利用可换性来交换公式中的乘项，并利用结合性重新排序乘积的顺序。</p>
 <h3 id="范式"><a href="#范式" class="headerlink" title="范式"></a>范式</h3><p>一个向量的范数是向量长度的非规范表示，比如通常使用欧几里得（也叫 $L_2$ 范数）：</p>
 <center>$\left\|x\right\|_2 = \sqrt{\sum^n_{i=1}x_i^2}$</center></br>
+> 注意的是 $\left\|x \right\| ^2_2 = x^Tx$.
 
-<blockquote>
-<p>注意的是 $\left|x \right| ^2_2 = x^Tx$.</p>
-</blockquote>
 <p>更规范的说，范数是满足下面四个条件的函数（$f:R^n \rightarrow R$）:</p>
 <ul>
 <li>非负性：所有 $x\in R^n,f(x) \ge 0$</li>
@@ -399,18 +397,52 @@ $</center></br>
 </ul>
 <p>还有一些其他的范数，如 $L_1$ 范数：</p>
 <center>$\left\|x \right\|_1 = \sum^n_{i=1}|x_i|$</center></br>
+还有 $L_{\infty}$：
 
-<p>还有 $L_{\infty}$：</p>
 <center>$\left\|x \right\|_{\infty} = max_i|x_i|$</center></br>
+事实上，上面的三个范数都是属于 $l_p$ 范数家族的例子（当 $p \ge 1$ 时）：
 
-<p>事实上，上面的三个范数都是属于 $l_p$ 范数家族的例子（当 $p \ge 1$ 时）：</p>
 <center>$\left\|x \right\|_p = (\sum^n_{i=1}|x_i|^p)^{1\over p}$</center></br>
+此外矩阵的范数也可以定义，比如 Frobenius：
 
-<p>此外矩阵的范数也可以定义，比如 Frobenius：</p>
 <center>$\left\|A \right\|_F = \sqrt{\sum^m_{i=1}\sum^n_{j=1}A^2_{ij}}=\sqrt{tr(A^TA)}$</center></br>
+此外还有许多其他范数这里不再多说。
 
-<p>此外还有许多其他范数这里不再多说。</p>
-<h3 id="线性无关与秩"><a href="#线性无关与秩" class="headerlink" title="线性无关与秩"></a>线性无关与秩</h3><h3 id="逆矩阵"><a href="#逆矩阵" class="headerlink" title="逆矩阵"></a>逆矩阵</h3><h3 id="正交矩阵"><a href="#正交矩阵" class="headerlink" title="正交矩阵"></a>正交矩阵</h3><h3 id="矩阵的值域和零空间"><a href="#矩阵的值域和零空间" class="headerlink" title="矩阵的值域和零空间"></a>矩阵的值域和零空间</h3><h3 id="行列式"><a href="#行列式" class="headerlink" title="行列式"></a>行列式</h3><h3 id="二次型和半正定矩阵"><a href="#二次型和半正定矩阵" class="headerlink" title="二次型和半正定矩阵"></a>二次型和半正定矩阵</h3><h3 id="特征值和特征向量"><a href="#特征值和特征向量" class="headerlink" title="特征值和特征向量"></a>特征值和特征向量</h3><h3 id="对称矩阵的特征值和特征向量"><a href="#对称矩阵的特征值和特征向量" class="headerlink" title="对称矩阵的特征值和特征向量"></a>对称矩阵的特征值和特征向量</h3><h2 id="Matrix-Calculus"><a href="#Matrix-Calculus" class="headerlink" title="Matrix Calculus"></a>Matrix Calculus</h2><h3 id="矩阵梯度"><a href="#矩阵梯度" class="headerlink" title="矩阵梯度"></a>矩阵梯度</h3><h3 id="海森矩阵"><a href="#海森矩阵" class="headerlink" title="海森矩阵"></a>海森矩阵</h3><h3 id="二次函数和线性函数的梯度和海森矩阵"><a href="#二次函数和线性函数的梯度和海森矩阵" class="headerlink" title="二次函数和线性函数的梯度和海森矩阵"></a>二次函数和线性函数的梯度和海森矩阵</h3><h3 id="行列式的梯度"><a href="#行列式的梯度" class="headerlink" title="行列式的梯度"></a>行列式的梯度</h3><h3 id="特征值优化"><a href="#特征值优化" class="headerlink" title="特征值优化"></a>特征值优化</h3>
+<h3 id="线性无关与秩"><a href="#线性无关与秩" class="headerlink" title="线性无关与秩"></a>线性无关与秩</h3><p>在一个向量集合 $\lbrace x_1,x_2,\cdots,x_n \rbrace \in R^m$ 里，如果没有向量可以通过其他向量经过线性组合表示，那么就称为这个集合的向量线性无关。相反的，如果一个集合里的向量可以通过其他向量线性组合表示，那么就称为线性相关：</p>
+<center>$x_n = \sum^{n-1}_{i=1} a_ix_i$</center>
+
+<p>在上面的式子中，对于有些标量值 $a_1,a_2,\cdots,a_{n-1}\in R$ ，可以说 $x_1,x_2,\cdots,x_n$ 线性相关，反之线性无关。</p>
+<p>一个矩阵 $A \in R^{m\times n}$ 的列秩是该矩阵中组成线性无关列的最大子集个数。同样的，行秩则是该矩阵中线性无关行的最大子集个数。</p>
+<p>对于任意的矩阵 $A \in R^{m\times n}$ ，它的列秩等于行秩（不做验证）。所以通常统称为矩阵的秩，记作 $rank(A)$。下面来看一些秩的性质：</p>
+<ul>
+<li>对于任意矩阵 $A \in R^{m\times n},rank(A)\leq min(m,n)$，当 $rank(A) = min(m,n)$时，称矩阵 A 为满秩。</li>
+<li>对于任意矩阵 $A \in R^{m\times n}$，$rank(A) = rank(A^T)$.</li>
+<li>对于矩阵 $A \in R^{m\times n},B\in R^{n\times p}，rank(AB)\leq min(rank(A),rank(B))$.</li>
+<li>对于矩阵 $A,B\in R^{m\times n},rank(A+B)\leq rank(A)+rank(B).$</li>
+</ul>
+<h3 id="逆矩阵"><a href="#逆矩阵" class="headerlink" title="逆矩阵"></a>逆矩阵</h3><p>一个方阵 $A\in R^{n\times n}$ 的逆矩阵记作 $A^{-1}$，这个矩阵是唯一的。</p>
+<center>$A^{-1}A = I = AA^{-1}$ </center></br>
+
+<p>注意不是所有的矩阵都有逆矩阵，根据定义非方阵没有逆矩阵，同时有些方阵也是没有逆矩阵的。如果矩阵的逆矩阵存在，那么就称为这个矩阵为可逆的或者非奇异的，反之称为不可逆的或者奇异矩阵。</p>
+<p>一个方阵如果有逆矩阵，那么必须是满秩的。除了满秩之外，下面还有一些其他的可逆性质：</p>
+<ul>
+<li>$(A^{-1})^{-1} = A$</li>
+<li>$(AB)^{-1} = B^{-1}A^{-1}$</li>
+<li>$(A^{-1})^T = (A^T)^{-1}$，这个矩阵通常用 $A^{-T}$ 表示。</li>
+</ul>
+<p>用一个例子来看矩阵的逆矩阵是如何使用的，对于线性方程 $Ax = b$，当 $A \in R^{n \times n}，x,b \in R^{n}$，如果 A 是非奇异的，则有 $x = A^{-1}b$.</p>
+<h3 id="正交矩阵"><a href="#正交矩阵" class="headerlink" title="正交矩阵"></a>正交矩阵</h3><p>如果两个向量 $x,y \in R^n,x^Ty=0$，则这两个向量为正交的（Orthogonal）。如果一个向量 $x\in R^n，\left| x\right|_2 = 1$，则称这些向量是标准化的。如果一个方阵 $U \in R^{n\times n}$ 它的所有列都是相互正交并且是标准化的，那么这个方阵就是正交的。</p>
+<center>$U^TU = I = UU^T$ </center></br>
+
+<p>换句话说，正交矩阵的逆矩阵就是它的转置。</p>
+<blockquote>
+<p>注意的是，如果一个矩阵 $U$ 不是方阵，而是 $U\in R^{m \times n},n&lt;m$，但是它的列向量也符合正交，$U^TU=I$，但是 $UU^T \neq I$，这里只使用正交的来描述它。没看懂、、、</p>
+</blockquote>
+<p>正交矩阵有一个很好的性质是：作用于一个有正交矩阵的向量，不会改变它的欧式范数：</p>
+<center>$\left\| U_x\right\|_2 = \left\| x\right\|_2$</center></br>
+
+<p>对于任意的正交 $x\in R^n, U\in R^{n\times n}$ 都适用。</p>
+<h3 id="矩阵的值域和零空间"><a href="#矩阵的值域和零空间" class="headerlink" title="矩阵的值域和零空间"></a>矩阵的值域和零空间</h3><h3 id="行列式"><a href="#行列式" class="headerlink" title="行列式"></a>行列式</h3><h3 id="二次型和半正定矩阵"><a href="#二次型和半正定矩阵" class="headerlink" title="二次型和半正定矩阵"></a>二次型和半正定矩阵</h3><h3 id="特征值和特征向量"><a href="#特征值和特征向量" class="headerlink" title="特征值和特征向量"></a>特征值和特征向量</h3><h3 id="对称矩阵的特征值和特征向量"><a href="#对称矩阵的特征值和特征向量" class="headerlink" title="对称矩阵的特征值和特征向量"></a>对称矩阵的特征值和特征向量</h3><h2 id="Matrix-Calculus"><a href="#Matrix-Calculus" class="headerlink" title="Matrix Calculus"></a>Matrix Calculus</h2><h3 id="矩阵梯度"><a href="#矩阵梯度" class="headerlink" title="矩阵梯度"></a>矩阵梯度</h3><h3 id="海森矩阵"><a href="#海森矩阵" class="headerlink" title="海森矩阵"></a>海森矩阵</h3><h3 id="二次函数和线性函数的梯度和海森矩阵"><a href="#二次函数和线性函数的梯度和海森矩阵" class="headerlink" title="二次函数和线性函数的梯度和海森矩阵"></a>二次函数和线性函数的梯度和海森矩阵</h3><h3 id="行列式的梯度"><a href="#行列式的梯度" class="headerlink" title="行列式的梯度"></a>行列式的梯度</h3><h3 id="特征值优化"><a href="#特征值优化" class="headerlink" title="特征值优化"></a>特征值优化</h3>
     </div>
 
     
@@ -604,7 +636,7 @@ $</center></br>
         <i class="fa fa-area-chart"></i>
       </span>
       <span class="site-uv" title="站点总字数">
-        <span class="post-count">40.5k</span>
+        <span class="post-count">41.3k</span>
       </span>
     </span>
     <span class="post-meta-divider">|</span>
