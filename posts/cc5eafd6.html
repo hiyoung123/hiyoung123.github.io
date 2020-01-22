@@ -47,26 +47,22 @@
   };
 </script>
 
-  <meta name="description" content="Ubuntu下划词翻译工具-GoldenDict。">
-<meta name="keywords" content="划词翻译,GoldenDict,词典">
+  <meta name="description" content="CS224n 深度学习自然语言处理 2019 版 Lecture-4 学习笔记。">
+<meta name="keywords" content="NLP,CS224n,反向回归,矩阵梯度,超参数">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Ubuntu下划词翻译工具-GoldenDict">
-<meta property="og:url" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;posts&#x2F;7e57c477.html">
+<meta property="og:title" content="CS224n-lecture4 Backpropagation and computation graphs">
+<meta property="og:url" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;posts&#x2F;cc5eafd6.html">
 <meta property="og:site_name" content="Young Blog">
-<meta property="og:description" content="Ubuntu下划词翻译工具-GoldenDict。">
+<meta property="og:description" content="CS224n 深度学习自然语言处理 2019 版 Lecture-4 学习笔记。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif">
 <meta property="og:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif">
 <meta property="og:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif">
-<meta property="og:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif">
-<meta property="og:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif">
-<meta property="og:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif">
-<meta property="og:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif">
-<meta property="og:updated_time" content="2019-12-27T10:40:46.031Z">
+<meta property="og:updated_time" content="2020-01-22T02:15:54.315Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif">
 
-<link rel="canonical" href="https://hiyoungai.com/posts/7e57c477.html">
+<link rel="canonical" href="https://hiyoungai.com/posts/cc5eafd6.html">
 
 
 <script id="page-configurations">
@@ -80,7 +76,7 @@
   };
 </script>
 
-  <title>Ubuntu下划词翻译工具-GoldenDict | Young Blog</title>
+  <title>CS224n-lecture4 Backpropagation and computation graphs | Young Blog</title>
   
 
 
@@ -198,7 +194,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hiyoungai.com/posts/7e57c477.html">
+    <link itemprop="mainEntityOfPage" href="https://hiyoungai.com/posts/cc5eafd6.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -211,7 +207,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Ubuntu下划词翻译工具-GoldenDict
+          CS224n-lecture4 Backpropagation and computation graphs
         </h1>
 
         <div class="post-meta">
@@ -220,18 +216,24 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2019-12-27 15:19:09 / 修改时间：18:40:46" itemprop="dateCreated datePublished" datetime="2019-12-27T15:19:09+08:00">2019-12-27</time>
+              <time title="创建时间：2020-01-21 22:03:43" itemprop="dateCreated datePublished" datetime="2020-01-21T22:03:43+08:00">2020-01-21</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-01-22 10:15:54" itemprop="dateModified" datetime="2020-01-22T10:15:54+08:00">2020-01-22</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%BE%BF%E6%8D%B7%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index">
-                    <span itemprop="name">便捷工具</span>
+                  <a href="/categories/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/" itemprop="url" rel="index">
+                    <span itemprop="name">自然语言处理</span>
                   </a>
                 </span>
             </span>
@@ -254,42 +256,68 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p><a href="http://goldendict.org/" target="_blank" rel="noopener">Goldendict</a> 是一款跨平台的翻译软件，支持划词翻译等功能。它更像一种词典或者词典的API工具，通过外挂好本地词典或者网站词典进行翻译，返回的样式就是设置词典的样式。</p>
-<p>Golendict 有以下几大特点：</p>
+        <blockquote>
+<p>CS224n 深度学习自然语言处理 2019 版 Lecture-4 学习笔记。</p>
+</blockquote>
+<p>本节课分为三大部分：矩阵梯度计算，反向传播，神经网络模型的一些组件和超参数。前两部分以后会有专门的博客讲解，本篇主要说一下第三部分。</p>
+<h2 id="Derivative-wrt-a-weight-matrix"><a href="#Derivative-wrt-a-weight-matrix" class="headerlink" title="Derivative wrt a weight matrix"></a>Derivative wrt a weight matrix</h2><h2 id="Computation-Graphs-and-Backpropagation"><a href="#Computation-Graphs-and-Backpropagation" class="headerlink" title="Computation Graphs and Backpropagation"></a>Computation Graphs and Backpropagation</h2><h2 id="We-have-models-with-many-params"><a href="#We-have-models-with-many-params" class="headerlink" title="We have models with many params"></a>We have models with many params</h2><h3 id="正则化"><a href="#正则化" class="headerlink" title="正则化"></a>正则化</h3><p>实际上一个完整模型的损失函数还包括正则项，它是所有参数 $\theta$ 的正则化。例如使用 $L_2$ 正则：</p>
+<center>$J(\theta) = {1\over N} \sum^N_{i=1}-log({e^{f_{y_i}} \over \sum^C_{c=1} e^{f_e}})+\lambda \sum_k \theta^2_k$</center></br>
+
+<p>正则化的目的是防止模型过拟合，也就是在训练集上效果很好，但是在测试集上效果差。把所有参数加和算到损失里，这样可以抑制模型学习的强度。其中 $\lambda$ 是抑制因子，用于调节正则化的强度。</p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n_19_lec4_reg_001.png" alt=""></p>
+<h3 id="向量化"><a href="#向量化" class="headerlink" title="向量化"></a>向量化</h3><p>在深度学习里更准确的说应该叫做矩阵化。传统的机器学习中的训练方法，是通过迭代的方式，一个数据一个数据的传入模型。但是这样速度很慢，可以将数据组合成矩阵，一起喂给模型去训练，使用矩阵运算可以大幅度提高训练速度。</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">from</span> numpy <span class="token keyword">import</span> random
+N <span class="token operator">=</span> <span class="token number">500</span> <span class="token comment" spellcheck="true"># number of windows to classify</span>
+d <span class="token operator">=</span> <span class="token number">300</span> <span class="token comment" spellcheck="true"># dimensionality of each window</span>
+C <span class="token operator">=</span> <span class="token number">5</span> <span class="token comment" spellcheck="true"># number of classes</span>
+W <span class="token operator">=</span> random<span class="token punctuation">.</span>rand<span class="token punctuation">(</span>C<span class="token punctuation">,</span>d<span class="token punctuation">)</span>
+wordvectors_list <span class="token operator">=</span> <span class="token punctuation">[</span>random<span class="token punctuation">.</span>rand<span class="token punctuation">(</span>d<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>N<span class="token punctuation">)</span><span class="token punctuation">]</span>
+wordvectors_one_matrix <span class="token operator">=</span> random<span class="token punctuation">.</span>rand<span class="token punctuation">(</span>d<span class="token punctuation">,</span>N<span class="token punctuation">)</span>
+
+<span class="token operator">%</span>timeit <span class="token punctuation">[</span>W<span class="token punctuation">.</span>dot<span class="token punctuation">(</span>wordvectors_list<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>N<span class="token punctuation">)</span><span class="token punctuation">]</span>
+<span class="token operator">%</span>timeit W<span class="token punctuation">.</span>dot<span class="token punctuation">(</span>wordvectors_one_matrix<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>上面的代码对比迭代和矩阵运算的结果：</p>
+<p>1000 loops, best of 3: 639 μs per loop<br>10000 loops, best of 3: 53.8 μs per loop</p>
+<h3 id="非线性"><a href="#非线性" class="headerlink" title="非线性"></a>非线性</h3><p>神经网络单元中会加入非线性激活函数，使得神经网络模型可以进行非线性计算。下面是一些常用的非线性激活函数：</p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n_19_lec4_none_linear_001.png" alt=""></p>
 <ul>
-<li>自定义词本地典库，可加载外挂词典，可自定义分组；</li>
-<li>自定义在线词典和百科；</li>
-<li>支持屏幕取词（虽然有时不是很灵），但搭配上 Autohotkey 无敌；</li>
-<li>支持全文搜索，有生词本且可导出。</li>
+<li>sigmoid，常用于逻辑回归，神经网络中偶尔会在最后一层使用。</li>
+<li>tanh，是一个重新放缩和移动的 sigmoid (两倍陡峭，[-1,1])。</li>
+<li>logistic 和 tanh 仍然被用于特定的用途，但不再是构建深度网络的默认值。</li>
 </ul>
-<p>官方效果图：</p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_tool_goldendict_heron-single.png" alt=""></p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>这里主要介绍一下 Ubuntu 下的安装，其他平台的安装进入<a href="http://goldendict.org/" target="_blank" rel="noopener">官网</a>自行查看。</p>
-<p>在 Ubuntu 上安装 Goldendict 比较简单，直接在命令行输入如下命令即可：</p>
-<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> goldendict<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><h3 id="添加在线词典"><a href="#添加在线词典" class="headerlink" title="添加在线词典"></a>添加在线词典</h3><p>我们可以通过如下步骤添加在线词典，左上角菜单栏找到“编辑“选项,然后 编辑-&gt;词典-&gt;网站-&gt;添加：</p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_tool_glodendict_add_net_dict.png" alt=""></p>
-<p>如何获取到在线词典呢？百度搜索必应词典，随便搜索一个单词，例如 welcome，会得到一个网址：<br><code>http://cn.bing.com/dict/search?q=welcome&amp;;qs=n&amp;;form=Z9LH5&amp;;pq=welcome&amp;;sc=0-7&amp;;sp=-1&amp;;sk=&amp;;cvid=127D88B2AD4E4842A79BCB32B430FC33</code><br>然后将其中的 welcome 全部替换成 %GDWORD% 得到：<br><code>http://cn.bing.com/dict/search?q=%GDWORD%&amp;;qs=n&amp;;form=Z9LH5&amp;;pq=%GDWORD%&amp;;sc=0-7&amp;;sp=-1&amp;;sk=&amp;;cvid=127D88B2AD4E4842A79BCB32B430FC33</code></p>
+<p>因为 tanh 计算缓慢，所以提出了 ReLu 以及变体：</p>
+<p>​    <img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n_19_lec4_none_linear_002.png" alt=""></p>
+<p>非零范围内只有一个斜率，这一位置梯度十分有效的传递给了输入，所以模型非常有效的训练，但是由于 ReLu 会有一定概率使单元失活，所以在零范围内进行了修改。稍后会在一篇博客中全面比较各个非线性激活函数。</p>
+<h3 id="参数初始化"><a href="#参数初始化" class="headerlink" title="参数初始化"></a>参数初始化</h3><p>通常必须将权重初始化为小的随机值，这样才能在激活函数的有效范围内， 即存在梯度可以使其更新。也为了避免对称性妨碍学习。</p>
+<p>一般情况下初始化隐藏层偏差为 0，如果权重为 0 则输出，偏差为最优值。初始化其他所有权重为 Uniform(-r, r)，选择使使数字既不会很大也不会很小的 r。</p>
+<p>学习框架中的 Xavier，方差与 fan-in 前一层维度和 fan-out 后一层维度成反比：</p>
+<center>$Var(W_i) = {2\over n_{in} + n_{out}}$</center></br>
+
+<h3 id="优化器"><a href="#优化器" class="headerlink" title="优化器"></a>优化器</h3><p>这是机器学习和深度学习中重要的一部分，通常情况下都使用的是我们熟知的 SGD 随机梯度下降。然而，要得到好的结果通常需要手动调整学习速度。或者在复杂的神经网络中，或者为了安全考虑，可以使用自适应优化器。</p>
 <ul>
-<li>有道： <code>http://dict.youdao.com/search?q=%GDWORD%&amp;ue=utf8</code></li>
-<li>必应： <code>http://cn.bing.com/dict/search?q=%GDWORD%</code></li>
-<li>海词：<code>http://dict.cn/%GDWORD%</code></li>
+<li>Adagrad</li>
+<li>RMSprop</li>
+<li>Adam : 非常好用的一个优化器，大多数情况下可用。</li>
+<li>SparseAdam</li>
 </ul>
-<p>需要注意的是，添加完在线词典之后需要勾选上才可以使用。</p>
-<h3 id="添加本地词典"><a href="#添加本地词典" class="headerlink" title="添加本地词典"></a>添加本地词典</h3><p>在编辑里选择词典&gt;词典来源&gt;文件，点击添加，我们可以新建一个文件夹来存放我们的字典文件。然后我们将下载好的字典文件解压后，放到这个文件夹中，点击重新扫描就可以识别出本地词典了。</p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_tool_glodendict_add_local_dict_1.png" alt=""></p>
-<p>这样我们就可以在词典中查看已经添加进来的词典了。</p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_tool_glodendict_add_local_dict_2.png" alt=""></p>
-<h2 id="资源"><a href="#资源" class="headerlink" title="资源"></a>资源</h2><p>推荐几部精选的词典并附上图片以及下载地址：</p>
-<h3 id="牛津高阶-8-简体-spx-（带发音）"><a href="#牛津高阶-8-简体-spx-（带发音）" class="headerlink" title="牛津高阶 8 简体 spx （带发音）"></a>牛津高阶 8 简体 spx （带发音）</h3><p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_tool_glodendict_niujin_dict.png" alt=""></p>
-<p><a href="https://pan.baidu.com/s/1MupVJbBl4KxGjQ-PYo2pTQ" target="_blank" rel="noopener">百度网盘</a></p>
-<p>提取码：enp6</p>
-<h3 id="Vocabulary-com-Dictionary-英文版（联网发音）"><a href="#Vocabulary-com-Dictionary-英文版（联网发音）" class="headerlink" title="Vocabulary.com Dictionary 英文版（联网发音）"></a>Vocabulary.com Dictionary 英文版（联网发音）</h3><p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_tool_glodendict_vocabulary.png" alt=""></p>
-<p><a href="https://pan.baidu.com/s/1d2pb-myWwXMZslwwQ1Hg2g" target="_blank" rel="noopener">百度网盘</a></p>
-<p>提取码：fsug</p>
-<h3 id="简明英汉必应版（增强版升级）-432万词条"><a href="#简明英汉必应版（增强版升级）-432万词条" class="headerlink" title="简明英汉必应版（增强版升级） 432万词条"></a>简明英汉必应版（增强版升级） 432万词条</h3><p><a href="https://github.com/skywind3000/ECDICT-ultimate/releases" target="_blank" rel="noopener">Github</a></p>
-<h3 id="星际译王"><a href="#星际译王" class="headerlink" title="星际译王"></a>星际译王</h3><p>向大家推荐星际译王的词典<a href="http://download.huzheng.org/" target="_blank" rel="noopener">下载网站</a>，这个网站几乎包含了所有的字典，我们可以选择下载。</p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_tool_glodendict_xingji.png" alt=""></p>
+<p>后续也会单独写一篇博客对比各个优化器。</p>
+<h3 id="学习率"><a href="#学习率" class="headerlink" title="学习率"></a>学习率</h3><p>学习率一般有两种使用方法，一种是固定学习率，从 r = 0.001 开始以 10 的次方数量级变化选择一个合适的学习率。</p>
+<ul>
+<li>太大：模型可能会发散或不收敛</li>
+<li>太小：你的模型可能训练不出很好的效果</li>
+</ul>
+<p>另外一种是变化的学习率，通常可以获得更好的效果。</p>
+<ul>
+<li><p>每隔 k 个阶段(epoch)将学习速度减半</p>
+</li>
+<li><p>epoch = 遍历一次数据 (打乱或采样的)</p>
+</li>
+<li><p>通过一个公式：$ lr=lr_0e^{−kt},\ \ for \ \  epoch \ \ t $</p>
+</li>
+<li><p>还有更新奇的方法，比如循环学习率(q.v.)</p>
+</li>
+</ul>
+<p>更高级的优化器仍然使用学习率，但它可能是优化器缩小的初始速度——因此可以从较高的速度开始。</p>
 
     </div>
 
@@ -299,9 +327,11 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E5%88%92%E8%AF%8D%E7%BF%BB%E8%AF%91/" rel="tag"># 划词翻译</a>
-              <a href="/tags/GoldenDict/" rel="tag"># GoldenDict</a>
-              <a href="/tags/%E8%AF%8D%E5%85%B8/" rel="tag"># 词典</a>
+              <a href="/tags/NLP/" rel="tag"># NLP</a>
+              <a href="/tags/CS224n/" rel="tag"># CS224n</a>
+              <a href="/tags/%E5%8F%8D%E5%90%91%E5%9B%9E%E5%BD%92/" rel="tag"># 反向回归</a>
+              <a href="/tags/%E7%9F%A9%E9%98%B5%E6%A2%AF%E5%BA%A6/" rel="tag"># 矩阵梯度</a>
+              <a href="/tags/%E8%B6%85%E5%8F%82%E6%95%B0/" rel="tag"># 超参数</a>
           </div>
 
         
@@ -310,13 +340,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/posts/7d402318.html" rel="prev" title="Windows下命令行工具-Cmder">
-      <i class="fa fa-chevron-left"></i> Windows下命令行工具-Cmder
+    <a href="/posts/b38e2b22.html" rel="prev" title="CS224n-lecture3 Word Window Classification, Neural Networks, and Matrix Calculus">
+      <i class="fa fa-chevron-left"></i> CS224n-lecture3 Word Window Classification, Neural Networks, and Matrix Calculus
     </a></div>
-      <div class="post-nav-item">
-    <a href="/posts/fcba888f.html" rel="next" title="论文阅读《Efficient Estimation of Word Representations in Vector Space》">
-      论文阅读《Efficient Estimation of Word Representations in Vector Space》 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -355,7 +382,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置"><span class="nav-text">配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加在线词典"><span class="nav-text">添加在线词典</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加本地词典"><span class="nav-text">添加本地词典</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#资源"><span class="nav-text">资源</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#牛津高阶-8-简体-spx-（带发音）"><span class="nav-text">牛津高阶 8 简体 spx （带发音）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vocabulary-com-Dictionary-英文版（联网发音）"><span class="nav-text">Vocabulary.com Dictionary 英文版（联网发音）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#简明英汉必应版（增强版升级）-432万词条"><span class="nav-text">简明英汉必应版（增强版升级） 432万词条</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#星际译王"><span class="nav-text">星际译王</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Derivative-wrt-a-weight-matrix"><span class="nav-text">Derivative wrt a weight matrix</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Computation-Graphs-and-Backpropagation"><span class="nav-text">Computation Graphs and Backpropagation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#We-have-models-with-many-params"><span class="nav-text">We have models with many params</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#正则化"><span class="nav-text">正则化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#向量化"><span class="nav-text">向量化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#非线性"><span class="nav-text">非线性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参数初始化"><span class="nav-text">参数初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优化器"><span class="nav-text">优化器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#学习率"><span class="nav-text">学习率</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -558,6 +585,54 @@
   
 
   
+      
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
 
   
 
@@ -571,7 +646,7 @@
       repo: 'hiyoung123.github.io',
       owner: 'hiyoung123',
       admin: ['hiyoung123'],
-      id: '5dcb11ff8233609278527512c4dc8085',
+      id: '52c0a2e7cbbbbfdc6f959f479f19a559',
         language: '',
       distractionFreeMode: 'true'
     });
