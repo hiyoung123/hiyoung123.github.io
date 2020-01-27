@@ -32,6 +32,7 @@ toc:
 [CS224n-lecture3 Word Window Classification, Neural Networks, and Matrix Calculus](https://hiyoungai.com/posts/b38e2b22.html)
 [CS224n-lecture4 Backpropagation and computation graphs](https://hiyoungai.com/posts/cc5eafd6.html)
 [CS224n-lecture6 Language Models and Recurrent Neural Networks](https://hiyoungai.com/posts/b91e9559.html)
+[CS224n-lecture8 Machine Translation, Seq2Seq and Attention](https://hiyoungai.com/posts/7f15f578.html)
 
 # 搜索引擎系列
 
