@@ -101,7 +101,7 @@ Seq2seq 模型的实质是一个条件语言模型（Conditional Language Model�
 NMT 是直接计算概率 $P(y|x)$：
 
 <center>$P(y|x) = P(y_1|x)P(y_2|y_1,x)P(y_3|y_1,y_2,x)\cdots P(y_T|y_1,\cdots,y_{T-1},x)$</center></br>
-​	
+关于 Seq2seq 的论文：[论文阅读《Sequence to Sequence Learning with Neural Networks》](https://hiyoungai.com/posts/d1bb6beb.html)
 
 ### Training a Neural Machine Translation system
 
@@ -109,7 +109,7 @@ NMT 是直接计算概率 $P(y|x)$：
 
 ![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n_19_lec8_nmt_s2s_002.png)
 
-从上图看出损失函数的梯度可以一直反向传播到 encoder，模型可以整体优化，所以 Seq2Seq 也被看做是end2end模型。
+从上图看出损失函数的梯度可以一直反向传播到 encoder，模型可以整体优化，所以 Seq2Seq 也被看做是 end2end 模型。
 
 ### Greedy decoding
 
