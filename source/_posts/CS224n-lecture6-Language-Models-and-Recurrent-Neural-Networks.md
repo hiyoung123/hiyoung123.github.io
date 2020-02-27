@@ -67,13 +67,11 @@ N-gram 是一个由 n 个连续单词组成的块，它的思想是一个单词�
 首先做一个简单的假设，$x^{(t+1)}$ 只依赖前面的 n-1 个词：
 
 <center>$\begin{align}P(x^{(t+1)}|x^{(t)},\cdots,x^{(1)})&=P(x^{(t+1)}|x^{(t)},\cdots,x^{(t-n+2)}) \\ &= {P(x^{(t+1)},x^{(t)},\cdots,x^{(t-n+2)}) \over P(x^{(t)},\cdots,x^{(t-n+2)})} \end{align}$</center></br>
-
 其中第二个等号后面的式子的分子为 n-gram 的概率，分母为 (n-1)-gram 的概率。整个式子为依赖前 n-1 个词的词 $x^{(t+1)}$ 的条件概率。那么如果计算 n-gram 和 (n-1)-gram 的概率呢？
 
 可以通过在大型语料库中，统计他们出现的频数来近似的计算：
 
 <center>$\approx {count(x^{(x+1)},x^{(t)},\cdots,x^{(t-n+2)}) \over count(x^{(t)},\cdots,x{(t-n+2)}}$</center></br>
-
 例如使用 4-gram 语言模型：
 
 ![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n_19_lec6_ngram_001.png)
@@ -140,11 +138,9 @@ RNN 的缺点：
 现在来看一下如何训练一个 RNN 的语言模型。简单点来说，就是需要一个大的包括词序列（$x^{(1)},\cdots,x^{(T)}$）文本语料库，然后喂给 RNN-LM 模型，计算每个时间步的输出也就是每个词的概率分布 $\hat{y}^{(t)}$。然后像一般的预测问题一样，使用交叉熵损失函数，计算模型预测值和真实值之间的误差：
 
 <center>$J^{(t)}(\theta) = CE(y^{(t)},\hat{y}^{(t)}) = - \sum_{w\in V}y^{(t)}_wlog\hat{y}^{(t)}_w = -log\hat{y}^{(t)}_{x_t+1}$</center></br>
-
 然后对于整个训练集使用评价误差：
 
 <center>$J(\theta) = {1\over T} \sum^T_{t=1}J^{(t)}(\theta)={1\over T}\sum^T_{t=1}-log\hat{y}^{(t)}_{x_t+1}$</center></br>
-
 但是把整个语料库当作一个文本序列计算 loss 和梯度太昂贵了，所以可以把一句话或者一个文档当作文本序列输入到模型中，然后使用随机梯度下降算法进行训练。
 
 > 关于反向回归和梯度计算同样在其他文章中讲解。
@@ -163,11 +159,9 @@ RNN 的缺点：
 语言模型的标准评价指标叫做困惑度（perplexity）：
 
 <center>$perplexity = \prod^T_{t=1} ({1\over P_{LM}(x^{(t+1)}|x^{(t)},\cdots,x^{(1)})})^{1\over T}$</center></br>
-
 这等同于交叉熵损失函数的指数：
 
 <center>$ \begin{align} &= \prod^T_{t=1}({1\over \hat{y}^{(t)}_{x_{t+1}}})^{1\over T} \\  &=exp({1\over T \sum^T_{t=1}}-log\hat{y}^{(t)}_{x_{t+1}}) \\ &= exp(J(\theta))\end{align}$</center></br>
-
 困惑度越低，说明生成的语言越接近真实语言，常用于机器翻译和文本生成等 NLP 任务中。具体内容查看另外一篇博客[信息熵总结](https://hiyoungai.com/posts/686d9456.html)。
 
 下图是语言模型的困惑度变化：
