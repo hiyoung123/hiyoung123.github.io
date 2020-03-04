@@ -22,6 +22,8 @@ date: 2020-03-02 15:20:06
 
 序列数据根据任务的不同，具有不同的表现形式。输入和输出可能都是序列，也可能只有其中一个是序列，还有可能是两个不同长度的序列。
 
+ 
+
 ## RNN 应用
 
 RNN 类神经网络在 NLP 起到了重要作用，在很多领域都将性能提高了很多。下面是一些主要的应用场景：
@@ -32,6 +34,10 @@ RNN 类神经网络在 NLP 起到了重要作用，在很多领域都将性能�
 * 翻译模型（NMT）
 * 文本摘要/文本生成
 * 等等
+
+可以参考 Andrej Karpathy 的博[文章](http://karpathy.github.io/2015/05/21/rnn-effectiveness/)，有更多丰富的应用。
+
+ 
 
 ## RNN 网络结构
 
@@ -50,11 +56,9 @@ RNN 类神经网络在 NLP 起到了重要作用，在很多领域都将性能�
 计算 t 时刻的隐藏状态，这里先假设为 tanh，W，V，U为隐藏单元的权重矩阵，。那么完整的表达式为:
 
 <center>$h^{(t)} = tanh(W_{hh}^T h^{(t-1)} + U_{xh}^Tx^{(t)} + b)$</center></br>
-
 然后计算 t 时刻的输出，这里使用 softmax 作为激活函数：
 
 <center>$\begin{align} o^{(t)} &= V_{ho}^Th^{(t)}+c \\ \hat{y}^{(t)} &= softmax(o^{(t)}) \end{align}$</center></br>
-
 > 注意，这里要搞清楚各个参数的下标，表示向量和矩阵的维度，方便在后续代码实现时认清参数。
 
 ### 损失函数
@@ -62,12 +66,13 @@ RNN 类神经网络在 NLP 起到了重要作用，在很多领域都将性能�
 一般都是用交叉熵损失函数 - Cross-entropy：
 
 <center>$L = \sum_t L^{(t)} = - \sum_t y^{(t)} log \ \hat{y}^{(t)}$</center></br>
-
 每一次进行计算，都需要前向传播一次，反向传播一次，而且不可以并行计算，所以时间复杂度为 O(t)。同时每个节点都需要存储当前的梯度，所以空间复杂度为 O(t)。
 
 ### 反向传播
 
 RNN 的反向传播 Backpropagation Through Time(BPTT) 由于是序列结构的原因，跟前馈神经网络略有不同。BPTT 的中心思想和 BP 算法相同，沿着需要优化的参数的负梯度方向不断寻找更优的点直至收敛，只不过RNN处理时间序列数据，所以要基于时间反向传播，故叫随时间反向传播。
+
+ 
 
 ## RNN 的局限性
 
@@ -82,6 +87,8 @@ RNN 的反向传播 Backpropagation Through Time(BPTT) 由于是序列结构的�
 ### 长期依赖
 
 即当前时刻无法从序列中间隔较大的那个时刻获得需要的信息。在理论上，RNN 完全可以处理长期依赖问题，但实际处理过程中，RNN 表现得并不好。同样采用 LSTM 等变体可以缓解该问题。
+
+ 
 
 ## 其他结构
 
@@ -116,9 +123,11 @@ Bi-RNN 的思路很简单，就是将输入序列从前向后计算一遍，然�
 
 ![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_deeprnn_jiegou_001.png)
 
-## RNN 变体
 
-### GRU
 
-### LSTM
+## References
+
+1. http://norvig.com/chomsky.html
+2. http://www.deeplearningbook.org/contents/rnn.html
+3. http://karpathy.github.io/2015/05/21/rnn-effectiveness/
 
