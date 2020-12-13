@@ -1058,7 +1058,61 @@ neat_js:
 
 使用cloudflare貌似可以做到域名重定向。
 
+## 更新
 
+### hexo 升级
+
+1. 打开 package.json，修改 dependencies 项：
+
+   ```xml
+     "hexo": "^5.0.0",
+   ```
+
+2. 执行更新
+
+   ```bash
+   npm update
+   ```
+
+### 更换butterfly主题
+
+1. clone 项目到 themes 目录
+
+   ```bash
+   git clone -b master https://github.com/jerryc127/hexo-theme-butterfly.git themes/hexo-theme-butterfly
+   ```
+
+2. 安装对应插件
+
+   ```bash
+   npm install hexo-renderer-pug hexo-renderer-stylus
+   ```
+
+3. 修改_config.yml文件
+
+   ```
+    theme: hexo-theme-butterfly
+   ```
+
+4. 执行构建等命令
+
+   ```bash
+   hexo clean & hexo g & hexo s
+   ```
+
+### 异常
+
+1. prettyUrls is not a function
+
+   ``````bash
+   npm cache clean --force
+   delete node_modules folder
+   delete package-lock.json file
+   npm install
+   hexo clean; hexo g
+   ``````
+
+   
 
 ## 鸣谢
 
