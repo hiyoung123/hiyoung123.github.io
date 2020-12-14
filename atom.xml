@@ -307,9 +307,9 @@
     
       <category term="CS224n" scheme="https://hiyoungai.com/tags/CS224n/"/>
     
-      <category term="词向量" scheme="https://hiyoungai.com/tags/%E8%AF%8D%E5%90%91%E9%87%8F/"/>
-    
       <category term="GloVe" scheme="https://hiyoungai.com/tags/GloVe/"/>
+    
+      <category term="词向量" scheme="https://hiyoungai.com/tags/%E8%AF%8D%E5%90%91%E9%87%8F/"/>
     
   </entry>
   
@@ -492,9 +492,9 @@
     
       <category term="CS224n" scheme="https://hiyoungai.com/tags/CS224n/"/>
     
-      <category term="Word2vec" scheme="https://hiyoungai.com/tags/Word2vec/"/>
-    
       <category term="词向量" scheme="https://hiyoungai.com/tags/%E8%AF%8D%E5%90%91%E9%87%8F/"/>
+    
+      <category term="Word2vec" scheme="https://hiyoungai.com/tags/Word2vec/"/>
     
   </entry>
   

@@ -334,9 +334,9 @@
             
             <tag> CS224n </tag>
             
-            <tag> 词向量 </tag>
-            
             <tag> GloVe </tag>
+            
+            <tag> 词向量 </tag>
             
         </tags>
       
@@ -547,9 +547,9 @@
             
             <tag> CS224n </tag>
             
-            <tag> Word2vec </tag>
-            
             <tag> 词向量 </tag>
+            
+            <tag> Word2vec </tag>
             
         </tags>
       
