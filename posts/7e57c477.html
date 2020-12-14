@@ -1,260 +1,175 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.0.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
-  <meta name="google-site-verification" content="yXNWLn28ULu1e2oNTKIDLTMhXLOEd7DwMtrEmdJ0pgE">
-  <meta name="baidu-site-verification" content="m7vWhnTCyq">
-
-<link rel="stylesheet" href="/css/main.css">
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-
-
-<script id="hexo-configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    hostname: new URL('https://hiyoungai.com').hostname,
-    root: '/',
-    scheme: 'Mist',
-    version: '7.6.0',
-    exturl: false,
-    sidebar: {"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},
-    copycode: {"enable":false,"show_result":false,"style":null},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    bookmark: {"enable":false,"color":"#222","save":"auto"},
-    fancybox: false,
-    mediumzoom: false,
-    lazyload: false,
-    pangu: false,
-    algolia: {
-      appID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: 'search.xml',
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
-  };
-</script>
-
-  <meta name="description" content="Ubuntu下划词翻译工具-GoldenDict。">
-<meta name="keywords" content="划词翻译,GoldenDict,词典">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Ubuntu下划词翻译工具-GoldenDict | Young Blog</title><meta name="keywords" content="划词翻译,GoldenDict,词典"><meta name="author" content="Hiyoung"><meta name="copyright" content="Hiyoung"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="Ubuntu下划词翻译工具-GoldenDict。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ubuntu下划词翻译工具-GoldenDict">
-<meta property="og:url" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;posts&#x2F;7e57c477.html">
+<meta property="og:url" content="https://hiyoungai.com/posts/7e57c477.html">
 <meta property="og:site_name" content="Young Blog">
 <meta property="og:description" content="Ubuntu下划词翻译工具-GoldenDict。">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif">
-<meta property="og:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif">
-<meta property="og:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif">
-<meta property="og:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif">
-<meta property="og:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif">
-<meta property="og:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif">
-<meta property="og:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif">
-<meta property="og:updated_time" content="2019-12-27T10:40:46.031Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg">
+<meta property="article:published_time" content="2019-12-27T07:19:09.000Z">
+<meta property="article:modified_time" content="2019-12-27T10:40:46.031Z">
+<meta property="article:author" content="Hiyoung">
+<meta property="article:tag" content="划词翻译">
+<meta property="article:tag" content="GoldenDict">
+<meta property="article:tag" content="词典">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://hiyoungai.com/posts/7e57c477"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+};
 
-<link rel="canonical" href="https://hiyoungai.com/posts/7e57c477.html">
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
 
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
 
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome: false,
-    isPost: true,
-    isPage: false,
-    isArchive: false
-  };
-</script>
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
 
-  <title>Ubuntu下划词翻译工具-GoldenDict | Young Blog</title>
-  
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}
 
-
-
-
-
-
-  <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
+// https://stackoverflow.com/questions/16839698/jquery-getscript-alternative-in-native-javascript
+const getScript = url => new Promise((resolve, reject) => {
+  const script = document.createElement('script')
+  script.src = url
+  script.async = true
+  script.onerror = reject
+  script.onload = script.onreadystatechange = function() {
+    const loadState = this.readyState
+    if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+    script.onload = script.onreadystatechange = null
+    resolve()
+  }
+  document.head.appendChild(script)
+})</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2019-12-27 18:40:46'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
   }
 
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
-<link rel="alternate" href="/atom.xml" title="Young Blog" type="application/atom+xml">
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+   if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+  const autoChangeMode = 'false'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}})()</script><meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="Young Blog" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
-
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
-
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-meta">
-
-    <div>
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Young Blog</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-        <p class="site-subtitle">Hi Young !</p>
-  </div>
-
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
-    </div>
-  </div>
-</div>
-
-
-<nav class="site-nav">
-  
-  <ul id="menu" class="menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
-
-  </li>
-        <li class="menu-item menu-item-coding">
-
-    <a href="/coding/" rel="section"><i class="fa fa-fw fa-code"></i>编程</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
-
-  </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
-
-  </li>
-  </ul>
-
-</nav>
-</div>
-    </header>
-
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-  <div class="reading-progress-bar"></div>
-
-
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-
-          <div class="content">
-            
-
-  <div class="posts-expand">
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hiyoungai.com/posts/7e57c477.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Hiyoung">
-      <meta itemprop="description" content="人生何所求，致富和自由。 -《基督山伯爵》">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Young Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          Ubuntu下划词翻译工具-GoldenDict
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2019-12-27 15:19:09 / 修改时间：18:40:46" itemprop="dateCreated datePublished" datetime="2019-12-27T15:19:09+08:00">2019-12-27</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%BE%BF%E6%8D%B7%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index">
-                    <span itemprop="name">便捷工具</span>
-                  </a>
-                </span>
-            </span>
-
-          
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p><a href="http://goldendict.org/" target="_blank" rel="noopener">Goldendict</a> 是一款跨平台的翻译软件，支持划词翻译等功能。它更像一种词典或者词典的API工具，通过外挂好本地词典或者网站词典进行翻译，返回的样式就是设置词典的样式。</p>
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">26</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">67</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Young Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Ubuntu下划词翻译工具-GoldenDict</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2019-12-27T07:19:09.000Z" title="发表于 2019-12-27 15:19:09">2019-12-27</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2019-12-27T10:40:46.031Z" title="更新于 2019-12-27 18:40:46">2019-12-27</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E4%BE%BF%E6%8D%B7%E5%B7%A5%E5%85%B7/">便捷工具</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p><a target="_blank" rel="noopener" href="http://goldendict.org/">Goldendict</a> 是一款跨平台的翻译软件，支持划词翻译等功能。它更像一种词典或者词典的API工具，通过外挂好本地词典或者网站词典进行翻译，返回的样式就是设置词典的样式。</p>
 <p>Golendict 有以下几大特点：</p>
 <ul>
 <li>自定义词本地典库，可加载外挂词典，可自定义分组；</li>
@@ -264,7 +179,7 @@
 </ul>
 <p>官方效果图：</p>
 <p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_tool_goldendict_heron-single.png" alt=""></p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>这里主要介绍一下 Ubuntu 下的安装，其他平台的安装进入<a href="http://goldendict.org/" target="_blank" rel="noopener">官网</a>自行查看。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>这里主要介绍一下 Ubuntu 下的安装，其他平台的安装进入<a target="_blank" rel="noopener" href="http://goldendict.org/">官网</a>自行查看。</p>
 <p>在 Ubuntu 上安装 Goldendict 比较简单，直接在命令行输入如下命令即可：</p>
 <pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> goldendict<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><h3 id="添加在线词典"><a href="#添加在线词典" class="headerlink" title="添加在线词典"></a>添加在线词典</h3><p>我们可以通过如下步骤添加在线词典，左上角菜单栏找到“编辑“选项,然后 编辑-&gt;词典-&gt;网站-&gt;添加：</p>
@@ -282,302 +197,17 @@
 <p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_tool_glodendict_add_local_dict_2.png" alt=""></p>
 <h2 id="资源"><a href="#资源" class="headerlink" title="资源"></a>资源</h2><p>推荐几部精选的词典并附上图片以及下载地址：</p>
 <h3 id="牛津高阶-8-简体-spx-（带发音）"><a href="#牛津高阶-8-简体-spx-（带发音）" class="headerlink" title="牛津高阶 8 简体 spx （带发音）"></a>牛津高阶 8 简体 spx （带发音）</h3><p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_tool_glodendict_niujin_dict.png" alt=""></p>
-<p><a href="https://pan.baidu.com/s/1MupVJbBl4KxGjQ-PYo2pTQ" target="_blank" rel="noopener">百度网盘</a></p>
+<p><a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1MupVJbBl4KxGjQ-PYo2pTQ">百度网盘</a></p>
 <p>提取码：enp6</p>
 <h3 id="Vocabulary-com-Dictionary-英文版（联网发音）"><a href="#Vocabulary-com-Dictionary-英文版（联网发音）" class="headerlink" title="Vocabulary.com Dictionary 英文版（联网发音）"></a>Vocabulary.com Dictionary 英文版（联网发音）</h3><p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_tool_glodendict_vocabulary.png" alt=""></p>
-<p><a href="https://pan.baidu.com/s/1d2pb-myWwXMZslwwQ1Hg2g" target="_blank" rel="noopener">百度网盘</a></p>
+<p><a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1d2pb-myWwXMZslwwQ1Hg2g">百度网盘</a></p>
 <p>提取码：fsug</p>
-<h3 id="简明英汉必应版（增强版升级）-432万词条"><a href="#简明英汉必应版（增强版升级）-432万词条" class="headerlink" title="简明英汉必应版（增强版升级） 432万词条"></a>简明英汉必应版（增强版升级） 432万词条</h3><p><a href="https://github.com/skywind3000/ECDICT-ultimate/releases" target="_blank" rel="noopener">Github</a></p>
-<h3 id="星际译王"><a href="#星际译王" class="headerlink" title="星际译王"></a>星际译王</h3><p>向大家推荐星际译王的词典<a href="http://download.huzheng.org/" target="_blank" rel="noopener">下载网站</a>，这个网站几乎包含了所有的字典，我们可以选择下载。</p>
+<h3 id="简明英汉必应版（增强版升级）-432万词条"><a href="#简明英汉必应版（增强版升级）-432万词条" class="headerlink" title="简明英汉必应版（增强版升级） 432万词条"></a>简明英汉必应版（增强版升级） 432万词条</h3><p><a target="_blank" rel="noopener" href="https://github.com/skywind3000/ECDICT-ultimate/releases">Github</a></p>
+<h3 id="星际译王"><a href="#星际译王" class="headerlink" title="星际译王"></a>星际译王</h3><p>向大家推荐星际译王的词典<a target="_blank" rel="noopener" href="http://download.huzheng.org/">下载网站</a>，这个网站几乎包含了所有的字典，我们可以选择下载。</p>
 <p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_tool_glodendict_xingji.png" alt=""></p>
-
-    </div>
-
-    
-    
-    
-
-      <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/%E5%88%92%E8%AF%8D%E7%BF%BB%E8%AF%91/" rel="tag"># 划词翻译</a>
-              <a href="/tags/GoldenDict/" rel="tag"># GoldenDict</a>
-              <a href="/tags/%E8%AF%8D%E5%85%B8/" rel="tag"># 词典</a>
-          </div>
-
-        
-
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/posts/7d402318.html" rel="prev" title="Windows下命令行工具-Cmder">
-      <i class="fa fa-chevron-left"></i> Windows下命令行工具-Cmder
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/posts/fcba888f.html" rel="next" title="论文阅读《Efficient Estimation of Word Representations in Vector Space》">
-      论文阅读《Efficient Estimation of Word Representations in Vector Space》 <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
-      </footer>
-    
-  </article>
-  
-  
-  
-
-  </div>
-
-
-          </div>
-              
-    <div class="comments" id="gitalk-container"></div>
-
-        </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置"><span class="nav-text">配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加在线词典"><span class="nav-text">添加在线词典</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加本地词典"><span class="nav-text">添加本地词典</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#资源"><span class="nav-text">资源</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#牛津高阶-8-简体-spx-（带发音）"><span class="nav-text">牛津高阶 8 简体 spx （带发音）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vocabulary-com-Dictionary-英文版（联网发音）"><span class="nav-text">Vocabulary.com Dictionary 英文版（联网发音）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#简明英汉必应版（增强版升级）-432万词条"><span class="nav-text">简明英汉必应版（增强版升级） 432万词条</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#星际译王"><span class="nav-text">星际译王</span></a></li></ol></li></ol></div>
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="Hiyoung"
-      src="/images/avatar.gif">
-  <p class="site-author-name" itemprop="name">Hiyoung</p>
-  <div class="site-description" itemprop="description">人生何所求，致富和自由。 -《基督山伯爵》</div>
-</div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">20</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-            <a href="/categories/">
-          
-        <span class="site-state-item-count">8</span>
-        <span class="site-state-item-name">分类</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-        <span class="site-state-item-count">54</span>
-        <span class="site-state-item-name">标签</span></a>
-      </div>
-  </nav>
-</div>
-  <div class="links-of-author motion-element">
-    <span class="links-of-author-item">
-    <a href="https://github.com/hiyoung123/ " class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-        <i class="fa fa-fw fa-github"></i>GitHub
-    </a>
-    </span>
-    <span class="links-of-author-item">
-    <a href="mailto:hiyoungliu@gmail.com " class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
-        <i class="fa fa-fw fa-envelope"></i>Email
-    </a>
-    </span>
-    <span class="links-of-author-item">
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=787420787 " class="tooltipped" target="_blank" data-tooltip="QQ联系我: 787420787 " data-position="top" data-delay="50">
-        <i class="fa fa-fw fa-qq"></i>QQ
-    </a>
-    </span>
-    <span class="links-of-author-item">
-    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
-        <i class="fa fa-fw fa-rss"></i>RSS
-    </a>
-    </span>
-
-
-<!--
-      <span class="links-of-author-item">
-        <a href="https://github.com/hiyoung123/" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;hiyoung123&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="/hiyoungliu@gmail.com" title="Email → hiyoungliu@gmail.com"><i class="fa fa-fw fa-envelope"></i>Email</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="/787420787" title="QQ → 787420787"><i class="fa fa-fw fa-qq"></i>QQ</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-fw fa-rss"></i>RSS</a>
-      </span>
--->
-  </div>
-
-
-  <div class="links-of-blogroll motion-element">
-    <div class="links-of-blogroll-title">
-      <i class="fa fa-fw fa-link"></i>
-      Links
-    </div>
-    <ul class="links-of-blogroll-list">
-        <li class="links-of-blogroll-item">
-          <a href="https://godweiyang.com/" title="https:&#x2F;&#x2F;godweiyang.com" rel="noopener" target="_blank">godweiyang</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://www.dreamwings.cn/" title="https:&#x2F;&#x2F;www.dreamwings.cn" rel="noopener" target="_blank">千千</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://wdxtub.com/" title="https:&#x2F;&#x2F;wdxtub.com" rel="noopener" target="_blank">小土刀</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="http://codewithzhangyi.com/" title="http:&#x2F;&#x2F;codewithzhangyi.com" rel="noopener" target="_blank">Zhang Yi</a>
-        </li>
-    </ul>
-  </div>
-
-      </div>
-
-    </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-<div class="copyright">
-  
-  &copy; 2019 – 
-  <span itemprop="copyrightYear">2020</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Hiyoung</span>
-</div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
-  </div>
-  <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.6.0
-  </div>
-
-        
-<div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-area-chart"></i>
-      </span>
-      <span class="site-uv" title="站点总字数">
-        <span class="post-count">44.1k</span>
-      </span>
-    </span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-user"></i>
-      </span>
-      <span class="site-uv" title="总访客量">
-        <span id="busuanzi_value_site_uv"></span>
-      </span>
-    </span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-eye"></i>
-      </span>
-      <span class="site-pv" title="总访问量">
-        <span id="busuanzi_value_site_pv"></span>
-      </span>
-    </span>
-</div>
-
-
-
-
-
-
-
-
-      </div>
-    </footer>
-  </div>
-
-  
-  <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
-<script src="/js/schemes/muse.js"></script>
-<script src="/js/next-boot.js"></script>
-
-
-
-  
-  <script>
-    (function(){
-      var bp = document.createElement('script');
-      var curProtocol = window.location.protocol.split(':')[0];
-      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(bp, s);
-    })();
-  </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  
-
-  
-
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
-
-<script>
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
-    var gitalk = new Gitalk({
-      clientID: '2809c671d3e9827bdb20',
-      clientSecret: '5f216884763890b0ef3751b9206ab5eade091708',
-      repo: 'hiyoung123.github.io',
-      owner: 'hiyoung123',
-      admin: ['hiyoung123'],
-      id: '5dcb11ff8233609278527512c4dc8085',
-        language: '',
-      distractionFreeMode: 'true'
-    });
-    gitalk.render('gitalk-container');
-  }, window.Gitalk);
-</script>
-
-<script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
-</html>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Hiyoung</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://hiyoungai.com/posts/7e57c477.html">https://hiyoungai.com/posts/7e57c477.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://hiyoungai.com" target="_blank">Young Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%88%92%E8%AF%8D%E7%BF%BB%E8%AF%91/">划词翻译</a><a class="post-meta__tags" href="/tags/GoldenDict/">GoldenDict</a><a class="post-meta__tags" href="/tags/%E8%AF%8D%E5%85%B8/">词典</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/fcba888f.html"><img class="prev-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">论文阅读《Efficient Estimation of Word Representations in Vector Space》</div></div></a></div><div class="next-post pull-right"><a href="/posts/7d402318.html"><img class="next-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Windows下命令行工具-Cmder</div></div></a></div></nav></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Hiyoung</div><div class="author-info__description">人生何所求，致富和自由。 -《基督山伯爵》</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">26</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">67</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/hiyoung123" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:hiyoungliu@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div></div><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="card-content"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-number">2.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE"><span class="toc-number">3.</span> <span class="toc-text">配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E5%9C%A8%E7%BA%BF%E8%AF%8D%E5%85%B8"><span class="toc-number">3.1.</span> <span class="toc-text">添加在线词典</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E6%9C%AC%E5%9C%B0%E8%AF%8D%E5%85%B8"><span class="toc-number">3.2.</span> <span class="toc-text">添加本地词典</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B5%84%E6%BA%90"><span class="toc-number">4.</span> <span class="toc-text">资源</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%9B%E6%B4%A5%E9%AB%98%E9%98%B6-8-%E7%AE%80%E4%BD%93-spx-%EF%BC%88%E5%B8%A6%E5%8F%91%E9%9F%B3%EF%BC%89"><span class="toc-number">4.1.</span> <span class="toc-text">牛津高阶 8 简体 spx （带发音）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Vocabulary-com-Dictionary-%E8%8B%B1%E6%96%87%E7%89%88%EF%BC%88%E8%81%94%E7%BD%91%E5%8F%91%E9%9F%B3%EF%BC%89"><span class="toc-number">4.2.</span> <span class="toc-text">Vocabulary.com Dictionary 英文版（联网发音）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E6%98%8E%E8%8B%B1%E6%B1%89%E5%BF%85%E5%BA%94%E7%89%88%EF%BC%88%E5%A2%9E%E5%BC%BA%E7%89%88%E5%8D%87%E7%BA%A7%EF%BC%89-432%E4%B8%87%E8%AF%8D%E6%9D%A1"><span class="toc-number">4.3.</span> <span class="toc-text">简明英汉必应版（增强版升级） 432万词条</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%98%9F%E9%99%85%E8%AF%91%E7%8E%8B"><span class="toc-number">4.4.</span> <span class="toc-text">星际译王</span></a></li></ol></li></ol></div></div></div><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/eb3fbcc4.html" title="循环神经网络（Recurrent Neural Network，RNN）"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="循环神经网络（Recurrent Neural Network，RNN）"/></a><div class="content"><a class="title" href="/posts/eb3fbcc4.html" title="循环神经网络（Recurrent Neural Network，RNN）">循环神经网络（Recurrent Neural Network，RNN）</a><time datetime="2020-03-02T07:20:06.000Z" title="发表于 2020-03-02 15:20:06">2020-03-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/853fc4e2.html" title="N-gram语言模型"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="N-gram语言模型"/></a><div class="content"><a class="title" href="/posts/853fc4e2.html" title="N-gram语言模型">N-gram语言模型</a><time datetime="2020-02-27T14:59:36.000Z" title="发表于 2020-02-27 22:59:36">2020-02-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/8ba6751b.html" title="Arxiv查询接口详解"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Arxiv查询接口详解"/></a><div class="content"><a class="title" href="/posts/8ba6751b.html" title="Arxiv查询接口详解">Arxiv查询接口详解</a><time datetime="2020-02-10T15:17:48.000Z" title="发表于 2020-02-10 23:17:48">2020-02-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/d1bb6beb.html" title="论文阅读《Sequence to Sequence Learning with Neural Networks》"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="论文阅读《Sequence to Sequence Learning with Neural Networks》"/></a><div class="content"><a class="title" href="/posts/d1bb6beb.html" title="论文阅读《Sequence to Sequence Learning with Neural Networks》">论文阅读《Sequence to Sequence Learning with Neural Networks》</a><time datetime="2020-01-29T06:57:30.000Z" title="发表于 2020-01-29 14:57:30">2020-01-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/7f15f578.html" title="CS224n-lecture8 Machine Translation, Seq2Seq and Attention"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="CS224n-lecture8 Machine Translation, Seq2Seq and Attention"/></a><div class="content"><a class="title" href="/posts/7f15f578.html" title="CS224n-lecture8 Machine Translation, Seq2Seq and Attention">CS224n-lecture8 Machine Translation, Seq2Seq and Attention</a><time datetime="2020-01-26T10:05:28.000Z" title="发表于 2020-01-26 18:05:28">2020-01-26</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 By Hiyoung</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></div><script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight||document.documentElement.clientHeight)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},n.src=i}()}i(),n.addEventListener("scroll",function(){var t,e;t=i,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body></html>

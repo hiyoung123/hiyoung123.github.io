@@ -1,0 +1,1411 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Arxiv查询接口详解 | Young Blog</title><meta name="keywords" content="Arxiv API,论文查询"><meta name="author" content="Hiyoung"><meta name="copyright" content="Hiyoung"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="Arxiv 论文网站查询接口 API 详解。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Arxiv查询接口详解">
+<meta property="og:url" content="https://hiyoungai.com/posts/8ba6751b.html">
+<meta property="og:site_name" content="Young Blog">
+<meta property="og:description" content="Arxiv 论文网站查询接口 API 详解。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg">
+<meta property="article:published_time" content="2020-02-10T15:17:48.000Z">
+<meta property="article:modified_time" content="2020-03-03T02:02:02.853Z">
+<meta property="article:author" content="Hiyoung">
+<meta property="article:tag" content="Arxiv API">
+<meta property="article:tag" content="论文查询">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://hiyoungai.com/posts/8ba6751b"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}
+
+// https://stackoverflow.com/questions/16839698/jquery-getscript-alternative-in-native-javascript
+const getScript = url => new Promise((resolve, reject) => {
+  const script = document.createElement('script')
+  script.src = url
+  script.async = true
+  script.onerror = reject
+  script.onload = script.onreadystatechange = function() {
+    const loadState = this.readyState
+    if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+    script.onload = script.onreadystatechange = null
+    resolve()
+  }
+  document.head.appendChild(script)
+})</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2020-03-03 10:02:02'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+   if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+  const autoChangeMode = 'false'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}})()</script><meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="Young Blog" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">26</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">67</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Young Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Arxiv查询接口详解</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-02-10T15:17:48.000Z" title="发表于 2020-02-10 23:17:48">2020-02-10</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2020-03-03T02:02:02.853Z" title="更新于 2020-03-03 10:02:02">2020-03-03</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E4%BE%BF%E6%8D%B7%E5%B7%A5%E5%85%B7/">便捷工具</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>Arxiv API 允许以编程方式获取 <a target="_blank" rel="noopener" href="https://arxiv.org/">https://arxiv.org</a> 上的论文。API 的基本结构为：</p>
+<pre class="line-numbers language-bash"><code class="language-bash">http://export.arxiv.org/api/<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;method_name&amp;#125;?&amp;#123;parameters&amp;#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="查询接口"><a href="#查询接口" class="headerlink" title="查询接口"></a>查询接口</h2><p>查询接口的的 method_name 为 query，下面是查询方法的参数，参数之间以 <em>&amp;</em> 分隔。</p>
+<table>
+<thead>
+<tr>
+<th align="center">parameters</th>
+<th align="center">type</th>
+<th align="center">defaults</th>
+<th align="center">required</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">search_query</td>
+<td align="center">string</td>
+<td align="center">None</td>
+<td align="center">No</td>
+</tr>
+<tr>
+<td align="center">id_list</td>
+<td align="center">comma-delimited string<br />（以 ‘，’ 分隔的字符串）</td>
+<td align="center">None</td>
+<td align="center">No</td>
+</tr>
+<tr>
+<td align="center">start</td>
+<td align="center">int</td>
+<td align="center">0</td>
+<td align="center">No</td>
+</tr>
+<tr>
+<td align="center">max_results</td>
+<td align="center">int</td>
+<td align="center">10</td>
+<td align="center">No</td>
+</tr>
+</tbody></table>
+<h3 id="参数说明"><a href="#参数说明" class="headerlink" title="参数说明"></a>参数说明</h3><ul>
+<li>如果 API 只包含 search_query（不包含 id_list），那么返回与 search_query 内容匹配的结果。</li>
+<li>如果 API 只包含 id_list（不包含 search_query），那么返回 id_list 中每一项的结果。</li>
+<li>如果 API 中包含了 search_query 和 id_list，那么返回在 id_list 中，并且与 search_query 匹配的文章。</li>
+</ul>
+<h3 id="分页查询"><a href="#分页查询" class="headerlink" title="分页查询"></a>分页查询</h3><p>通常情况下，一个查询可能有成百上千个返回结果。有时候我们不希望一次性查询到这么多数量，那么可以使用 <em>start</em> 和 <em>max_results</em> 两个字段来进行分页查询。</p>
+<ul>
+<li>start 是查询的起始索引，以 0 为第一个。</li>
+<li>max_results 是查询返回的集合数。</li>
+</ul>
+<p>下面来举例说明一下：</p>
+<pre class="line-numbers language-bash"><code class="language-bash">http://export.arxiv.org/api/query?search_query<span class="token operator">=</span>all:electron<span class="token operator">&amp;</span>start<span class="token operator">=</span>0<span class="token operator">&amp;</span>max_results<span class="token operator">=</span>10 <span class="token punctuation">(</span>1<span class="token punctuation">)</span>
+http://export.arxiv.org/api/query?search_query<span class="token operator">=</span>all:electron<span class="token operator">&amp;</span>start<span class="token operator">=</span>10<span class="token operator">&amp;</span>max_results<span class="token operator">=</span>10 <span class="token punctuation">(</span>2<span class="token punctuation">)</span>
+http://export.arxiv.org/api/query?search_query<span class="token operator">=</span>all:electron<span class="token operator">&amp;</span>start<span class="token operator">=</span>20<span class="token operator">&amp;</span>max_results<span class="token operator">=</span>10 <span class="token punctuation">(</span>3<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>查询结果分别为：</p>
+<ol>
+<li>0 - 9</li>
+<li>10 - 19</li>
+<li>20 - 29</li>
+</ol>
+<p>需要注意的是，由于 API 的限制，在多次调用 API 的情况下，建议每次调用的时间间隔为 3 秒。每次调用返回的最大数量为 2000 个。arXiv的硬限制约为 50,000 条记录； 对于与 50,000 多个原稿匹配的查询，无法接收全部结果. 解决这个问题的最简单的解决方案是将中断查询成小块，例如使用的时间片，与一系列日期的<code>submittedDate</code>或<code>lastUpdatedDate</code> 。</p>
+<h3 id="排序查询"><a href="#排序查询" class="headerlink" title="排序查询"></a>排序查询</h3><p>对查询的结果进行排序有两个选项：<em>sortBy</em> 和 <em>sortOrder</em>。</p>
+<ul>
+<li>sortBy 的值有：relevance，lastUpdatedDate 和 submittedDate。</li>
+<li>sortOrder 的值有：ascending 和 descending。</li>
+</ul>
+<p>示例：</p>
+<pre class="line-numbers language-bash"><code class="language-bash">http://export.arxiv.org/api/query?search_query<span class="token operator">=</span>ti:%22electron%20thermal%20conductivity%22<span class="token operator">&amp;</span>sortBy<span class="token operator">=</span>lastUpdatedDate<span class="token operator">&amp;</span>sortOrder<span class="token operator">=</span>ascending<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="结果响应"><a href="#结果响应" class="headerlink" title="结果响应"></a>结果响应</h2><p>API 的 Response 内容中是以 <em>Atom 1.0</em> 为主体的，<em>Atom</em> 是 XML 的一种语法。下面分别来说明各个标签的含义。</p>
+<h3 id="Feed-Metadata"><a href="#Feed-Metadata" class="headerlink" title="Feed Metadata"></a>Feed Metadata</h3><p>每个 Response 都会包含的内容：</p>
+<ol>
+<li>版本和命名空间</li>
+</ol>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token operator">&lt;</span>?xml version<span class="token operator">=</span><span class="token string">"1.0"</span> encoding<span class="token operator">=</span><span class="token string">"UTF-8"</span>?<span class="token operator">></span>
+<span class="token operator">&lt;</span>feed xmlns<span class="token operator">=</span><span class="token string">"http://www.w3.org/2005/Atom"</span><span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<ol start="2">
+<li>Title：feed 的标题，通常为查询 URL 的字符串。</li>
+</ol>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token operator">&lt;</span>title xmlns<span class="token operator">=</span><span class="token string">"http://www.w3.org/2005/Atom"</span><span class="token operator">></span>
+    ArXiv Query:  search_query<span class="token operator">=</span>all:electron<span class="token operator">&amp;</span>amp<span class="token punctuation">;</span>id_list<span class="token operator">=</span><span class="token operator">&amp;</span>amp<span class="token punctuation">;</span>start<span class="token operator">=</span>0<span class="token operator">&amp;</span>amp<span class="token punctuation">;</span>max_results<span class="token operator">=</span>1
+<span class="token operator">&lt;</span>/title<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<ol start="3">
+<li>Id：查询的唯一标识（注意不是查询的每个文章的 id），保证每个查询 id 是唯一的。</li>
+</ol>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token operator">&lt;</span>id xmlns<span class="token operator">=</span><span class="token string">"http://www.w3.org/2005/Atom"</span><span class="token operator">></span>
+    http://arxiv.org/api/cHxbiOdZaP56ODnBPIenZhzg5f8
+<span class="token operator">&lt;</span>/id<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<ol start="4">
+<li>Link：查询 URL 的规范化。</li>
+</ol>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token operator">&lt;</span>link xmlns<span class="token operator">=</span><span class="token string">"http://www.w3.org/2005/Atom"</span> href<span class="token operator">=</span><span class="token string">"http://arxiv.org/api/query?search_query=all:electron&amp;amp;id_list=&amp;amp;start=0&amp;amp;max_results=1"</span> rel<span class="token operator">=</span><span class="token string">"self"</span> type<span class="token operator">=</span><span class="token string">"application/atom+xml"</span>/<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<ol start="5">
+<li>Updated：提供了 feed 内容最后一次更新的时间。</li>
+</ol>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token operator">&lt;</span>updated xmlns<span class="token operator">=</span><span class="token string">"http://www.w3.org/2005/Atom"</span><span class="token operator">></span>2007-10-08T00:00:00-04:00<span class="token operator">&lt;</span>/updated<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<ol start="6">
+<li>Opensearch：扩展元素，包含了查询的返回数量以及分页信息等。</li>
+</ol>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token operator">&lt;</span>opensearch:totalResults xmlns:opensearch<span class="token operator">=</span><span class="token string">"http://a9.com/-/spec/opensearch/1.1/"</span><span class="token operator">></span>
+   1000
+<span class="token operator">&lt;</span>/opensearch:totalResults<span class="token operator">></span>
+<span class="token operator">&lt;</span>opensearch:startIndex xmlns:opensearch<span class="token operator">=</span><span class="token string">"http://a9.com/-/spec/opensearch/1.1/"</span><span class="token operator">></span>
+   0
+<span class="token operator">&lt;</span>/opensearch:startIndex<span class="token operator">></span>
+<span class="token operator">&lt;</span>opensearch:itemsPerPage xmlns:opensearch<span class="token operator">=</span><span class="token string">"http://a9.com/-/spec/opensearch/1.1/"</span><span class="token operator">></span>
+   1
+<span class="token operator">&lt;</span>/opensearch:itemsPerPage<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="Entry-Metadata"><a href="#Entry-Metadata" class="headerlink" title="Entry Metadata"></a>Entry Metadata</h3><p>正常情况下，Response 返回结果中的 <em>feed</em> 标签会包含 0 个或者多个 <em>entry</em> 标签。每个 entry 表示一个查询的返回文章，下面分别说一下 entry 中的各个元素。</p>
+<ol>
+<li>Title：返回文章的标题</li>
+</ol>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token operator">&lt;</span>title xmlns<span class="token operator">=</span><span class="token string">"http://www.w3.org/2005/Atom"</span><span class="token operator">></span>
+    Multi-Electron Production at High Transverse Momenta <span class="token keyword">in</span> ep Collisions at HERA
+<span class="token operator">&lt;</span>/title<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<ol start="2">
+<li>Id：文章的 URL ，可以认为是文章的绝对路径。最后一个字段是文章的唯一标识符。</li>
+</ol>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token operator">&lt;</span>id xmlns<span class="token operator">=</span><span class="token string">"http://www.w3.org/2005/Atom"</span><span class="token operator">></span>
+    http://arxiv.org/abs/hep-ex/0307015
+<span class="token operator">&lt;</span>/id<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<ol start="3">
+<li>Published/Updated：文章的发布日期和更新日期。</li>
+</ol>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token operator">&lt;</span>published xmlns<span class="token operator">=</span><span class="token string">"http://www.w3.org/2005/Atom"</span><span class="token operator">></span>
+    2007-02-27T16:02:02-05:00
+<span class="token operator">&lt;</span>/published<span class="token operator">></span>
+<span class="token operator">&lt;</span>updated xmlns<span class="token operator">=</span><span class="token string">"http://www.w3.org/2005/Atom"</span><span class="token operator">></span>
+    2007-06-25T17:09:59-04:00
+<span class="token operator">&lt;</span>/updated<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ol start="4">
+<li>Summary：文章的摘要。</li>
+</ol>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token operator">&lt;</span>summary xmlns<span class="token operator">=</span><span class="token string">"http://www.w3.org/2005/Atom"</span><span class="token operator">></span>
+    Multi-electron production is studied at high electron transverse momentum
+    <span class="token keyword">in</span> positron- and electron-proton collisions using the H1 detector at HERA.
+    The data correspond to an integrated luminosity of 115 pb-1. Di-electron
+    and tri-electron event yields are measured. Cross sections are derived <span class="token keyword">in</span>
+    a restricted phase space region dominated by photon-photon collisions. In
+    general good agreement is found with the Standard Model predictions.
+    However, <span class="token keyword">for</span> electron pair invariant masses above 100 GeV, three
+    di-electron events and three tri-electron events are observed, compared to
+    Standard Model expectations of 0.30 \pm 0.04 and 0.23 \pm 0.04,
+    respectively.
+<span class="token operator">&lt;</span>/summary<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ol start="5">
+<li>Author：文章的作者，包含一个或者多个 name 标签，分别表示多个作者。</li>
+</ol>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token operator">&lt;</span>author xmlns<span class="token operator">=</span><span class="token string">"http://www.w3.org/2005/Atom"</span><span class="token operator">></span>
+      <span class="token operator">&lt;</span>name xmlns<span class="token operator">=</span><span class="token string">"http://www.w3.org/2005/Atom"</span><span class="token operator">></span>H1 Collaboration<span class="token operator">&lt;</span>/name<span class="token operator">></span>
+<span class="token operator">&lt;</span>/author<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<ol start="6">
+<li>Category：文章的分类。</li>
+</ol>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token operator">&lt;</span>category xmlns<span class="token operator">=</span><span class="token string">"http://www.w3.org/2005/Atom"</span> term<span class="token operator">=</span><span class="token string">"cs.LG"</span> scheme<span class="token operator">=</span><span class="token string">"http://arxiv.org/schemas/atom"</span>/<span class="token operator">></span>
+<span class="token operator">&lt;</span>category xmlns<span class="token operator">=</span><span class="token string">"http://www.w3.org/2005/Atom"</span> term<span class="token operator">=</span><span class="token string">"cs.AI"</span> scheme<span class="token operator">=</span><span class="token string">"http://arxiv.org/schemas/atom"</span>/<span class="token operator">></span>
+<span class="token operator">&lt;</span>category xmlns<span class="token operator">=</span><span class="token string">"http://www.w3.org/2005/Atom"</span> term<span class="token operator">=</span><span class="token string">"I.2.6"</span> scheme<span class="token operator">=</span><span class="token string">"http://arxiv.org/schemas/atom"</span>/<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<ol start="7">
+<li>Link，对于每个文章，最多有三个 link 元素，通过 ref 和 title 来区别，下面的表格表示 ref 和 title 的内容：</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th align="center">rel</th>
+<th align="center">title</th>
+<th align="center">refers to</th>
+<th align="center">always present</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">alternate</td>
+<td align="center">-</td>
+<td align="center">abstract page</td>
+<td align="center">yes</td>
+</tr>
+<tr>
+<td align="center">related</td>
+<td align="center">pdf</td>
+<td align="center">pdf</td>
+<td align="center">yes</td>
+</tr>
+<tr>
+<td align="center">related</td>
+<td align="center">doi</td>
+<td align="center">resolved doi</td>
+<td align="center">no</td>
+</tr>
+</tbody></table>
+<p>例子：</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token operator">&lt;</span>link xmlns<span class="token operator">=</span><span class="token string">"http://www.w3.org/2005/Atom"</span> href<span class="token operator">=</span><span class="token string">"http://arxiv.org/abs/hep-ex/0307015v1"</span> rel<span class="token operator">=</span><span class="token string">"alternate"</span> type<span class="token operator">=</span><span class="token string">"text/html"</span>/<span class="token operator">></span>
+<span class="token operator">&lt;</span>link xmlns<span class="token operator">=</span><span class="token string">"http://www.w3.org/2005/Atom"</span> title<span class="token operator">=</span><span class="token string">"pdf"</span> href<span class="token operator">=</span><span class="token string">"http://arxiv.org/pdf/hep-ex/0307015v1"</span> rel<span class="token operator">=</span><span class="token string">"related"</span> type<span class="token operator">=</span><span class="token string">"application/pdf"</span>/<span class="token operator">></span>
+<span class="token operator">&lt;</span>link xmlns<span class="token operator">=</span><span class="token string">"http://www.w3.org/2005/Atom"</span> title<span class="token operator">=</span><span class="token string">"doi"</span> href<span class="token operator">=</span><span class="token string">"http://dx.doi.org/10.1529/biophysj.104.047340"</span> rel<span class="token operator">=</span><span class="token string">"related"</span>/<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<ol start="8">
+<li>arxiv:primary_category：主要分类的扩展元素。</li>
+</ol>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token operator">&lt;</span>arxiv:primary_category xmlns:arxiv<span class="token operator">=</span><span class="token string">"http://arxiv.org/schemas/atom"</span> term<span class="token operator">=</span><span class="token string">"cs.LG"</span> scheme<span class="token operator">=</span><span class="token string">"http://arxiv.org/schemas/atom"</span>/<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<ol start="9">
+<li>arxiv:comment：评论扩展元素。</li>
+</ol>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token operator">&lt;</span>arxiv:comment xmlns:arxiv<span class="token operator">=</span><span class="token string">"http://arxiv.org/schemas/atom"</span><span class="token operator">></span>
+   23 pages, 8 figures and 4 tables
+<span class="token operator">&lt;</span>/arxiv:comment<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<ol start="10">
+<li>arxiv:affiliation：作者从属关系。</li>
+</ol>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token operator">&lt;</span>author<span class="token operator">></span>
+   <span class="token operator">&lt;</span>name<span class="token operator">></span>G. G. Kacprzak<span class="token operator">&lt;</span>/name<span class="token operator">></span>
+   <span class="token operator">&lt;</span>arxiv:affiliation xmlns:arxiv<span class="token operator">=</span><span class="token string">"http://arxiv.org/schemas/atom"</span><span class="token operator">></span>NMSU<span class="token operator">&lt;</span>/arxiv:affiliation<span class="token operator">></span>
+<span class="token operator">&lt;</span>/author<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<ol start="11">
+<li>arxiv:journal_ref：期刊说明</li>
+</ol>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token operator">&lt;</span>arxiv:journal_ref xmlns:arxiv<span class="token operator">=</span><span class="token string">"http://arxiv.org/schemas/atom"</span><span class="token operator">></span>
+   Eur.Phys.J. C31 <span class="token punctuation">(</span>2003<span class="token punctuation">)</span> 17-29
+<span class="token operator">&lt;</span>/arxiv:journal_ref<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<ol start="12">
+<li>arxiv:doi：doi 说明</li>
+</ol>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token operator">&lt;</span>arxiv:doi xmlns:arxiv<span class="token operator">=</span><span class="token string">"http://arxiv.org/schemas/atom"</span><span class="token operator">></span>
+   10.1529/biophysj.104.047340
+<span class="token operator">&lt;</span>/arxiv:doi<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h3 id="Errors"><a href="#Errors" class="headerlink" title="Errors"></a>Errors</h3><p>返回错误，如果请求的响应出现错误，会返回一个详细的错误信息。例如下面是一个错误 id 的信息：</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token operator">&lt;</span>?xml version<span class="token operator">=</span><span class="token string">"1.0"</span> encoding<span class="token operator">=</span><span class="token string">"utf-8"</span>?<span class="token operator">></span>
+<span class="token operator">&lt;</span>feed xmlns<span class="token operator">=</span><span class="token string">"http://www.w3.org/2005/Atom"</span> xmlns:opensearch<span class="token operator">=</span><span class="token string">"http://a9.com/-/spec/opensearch/1.1/"</span><span class="token operator">></span>
+  <span class="token operator">&lt;</span>link xmlns<span class="token operator">=</span><span class="token string">"http://www.w3.org/2005/Atom"</span> href<span class="token operator">=</span><span class="token string">"http://arxiv.org/api/query?search_query=&amp;amp;id_list=1234.12345"</span> rel<span class="token operator">=</span><span class="token string">"self"</span> type<span class="token operator">=</span><span class="token string">"application/atom+xml"</span>/<span class="token operator">></span>
+  <span class="token operator">&lt;</span>title xmlns<span class="token operator">=</span><span class="token string">"http://www.w3.org/2005/Atom"</span><span class="token operator">></span>ArXiv Query: search_query<span class="token operator">=</span><span class="token operator">&amp;</span>amp<span class="token punctuation">;</span>id_list<span class="token operator">=</span>1234.12345<span class="token operator">&lt;</span>/title<span class="token operator">></span>
+  <span class="token operator">&lt;</span>id xmlns<span class="token operator">=</span><span class="token string">"http://www.w3.org/2005/Atom"</span><span class="token operator">></span>http://arxiv.org/api/kvuntZ8c9a4Eq5CF7KY03nMug+Q<span class="token operator">&lt;</span>/id<span class="token operator">></span>
+  <span class="token operator">&lt;</span>updated xmlns<span class="token operator">=</span><span class="token string">"http://www.w3.org/2005/Atom"</span><span class="token operator">></span>2007-10-12T00:00:00-04:00<span class="token operator">&lt;</span>/updated<span class="token operator">></span>
+  <span class="token operator">&lt;</span>opensearch:totalResults xmlns:opensearch<span class="token operator">=</span><span class="token string">"http://a9.com/-/spec/opensearch/1.1/"</span><span class="token operator">></span>1<span class="token operator">&lt;</span>/opensearch:totalResults<span class="token operator">></span>
+  <span class="token operator">&lt;</span>opensearch:startIndex xmlns:opensearch<span class="token operator">=</span><span class="token string">"http://a9.com/-/spec/opensearch/1.1/"</span><span class="token operator">></span>0<span class="token operator">&lt;</span>/opensearch:startIndex<span class="token operator">></span>
+
+  <span class="token operator">&lt;</span>opensearch:itemsPerPage xmlns:opensearch<span class="token operator">=</span><span class="token string">"http://a9.com/-/spec/opensearch/1.1/"</span><span class="token operator">></span>1<span class="token operator">&lt;</span>/opensearch:itemsPerPage<span class="token operator">></span>
+  <span class="token operator">&lt;</span>entry xmlns<span class="token operator">=</span><span class="token string">"http://www.w3.org/2005/Atom"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>id xmlns<span class="token operator">=</span><span class="token string">"http://www.w3.org/2005/Atom"</span><span class="token operator">></span>http://arxiv.org/api/errors<span class="token comment" spellcheck="true">#incorrect_id_format_for_1234.12345&lt;/id></span>
+    <span class="token operator">&lt;</span>title xmlns<span class="token operator">=</span><span class="token string">"http://www.w3.org/2005/Atom"</span><span class="token operator">></span>Error<span class="token operator">&lt;</span>/title<span class="token operator">></span>
+    <span class="token operator">&lt;</span>summary xmlns<span class="token operator">=</span><span class="token string">"http://www.w3.org/2005/Atom"</span><span class="token operator">></span>incorrect <span class="token function">id</span> <span class="token function">format</span> <span class="token keyword">for</span> 1234.12345<span class="token operator">&lt;</span>/summary<span class="token operator">></span>
+    <span class="token operator">&lt;</span>updated xmlns<span class="token operator">=</span><span class="token string">"http://www.w3.org/2005/Atom"</span><span class="token operator">></span>2007-10-12T00:00:00-04:00<span class="token operator">&lt;</span>/updated<span class="token operator">></span>
+
+    <span class="token operator">&lt;</span>link xmlns<span class="token operator">=</span><span class="token string">"http://www.w3.org/2005/Atom"</span> href<span class="token operator">=</span><span class="token string">"http://arxiv.org/api/errors#incorrect_id_format_for_1234.12345"</span> rel<span class="token operator">=</span><span class="token string">"alternate"</span> type<span class="token operator">=</span><span class="token string">"text/html"</span>/<span class="token operator">></span>
+    <span class="token operator">&lt;</span>author xmlns<span class="token operator">=</span><span class="token string">"http://www.w3.org/2005/Atom"</span><span class="token operator">></span>
+      <span class="token operator">&lt;</span>name xmlns<span class="token operator">=</span><span class="token string">"http://www.w3.org/2005/Atom"</span><span class="token operator">></span>arXiv api core<span class="token operator">&lt;</span>/name<span class="token operator">></span>
+    <span class="token operator">&lt;</span>/author<span class="token operator">></span>
+  <span class="token operator">&lt;</span>/entry<span class="token operator">></span>
+<span class="token operator">&lt;</span>/feed<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>下面提供了一些常见的错误：</p>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>Sample query 示例查询</strong></th>
+<th align="center"><strong>Error Explanation 错误解释</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><a target="_blank" rel="noopener" href="http://export.arxiv.org/api/query?start=not_an_int">http://export.arxiv.org/api/query?start=not_an_int</a></td>
+<td align="center"><code>start</code> 一定是个整数</td>
+</tr>
+<tr>
+<td align="center"><a target="_blank" rel="noopener" href="http://export.arxiv.org/api/query?start=-1">http://export.arxiv.org/api/query?start=-1</a></td>
+<td align="center"><code>start</code>  必须 &gt;= 0</td>
+</tr>
+<tr>
+<td align="center"><a target="_blank" rel="noopener" href="http://export.arxiv.org/api/query?max_results=not_an_int">http://export.arxiv.org/api/query?max_results=not_an_int</a></td>
+<td align="center"><code>max_results</code> 一定是个整数</td>
+</tr>
+<tr>
+<td align="center"><a target="_blank" rel="noopener" href="http://export.arxiv.org/api/query?max_results=-1">http://export.arxiv.org/api/query?max_results=-1</a></td>
+<td align="center"><code>max_results</code> 必须 &gt;= 0</td>
+</tr>
+<tr>
+<td align="center"><a target="_blank" rel="noopener" href="http://export.arxiv.org/api/query?id_list=1234.1234">http://export.arxiv.org/api/query?id_list=1234.1234</a></td>
+<td align="center">malformed id</td>
+</tr>
+<tr>
+<td align="center"><a target="_blank" rel="noopener" href="http://export.arxiv.org/api/query?id_list=cond—mat/0709123">http://export.arxiv.org/api/query?id_list=cond—mat/0709123</a></td>
+<td align="center">malformed id</td>
+</tr>
+</tbody></table>
+<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><p>python2.7 上的简单请求：</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> urllib
+url <span class="token operator">=</span> <span class="token string">'http://export.arxiv.org/api/query?search_query=all:electron&amp;start=0&amp;max_results=1'</span>
+data <span class="token operator">=</span> urllib<span class="token punctuation">.</span>urlopen<span class="token punctuation">(</span>url<span class="token punctuation">)</span><span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span> data<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>python3 上的请求：</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> urllib<span class="token punctuation">.</span>request <span class="token keyword">as</span> libreq
+<span class="token keyword">with</span> libreq<span class="token punctuation">.</span>urlopen<span class="token punctuation">(</span><span class="token string">'http://export.arxiv.org/api/query?search_query=all:electron&amp;start=0&amp;max_results=1'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> url<span class="token punctuation">:</span>
+    r <span class="token operator">=</span> url<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>r<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><h3 id="查询的详细结构"><a href="#查询的详细结构" class="headerlink" title="查询的详细结构"></a>查询的详细结构</h3><p>在 arXiv 搜索引擎中，每篇文章都被划分为许多可以单独搜索的字段。 例如，可以搜索一篇文章的标题，以及作者列表、摘要、评论和期刊参考文献。 要搜索其中一个字段，只需在搜索词前加上字段前缀和冒号即可。 例如：</p>
+<pre class="line-numbers language-bash"><code class="language-bash">http://export.arxiv.org/api/query?search_query<span class="token operator">=</span>au:del_maestro<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>下面的表格显示所有字段的前缀：</p>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>prefix</strong></th>
+<th align="center"><strong>explanation</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">ti</td>
+<td align="center">Title</td>
+</tr>
+<tr>
+<td align="center">au</td>
+<td align="center">Author</td>
+</tr>
+<tr>
+<td align="center">abs</td>
+<td align="center">Abstract</td>
+</tr>
+<tr>
+<td align="center">co</td>
+<td align="center">Comment</td>
+</tr>
+<tr>
+<td align="center">jr</td>
+<td align="center">Journal Reference</td>
+</tr>
+<tr>
+<td align="center">cat</td>
+<td align="center">Subject Category</td>
+</tr>
+<tr>
+<td align="center">rn</td>
+<td align="center">Report Number</td>
+</tr>
+<tr>
+<td align="center">id</td>
+<td align="center">Id (use <code>id_list</code> instead)</td>
+</tr>
+<tr>
+<td align="center">all</td>
+<td align="center">All of the above</td>
+</tr>
+</tbody></table>
+<p>并且查询也支持布尔运算，假设我们希望找到作者 Adrian DelMaestro 的所有文章，其标题中也包含单词 checkerboard。 我们可以使用 AND 操作符构造下面的查询：</p>
+<pre class="line-numbers language-bash"><code class="language-bash">http://export.arxiv.org/api/query?search_query<span class="token operator">=</span>au:del_maestro+AND+ti:checkerboard<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>下面是三种可能的布尔值：</p>
+<ul>
+<li>AND</li>
+<li>OR</li>
+<li>ANDNOT</li>
+</ul>
+<p>下面是特殊符号的含义以及转义字符：</p>
+<table>
+<thead>
+<tr>
+<th align="left">symbol</th>
+<th align="left">encoding</th>
+<th align="left">explanation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">( )</td>
+<td align="left">%28 %29</td>
+<td align="left">用于为布尔运算符优先级对布尔表达式进行分组</td>
+</tr>
+<tr>
+<td align="left">“ “</td>
+<td align="left">%22 %22</td>
+<td align="left">用于将多个单词组合成短语以搜索特定字段</td>
+</tr>
+<tr>
+<td align="left">空格</td>
+<td align="left">+</td>
+<td align="left">用于扩展<code>search_query</code> 包含多个字段</td>
+</tr>
+</tbody></table>
+<h3 id="返回的详细结构"><a href="#返回的详细结构" class="headerlink" title="返回的详细结构"></a>返回的详细结构</h3><p>下表列出了返回的 Atom 结果的每个元素:</p>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>element</strong></th>
+<th align="center"><strong>explanation</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>feed elements</strong></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">title</td>
+<td align="center">包含规范化查询字符串的标题</td>
+</tr>
+<tr>
+<td align="center">id</td>
+<td align="center">分配给此查询的唯一 id</td>
+</tr>
+<tr>
+<td align="center">updated</td>
+<td align="center">最后一次更新此查询的搜索结果。 设置为当天的午夜</td>
+</tr>
+<tr>
+<td align="center">link</td>
+<td align="center">通过 GET 请求检索此提要的 url</td>
+</tr>
+<tr>
+<td align="center">opensearch:totalResults</td>
+<td align="center">此查询的搜索结果总数</td>
+</tr>
+<tr>
+<td align="center">opensearch:startIndex</td>
+<td align="center">总结果列表中第一个返回结果的基于0的索引</td>
+</tr>
+<tr>
+<td align="center">opensearch:itemsPerPage</td>
+<td align="center">每页返回的结果数</td>
+</tr>
+<tr>
+<td align="center"><strong>entry elements</strong></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">title</td>
+<td align="center">文章的标题</td>
+</tr>
+<tr>
+<td align="center">id</td>
+<td align="center">文章的网址<code>http://arxiv.org/abs/id</code></td>
+</tr>
+<tr>
+<td align="center">published</td>
+<td align="center">文章的发布日期</td>
+</tr>
+<tr>
+<td align="center">updated</td>
+<td align="center">文章的更新日期，如果为 v1 版本，那么与发布日期相同</td>
+</tr>
+<tr>
+<td align="center">summary</td>
+<td align="center">文章摘要</td>
+</tr>
+<tr>
+<td align="center">author</td>
+<td align="center">每个作者有一个子元素 name，包含了作者的名字</td>
+</tr>
+<tr>
+<td align="center">link</td>
+<td align="center">可以给定与这篇文章关联的 3 个网址</td>
+</tr>
+<tr>
+<td align="center">category</td>
+<td align="center">文章分类</td>
+</tr>
+<tr>
+<td align="center">arxiv:primary_category</td>
+<td align="center">主要的 arXiv 分类</td>
+</tr>
+<tr>
+<td align="center">arxiv:comment</td>
+<td align="center">作者对此发表的评论</td>
+</tr>
+<tr>
+<td align="center">arxiv:affiliation</td>
+<td align="center">作者的从属关系</td>
+</tr>
+<tr>
+<td align="center">arxiv:journal_ref</td>
+<td align="center">参考文献</td>
+</tr>
+<tr>
+<td align="center">arxiv:doi</td>
+<td align="center">已解析的 DOI 的 url，指向外部资源</td>
+</tr>
+</tbody></table>
+<h3 id="学科的分类"><a href="#学科的分类" class="headerlink" title="学科的分类"></a>学科的分类</h3><p>下面是学科分类字段以及对应的翻译（软件脚本自动翻译，如不对请勿喷）：</p>
+<table>
+<thead>
+<tr>
+<th align="center">字段</th>
+<th align="center">学科（英文）</th>
+<th align="center">学科（中文）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">astro-ph</td>
+<td align="center">Astrophysics</td>
+<td align="center">天体物理</td>
+</tr>
+<tr>
+<td align="center">astro-ph.CO</td>
+<td align="center">Cosmology and Nongalactic Astrophysics</td>
+<td align="center">宇宙学与非规则天体物理学</td>
+</tr>
+<tr>
+<td align="center">astro-ph.EP</td>
+<td align="center">Earth and Planetary Astrophysics</td>
+<td align="center">地球与行星天体物理学</td>
+</tr>
+<tr>
+<td align="center">astro-ph.GA</td>
+<td align="center">Astrophysics of Galaxies</td>
+<td align="center">星系的天体物理学</td>
+</tr>
+<tr>
+<td align="center">astro-ph.HE</td>
+<td align="center">High Energy Astrophysical Phenomena</td>
+<td align="center">高能天体物理现象</td>
+</tr>
+<tr>
+<td align="center">astro-ph.IM</td>
+<td align="center">Instrumentation and Methods for Astrophysics</td>
+<td align="center">天体物理学的仪器和方法</td>
+</tr>
+<tr>
+<td align="center">astro-ph.SR</td>
+<td align="center">Solar and Stellar Astrophysics</td>
+<td align="center">太阳与恒星天体物理学</td>
+</tr>
+<tr>
+<td align="center">cond-mat.dis-nn</td>
+<td align="center">Disordered Systems and Neural Networks</td>
+<td align="center">无序系统与神经网络</td>
+</tr>
+<tr>
+<td align="center">cond-mat.mes-hall</td>
+<td align="center">Mesoscale and Nanoscale Physics</td>
+<td align="center">中尺度和纳米尺度物理学</td>
+</tr>
+<tr>
+<td align="center">cond-mat.mtrl-sci</td>
+<td align="center">Materials Science</td>
+<td align="center">材料科学</td>
+</tr>
+<tr>
+<td align="center">cond-mat.other</td>
+<td align="center">Other Condensed Matter</td>
+<td align="center">其他凝聚态</td>
+</tr>
+<tr>
+<td align="center">cond-mat.quant-gas</td>
+<td align="center">Quantum Gases</td>
+<td align="center">量子气体</td>
+</tr>
+<tr>
+<td align="center">cond-mat.soft</td>
+<td align="center">Soft Condensed Matter</td>
+<td align="center">软凝聚物</td>
+</tr>
+<tr>
+<td align="center">cond-mat.stat-mech</td>
+<td align="center">Statistical Mechanics</td>
+<td align="center">统计力学</td>
+</tr>
+<tr>
+<td align="center">cond-mat.str-el</td>
+<td align="center">Strongly Correlated Electrons</td>
+<td align="center">强关联电子</td>
+</tr>
+<tr>
+<td align="center">cond-mat.supr-con</td>
+<td align="center">Superconductivity</td>
+<td align="center">超导现象</td>
+</tr>
+<tr>
+<td align="center">cs.AI</td>
+<td align="center">Artificial Intelligence</td>
+<td align="center">人工智能</td>
+</tr>
+<tr>
+<td align="center">cs.AR</td>
+<td align="center">Hardware Architecture</td>
+<td align="center">硬件架构</td>
+</tr>
+<tr>
+<td align="center">cs.CC</td>
+<td align="center">Computational Complexity</td>
+<td align="center">计算复杂性</td>
+</tr>
+<tr>
+<td align="center">cs.CE</td>
+<td align="center">Computational Engineering, Finance, and Science</td>
+<td align="center">计算工程，金融和科学</td>
+</tr>
+<tr>
+<td align="center">cs.CG</td>
+<td align="center">Computational Geometry</td>
+<td align="center">计算几何</td>
+</tr>
+<tr>
+<td align="center">cs.CL</td>
+<td align="center">Computation and Language</td>
+<td align="center">计算与语言</td>
+</tr>
+<tr>
+<td align="center">cs.CR</td>
+<td align="center">Cryptography and Security</td>
+<td align="center">密码学与保安</td>
+</tr>
+<tr>
+<td align="center">cs.CV</td>
+<td align="center">Computer Vision and Pattern Recognition</td>
+<td align="center">计算机视觉与模式识别</td>
+</tr>
+<tr>
+<td align="center">CY</td>
+<td align="center">Computers and Society</td>
+<td align="center">电脑与社会</td>
+</tr>
+<tr>
+<td align="center">cs.DB</td>
+<td align="center">Databases</td>
+<td align="center">数据库</td>
+</tr>
+<tr>
+<td align="center">cs.DC</td>
+<td align="center">Distributed, Parallel, and Cluster Computing</td>
+<td align="center">分布式、并行和集群计算</td>
+</tr>
+<tr>
+<td align="center">cs.DL</td>
+<td align="center">Digital Libraries</td>
+<td align="center">数字仓库</td>
+</tr>
+<tr>
+<td align="center">cs.DM</td>
+<td align="center">Discrete Mathematics</td>
+<td align="center">离散数学</td>
+</tr>
+<tr>
+<td align="center">cs.DS</td>
+<td align="center">Data Structures and Algorithms</td>
+<td align="center">数据结构和算法</td>
+</tr>
+<tr>
+<td align="center">cs.ET</td>
+<td align="center">Emerging Technologies</td>
+<td align="center">新兴科技</td>
+</tr>
+<tr>
+<td align="center">cs.FL</td>
+<td align="center">Formal Languages and Automata Theory</td>
+<td align="center">形式语言与自动机理论</td>
+</tr>
+<tr>
+<td align="center">cs.GL</td>
+<td align="center">General Literature</td>
+<td align="center">一般文学</td>
+</tr>
+<tr>
+<td align="center">cs.GR</td>
+<td align="center">Graphics</td>
+<td align="center">图形</td>
+</tr>
+<tr>
+<td align="center">cs.GT</td>
+<td align="center">Computer Science and Game Theory</td>
+<td align="center">计算机科学与博弈论</td>
+</tr>
+<tr>
+<td align="center">cs.HC</td>
+<td align="center">Human-Computer Interaction</td>
+<td align="center">人机交互</td>
+</tr>
+<tr>
+<td align="center">cs.IR</td>
+<td align="center">Information Retrieval</td>
+<td align="center">信息检索</td>
+</tr>
+<tr>
+<td align="center">cs.IT</td>
+<td align="center">Information Theory</td>
+<td align="center">信息理论</td>
+</tr>
+<tr>
+<td align="center">cs.LG</td>
+<td align="center">Learning</td>
+<td align="center">学习</td>
+</tr>
+<tr>
+<td align="center">cs.LO</td>
+<td align="center">Logic in Computer Science</td>
+<td align="center">计算机科学中的逻辑</td>
+</tr>
+<tr>
+<td align="center">cs.MA</td>
+<td align="center">Multiagent Systems</td>
+<td align="center">多代理系统</td>
+</tr>
+<tr>
+<td align="center">cs.MM</td>
+<td align="center">Multimedia</td>
+<td align="center">多媒体</td>
+</tr>
+<tr>
+<td align="center">cs.MS</td>
+<td align="center">Mathematical Software</td>
+<td align="center">数学软件</td>
+</tr>
+<tr>
+<td align="center">cs.NA</td>
+<td align="center">Numerical Analysis</td>
+<td align="center">数值分析</td>
+</tr>
+<tr>
+<td align="center">cs.NE</td>
+<td align="center">Neural and Evolutionary Computing</td>
+<td align="center">神经和进化计算</td>
+</tr>
+<tr>
+<td align="center">cs.NI</td>
+<td align="center">Networking and Internet Architecture</td>
+<td align="center">网络与互联网架构</td>
+</tr>
+<tr>
+<td align="center">cs.OH</td>
+<td align="center">Other Computer Science</td>
+<td align="center">其他计算机科学</td>
+</tr>
+<tr>
+<td align="center">cs.OS</td>
+<td align="center">Operating Systems</td>
+<td align="center">操作系统</td>
+</tr>
+<tr>
+<td align="center">cs.PF</td>
+<td align="center">Performance</td>
+<td align="center">性能</td>
+</tr>
+<tr>
+<td align="center">cs.PL</td>
+<td align="center">Programming Languages</td>
+<td align="center">编程语言</td>
+</tr>
+<tr>
+<td align="center">cs.RO</td>
+<td align="center">Robotics</td>
+<td align="center">机器人技术</td>
+</tr>
+<tr>
+<td align="center">cs.SC</td>
+<td align="center">Symbolic Computation</td>
+<td align="center">符号计算</td>
+</tr>
+<tr>
+<td align="center">cs.SD</td>
+<td align="center">Sound</td>
+<td align="center">声音</td>
+</tr>
+<tr>
+<td align="center">cs.SE</td>
+<td align="center">Software Engineering</td>
+<td align="center">软件工程</td>
+</tr>
+<tr>
+<td align="center">cs.SI</td>
+<td align="center">Social and Information Networks</td>
+<td align="center">社会和信息网络</td>
+</tr>
+<tr>
+<td align="center">cs.SY</td>
+<td align="center">Systems and Control</td>
+<td align="center">系统及控制</td>
+</tr>
+<tr>
+<td align="center">econ.EM</td>
+<td align="center">Econometrics</td>
+<td align="center">计量经济学</td>
+</tr>
+<tr>
+<td align="center">eess.AS</td>
+<td align="center">Audio and Speech Processing</td>
+<td align="center">音频及语音处理</td>
+</tr>
+<tr>
+<td align="center">eess.IV</td>
+<td align="center">Image and Video Processing</td>
+<td align="center">图像和视频处理</td>
+</tr>
+<tr>
+<td align="center">eess.SP</td>
+<td align="center">Signal Processing</td>
+<td align="center">信号处理</td>
+</tr>
+<tr>
+<td align="center">gr-qc</td>
+<td align="center">General Relativity and Quantum Cosmology</td>
+<td align="center">广义相对论和量子宇宙学</td>
+</tr>
+<tr>
+<td align="center">hep-ex</td>
+<td align="center">High Energy Physics - Experiment</td>
+<td align="center">高能物理实验</td>
+</tr>
+<tr>
+<td align="center">hep-lat</td>
+<td align="center">High Energy Physics - Lattice</td>
+<td align="center">高能物理-晶格</td>
+</tr>
+<tr>
+<td align="center">hep-ph</td>
+<td align="center">High Energy Physics - Phenomenology</td>
+<td align="center">高能物理-现象学</td>
+</tr>
+<tr>
+<td align="center">hep-th</td>
+<td align="center">High Energy Physics - Theory</td>
+<td align="center">高能物理理论</td>
+</tr>
+<tr>
+<td align="center">math.AC</td>
+<td align="center">Commutative Algebra</td>
+<td align="center">交换代数</td>
+</tr>
+<tr>
+<td align="center">math.AG</td>
+<td align="center">Algebraic Geometry</td>
+<td align="center">代数几何</td>
+</tr>
+<tr>
+<td align="center">math.AP</td>
+<td align="center">Analysis of PDEs</td>
+<td align="center">偏微分方程分析</td>
+</tr>
+<tr>
+<td align="center">math.AT</td>
+<td align="center">Algebraic Topology</td>
+<td align="center">代数拓扑</td>
+</tr>
+<tr>
+<td align="center">math.CA</td>
+<td align="center">Classical Analysis and ODEs</td>
+<td align="center">传统分析和微分方程</td>
+</tr>
+<tr>
+<td align="center">math.CO</td>
+<td align="center">Combinatorics</td>
+<td align="center">组合数学</td>
+</tr>
+<tr>
+<td align="center">math.CT</td>
+<td align="center">Category Theory</td>
+<td align="center">范畴理论</td>
+</tr>
+<tr>
+<td align="center">math.CV</td>
+<td align="center">Complex Variables</td>
+<td align="center">复杂变量</td>
+</tr>
+<tr>
+<td align="center">math.DG</td>
+<td align="center">Differential Geometry</td>
+<td align="center">微分几何</td>
+</tr>
+<tr>
+<td align="center">math.DS</td>
+<td align="center">Dynamical Systems</td>
+<td align="center">动力系统</td>
+</tr>
+<tr>
+<td align="center">math.FA</td>
+<td align="center">Functional Analysis</td>
+<td align="center">功能分析</td>
+</tr>
+<tr>
+<td align="center">math.GM</td>
+<td align="center">General Mathematics</td>
+<td align="center">普通数学</td>
+</tr>
+<tr>
+<td align="center">math.GN</td>
+<td align="center">General Topology</td>
+<td align="center">点集拓扑学</td>
+</tr>
+<tr>
+<td align="center">math.GR</td>
+<td align="center">Group Theory</td>
+<td align="center">群论</td>
+</tr>
+<tr>
+<td align="center">math.GT</td>
+<td align="center">Geometric Topology</td>
+<td align="center">几何拓扑学</td>
+</tr>
+<tr>
+<td align="center">math.HO</td>
+<td align="center">History and Overview</td>
+<td align="center">历史和概述</td>
+</tr>
+<tr>
+<td align="center">math.IT</td>
+<td align="center">Information Theory</td>
+<td align="center">信息理论</td>
+</tr>
+<tr>
+<td align="center">math.KT</td>
+<td align="center">K-Theory and Homology</td>
+<td align="center">K 理论与同调</td>
+</tr>
+<tr>
+<td align="center">math.LO</td>
+<td align="center">Logic</td>
+<td align="center">逻辑</td>
+</tr>
+<tr>
+<td align="center">math.MG</td>
+<td align="center">Metric Geometry</td>
+<td align="center">度量几何学</td>
+</tr>
+<tr>
+<td align="center">math.MP</td>
+<td align="center">Mathematical Physics</td>
+<td align="center">数学物理</td>
+</tr>
+<tr>
+<td align="center">math.NA</td>
+<td align="center">Numerical Analysis</td>
+<td align="center">数值分析</td>
+</tr>
+<tr>
+<td align="center">math.NT</td>
+<td align="center">Number Theory</td>
+<td align="center">数论</td>
+</tr>
+<tr>
+<td align="center">math.OA</td>
+<td align="center">Operator Algebras</td>
+<td align="center">算子代数</td>
+</tr>
+<tr>
+<td align="center">math.OC</td>
+<td align="center">Optimization and Control</td>
+<td align="center">优化和控制</td>
+</tr>
+<tr>
+<td align="center">math.PR</td>
+<td align="center">Probability</td>
+<td align="center">概率</td>
+</tr>
+<tr>
+<td align="center">math.QA</td>
+<td align="center">Quantum Algebra</td>
+<td align="center">量子代数</td>
+</tr>
+<tr>
+<td align="center">math.RA</td>
+<td align="center">Rings and Algebras</td>
+<td align="center">环与代数</td>
+</tr>
+<tr>
+<td align="center">math.RT</td>
+<td align="center">Representation Theory</td>
+<td align="center">表示论</td>
+</tr>
+<tr>
+<td align="center">math.SG</td>
+<td align="center">Symplectic Geometry</td>
+<td align="center">辛几何</td>
+</tr>
+<tr>
+<td align="center">math.SP</td>
+<td align="center">Spectral Theory</td>
+<td align="center">光谱理论</td>
+</tr>
+<tr>
+<td align="center">math.ST</td>
+<td align="center">Statistics Theory</td>
+<td align="center">统计学理论</td>
+</tr>
+<tr>
+<td align="center">math-ph</td>
+<td align="center">Mathematical Physics</td>
+<td align="center">数学物理</td>
+</tr>
+<tr>
+<td align="center">nlin.AO</td>
+<td align="center">Adaptation and Self-Organizing Systems</td>
+<td align="center">适应与自组织系统</td>
+</tr>
+<tr>
+<td align="center">nlin.CD</td>
+<td align="center">Chaotic Dynamics</td>
+<td align="center">混沌动力学</td>
+</tr>
+<tr>
+<td align="center">nlin.CG</td>
+<td align="center">Cellular Automata and Lattice Gases</td>
+<td align="center">元胞自动机与格子气体</td>
+</tr>
+<tr>
+<td align="center">nlin.PS</td>
+<td align="center">Pattern Formation and Solitons</td>
+<td align="center">模式形成与孤子</td>
+</tr>
+<tr>
+<td align="center">nlin.SI</td>
+<td align="center">Exactly Solvable and Integrable Systems</td>
+<td align="center">严格可解可积系统</td>
+</tr>
+<tr>
+<td align="center">nucl-ex</td>
+<td align="center">Nuclear Experiment</td>
+<td align="center">核试验</td>
+</tr>
+<tr>
+<td align="center">nucl-th</td>
+<td align="center">Nuclear Theory</td>
+<td align="center">核理论</td>
+</tr>
+<tr>
+<td align="center">physics.acc-ph</td>
+<td align="center">Accelerator Physics</td>
+<td align="center">加速器物理学</td>
+</tr>
+<tr>
+<td align="center">physics.ao-ph</td>
+<td align="center">Atmospheric and Oceanic Physics</td>
+<td align="center">大气和海洋物理学</td>
+</tr>
+<tr>
+<td align="center">physics.app-ph</td>
+<td align="center">Applied Physics</td>
+<td align="center">应用物理学</td>
+</tr>
+<tr>
+<td align="center">physics.atm-clus</td>
+<td align="center">Atomic and Molecular Clusters</td>
+<td align="center">原子和分子团簇</td>
+</tr>
+<tr>
+<td align="center">physics.atom-ph</td>
+<td align="center">Atomic Physics</td>
+<td align="center">原子物理学</td>
+</tr>
+<tr>
+<td align="center">physics.bio-ph</td>
+<td align="center">Biological Physics</td>
+<td align="center">生物物理学</td>
+</tr>
+<tr>
+<td align="center">physics.chem-ph</td>
+<td align="center">Chemical Physics</td>
+<td align="center">化学物理</td>
+</tr>
+<tr>
+<td align="center">physics.class-ph</td>
+<td align="center">Classical Physics</td>
+<td align="center">经典物理学</td>
+</tr>
+<tr>
+<td align="center">physics.comp-ph</td>
+<td align="center">Computational Physics</td>
+<td align="center">计算物理学</td>
+</tr>
+<tr>
+<td align="center">physics.data-an</td>
+<td align="center">Data Analysis, Statistics and Probability</td>
+<td align="center">数据分析、统计和概率</td>
+</tr>
+<tr>
+<td align="center">physics.ed-ph</td>
+<td align="center">Physics Education</td>
+<td align="center">物理教育</td>
+</tr>
+<tr>
+<td align="center">physics.flu-dyn</td>
+<td align="center">Fluid Dynamics</td>
+<td align="center">流体动力学</td>
+</tr>
+<tr>
+<td align="center">physics.gen-ph</td>
+<td align="center">General Physics</td>
+<td align="center">普通物理</td>
+</tr>
+<tr>
+<td align="center">physics.geo-ph</td>
+<td align="center">Geophysics</td>
+<td align="center">地球物理学</td>
+</tr>
+<tr>
+<td align="center">physics.hist-ph</td>
+<td align="center">History and Philosophy of Physics</td>
+<td align="center">物理学的历史与哲学</td>
+</tr>
+<tr>
+<td align="center">physics.ins-det</td>
+<td align="center">Instrumentation and Detectors</td>
+<td align="center">仪器和探测器</td>
+</tr>
+<tr>
+<td align="center">physics.med-ph</td>
+<td align="center">Medical Physics</td>
+<td align="center">医学物理学</td>
+</tr>
+<tr>
+<td align="center">physics.optics</td>
+<td align="center">Optics</td>
+<td align="center">光学</td>
+</tr>
+<tr>
+<td align="center">physics.plasm-ph</td>
+<td align="center">Plasma Physics</td>
+<td align="center">等离子体物理</td>
+</tr>
+<tr>
+<td align="center">physics.pop-ph</td>
+<td align="center">Popular Physics</td>
+<td align="center">大众物理</td>
+</tr>
+<tr>
+<td align="center">physics.soc-ph</td>
+<td align="center">Physics and Society</td>
+<td align="center">物理学与社会</td>
+</tr>
+<tr>
+<td align="center">physics.space-ph</td>
+<td align="center">Space Physics</td>
+<td align="center">空间物理学</td>
+</tr>
+<tr>
+<td align="center">q-bio.BM</td>
+<td align="center">Biomolecules</td>
+<td align="center">生物分子</td>
+</tr>
+<tr>
+<td align="center">q-bio.CB</td>
+<td align="center">Cell Behavior</td>
+<td align="center">细胞行为</td>
+</tr>
+<tr>
+<td align="center">q-bio.GN</td>
+<td align="center">Genomics</td>
+<td align="center">基因组学</td>
+</tr>
+<tr>
+<td align="center">q-bio.MN</td>
+<td align="center">Molecular Networks</td>
+<td align="center">分子网络</td>
+</tr>
+<tr>
+<td align="center">q-bio.NC</td>
+<td align="center">Neurons and Cognition</td>
+<td align="center">神经元与认知</td>
+</tr>
+<tr>
+<td align="center">q-bio.OT</td>
+<td align="center">Other Quantitative Biology</td>
+<td align="center">其他定量生物学</td>
+</tr>
+<tr>
+<td align="center">q-bio.PE</td>
+<td align="center">Populations and Evolution</td>
+<td align="center">种群与进化</td>
+</tr>
+<tr>
+<td align="center">q-bio.QM</td>
+<td align="center">Quantitative Methods</td>
+<td align="center">定量方法</td>
+</tr>
+<tr>
+<td align="center">q-bio.SC</td>
+<td align="center">Subcellular Processes</td>
+<td align="center">亚细胞突起</td>
+</tr>
+<tr>
+<td align="center">q-bio.TO</td>
+<td align="center">Tissues and Organs</td>
+<td align="center">组织和器官</td>
+</tr>
+<tr>
+<td align="center">q-fin.CP</td>
+<td align="center">Computational Finance</td>
+<td align="center">金融工程</td>
+</tr>
+<tr>
+<td align="center">q-fin.EC</td>
+<td align="center">Economics</td>
+<td align="center">经济学</td>
+</tr>
+<tr>
+<td align="center">q-fin.GN</td>
+<td align="center">General Finance</td>
+<td align="center">财务概述</td>
+</tr>
+<tr>
+<td align="center">q-fin.MF</td>
+<td align="center">Mathematical Finance</td>
+<td align="center">数学金融</td>
+</tr>
+<tr>
+<td align="center">q-fin.PM</td>
+<td align="center">Portfolio Management</td>
+<td align="center">投资组合管理</td>
+</tr>
+<tr>
+<td align="center">q-fin.PR</td>
+<td align="center">Pricing of Securities</td>
+<td align="center">证券定价</td>
+</tr>
+<tr>
+<td align="center">q-fin.RM</td>
+<td align="center">Risk Management</td>
+<td align="center">风险管理</td>
+</tr>
+<tr>
+<td align="center">q-fin.ST</td>
+<td align="center">Statistical Finance</td>
+<td align="center">金融统计</td>
+</tr>
+<tr>
+<td align="center">q-fin.TR</td>
+<td align="center">Trading and Market Microstructure</td>
+<td align="center">交易与市场微观结构</td>
+</tr>
+<tr>
+<td align="center">quant-ph</td>
+<td align="center">Quantum Physics</td>
+<td align="center">量子物理学</td>
+</tr>
+<tr>
+<td align="center">stat.AP</td>
+<td align="center">Applications</td>
+<td align="center">应用</td>
+</tr>
+<tr>
+<td align="center">stat.CO</td>
+<td align="center">Computation</td>
+<td align="center">计算</td>
+</tr>
+<tr>
+<td align="center">stat.ME</td>
+<td align="center">Methodology</td>
+<td align="center">方法论</td>
+</tr>
+<tr>
+<td align="center">stat.ML</td>
+<td align="center">Machine Learning</td>
+<td align="center">机器学习</td>
+</tr>
+<tr>
+<td align="center">stat.OT</td>
+<td align="center">Other Statistics</td>
+<td align="center">其他统计学</td>
+</tr>
+<tr>
+<td align="center">stat.TH</td>
+<td align="center">Statistics Theory</td>
+<td align="center">统计学理论</td>
+</tr>
+</tbody></table>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Hiyoung</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://hiyoungai.com/posts/8ba6751b.html">https://hiyoungai.com/posts/8ba6751b.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://hiyoungai.com" target="_blank">Young Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Arxiv-API/">Arxiv API</a><a class="post-meta__tags" href="/tags/%E8%AE%BA%E6%96%87%E6%9F%A5%E8%AF%A2/">论文查询</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/853fc4e2.html"><img class="prev-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">N-gram语言模型</div></div></a></div><div class="next-post pull-right"><a href="/posts/d1bb6beb.html"><img class="next-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">论文阅读《Sequence to Sequence Learning with Neural Networks》</div></div></a></div></nav></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Hiyoung</div><div class="author-info__description">人生何所求，致富和自由。 -《基督山伯爵》</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">26</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">67</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/hiyoung123" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:hiyoungliu@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div></div><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="card-content"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2%E6%8E%A5%E5%8F%A3"><span class="toc-number">1.</span> <span class="toc-text">查询接口</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%82%E6%95%B0%E8%AF%B4%E6%98%8E"><span class="toc-number">1.1.</span> <span class="toc-text">参数说明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E9%A1%B5%E6%9F%A5%E8%AF%A2"><span class="toc-number">1.2.</span> <span class="toc-text">分页查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%92%E5%BA%8F%E6%9F%A5%E8%AF%A2"><span class="toc-number">1.3.</span> <span class="toc-text">排序查询</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E6%9E%9C%E5%93%8D%E5%BA%94"><span class="toc-number">2.</span> <span class="toc-text">结果响应</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Feed-Metadata"><span class="toc-number">2.1.</span> <span class="toc-text">Feed Metadata</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Entry-Metadata"><span class="toc-number">2.2.</span> <span class="toc-text">Entry Metadata</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Errors"><span class="toc-number">2.3.</span> <span class="toc-text">Errors</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90"><span class="toc-number">3.</span> <span class="toc-text">例子</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Python"><span class="toc-number">3.1.</span> <span class="toc-text">Python</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%99%84%E5%BD%95"><span class="toc-number">4.</span> <span class="toc-text">附录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2%E7%9A%84%E8%AF%A6%E7%BB%86%E7%BB%93%E6%9E%84"><span class="toc-number">4.1.</span> <span class="toc-text">查询的详细结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%94%E5%9B%9E%E7%9A%84%E8%AF%A6%E7%BB%86%E7%BB%93%E6%9E%84"><span class="toc-number">4.2.</span> <span class="toc-text">返回的详细结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%A6%E7%A7%91%E7%9A%84%E5%88%86%E7%B1%BB"><span class="toc-number">4.3.</span> <span class="toc-text">学科的分类</span></a></li></ol></li></ol></div></div></div><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/eb3fbcc4.html" title="循环神经网络（Recurrent Neural Network，RNN）"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="循环神经网络（Recurrent Neural Network，RNN）"/></a><div class="content"><a class="title" href="/posts/eb3fbcc4.html" title="循环神经网络（Recurrent Neural Network，RNN）">循环神经网络（Recurrent Neural Network，RNN）</a><time datetime="2020-03-02T07:20:06.000Z" title="发表于 2020-03-02 15:20:06">2020-03-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/853fc4e2.html" title="N-gram语言模型"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="N-gram语言模型"/></a><div class="content"><a class="title" href="/posts/853fc4e2.html" title="N-gram语言模型">N-gram语言模型</a><time datetime="2020-02-27T14:59:36.000Z" title="发表于 2020-02-27 22:59:36">2020-02-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/8ba6751b.html" title="Arxiv查询接口详解"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Arxiv查询接口详解"/></a><div class="content"><a class="title" href="/posts/8ba6751b.html" title="Arxiv查询接口详解">Arxiv查询接口详解</a><time datetime="2020-02-10T15:17:48.000Z" title="发表于 2020-02-10 23:17:48">2020-02-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/d1bb6beb.html" title="论文阅读《Sequence to Sequence Learning with Neural Networks》"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="论文阅读《Sequence to Sequence Learning with Neural Networks》"/></a><div class="content"><a class="title" href="/posts/d1bb6beb.html" title="论文阅读《Sequence to Sequence Learning with Neural Networks》">论文阅读《Sequence to Sequence Learning with Neural Networks》</a><time datetime="2020-01-29T06:57:30.000Z" title="发表于 2020-01-29 14:57:30">2020-01-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/7f15f578.html" title="CS224n-lecture8 Machine Translation, Seq2Seq and Attention"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="CS224n-lecture8 Machine Translation, Seq2Seq and Attention"/></a><div class="content"><a class="title" href="/posts/7f15f578.html" title="CS224n-lecture8 Machine Translation, Seq2Seq and Attention">CS224n-lecture8 Machine Translation, Seq2Seq and Attention</a><time datetime="2020-01-26T10:05:28.000Z" title="发表于 2020-01-26 18:05:28">2020-01-26</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 By Hiyoung</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></div><script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight||document.documentElement.clientHeight)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},n.src=i}()}i(),n.addEventListener("scroll",function(){var t,e;t=i,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body></html>

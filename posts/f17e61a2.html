@@ -1,650 +1,282 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.0.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
-  <meta name="google-site-verification" content="yXNWLn28ULu1e2oNTKIDLTMhXLOEd7DwMtrEmdJ0pgE">
-  <meta name="baidu-site-verification" content="m7vWhnTCyq">
-
-<link rel="stylesheet" href="/css/main.css">
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-
-
-<script id="hexo-configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    hostname: new URL('https://hiyoungai.com').hostname,
-    root: '/',
-    scheme: 'Mist',
-    version: '7.6.0',
-    exturl: false,
-    sidebar: {"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},
-    copycode: {"enable":false,"show_result":false,"style":null},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    bookmark: {"enable":false,"color":"#222","save":"auto"},
-    fancybox: false,
-    mediumzoom: false,
-    lazyload: false,
-    pangu: false,
-    algolia: {
-      appID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: 'search.xml',
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
-  };
-</script>
-
-  <meta name="description" content="世界一流大学的人工智能课程视频和课件资源。">
-<meta name="keywords" content="人工智能,学习资料,课程资源">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>人工智能名校课程汇总 | Young Blog</title><meta name="keywords" content="人工智能,学习资料,课程资源"><meta name="author" content="Hiyoung"><meta name="copyright" content="Hiyoung"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="世界一流大学的人工智能课程视频和课件资源。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="人工智能名校课程汇总">
-<meta property="og:url" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;posts&#x2F;f17e61a2.html">
+<meta property="og:url" content="https://hiyoungai.com/posts/f17e61a2.html">
 <meta property="og:site_name" content="Young Blog">
 <meta property="og:description" content="世界一流大学的人工智能课程视频和课件资源。">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-12-13T05:44:09.739Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://hiyoungai.com/img/avatar.png">
+<meta property="article:published_time" content="2019-12-12T04:56:32.000Z">
+<meta property="article:modified_time" content="2019-12-13T05:44:09.739Z">
+<meta property="article:author" content="Hiyoung">
+<meta property="article:tag" content="人工智能">
+<meta property="article:tag" content="学习资料">
+<meta property="article:tag" content="课程资源">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://hiyoungai.com/img/avatar.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://hiyoungai.com/posts/f17e61a2"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+};
 
-<link rel="canonical" href="https://hiyoungai.com/posts/f17e61a2.html">
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
 
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
 
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome: false,
-    isPost: true,
-    isPage: false,
-    isArchive: false
-  };
-</script>
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
 
-  <title>人工智能名校课程汇总 | Young Blog</title>
-  
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}
 
-
-
-
-
-
-  <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
+// https://stackoverflow.com/questions/16839698/jquery-getscript-alternative-in-native-javascript
+const getScript = url => new Promise((resolve, reject) => {
+  const script = document.createElement('script')
+  script.src = url
+  script.async = true
+  script.onerror = reject
+  script.onload = script.onreadystatechange = function() {
+    const loadState = this.readyState
+    if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+    script.onload = script.onreadystatechange = null
+    resolve()
+  }
+  document.head.appendChild(script)
+})</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2019-12-13 13:44:09'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
   }
 
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
-<link rel="alternate" href="/atom.xml" title="Young Blog" type="application/atom+xml">
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+   if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+  const autoChangeMode = 'false'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}})()</script><meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="Young Blog" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
-
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
-
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-meta">
-
-    <div>
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Young Blog</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-        <p class="site-subtitle">Hi Young !</p>
-  </div>
-
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
-    </div>
-  </div>
-</div>
-
-
-<nav class="site-nav">
-  
-  <ul id="menu" class="menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
-
-  </li>
-        <li class="menu-item menu-item-coding">
-
-    <a href="/coding/" rel="section"><i class="fa fa-fw fa-code"></i>编程</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
-
-  </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
-
-  </li>
-  </ul>
-
-</nav>
-</div>
-    </header>
-
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-  <div class="reading-progress-bar"></div>
-
-
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-
-          <div class="content">
-            
-
-  <div class="posts-expand">
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hiyoungai.com/posts/f17e61a2.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Hiyoung">
-      <meta itemprop="description" content="人生何所求，致富和自由。 -《基督山伯爵》">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Young Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          人工智能名校课程汇总
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-12-12 12:56:32" itemprop="dateCreated datePublished" datetime="2019-12-12T12:56:32+08:00">2019-12-12</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-12-13 13:44:09" itemprop="dateModified" datetime="2019-12-13T13:44:09+08:00">2019-12-13</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%B5%84%E6%BA%90/" itemprop="url" rel="index">
-                    <span itemprop="name">资源</span>
-                  </a>
-                </span>
-            </span>
-
-          
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-        <h2 id="斯坦福大学"><a href="#斯坦福大学" class="headerlink" title="斯坦福大学"></a>斯坦福大学</h2><p><a href="https://www.stanford.edu/" target="_blank" rel="noopener">大学课程官网</a></p>
-<h3 id="CS229-机器学习-by-吴恩达"><a href="#CS229-机器学习-by-吴恩达" class="headerlink" title="CS229 机器学习 by 吴恩达"></a>CS229 机器学习 by 吴恩达</h3><p>课程主页：<a href="http://cs229.stanford.edu/" target="_blank" rel="noopener">http://cs229.stanford.edu/</a><br>相关链接：</p>
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">26</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">67</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Young Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">人工智能名校课程汇总</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2019-12-12T04:56:32.000Z" title="发表于 2019-12-12 12:56:32">2019-12-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2019-12-13T05:44:09.739Z" title="更新于 2019-12-13 13:44:09">2019-12-13</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%B5%84%E6%BA%90/">资源</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="斯坦福大学"><a href="#斯坦福大学" class="headerlink" title="斯坦福大学"></a>斯坦福大学</h2><p><a target="_blank" rel="noopener" href="https://www.stanford.edu/">大学课程官网</a></p>
+<h3 id="CS229-机器学习-by-吴恩达"><a href="#CS229-机器学习-by-吴恩达" class="headerlink" title="CS229 机器学习 by 吴恩达"></a>CS229 机器学习 by 吴恩达</h3><p>课程主页：<a target="_blank" rel="noopener" href="http://cs229.stanford.edu/">http://cs229.stanford.edu/</a><br>相关链接：</p>
 <ul>
-<li><a href="https://stanford.edu/~shervine/teaching/cs-229/" target="_blank" rel="noopener">https://stanford.edu/~shervine/teaching/cs-229/</a></li>
-<li><a href="https://github.com/afshinea/stanford-cs-229-machine-learning" target="_blank" rel="noopener">https://github.com/afshinea/stanford-cs-229-machine-learning</a></li>
-<li><a href="https://github.com/Kivy-CN/Stanford-CS-229-CN" target="_blank" rel="noopener">https://github.com/Kivy-CN/Stanford-CS-229-CN</a></li>
+<li><a target="_blank" rel="noopener" href="https://stanford.edu/~shervine/teaching/cs-229/">https://stanford.edu/~shervine/teaching/cs-229/</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/afshinea/stanford-cs-229-machine-learning">https://github.com/afshinea/stanford-cs-229-machine-learning</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/Kivy-CN/Stanford-CS-229-CN">https://github.com/Kivy-CN/Stanford-CS-229-CN</a></li>
 </ul>
-<h3 id="CS231n-深度视觉识别-by-李飞飞"><a href="#CS231n-深度视觉识别-by-李飞飞" class="headerlink" title="CS231n 深度视觉识别 by 李飞飞"></a>CS231n 深度视觉识别 by 李飞飞</h3><p>课程主页：<a href="http://cs231n.stanford.edu/" target="_blank" rel="noopener">http://cs231n.stanford.edu/</a><br>视频地址：<a href="https://www.bilibili.com/video/av13260183/" target="_blank" rel="noopener">https://www.bilibili.com/video/av13260183/</a><br>课件地址：<a href="http://cs231n.stanford.edu/syllabus.html" target="_blank" rel="noopener">http://cs231n.stanford.edu/syllabus.html</a><br>相关链接：</p>
+<h3 id="CS231n-深度视觉识别-by-李飞飞"><a href="#CS231n-深度视觉识别-by-李飞飞" class="headerlink" title="CS231n 深度视觉识别 by 李飞飞"></a>CS231n 深度视觉识别 by 李飞飞</h3><p>课程主页：<a target="_blank" rel="noopener" href="http://cs231n.stanford.edu/">http://cs231n.stanford.edu/</a><br>视频地址：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/av13260183/">https://www.bilibili.com/video/av13260183/</a><br>课件地址：<a target="_blank" rel="noopener" href="http://cs231n.stanford.edu/syllabus.html">http://cs231n.stanford.edu/syllabus.html</a><br>相关链接：</p>
 <ul>
-<li><a href="https://zhuanlan.zhihu.com/p/76514213" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/76514213</a></li>
-<li><a href="https://github.com/Burton2000/CS231n-2017" target="_blank" rel="noopener">https://github.com/Burton2000/CS231n-2017</a></li>
-<li><a href="https://github.com/mbadry1/CS231n-2017-Summary" target="_blank" rel="noopener">https://github.com/mbadry1/CS231n-2017-Summary</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/21353567" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/21353567</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/21941485" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/21941485</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/76514213">https://zhuanlan.zhihu.com/p/76514213</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/Burton2000/CS231n-2017">https://github.com/Burton2000/CS231n-2017</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/mbadry1/CS231n-2017-Summary">https://github.com/mbadry1/CS231n-2017-Summary</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/21353567">https://zhuanlan.zhihu.com/p/21353567</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/21941485">https://zhuanlan.zhihu.com/p/21941485</a></li>
 </ul>
-<h3 id="CS224n-深度学习自然语言处理-by-Manning"><a href="#CS224n-深度学习自然语言处理-by-Manning" class="headerlink" title="CS224n 深度学习自然语言处理 by Manning"></a>CS224n 深度学习自然语言处理 by Manning</h3><p>课程主页：<a href="http://web.stanford.edu/class/cs224n" target="_blank" rel="noopener">http://web.stanford.edu/class/cs224n</a><br>相关链接：</p>
+<h3 id="CS224n-深度学习自然语言处理-by-Manning"><a href="#CS224n-深度学习自然语言处理-by-Manning" class="headerlink" title="CS224n 深度学习自然语言处理 by Manning"></a>CS224n 深度学习自然语言处理 by Manning</h3><p>课程主页：<a target="_blank" rel="noopener" href="http://web.stanford.edu/class/cs224n">http://web.stanford.edu/class/cs224n</a><br>相关链接：</p>
 <ul>
-<li><a href="https://zhuanlan.zhihu.com/p/59011576" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/59011576</a> 2019版川陀学者学习笔记</li>
-<li><a href="https://zhuanlan.zhihu.com/p/38387843" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/38387843</a> 知乎推荐</li>
-<li><a href="https://zhuanlan.zhihu.com/p/60992466" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/60992466</a> 2019版资料汇总</li>
-<li><a href="https://zhuanlan.zhihu.com/p/68502016" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/68502016</a> 2019版LooperXX学习笔记</li>
-<li><a href="https://www.hankcs.com/nlp/cs224n-introduction-to-nlp-and-deep-learning.html" target="_blank" rel="noopener">https://www.hankcs.com/nlp/cs224n-introduction-to-nlp-and-deep-learning.html</a> 2017版中文翻译+笔记</li>
-<li><a href="https://blog.csdn.net/weixin_37251044/article/details/83473874" target="_blank" rel="noopener">https://blog.csdn.net/weixin_37251044/article/details/83473874</a> 2017版学习笔记+资料+训练营</li>
-<li><a href="https://github.com/learning511/cs224n-learning-camp" target="_blank" rel="noopener">https://github.com/learning511/cs224n-learning-camp</a> 2017版训练营</li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/59011576">https://zhuanlan.zhihu.com/p/59011576</a> 2019版川陀学者学习笔记</li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/38387843">https://zhuanlan.zhihu.com/p/38387843</a> 知乎推荐</li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/60992466">https://zhuanlan.zhihu.com/p/60992466</a> 2019版资料汇总</li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/68502016">https://zhuanlan.zhihu.com/p/68502016</a> 2019版LooperXX学习笔记</li>
+<li><a target="_blank" rel="noopener" href="https://www.hankcs.com/nlp/cs224n-introduction-to-nlp-and-deep-learning.html">https://www.hankcs.com/nlp/cs224n-introduction-to-nlp-and-deep-learning.html</a> 2017版中文翻译+笔记</li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_37251044/article/details/83473874">https://blog.csdn.net/weixin_37251044/article/details/83473874</a> 2017版学习笔记+资料+训练营</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/learning511/cs224n-learning-camp">https://github.com/learning511/cs224n-learning-camp</a> 2017版训练营</li>
 </ul>
-<h3 id="CS230-深度学习-by-吴恩达"><a href="#CS230-深度学习-by-吴恩达" class="headerlink" title="CS230 深度学习 by 吴恩达"></a>CS230 深度学习 by 吴恩达</h3><p>课程主页：<a href="https://web.stanford.edu/class/cs230/" target="_blank" rel="noopener">https://web.stanford.edu/class/cs230/</a><br>视频地址：<a href="https://www.bilibili.com/video/av47055599" target="_blank" rel="noopener">https://www.bilibili.com/video/av47055599</a><br>相关链接：</p>
+<h3 id="CS230-深度学习-by-吴恩达"><a href="#CS230-深度学习-by-吴恩达" class="headerlink" title="CS230 深度学习 by 吴恩达"></a>CS230 深度学习 by 吴恩达</h3><p>课程主页：<a target="_blank" rel="noopener" href="https://web.stanford.edu/class/cs230/">https://web.stanford.edu/class/cs230/</a><br>视频地址：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/av47055599">https://www.bilibili.com/video/av47055599</a><br>相关链接：</p>
 <ul>
-<li><a href="https://zhuanlan.zhihu.com/p/38426219" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/38426219</a></li>
-<li><a href="https://stanford.edu/~shervine/teaching/cs-230/" target="_blank" rel="noopener">https://stanford.edu/~shervine/teaching/cs-230/</a></li>
-<li><a href="https://github.com/afshinea/stanford-cs-230-deep-learning" target="_blank" rel="noopener">https://github.com/afshinea/stanford-cs-230-deep-learning</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/61062475" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/61062475</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/38426219">https://zhuanlan.zhihu.com/p/38426219</a></li>
+<li><a target="_blank" rel="noopener" href="https://stanford.edu/~shervine/teaching/cs-230/">https://stanford.edu/~shervine/teaching/cs-230/</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/afshinea/stanford-cs-230-deep-learning">https://github.com/afshinea/stanford-cs-230-deep-learning</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/61062475">https://zhuanlan.zhihu.com/p/61062475</a></li>
 </ul>
 <h3 id="CS236-深度生成模型"><a href="#CS236-深度生成模型" class="headerlink" title="CS236 深度生成模型"></a>CS236 深度生成模型</h3><p>相关链接：</p>
 <ul>
-<li><a href="https://zhuanlan.zhihu.com/p/80638685" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/80638685</a></li>
-<li><a href="https://www.bilibili.com/video/av71884912" target="_blank" rel="noopener">https://www.bilibili.com/video/av71884912</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/80638685">https://zhuanlan.zhihu.com/p/80638685</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/av71884912">https://www.bilibili.com/video/av71884912</a></li>
 </ul>
-<h3 id="CS224u-自然语言理解"><a href="#CS224u-自然语言理解" class="headerlink" title="CS224u 自然语言理解"></a>CS224u 自然语言理解</h3><p>课程主页：<a href="http://web.stanford.edu/class/cs224u/" target="_blank" rel="noopener">http://web.stanford.edu/class/cs224u/</a><br>视频地址：<a href="https://www.bilibili.com/video/av56067156/" target="_blank" rel="noopener">https://www.bilibili.com/video/av56067156/</a><br>课件地址：<a href="http://web.stanford.edu/class/cs224u/index.html" target="_blank" rel="noopener">http://web.stanford.edu/class/cs224u/index.html</a><br>相关链接：</p>
+<h3 id="CS224u-自然语言理解"><a href="#CS224u-自然语言理解" class="headerlink" title="CS224u 自然语言理解"></a>CS224u 自然语言理解</h3><p>课程主页：<a target="_blank" rel="noopener" href="http://web.stanford.edu/class/cs224u/">http://web.stanford.edu/class/cs224u/</a><br>视频地址：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/av56067156/">https://www.bilibili.com/video/av56067156/</a><br>课件地址：<a target="_blank" rel="noopener" href="http://web.stanford.edu/class/cs224u/index.html">http://web.stanford.edu/class/cs224u/index.html</a><br>相关链接：</p>
 <ul>
-<li><a href="https://zhuanlan.zhihu.com/p/70087847" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/70087847</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/74471770" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/74471770</a></li>
-<li><a href="https://github.com/cgpotts/cs224u/" target="_blank" rel="noopener">https://github.com/cgpotts/cs224u/</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/70087847">https://zhuanlan.zhihu.com/p/70087847</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/74471770">https://zhuanlan.zhihu.com/p/74471770</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/cgpotts/cs224u/">https://github.com/cgpotts/cs224u/</a></li>
 </ul>
-<h3 id="CS234-强化学习"><a href="#CS234-强化学习" class="headerlink" title="CS234 强化学习"></a>CS234 强化学习</h3><p>课程主页：<a href="http://web.stanford.edu/class/cs234/" target="_blank" rel="noopener">http://web.stanford.edu/class/cs234/</a><br>课件地址：<a href="http://web.stanford.edu/class/cs234/schedule.html" target="_blank" rel="noopener">http://web.stanford.edu/class/cs234/schedule.html</a><br>相关链接：</p>
+<h3 id="CS234-强化学习"><a href="#CS234-强化学习" class="headerlink" title="CS234 强化学习"></a>CS234 强化学习</h3><p>课程主页：<a target="_blank" rel="noopener" href="http://web.stanford.edu/class/cs234/">http://web.stanford.edu/class/cs234/</a><br>课件地址：<a target="_blank" rel="noopener" href="http://web.stanford.edu/class/cs234/schedule.html">http://web.stanford.edu/class/cs234/schedule.html</a><br>相关链接：</p>
 <ul>
-<li><a href="https://blog.csdn.net/yH0VLDe8VG8ep9VGe/article/details/89077964" target="_blank" rel="noopener">https://blog.csdn.net/yH0VLDe8VG8ep9VGe/article/details/89077964</a></li>
-<li><a href="https://www.zhihu.com/question/265091571/answer/293362064" target="_blank" rel="noopener">https://www.zhihu.com/question/265091571/answer/293362064</a></li>
-<li><a href="https://github.com/Observerspy/CS234" target="_blank" rel="noopener">https://github.com/Observerspy/CS234</a></li>
-<li><a href="https://github.com/dennybritz/reinforcement-learning" target="_blank" rel="noopener">https://github.com/dennybritz/reinforcement-learning</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/yH0VLDe8VG8ep9VGe/article/details/89077964">https://blog.csdn.net/yH0VLDe8VG8ep9VGe/article/details/89077964</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/265091571/answer/293362064">https://www.zhihu.com/question/265091571/answer/293362064</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/Observerspy/CS234">https://github.com/Observerspy/CS234</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/dennybritz/reinforcement-learning">https://github.com/dennybritz/reinforcement-learning</a></li>
 </ul>
-<h3 id="CS224s-语音识别"><a href="#CS224s-语音识别" class="headerlink" title="CS224s 语音识别"></a>CS224s 语音识别</h3><p>课程主页：<a href="http://web.stanford.edu/class/cs224s/" target="_blank" rel="noopener">http://web.stanford.edu/class/cs224s/</a><br>课件地址：<a href="http://web.stanford.edu/class/cs224s/syllabus.html" target="_blank" rel="noopener">http://web.stanford.edu/class/cs224s/syllabus.html</a><br>相关链接：</p>
+<h3 id="CS224s-语音识别"><a href="#CS224s-语音识别" class="headerlink" title="CS224s 语音识别"></a>CS224s 语音识别</h3><p>课程主页：<a target="_blank" rel="noopener" href="http://web.stanford.edu/class/cs224s/">http://web.stanford.edu/class/cs224s/</a><br>课件地址：<a target="_blank" rel="noopener" href="http://web.stanford.edu/class/cs224s/syllabus.html">http://web.stanford.edu/class/cs224s/syllabus.html</a><br>相关链接：</p>
 <ul>
-<li><a href="https://zhuanlan.zhihu.com/p/39387424" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/39387424</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/92812997" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/92812997</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/39387424">https://zhuanlan.zhihu.com/p/39387424</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/92812997">https://zhuanlan.zhihu.com/p/92812997</a></li>
 </ul>
-<h3 id="CS20-深度学习平台Tensorflow"><a href="#CS20-深度学习平台Tensorflow" class="headerlink" title="CS20 深度学习平台Tensorflow"></a>CS20 深度学习平台Tensorflow</h3><p>课程主页：<a href="http://web.stanford.edu/class/cs20si/" target="_blank" rel="noopener">http://web.stanford.edu/class/cs20si/</a><br>相关连接：</p>
+<h3 id="CS20-深度学习平台Tensorflow"><a href="#CS20-深度学习平台Tensorflow" class="headerlink" title="CS20 深度学习平台Tensorflow"></a>CS20 深度学习平台Tensorflow</h3><p>课程主页：<a target="_blank" rel="noopener" href="http://web.stanford.edu/class/cs20si/">http://web.stanford.edu/class/cs20si/</a><br>相关连接：</p>
 <ul>
-<li><a href="https://zhuanlan.zhihu.com/p/42422376" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/42422376</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/33412526" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/33412526</a></li>
-<li><a href="http://txshi-mt.com/2018/02/15/CS20-8-Style-Transfer/" target="_blank" rel="noopener">http://txshi-mt.com/2018/02/15/CS20-8-Style-Transfer/</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/34471982" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/34471982</a></li>
-<li><a href="https://github.com/tensorflow/tensor2tensor" target="_blank" rel="noopener">https://github.com/tensorflow/tensor2tensor</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/42422376">https://zhuanlan.zhihu.com/p/42422376</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/33412526">https://zhuanlan.zhihu.com/p/33412526</a></li>
+<li><a target="_blank" rel="noopener" href="http://txshi-mt.com/2018/02/15/CS20-8-Style-Transfer/">http://txshi-mt.com/2018/02/15/CS20-8-Style-Transfer/</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/34471982">https://zhuanlan.zhihu.com/p/34471982</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/tensorflow/tensor2tensor">https://github.com/tensorflow/tensor2tensor</a></li>
 </ul>
-<h2 id="卡内基·梅隆大学"><a href="#卡内基·梅隆大学" class="headerlink" title="卡内基·梅隆大学"></a>卡内基·梅隆大学</h2><h3 id="CMU10701-机器学习"><a href="#CMU10701-机器学习" class="headerlink" title="CMU10701 机器学习"></a>CMU10701 机器学习</h3><p>课程主页：<a href="http://www.cs.cmu.edu/~tom/10701_sp11/" target="_blank" rel="noopener">http://www.cs.cmu.edu/~tom/10701_sp11/</a><br>相关链接：</p>
+<h2 id="卡内基·梅隆大学"><a href="#卡内基·梅隆大学" class="headerlink" title="卡内基·梅隆大学"></a>卡内基·梅隆大学</h2><h3 id="CMU10701-机器学习"><a href="#CMU10701-机器学习" class="headerlink" title="CMU10701 机器学习"></a>CMU10701 机器学习</h3><p>课程主页：<a target="_blank" rel="noopener" href="http://www.cs.cmu.edu/~tom/10701_sp11/">http://www.cs.cmu.edu/~tom/10701_sp11/</a><br>相关链接：</p>
 <ul>
-<li><a href="https://zhuanlan.zhihu.com/p/36707683" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/36707683</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/36707683">https://zhuanlan.zhihu.com/p/36707683</a></li>
 </ul>
 <h3 id="CMU16720-计算机视觉"><a href="#CMU16720-计算机视觉" class="headerlink" title="CMU16720 计算机视觉"></a>CMU16720 计算机视觉</h3><p>相关链接：</p>
 <ul>
-<li><a href="http://16720.courses.cs.cmu.edu/" target="_blank" rel="noopener">http://16720.courses.cs.cmu.edu/</a></li>
-<li><a href="http://www.andrew.cmu.edu/course/16-720/" target="_blank" rel="noopener">http://www.andrew.cmu.edu/course/16-720/</a></li>
+<li><a target="_blank" rel="noopener" href="http://16720.courses.cs.cmu.edu/">http://16720.courses.cs.cmu.edu/</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.andrew.cmu.edu/course/16-720/">http://www.andrew.cmu.edu/course/16-720/</a></li>
 </ul>
-<h3 id="CMU11785-深度学习介绍"><a href="#CMU11785-深度学习介绍" class="headerlink" title="CMU11785 深度学习介绍"></a>CMU11785 深度学习介绍</h3><p>课程主页：<a href="http://deeplearning.cs.cmu.edu/" target="_blank" rel="noopener">http://deeplearning.cs.cmu.edu/</a><br>相关链接：</p>
+<h3 id="CMU11785-深度学习介绍"><a href="#CMU11785-深度学习介绍" class="headerlink" title="CMU11785 深度学习介绍"></a>CMU11785 深度学习介绍</h3><p>课程主页：<a target="_blank" rel="noopener" href="http://deeplearning.cs.cmu.edu/">http://deeplearning.cs.cmu.edu/</a><br>相关链接：</p>
 <ul>
-<li><a href="https://zhuanlan.zhihu.com/p/79142469" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/79142469</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/79142469">https://zhuanlan.zhihu.com/p/79142469</a></li>
 </ul>
-<h3 id="CMU11642-搜索引擎"><a href="#CMU11642-搜索引擎" class="headerlink" title="CMU11642 搜索引擎"></a>CMU11642 搜索引擎</h3><p>课程主页：<a href="https://boston.lti.cs.cmu.edu/classes/11-642/" target="_blank" rel="noopener">https://boston.lti.cs.cmu.edu/classes/11-642/</a><br>相关链接：</p>
+<h3 id="CMU11642-搜索引擎"><a href="#CMU11642-搜索引擎" class="headerlink" title="CMU11642 搜索引擎"></a>CMU11642 搜索引擎</h3><p>课程主页：<a target="_blank" rel="noopener" href="https://boston.lti.cs.cmu.edu/classes/11-642/">https://boston.lti.cs.cmu.edu/classes/11-642/</a><br>相关链接：</p>
 <ul>
-<li><a href="http://shuang0420.com/works/" target="_blank" rel="noopener">http://shuang0420.com/works/</a></li>
+<li><a target="_blank" rel="noopener" href="http://shuang0420.com/works/">http://shuang0420.com/works/</a></li>
 </ul>
 <h3 id="CMU10605-大数据中的机器学习"><a href="#CMU10605-大数据中的机器学习" class="headerlink" title="CMU10605 大数据中的机器学习"></a>CMU10605 大数据中的机器学习</h3><p>视频地址<br>课件地址</p>
-<h3 id="CMU11611-自然语言处理"><a href="#CMU11611-自然语言处理" class="headerlink" title="CMU11611 自然语言处理"></a>CMU11611 自然语言处理</h3><p>课程主页：<a href="http://demo.clab.cs.cmu.edu/NLP/" target="_blank" rel="noopener">http://demo.clab.cs.cmu.edu/NLP/</a><br>相关链接：</p>
+<h3 id="CMU11611-自然语言处理"><a href="#CMU11611-自然语言处理" class="headerlink" title="CMU11611 自然语言处理"></a>CMU11611 自然语言处理</h3><p>课程主页：<a target="_blank" rel="noopener" href="http://demo.clab.cs.cmu.edu/NLP/">http://demo.clab.cs.cmu.edu/NLP/</a><br>相关链接：</p>
 <ul>
-<li><a href="http://shuang0420.com/works/" target="_blank" rel="noopener">http://shuang0420.com/works/</a></li>
+<li><a target="_blank" rel="noopener" href="http://shuang0420.com/works/">http://shuang0420.com/works/</a></li>
 </ul>
 <h3 id="CMU36705-中级统计"><a href="#CMU36705-中级统计" class="headerlink" title="CMU36705 中级统计"></a>CMU36705 中级统计</h3><p>视频地址<br>课件地址</p>
 <h3 id="CMU10703-深度强化学习和控制"><a href="#CMU10703-深度强化学习和控制" class="headerlink" title="CMU10703 深度强化学习和控制"></a>CMU10703 深度强化学习和控制</h3><p>视频地址<br>课件地址</p>
-<h3 id="CMU10708-概率图模型"><a href="#CMU10708-概率图模型" class="headerlink" title="CMU10708 概率图模型"></a>CMU10708 概率图模型</h3><p>课程主页：<a href="http://www.cs.cmu.edu/~epxing/Class/10708-14/lecture.html" target="_blank" rel="noopener">http://www.cs.cmu.edu/~epxing/Class/10708-14/lecture.html</a><br>视频地址：<a href="https://www.kanbilibili.com/video/av30770453/" target="_blank" rel="noopener">https://www.kanbilibili.com/video/av30770453/</a></p>
+<h3 id="CMU10708-概率图模型"><a href="#CMU10708-概率图模型" class="headerlink" title="CMU10708 概率图模型"></a>CMU10708 概率图模型</h3><p>课程主页：<a target="_blank" rel="noopener" href="http://www.cs.cmu.edu/~epxing/Class/10708-14/lecture.html">http://www.cs.cmu.edu/~epxing/Class/10708-14/lecture.html</a><br>视频地址：<a target="_blank" rel="noopener" href="https://www.kanbilibili.com/video/av30770453/">https://www.kanbilibili.com/video/av30770453/</a></p>
 <h2 id="伯克利大学"><a href="#伯克利大学" class="headerlink" title="伯克利大学"></a>伯克利大学</h2><h3 id="CS189-机器学习"><a href="#CS189-机器学习" class="headerlink" title="CS189 机器学习"></a>CS189 机器学习</h3><p>视频地址<br>课件地址</p>
 <h3 id="EECS126-概率的应用"><a href="#EECS126-概率的应用" class="headerlink" title="EECS126 概率的应用"></a>EECS126 概率的应用</h3><p>视频地址<br>课件地址</p>
 <h3 id="EECS127-优化模型"><a href="#EECS127-优化模型" class="headerlink" title="EECS127 优化模型"></a>EECS127 优化模型</h3><p>视频地址<br>课件地址</p>
 <h3 id="CS182-深度学习"><a href="#CS182-深度学习" class="headerlink" title="CS182 深度学习"></a>CS182 深度学习</h3><p>视频地址<br>课件地址</p>
-<h3 id="CS294-112-深度强化学习"><a href="#CS294-112-深度强化学习" class="headerlink" title="CS294-112 深度强化学习"></a>CS294-112 深度强化学习</h3><p>视频地址：<a href="https://www.kanbilibili.com/video/av20957290/" target="_blank" rel="noopener">https://www.kanbilibili.com/video/av20957290/</a><br>相关链接：</p>
+<h3 id="CS294-112-深度强化学习"><a href="#CS294-112-深度强化学习" class="headerlink" title="CS294-112 深度强化学习"></a>CS294-112 深度强化学习</h3><p>视频地址：<a target="_blank" rel="noopener" href="https://www.kanbilibili.com/video/av20957290/">https://www.kanbilibili.com/video/av20957290/</a><br>相关链接：</p>
 <ul>
-<li><a href="https://zhuanlan.zhihu.com/p/33855389" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/33855389</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/32530166" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/32530166</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/46684216" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/46684216</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/76947371" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/76947371</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/33855389">https://zhuanlan.zhihu.com/p/33855389</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/32530166">https://zhuanlan.zhihu.com/p/32530166</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/46684216">https://zhuanlan.zhihu.com/p/46684216</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/76947371">https://zhuanlan.zhihu.com/p/76947371</a></li>
 </ul>
-<h3 id="CS188-人工智能基础"><a href="#CS188-人工智能基础" class="headerlink" title="CS188 人工智能基础"></a>CS188 人工智能基础</h3><p>课程主页：<a href="http://inst.eecs.berkeley.edu/~cs188/fa19/" target="_blank" rel="noopener">http://inst.eecs.berkeley.edu/~cs188/fa19/</a><br>相关链接：</p>
+<h3 id="CS188-人工智能基础"><a href="#CS188-人工智能基础" class="headerlink" title="CS188 人工智能基础"></a>CS188 人工智能基础</h3><p>课程主页：<a target="_blank" rel="noopener" href="http://inst.eecs.berkeley.edu/~cs188/fa19/">http://inst.eecs.berkeley.edu/~cs188/fa19/</a><br>相关链接：</p>
 <ul>
-<li><a href="https://zhuanlan.zhihu.com/p/61895500" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/61895500</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/53745278" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/53745278</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/55066572" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/55066572</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/61895500">https://zhuanlan.zhihu.com/p/61895500</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/53745278">https://zhuanlan.zhihu.com/p/53745278</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/55066572">https://zhuanlan.zhihu.com/p/55066572</a></li>
 </ul>
-
-    </div>
-
-    
-    
-    
-
-      <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag"># 人工智能</a>
-              <a href="/tags/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99/" rel="tag"># 学习资料</a>
-              <a href="/tags/%E8%AF%BE%E7%A8%8B%E8%B5%84%E6%BA%90/" rel="tag"># 课程资源</a>
-          </div>
-
-        
-
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/posts/2878d2b0.html" rel="prev" title="CS224n-lecture1 Introduction and Word Vectors">
-      <i class="fa fa-chevron-left"></i> CS224n-lecture1 Introduction and Word Vectors
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/posts/686d9456.html" rel="next" title="信息熵总结">
-      信息熵总结 <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
-      </footer>
-    
-  </article>
-  
-  
-  
-
-  </div>
-
-
-          </div>
-              
-    <div class="comments" id="gitalk-container"></div>
-
-        </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#斯坦福大学"><span class="nav-text">斯坦福大学</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CS229-机器学习-by-吴恩达"><span class="nav-text">CS229 机器学习 by 吴恩达</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CS231n-深度视觉识别-by-李飞飞"><span class="nav-text">CS231n 深度视觉识别 by 李飞飞</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CS224n-深度学习自然语言处理-by-Manning"><span class="nav-text">CS224n 深度学习自然语言处理 by Manning</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CS230-深度学习-by-吴恩达"><span class="nav-text">CS230 深度学习 by 吴恩达</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CS236-深度生成模型"><span class="nav-text">CS236 深度生成模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CS224u-自然语言理解"><span class="nav-text">CS224u 自然语言理解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CS234-强化学习"><span class="nav-text">CS234 强化学习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CS224s-语音识别"><span class="nav-text">CS224s 语音识别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CS20-深度学习平台Tensorflow"><span class="nav-text">CS20 深度学习平台Tensorflow</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#卡内基·梅隆大学"><span class="nav-text">卡内基·梅隆大学</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CMU10701-机器学习"><span class="nav-text">CMU10701 机器学习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CMU16720-计算机视觉"><span class="nav-text">CMU16720 计算机视觉</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CMU11785-深度学习介绍"><span class="nav-text">CMU11785 深度学习介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CMU11642-搜索引擎"><span class="nav-text">CMU11642 搜索引擎</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CMU10605-大数据中的机器学习"><span class="nav-text">CMU10605 大数据中的机器学习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CMU11611-自然语言处理"><span class="nav-text">CMU11611 自然语言处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CMU36705-中级统计"><span class="nav-text">CMU36705 中级统计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CMU10703-深度强化学习和控制"><span class="nav-text">CMU10703 深度强化学习和控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CMU10708-概率图模型"><span class="nav-text">CMU10708 概率图模型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#伯克利大学"><span class="nav-text">伯克利大学</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CS189-机器学习"><span class="nav-text">CS189 机器学习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#EECS126-概率的应用"><span class="nav-text">EECS126 概率的应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#EECS127-优化模型"><span class="nav-text">EECS127 优化模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CS182-深度学习"><span class="nav-text">CS182 深度学习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CS294-112-深度强化学习"><span class="nav-text">CS294-112 深度强化学习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CS188-人工智能基础"><span class="nav-text">CS188 人工智能基础</span></a></li></ol></li></ol></div>
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="Hiyoung"
-      src="/images/avatar.gif">
-  <p class="site-author-name" itemprop="name">Hiyoung</p>
-  <div class="site-description" itemprop="description">人生何所求，致富和自由。 -《基督山伯爵》</div>
-</div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">20</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-            <a href="/categories/">
-          
-        <span class="site-state-item-count">8</span>
-        <span class="site-state-item-name">分类</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-        <span class="site-state-item-count">54</span>
-        <span class="site-state-item-name">标签</span></a>
-      </div>
-  </nav>
-</div>
-  <div class="links-of-author motion-element">
-    <span class="links-of-author-item">
-    <a href="https://github.com/hiyoung123/ " class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-        <i class="fa fa-fw fa-github"></i>GitHub
-    </a>
-    </span>
-    <span class="links-of-author-item">
-    <a href="mailto:hiyoungliu@gmail.com " class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
-        <i class="fa fa-fw fa-envelope"></i>Email
-    </a>
-    </span>
-    <span class="links-of-author-item">
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=787420787 " class="tooltipped" target="_blank" data-tooltip="QQ联系我: 787420787 " data-position="top" data-delay="50">
-        <i class="fa fa-fw fa-qq"></i>QQ
-    </a>
-    </span>
-    <span class="links-of-author-item">
-    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
-        <i class="fa fa-fw fa-rss"></i>RSS
-    </a>
-    </span>
-
-
-<!--
-      <span class="links-of-author-item">
-        <a href="https://github.com/hiyoung123/" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;hiyoung123&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="/hiyoungliu@gmail.com" title="Email → hiyoungliu@gmail.com"><i class="fa fa-fw fa-envelope"></i>Email</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="/787420787" title="QQ → 787420787"><i class="fa fa-fw fa-qq"></i>QQ</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-fw fa-rss"></i>RSS</a>
-      </span>
--->
-  </div>
-
-
-  <div class="links-of-blogroll motion-element">
-    <div class="links-of-blogroll-title">
-      <i class="fa fa-fw fa-link"></i>
-      Links
-    </div>
-    <ul class="links-of-blogroll-list">
-        <li class="links-of-blogroll-item">
-          <a href="https://godweiyang.com/" title="https:&#x2F;&#x2F;godweiyang.com" rel="noopener" target="_blank">godweiyang</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://www.dreamwings.cn/" title="https:&#x2F;&#x2F;www.dreamwings.cn" rel="noopener" target="_blank">千千</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://wdxtub.com/" title="https:&#x2F;&#x2F;wdxtub.com" rel="noopener" target="_blank">小土刀</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="http://codewithzhangyi.com/" title="http:&#x2F;&#x2F;codewithzhangyi.com" rel="noopener" target="_blank">Zhang Yi</a>
-        </li>
-    </ul>
-  </div>
-
-      </div>
-
-    </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-<div class="copyright">
-  
-  &copy; 2019 – 
-  <span itemprop="copyrightYear">2020</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Hiyoung</span>
-</div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
-  </div>
-  <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.6.0
-  </div>
-
-        
-<div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-area-chart"></i>
-      </span>
-      <span class="site-uv" title="站点总字数">
-        <span class="post-count">44.1k</span>
-      </span>
-    </span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-user"></i>
-      </span>
-      <span class="site-uv" title="总访客量">
-        <span id="busuanzi_value_site_uv"></span>
-      </span>
-    </span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-eye"></i>
-      </span>
-      <span class="site-pv" title="总访问量">
-        <span id="busuanzi_value_site_pv"></span>
-      </span>
-    </span>
-</div>
-
-
-
-
-
-
-
-
-      </div>
-    </footer>
-  </div>
-
-  
-  <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
-<script src="/js/schemes/muse.js"></script>
-<script src="/js/next-boot.js"></script>
-
-
-
-  
-  <script>
-    (function(){
-      var bp = document.createElement('script');
-      var curProtocol = window.location.protocol.split(':')[0];
-      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(bp, s);
-    })();
-  </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  
-
-  
-
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
-
-<script>
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
-    var gitalk = new Gitalk({
-      clientID: '2809c671d3e9827bdb20',
-      clientSecret: '5f216884763890b0ef3751b9206ab5eade091708',
-      repo: 'hiyoung123.github.io',
-      owner: 'hiyoung123',
-      admin: ['hiyoung123'],
-      id: '5b067b6b34637abe19f30dee64eee7e8',
-        language: '',
-      distractionFreeMode: 'true'
-    });
-    gitalk.render('gitalk-container');
-  }, window.Gitalk);
-</script>
-
-<script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
-</html>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Hiyoung</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://hiyoungai.com/posts/f17e61a2.html">https://hiyoungai.com/posts/f17e61a2.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://hiyoungai.com" target="_blank">Young Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a><a class="post-meta__tags" href="/tags/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99/">学习资料</a><a class="post-meta__tags" href="/tags/%E8%AF%BE%E7%A8%8B%E8%B5%84%E6%BA%90/">课程资源</a></div><div class="post_share"><div class="social-share" data-image="/img/avatar.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/686d9456.html"><img class="prev-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">信息熵总结</div></div></a></div><div class="next-post pull-right"><a href="/posts/2878d2b0.html"><img class="next-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">CS224n-lecture1 Introduction and Word Vectors</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/posts/28911bbb.html" title="论文阅读《Distributed Representations of Words and Phrases and their Compositionality》"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-12-31</div><div class="title">论文阅读《Distributed Representations of Words and Phrases and their Compositionality》</div></div></a></div><div><a href="/posts/fcba888f.html" title="论文阅读《Efficient Estimation of Word Representations in Vector Space》"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-12-30</div><div class="title">论文阅读《Efficient Estimation of Word Representations in Vector Space》</div></div></a></div><div><a href="/posts/fb292938.html" title="论文阅读《GloVe: Global Vectors for Word Representation》"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-01-12</div><div class="title">论文阅读《GloVe: Global Vectors for Word Representation》</div></div></a></div><div><a href="/posts/d1bb6beb.html" title="论文阅读《Sequence to Sequence Learning with Neural Networks》"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-01-29</div><div class="title">论文阅读《Sequence to Sequence Learning with Neural Networks》</div></div></a></div></div></div></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Hiyoung</div><div class="author-info__description">人生何所求，致富和自由。 -《基督山伯爵》</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">26</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">67</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/hiyoung123" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:hiyoungliu@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div></div><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="card-content"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%AF%E5%9D%A6%E7%A6%8F%E5%A4%A7%E5%AD%A6"><span class="toc-number">1.</span> <span class="toc-text">斯坦福大学</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CS229-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-by-%E5%90%B4%E6%81%A9%E8%BE%BE"><span class="toc-number">1.1.</span> <span class="toc-text">CS229 机器学习 by 吴恩达</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CS231n-%E6%B7%B1%E5%BA%A6%E8%A7%86%E8%A7%89%E8%AF%86%E5%88%AB-by-%E6%9D%8E%E9%A3%9E%E9%A3%9E"><span class="toc-number">1.2.</span> <span class="toc-text">CS231n 深度视觉识别 by 李飞飞</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CS224n-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86-by-Manning"><span class="toc-number">1.3.</span> <span class="toc-text">CS224n 深度学习自然语言处理 by Manning</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CS230-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-by-%E5%90%B4%E6%81%A9%E8%BE%BE"><span class="toc-number">1.4.</span> <span class="toc-text">CS230 深度学习 by 吴恩达</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CS236-%E6%B7%B1%E5%BA%A6%E7%94%9F%E6%88%90%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.5.</span> <span class="toc-text">CS236 深度生成模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CS224u-%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E7%90%86%E8%A7%A3"><span class="toc-number">1.6.</span> <span class="toc-text">CS224u 自然语言理解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CS234-%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0"><span class="toc-number">1.7.</span> <span class="toc-text">CS234 强化学习</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CS224s-%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB"><span class="toc-number">1.8.</span> <span class="toc-text">CS224s 语音识别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CS20-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%B9%B3%E5%8F%B0Tensorflow"><span class="toc-number">1.9.</span> <span class="toc-text">CS20 深度学习平台Tensorflow</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%A1%E5%86%85%E5%9F%BA%C2%B7%E6%A2%85%E9%9A%86%E5%A4%A7%E5%AD%A6"><span class="toc-number">2.</span> <span class="toc-text">卡内基·梅隆大学</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CMU10701-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0"><span class="toc-number">2.1.</span> <span class="toc-text">CMU10701 机器学习</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CMU16720-%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89"><span class="toc-number">2.2.</span> <span class="toc-text">CMU16720 计算机视觉</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CMU11785-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.3.</span> <span class="toc-text">CMU11785 深度学习介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CMU11642-%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E"><span class="toc-number">2.4.</span> <span class="toc-text">CMU11642 搜索引擎</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CMU10605-%E5%A4%A7%E6%95%B0%E6%8D%AE%E4%B8%AD%E7%9A%84%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0"><span class="toc-number">2.5.</span> <span class="toc-text">CMU10605 大数据中的机器学习</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CMU11611-%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86"><span class="toc-number">2.6.</span> <span class="toc-text">CMU11611 自然语言处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CMU36705-%E4%B8%AD%E7%BA%A7%E7%BB%9F%E8%AE%A1"><span class="toc-number">2.7.</span> <span class="toc-text">CMU36705 中级统计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CMU10703-%E6%B7%B1%E5%BA%A6%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E5%92%8C%E6%8E%A7%E5%88%B6"><span class="toc-number">2.8.</span> <span class="toc-text">CMU10703 深度强化学习和控制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CMU10708-%E6%A6%82%E7%8E%87%E5%9B%BE%E6%A8%A1%E5%9E%8B"><span class="toc-number">2.9.</span> <span class="toc-text">CMU10708 概率图模型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%AF%E5%85%8B%E5%88%A9%E5%A4%A7%E5%AD%A6"><span class="toc-number">3.</span> <span class="toc-text">伯克利大学</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CS189-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0"><span class="toc-number">3.1.</span> <span class="toc-text">CS189 机器学习</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EECS126-%E6%A6%82%E7%8E%87%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-number">3.2.</span> <span class="toc-text">EECS126 概率的应用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EECS127-%E4%BC%98%E5%8C%96%E6%A8%A1%E5%9E%8B"><span class="toc-number">3.3.</span> <span class="toc-text">EECS127 优化模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CS182-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0"><span class="toc-number">3.4.</span> <span class="toc-text">CS182 深度学习</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CS294-112-%E6%B7%B1%E5%BA%A6%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0"><span class="toc-number">3.5.</span> <span class="toc-text">CS294-112 深度强化学习</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CS188-%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%9F%BA%E7%A1%80"><span class="toc-number">3.6.</span> <span class="toc-text">CS188 人工智能基础</span></a></li></ol></li></ol></div></div></div><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/eb3fbcc4.html" title="循环神经网络（Recurrent Neural Network，RNN）"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="循环神经网络（Recurrent Neural Network，RNN）"/></a><div class="content"><a class="title" href="/posts/eb3fbcc4.html" title="循环神经网络（Recurrent Neural Network，RNN）">循环神经网络（Recurrent Neural Network，RNN）</a><time datetime="2020-03-02T07:20:06.000Z" title="发表于 2020-03-02 15:20:06">2020-03-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/853fc4e2.html" title="N-gram语言模型"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="N-gram语言模型"/></a><div class="content"><a class="title" href="/posts/853fc4e2.html" title="N-gram语言模型">N-gram语言模型</a><time datetime="2020-02-27T14:59:36.000Z" title="发表于 2020-02-27 22:59:36">2020-02-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/8ba6751b.html" title="Arxiv查询接口详解"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Arxiv查询接口详解"/></a><div class="content"><a class="title" href="/posts/8ba6751b.html" title="Arxiv查询接口详解">Arxiv查询接口详解</a><time datetime="2020-02-10T15:17:48.000Z" title="发表于 2020-02-10 23:17:48">2020-02-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/d1bb6beb.html" title="论文阅读《Sequence to Sequence Learning with Neural Networks》"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="论文阅读《Sequence to Sequence Learning with Neural Networks》"/></a><div class="content"><a class="title" href="/posts/d1bb6beb.html" title="论文阅读《Sequence to Sequence Learning with Neural Networks》">论文阅读《Sequence to Sequence Learning with Neural Networks》</a><time datetime="2020-01-29T06:57:30.000Z" title="发表于 2020-01-29 14:57:30">2020-01-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/7f15f578.html" title="CS224n-lecture8 Machine Translation, Seq2Seq and Attention"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="CS224n-lecture8 Machine Translation, Seq2Seq and Attention"/></a><div class="content"><a class="title" href="/posts/7f15f578.html" title="CS224n-lecture8 Machine Translation, Seq2Seq and Attention">CS224n-lecture8 Machine Translation, Seq2Seq and Attention</a><time datetime="2020-01-26T10:05:28.000Z" title="发表于 2020-01-26 18:05:28">2020-01-26</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 By Hiyoung</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></div><script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight||document.documentElement.clientHeight)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},n.src=i}()}i(),n.addEventListener("scroll",function(){var t,e;t=i,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body></html>

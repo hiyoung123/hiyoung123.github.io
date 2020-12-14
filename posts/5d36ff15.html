@@ -1,262 +1,176 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.0.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
-  <meta name="google-site-verification" content="yXNWLn28ULu1e2oNTKIDLTMhXLOEd7DwMtrEmdJ0pgE">
-  <meta name="baidu-site-verification" content="m7vWhnTCyq">
-
-<link rel="stylesheet" href="/css/main.css">
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-
-
-<script id="hexo-configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    hostname: new URL('https://hiyoungai.com').hostname,
-    root: '/',
-    scheme: 'Mist',
-    version: '7.6.0',
-    exturl: false,
-    sidebar: {"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},
-    copycode: {"enable":false,"show_result":false,"style":null},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    bookmark: {"enable":false,"color":"#222","save":"auto"},
-    fancybox: false,
-    mediumzoom: false,
-    lazyload: false,
-    pangu: false,
-    algolia: {
-      appID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: 'search.xml',
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
-  };
-</script>
-
-  <meta name="description" content="Markdown基本语法与工具">
-<meta name="keywords" content="Markdown,Typora,Atom,流程图">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Markdown基本语法 | Young Blog</title><meta name="keywords" content="Markdown,Typora,Atom,流程图"><meta name="author" content="Hiyoung"><meta name="copyright" content="Hiyoung"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="Markdown基本语法与工具">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Markdown基本语法">
-<meta property="og:url" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;posts&#x2F;5d36ff15.html">
+<meta property="og:url" content="https://hiyoungai.com/posts/5d36ff15.html">
 <meta property="og:site_name" content="Young Blog">
 <meta property="og:description" content="Markdown基本语法与工具">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif">
-<meta property="og:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif">
-<meta property="og:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif">
-<meta property="og:updated_time" content="2019-12-03T11:47:09.374Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg">
+<meta property="article:published_time" content="2019-11-18T08:05:36.000Z">
+<meta property="article:modified_time" content="2019-12-03T11:47:09.374Z">
+<meta property="article:author" content="Hiyoung">
+<meta property="article:tag" content="Markdown">
+<meta property="article:tag" content="Typora">
+<meta property="article:tag" content="Atom">
+<meta property="article:tag" content="流程图">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;hiyoungai.com&#x2F;medias&#x2F;loading.gif">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://hiyoungai.com/posts/5d36ff15"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+};
 
-<link rel="canonical" href="https://hiyoungai.com/posts/5d36ff15.html">
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
 
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
 
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome: false,
-    isPost: true,
-    isPage: false,
-    isArchive: false
-  };
-</script>
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
 
-  <title>Markdown基本语法 | Young Blog</title>
-  
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}
 
-
-
-
-
-
-  <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
+// https://stackoverflow.com/questions/16839698/jquery-getscript-alternative-in-native-javascript
+const getScript = url => new Promise((resolve, reject) => {
+  const script = document.createElement('script')
+  script.src = url
+  script.async = true
+  script.onerror = reject
+  script.onload = script.onreadystatechange = function() {
+    const loadState = this.readyState
+    if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+    script.onload = script.onreadystatechange = null
+    resolve()
+  }
+  document.head.appendChild(script)
+})</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2019-12-03 19:47:09'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
   }
 
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
-<link rel="alternate" href="/atom.xml" title="Young Blog" type="application/atom+xml">
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+   if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+  const autoChangeMode = 'false'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}})()</script><meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="Young Blog" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
-
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
-
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-meta">
-
-    <div>
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Young Blog</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-        <p class="site-subtitle">Hi Young !</p>
-  </div>
-
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
-    </div>
-  </div>
-</div>
-
-
-<nav class="site-nav">
-  
-  <ul id="menu" class="menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
-
-  </li>
-        <li class="menu-item menu-item-coding">
-
-    <a href="/coding/" rel="section"><i class="fa fa-fw fa-code"></i>编程</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
-
-  </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
-
-  </li>
-  </ul>
-
-</nav>
-</div>
-    </header>
-
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-  <div class="reading-progress-bar"></div>
-
-
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-
-          <div class="content">
-            
-
-  <div class="posts-expand">
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hiyoungai.com/posts/5d36ff15.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Hiyoung">
-      <meta itemprop="description" content="人生何所求，致富和自由。 -《基督山伯爵》">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Young Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          Markdown基本语法
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-11-18 16:05:36" itemprop="dateCreated datePublished" datetime="2019-11-18T16:05:36+08:00">2019-11-18</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-12-03 19:47:09" itemprop="dateModified" datetime="2019-12-03T19:47:09+08:00">2019-12-03</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%BE%BF%E6%8D%B7%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index">
-                    <span itemprop="name">便捷工具</span>
-                  </a>
-                </span>
-            </span>
-
-          
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-        <blockquote>
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">26</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">67</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Young Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Markdown基本语法</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2019-11-18T08:05:36.000Z" title="发表于 2019-11-18 16:05:36">2019-11-18</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2019-12-03T11:47:09.374Z" title="更新于 2019-12-03 19:47:09">2019-12-03</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E4%BE%BF%E6%8D%B7%E5%B7%A5%E5%85%B7/">便捷工具</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><blockquote>
 <p>Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档。</p>
 <p>Markdown 语言在 2004 由约翰·格鲁伯（英语：John Gruber）创建。</p>
 <p>Markdown 编写的文档可以导出 HTML 、Word、图像、PDF、Epub 等多种格式的文档。</p>
@@ -323,7 +237,7 @@ ___这是斜体加粗的文字___
 
 这是要<span class="token variable"><span class="token variable">`</span>高亮<span class="token variable">`</span></span>的文字<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>效果如下：</p>
-<p><strong>这是加粗的文字</strong><br><strong>这是加粗的文字</strong><br><em>这是倾斜的文字</em><br>_这是倾斜的文字_<br><strong><em>这是斜体加粗的文字</em></strong><br><strong>_这是斜体加粗的文字_</strong><br><del>这是加删除线的文字</del><br><u>这是加下划线的文字</u></p>
+<p><strong>这是加粗的文字</strong><br><strong>这是加粗的文字</strong><br><em>这是倾斜的文字</em><br><em>这是倾斜的文字</em><br><strong><em>这是斜体加粗的文字</em></strong><br><strong><em>这是斜体加粗的文字</em></strong><br><del>这是加删除线的文字</del><br><u>这是加下划线的文字</u></p>
 <p>这是要<code>高亮</code>的文字</p>
 <hr>
 <h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p>在引用的文字前加<code>&gt;</code>即可，同样严格语法需要中间加一个空格。引用也可以嵌套，如加两个<code>&gt;&gt;</code>三个<code>&gt;&gt;&gt;</code>n个…</p>
@@ -419,22 +333,22 @@ ___这是斜体加粗的文字___
 <p>效果如下：</p>
 <p><code>print()</code>函数</p>
 <p>代码块需要使用４个空格或者一个制表符（Tab键）：</p>
-<pre class="line-numbers language-bash"><code class="language-bash">    fun <span class="token punctuation">(</span>x: Int, y: Int<span class="token punctuation">)</span>: Int <span class="token punctuation">{</span>
+<pre class="line-numbers language-bash"><code class="language-bash">    fun <span class="token punctuation">(</span>x: Int, y: Int<span class="token punctuation">)</span>: Int <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
       <span class="token keyword">return</span> x + y
-    <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+    <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>​    效果如下</p>
-<pre class="line-numbers language-kotlin"><code class="language-kotlin"><span class="token keyword">fun</span> <span class="token punctuation">(</span>x<span class="token operator">:</span> Int<span class="token punctuation">,</span> y<span class="token operator">:</span> Int<span class="token punctuation">)</span><span class="token operator">:</span> Int <span class="token punctuation">{</span>
+<pre class="line-numbers language-kotlin"><code class="language-kotlin"><span class="token keyword">fun</span> <span class="token punctuation">(</span>x<span class="token operator">:</span> Int<span class="token punctuation">,</span> y<span class="token operator">:</span> Int<span class="token punctuation">)</span><span class="token operator">:</span> Int &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
   <span class="token keyword">return</span> x <span class="token operator">+</span> y
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+&amp;#<span class="token number">125</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>或者使用’’’code’’’把代码包裹起来，也可以指定代码语言，这样可以进行代码高亮：</p>
 <pre><code>​```javascript
-$(document).ready(function () {
+$(document).ready(function () &#123;
     alert(&#39;RUNOOB&#39;);
-});
+&#125;);
 ​```</code></pre><p>效果如下：</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token function">$</span><span class="token punctuation">(</span>document<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">ready</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token function">$</span><span class="token punctuation">(</span>document<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">ready</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">'RUNOOB'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <hr>
 <h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><h3 id="基本链接的使用方法"><a href="#基本链接的使用方法" class="headerlink" title="基本链接的使用方法"></a>基本链接的使用方法</h3><pre><code>[链接名称](链接地址 &quot;描述&quot;)　其中描述为鼠标放到url的显示文字，可加可不加。
 
@@ -453,7 +367,7 @@ $(document).ready(function () {
 
 [1]:https://www.google.com
 [url]:https://www.baidu.com</code></pre><p>效果如下：</p>
-<p>这个链接使用１作为链接变量<a href="https://www.google.com" target="_blank" rel="noopener">Google</a><br>这个链接使用url作为链接变量<a href="https://www.baidu.com" target="_blank" rel="noopener">baidu</a></p>
+<p>这个链接使用１作为链接变量<a target="_blank" rel="noopener" href="https://www.google.com">Google</a><br>这个链接使用url作为链接变量<a target="_blank" rel="noopener" href="https://www.baidu.com">baidu</a></p>
 <h3 id="锚点链接"><a href="#锚点链接" class="headerlink" title="锚点链接"></a>锚点链接</h3><p>每一个标题都是一个锚点，和HTML的锚点<code>#</code>类似：</p>
 <pre><code>[回到顶部](#Markdown基本语法)</code></pre><p>效果如下：</p>
 <p><a href="#Markdown基本语法">回到顶部</a></p>
@@ -536,7 +450,7 @@ $(document).ready(function () {
 `   反引号
 *   星号
 _   下划线
-{}  花括号
+&#123;&#125;  花括号
 []  方括号
 ()  小括号
 #   井字号
@@ -545,11 +459,11 @@ _   下划线
 .   英文句点
 !   感叹号</code></pre><h3 id="数学公式"><a href="#数学公式" class="headerlink" title="数学公式"></a>数学公式</h3><p>当你需要在编辑器中插入数学公式时，可以使用两个美元符 <code>$$</code> 包裹 <code>TeX</code> 或 <code>LaTeX</code> 格式的数学公式来实现。提交后，问答和文章页会根据需要加载 <code>Mathjax</code> 对数学公式进行渲染。如：</p>
 <pre><code>$$
-\mathbf{V}_1 \times \mathbf{V}_2 =  \begin{vmatrix}
-\mathbf{i} &amp; \mathbf{j} &amp; \mathbf{k} \\
-\frac{\partial X}{\partial u} &amp;  \frac{\partial Y}{\partial u} &amp; 0 \\
-\frac{\partial X}{\partial v} &amp;  \frac{\partial Y}{\partial v} &amp; 0 \\
-\end{vmatrix}
+\mathbf&#123;V&#125;_1 \times \mathbf&#123;V&#125;_2 =  \begin&#123;vmatrix&#125;
+\mathbf&#123;i&#125; &amp; \mathbf&#123;j&#125; &amp; \mathbf&#123;k&#125; \\
+\frac&#123;\partial X&#125;&#123;\partial u&#125; &amp;  \frac&#123;\partial Y&#125;&#123;\partial u&#125; &amp; 0 \\
+\frac&#123;\partial X&#125;&#123;\partial v&#125; &amp;  \frac&#123;\partial Y&#125;&#123;\partial v&#125; &amp; 0 \\
+\end&#123;vmatrix&#125;
 $$</code></pre><p>效果如下：<br>$$<br>\mathbf{V}_1 \times \mathbf{V}_2 =  \begin{vmatrix}<br>\mathbf{i} &amp; \mathbf{j} &amp; \mathbf{k} \<br>\frac{\partial X}{\partial u} &amp;  \frac{\partial Y}{\partial u} &amp; 0 \<br>\frac{\partial X}{\partial v} &amp;  \frac{\partial Y}{\partial v} &amp; 0 \<br>\end{vmatrix}<br>$$</p>
 <h3 id="流程图"><a href="#流程图" class="headerlink" title="流程图"></a>流程图</h3><p>流程图需要平台支持，而我使用的hexo，需要安装如下三个插件：</p>
 <pre><code>npm install --save hexo-filter-flowchart
@@ -564,17 +478,17 @@ mermaid:
   cdn: https://cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js
   #cdn: //cdnjs.cloudflare.com/ajax/libs/mermaid/8.0.0/mermaid.min.js</code></pre><p>在footer.ejs的结尾处添加：</p>
 <pre><code>&lt;div class=&quot;progress-bar&quot;&gt;&lt;/div&gt;
-&lt;% if (theme.mermaid.enable) { %&gt;
+&lt;% if (theme.mermaid.enable) &#123; %&gt;
   &lt;script src=&#39;&lt;%= theme.mermaid.cdn %&gt;&#39;&gt;&lt;/script&gt;
   &lt;script&gt;
-    if (window.mermaid) {
-      mermaid.initialize({theme: &#39;forest&#39;});
-    }
+    if (window.mermaid) &#123;
+      mermaid.initialize(&#123;theme: &#39;forest&#39;&#125;);
+    &#125;
   &lt;/script&gt;
-&lt;% } %&gt;</code></pre><p>如果不使用<code>mermaid</code>的话那么不需要上述配置。</p>
+&lt;% &#125; %&gt;</code></pre><p>如果不使用<code>mermaid</code>的话那么不需要上述配置。</p>
 <h4 id="横向流程图"><a href="#横向流程图" class="headerlink" title="横向流程图"></a>横向流程图</h4><pre><code>​&lt;pre class=&quot;mermaid&quot;&gt;graph LR
 A[方形] --&gt;B(圆角)
-    B --&gt; C{条件a}
+    B --&gt; C&#123;条件a&#125;
     C --&gt;|a=1| D[结果1]
     C --&gt;|a=2| E[结果2]
     F[横向流程图]
@@ -587,7 +501,7 @@ A[方形] -->B(圆角)
 
 <h4 id="纵向流程图"><a href="#纵向流程图" class="headerlink" title="纵向流程图"></a>纵向流程图</h4><pre><code>​&lt;pre class=&quot;mermaid&quot;&gt;graph TD
 A[方形] --&gt; B(圆角)
-    B --&gt; C{条件a}
+    B --&gt; C&#123;条件a&#125;
     C --&gt; |a=1| D[结果1]
     C --&gt; |a=2| E[结果2]
     F[竖向流程图]
@@ -675,7 +589,7 @@ A[方形] --> B(圆角)
 <h3 id="Emoj表情"><a href="#Emoj表情" class="headerlink" title="Emoj表情"></a>Emoj表情</h3><p><code>Github</code>的<code>Markdown</code>语法支持添加emoji表情，输入不同的符号码（两个冒号包着的字符）可以显示出不同的表情（本网站没有添加该插件，需要支持Github的markdwon才可以正常显示）：</p>
 <pre><code>:bluesh:</code></pre><p>效果如下：</p>
 <p>😀</p>
-<p> 具体每一个表情的符号码，可以查询<code>Github</code>的官方网页<a href="http://www.emoji-cheat-sheet.com/" target="_blank" rel="noopener">http://www.emoji-cheat-sheet.com</a>。 </p>
+<p> 具体每一个表情的符号码，可以查询<code>Github</code>的官方网页<a target="_blank" rel="noopener" href="http://www.emoji-cheat-sheet.com/">http://www.emoji-cheat-sheet.com</a>。 </p>
 <h3 id="插入视频"><a href="#插入视频" class="headerlink" title="插入视频"></a>插入视频</h3><pre><code>&lt;video id=&quot;video&quot; controls=&quot;&quot; preload=&quot;none&quot; poster=&quot;缩略图&quot;&gt;
       &lt;source id=&quot;视频url&quot; type=&quot;video/mp4&quot;&gt;
       &lt;/video&gt;
@@ -695,10 +609,10 @@ A[方形] --> B(圆角)
       <source id="mp4" src="https://cdn.jsdelivr.net/gh/hiyoung123/CDN/video/video_markdown_typora.mp4" type="video/mp4">
       </video>
 
-<p><a href="https://www.typora.io/" target="_blank" rel="noopener">Typora官方下载</a> </p>
+<p><a target="_blank" rel="noopener" href="https://www.typora.io/">Typora官方下载</a> </p>
 <h3 id="Atom"><a href="#Atom" class="headerlink" title="Atom"></a>Atom</h3><p>特点：插件丰富（毕竟是Github推出的），并且可以用作其他语言的编辑器。其实也可以做到一边编辑一边看结果，只不过是需要多开一个窗口，😄！</p>
-<p><a href="https://github.com/atom/atom" target="_blank" rel="noopener">Atom下载地址</a></p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>作者也是刚开始接触这两个软件，所以不是特别熟悉，等使用一段时间，对比之后再来详细的写一下。<br>流程图插件配置参考博客：<a href="https://blog.csdn.net/Olivia_Vang/article/details/92987859" target="_blank" rel="noopener">https://blog.csdn.net/Olivia_Vang/article/details/92987859</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/atom/atom">Atom下载地址</a></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>作者也是刚开始接触这两个软件，所以不是特别熟悉，等使用一段时间，对比之后再来详细的写一下。<br>流程图插件配置参考博客：<a target="_blank" rel="noopener" href="https://blog.csdn.net/Olivia_Vang/article/details/92987859">https://blog.csdn.net/Olivia_Vang/article/details/92987859</a></p>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script><textarea id="flowchart-0-code" style="display: none">st=>start: 开始框
 op=>operation: 处理框
 cond=>condition: 判断框(是或否?)
@@ -763,343 +677,9 @@ Note left of 对象A: 对象A的描述(提示)
 对象A->对象B: 你真的好吗？
 Note over 小三,对象B: 我们是朋友
 participant C
-Note right of C: 没人陪我玩</textarea><textarea id="sequence-3-options" style="display: none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("sequence-3-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("sequence-3-options").value));  var diagram = Diagram.parse(code);  diagram.drawSVG("sequence-3", options);</script>
-    </div>
-
-    
-    
-    
-
-      <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/Markdown/" rel="tag"># Markdown</a>
-              <a href="/tags/Typora/" rel="tag"># Typora</a>
-              <a href="/tags/Atom/" rel="tag"># Atom</a>
-              <a href="/tags/%E6%B5%81%E7%A8%8B%E5%9B%BE/" rel="tag"># 流程图</a>
-          </div>
-
-        
-
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/posts/4dbbde95.html" rel="prev" title="最全Hexo博客搭建教程以及优化">
-      <i class="fa fa-chevron-left"></i> 最全Hexo博客搭建教程以及优化
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/posts/9eeee454.html" rel="next" title="NLP系列 - 基于词典的中文分词">
-      NLP系列 - 基于词典的中文分词 <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
-      </footer>
-    
-  </article>
-  
-  
-  
-
-  </div>
-
-
-          </div>
-              
-    <div class="comments" id="gitalk-container"></div>
-
-        </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#标题"><span class="nav-text">标题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分割线"><span class="nav-text">分割线</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字体"><span class="nav-text">字体</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引用"><span class="nav-text">引用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列表"><span class="nav-text">列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-text">代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#链接"><span class="nav-text">链接</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本链接的使用方法"><span class="nav-text">基本链接的使用方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#高级链接的使用方法"><span class="nav-text">高级链接的使用方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#锚点链接"><span class="nav-text">锚点链接</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图片"><span class="nav-text">图片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表格"><span class="nav-text">表格</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本语法"><span class="nav-text">基本语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对齐方式"><span class="nav-text">对齐方式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#高级技巧"><span class="nav-text">高级技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#支持html元素"><span class="nav-text">支持html元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#转义字符"><span class="nav-text">转义字符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数学公式"><span class="nav-text">数学公式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#流程图"><span class="nav-text">流程图</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#横向流程图"><span class="nav-text">横向流程图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#纵向流程图"><span class="nav-text">纵向流程图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#标准流程图"><span class="nav-text">标准流程图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#标准流程图（横向）"><span class="nav-text">标准流程图（横向）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UML时序图"><span class="nav-text">UML时序图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UML时序图（复杂样例）"><span class="nav-text">UML时序图（复杂样例）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UML标准时序图"><span class="nav-text">UML标准时序图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#甘特图"><span class="nav-text">甘特图</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Emoj表情"><span class="nav-text">Emoj表情</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插入视频"><span class="nav-text">插入视频</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插入Github-Star"><span class="nav-text">插入Github Star</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工具介绍"><span class="nav-text">工具介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Typora"><span class="nav-text">Typora</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Atom"><span class="nav-text">Atom</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-text">总结</span></a></li></ol></li></ol></div>
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="Hiyoung"
-      src="/images/avatar.gif">
-  <p class="site-author-name" itemprop="name">Hiyoung</p>
-  <div class="site-description" itemprop="description">人生何所求，致富和自由。 -《基督山伯爵》</div>
-</div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">20</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-            <a href="/categories/">
-          
-        <span class="site-state-item-count">8</span>
-        <span class="site-state-item-name">分类</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-        <span class="site-state-item-count">54</span>
-        <span class="site-state-item-name">标签</span></a>
-      </div>
-  </nav>
-</div>
-  <div class="links-of-author motion-element">
-    <span class="links-of-author-item">
-    <a href="https://github.com/hiyoung123/ " class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-        <i class="fa fa-fw fa-github"></i>GitHub
-    </a>
-    </span>
-    <span class="links-of-author-item">
-    <a href="mailto:hiyoungliu@gmail.com " class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
-        <i class="fa fa-fw fa-envelope"></i>Email
-    </a>
-    </span>
-    <span class="links-of-author-item">
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=787420787 " class="tooltipped" target="_blank" data-tooltip="QQ联系我: 787420787 " data-position="top" data-delay="50">
-        <i class="fa fa-fw fa-qq"></i>QQ
-    </a>
-    </span>
-    <span class="links-of-author-item">
-    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
-        <i class="fa fa-fw fa-rss"></i>RSS
-    </a>
-    </span>
-
-
-<!--
-      <span class="links-of-author-item">
-        <a href="https://github.com/hiyoung123/" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;hiyoung123&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="/hiyoungliu@gmail.com" title="Email → hiyoungliu@gmail.com"><i class="fa fa-fw fa-envelope"></i>Email</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="/787420787" title="QQ → 787420787"><i class="fa fa-fw fa-qq"></i>QQ</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-fw fa-rss"></i>RSS</a>
-      </span>
--->
-  </div>
-
-
-  <div class="links-of-blogroll motion-element">
-    <div class="links-of-blogroll-title">
-      <i class="fa fa-fw fa-link"></i>
-      Links
-    </div>
-    <ul class="links-of-blogroll-list">
-        <li class="links-of-blogroll-item">
-          <a href="https://godweiyang.com/" title="https:&#x2F;&#x2F;godweiyang.com" rel="noopener" target="_blank">godweiyang</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://www.dreamwings.cn/" title="https:&#x2F;&#x2F;www.dreamwings.cn" rel="noopener" target="_blank">千千</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://wdxtub.com/" title="https:&#x2F;&#x2F;wdxtub.com" rel="noopener" target="_blank">小土刀</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="http://codewithzhangyi.com/" title="http:&#x2F;&#x2F;codewithzhangyi.com" rel="noopener" target="_blank">Zhang Yi</a>
-        </li>
-    </ul>
-  </div>
-
-      </div>
-
-    </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-<div class="copyright">
-  
-  &copy; 2019 – 
-  <span itemprop="copyrightYear">2020</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Hiyoung</span>
-</div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
-  </div>
-  <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.6.0
-  </div>
-
-        
-<div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-area-chart"></i>
-      </span>
-      <span class="site-uv" title="站点总字数">
-        <span class="post-count">44.1k</span>
-      </span>
-    </span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-user"></i>
-      </span>
-      <span class="site-uv" title="总访客量">
-        <span id="busuanzi_value_site_uv"></span>
-      </span>
-    </span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-eye"></i>
-      </span>
-      <span class="site-pv" title="总访问量">
-        <span id="busuanzi_value_site_pv"></span>
-      </span>
-    </span>
-</div>
-
-
-
-
-
-
-
-
-      </div>
-    </footer>
-  </div>
-
-  
-  <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
-<script src="/js/schemes/muse.js"></script>
-<script src="/js/next-boot.js"></script>
-
-
-
-  
-  <script>
-    (function(){
-      var bp = document.createElement('script');
-      var curProtocol = window.location.protocol.split(':')[0];
-      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(bp, s);
-    })();
-  </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  
-      
-<script type="text/x-mathjax-config">
-
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
-      processEscapes: true,
-      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    },
-    TeX: {
-      equationNumbers: {
-        autoNumber: 'AMS'
-      }
-    }
-  });
-
-  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
-    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
-      if (data.display) {
-        var next = data.script.nextSibling;
-        while (next && next.nodeName.toLowerCase() === '#text') {
-          next = next.nextSibling;
-        }
-        if (next && next.nodeName.toLowerCase() === 'br') {
-          next.parentNode.removeChild(next);
-        }
-      }
-    });
-  });
-
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for (i = 0; i < all.length; i += 1) {
-      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
-      if (element.nodeName.toLowerCase() == 'li') {
-        element = element.parentNode;
-      }
-      element.classList.add('has-jax');
-    }
-  });
-</script>
-<script>
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
-    MathJax.Hub.Typeset();
-  }, window.MathJax);
-</script>
-
-    
-
-  
-
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
-
-<script>
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
-    var gitalk = new Gitalk({
-      clientID: '2809c671d3e9827bdb20',
-      clientSecret: '5f216884763890b0ef3751b9206ab5eade091708',
-      repo: 'hiyoung123.github.io',
-      owner: 'hiyoung123',
-      admin: ['hiyoung123'],
-      id: '6accb5d6644bf6250fe74eca1d4e9ce5',
-        language: '',
-      distractionFreeMode: 'true'
-    });
-    gitalk.render('gitalk-container');
-  }, window.Gitalk);
-</script>
-
-<script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
-</html>
+Note right of C: 没人陪我玩</textarea><textarea id="sequence-3-options" style="display: none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("sequence-3-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("sequence-3-options").value));  var diagram = Diagram.parse(code);  diagram.drawSVG("sequence-3", options);</script></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Hiyoung</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://hiyoungai.com/posts/5d36ff15.html">https://hiyoungai.com/posts/5d36ff15.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://hiyoungai.com" target="_blank">Young Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Markdown/">Markdown</a><a class="post-meta__tags" href="/tags/Typora/">Typora</a><a class="post-meta__tags" href="/tags/Atom/">Atom</a><a class="post-meta__tags" href="/tags/%E6%B5%81%E7%A8%8B%E5%9B%BE/">流程图</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/9eeee454.html"><img class="prev-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">NLP系列 - 基于词典的中文分词</div></div></a></div><div class="next-post pull-right"><a href="/posts/4dbbde95.html"><img class="next-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">最全Hexo博客搭建教程以及优化</div></div></a></div></nav></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Hiyoung</div><div class="author-info__description">人生何所求，致富和自由。 -《基督山伯爵》</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">26</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">67</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/hiyoung123" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:hiyoungliu@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div></div><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="card-content"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%87%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">标题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E5%89%B2%E7%BA%BF"><span class="toc-number">2.</span> <span class="toc-text">分割线</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E4%BD%93"><span class="toc-number">3.</span> <span class="toc-text">字体</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E7%94%A8"><span class="toc-number">4.</span> <span class="toc-text">引用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%97%E8%A1%A8"><span class="toc-number">5.</span> <span class="toc-text">列表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="toc-number">6.</span> <span class="toc-text">代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%93%BE%E6%8E%A5"><span class="toc-number">7.</span> <span class="toc-text">链接</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E9%93%BE%E6%8E%A5%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-number">7.1.</span> <span class="toc-text">基本链接的使用方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AB%98%E7%BA%A7%E9%93%BE%E6%8E%A5%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-number">7.2.</span> <span class="toc-text">高级链接的使用方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%94%9A%E7%82%B9%E9%93%BE%E6%8E%A5"><span class="toc-number">7.3.</span> <span class="toc-text">锚点链接</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E7%89%87"><span class="toc-number">8.</span> <span class="toc-text">图片</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A8%E6%A0%BC"><span class="toc-number">9.</span> <span class="toc-text">表格</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="toc-number">9.1.</span> <span class="toc-text">基本语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E9%BD%90%E6%96%B9%E5%BC%8F"><span class="toc-number">9.2.</span> <span class="toc-text">对齐方式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%AB%98%E7%BA%A7%E6%8A%80%E5%B7%A7"><span class="toc-number">10.</span> <span class="toc-text">高级技巧</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%94%AF%E6%8C%81html%E5%85%83%E7%B4%A0"><span class="toc-number">10.1.</span> <span class="toc-text">支持html元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BD%AC%E4%B9%89%E5%AD%97%E7%AC%A6"><span class="toc-number">10.2.</span> <span class="toc-text">转义字符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F"><span class="toc-number">10.3.</span> <span class="toc-text">数学公式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%81%E7%A8%8B%E5%9B%BE"><span class="toc-number">10.4.</span> <span class="toc-text">流程图</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%AA%E5%90%91%E6%B5%81%E7%A8%8B%E5%9B%BE"><span class="toc-number">10.4.1.</span> <span class="toc-text">横向流程图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BA%B5%E5%90%91%E6%B5%81%E7%A8%8B%E5%9B%BE"><span class="toc-number">10.4.2.</span> <span class="toc-text">纵向流程图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%87%E5%87%86%E6%B5%81%E7%A8%8B%E5%9B%BE"><span class="toc-number">10.4.3.</span> <span class="toc-text">标准流程图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%87%E5%87%86%E6%B5%81%E7%A8%8B%E5%9B%BE%EF%BC%88%E6%A8%AA%E5%90%91%EF%BC%89"><span class="toc-number">10.4.4.</span> <span class="toc-text">标准流程图（横向）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#UML%E6%97%B6%E5%BA%8F%E5%9B%BE"><span class="toc-number">10.4.5.</span> <span class="toc-text">UML时序图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#UML%E6%97%B6%E5%BA%8F%E5%9B%BE%EF%BC%88%E5%A4%8D%E6%9D%82%E6%A0%B7%E4%BE%8B%EF%BC%89"><span class="toc-number">10.4.6.</span> <span class="toc-text">UML时序图（复杂样例）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#UML%E6%A0%87%E5%87%86%E6%97%B6%E5%BA%8F%E5%9B%BE"><span class="toc-number">10.4.7.</span> <span class="toc-text">UML标准时序图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%98%E7%89%B9%E5%9B%BE"><span class="toc-number">10.4.8.</span> <span class="toc-text">甘特图</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Emoj%E8%A1%A8%E6%83%85"><span class="toc-number">10.5.</span> <span class="toc-text">Emoj表情</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%92%E5%85%A5%E8%A7%86%E9%A2%91"><span class="toc-number">10.6.</span> <span class="toc-text">插入视频</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%92%E5%85%A5Github-Star"><span class="toc-number">10.7.</span> <span class="toc-text">插入Github Star</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E5%85%B7%E4%BB%8B%E7%BB%8D"><span class="toc-number">11.</span> <span class="toc-text">工具介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Typora"><span class="toc-number">11.1.</span> <span class="toc-text">Typora</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Atom"><span class="toc-number">11.2.</span> <span class="toc-text">Atom</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">11.3.</span> <span class="toc-text">总结</span></a></li></ol></li></ol></div></div></div><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/eb3fbcc4.html" title="循环神经网络（Recurrent Neural Network，RNN）"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="循环神经网络（Recurrent Neural Network，RNN）"/></a><div class="content"><a class="title" href="/posts/eb3fbcc4.html" title="循环神经网络（Recurrent Neural Network，RNN）">循环神经网络（Recurrent Neural Network，RNN）</a><time datetime="2020-03-02T07:20:06.000Z" title="发表于 2020-03-02 15:20:06">2020-03-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/853fc4e2.html" title="N-gram语言模型"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="N-gram语言模型"/></a><div class="content"><a class="title" href="/posts/853fc4e2.html" title="N-gram语言模型">N-gram语言模型</a><time datetime="2020-02-27T14:59:36.000Z" title="发表于 2020-02-27 22:59:36">2020-02-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/8ba6751b.html" title="Arxiv查询接口详解"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Arxiv查询接口详解"/></a><div class="content"><a class="title" href="/posts/8ba6751b.html" title="Arxiv查询接口详解">Arxiv查询接口详解</a><time datetime="2020-02-10T15:17:48.000Z" title="发表于 2020-02-10 23:17:48">2020-02-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/d1bb6beb.html" title="论文阅读《Sequence to Sequence Learning with Neural Networks》"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="论文阅读《Sequence to Sequence Learning with Neural Networks》"/></a><div class="content"><a class="title" href="/posts/d1bb6beb.html" title="论文阅读《Sequence to Sequence Learning with Neural Networks》">论文阅读《Sequence to Sequence Learning with Neural Networks》</a><time datetime="2020-01-29T06:57:30.000Z" title="发表于 2020-01-29 14:57:30">2020-01-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/7f15f578.html" title="CS224n-lecture8 Machine Translation, Seq2Seq and Attention"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="CS224n-lecture8 Machine Translation, Seq2Seq and Attention"/></a><div class="content"><a class="title" href="/posts/7f15f578.html" title="CS224n-lecture8 Machine Translation, Seq2Seq and Attention">CS224n-lecture8 Machine Translation, Seq2Seq and Attention</a><time datetime="2020-01-26T10:05:28.000Z" title="发表于 2020-01-26 18:05:28">2020-01-26</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 By Hiyoung</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></div><script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight||document.documentElement.clientHeight)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},n.src=i}()}i(),n.addEventListener("scroll",function(){var t,e;t=i,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body></html>
