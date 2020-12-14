@@ -1,6 +1,6 @@
 ---
 title: Markdown基本语法
-top: true
+top: 1
 toc: true
 mathjax: true
 tags:
