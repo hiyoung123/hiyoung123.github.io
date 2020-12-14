@@ -2,7 +2,6 @@
 title: 论文阅读《Efficient Estimation of Word Representations in Vector Space》
 abbrlink: fcba888f
 top: false
-cover: false
 toc: true
 mathjax: true
 tags:
@@ -38,7 +37,6 @@ excerpt: 论文《Efficient Estimation of Word Representations in Vector Space�
 该论文还发现了单词的向量表示，不仅可以简单的表示相似性，还可以通过词偏移技术进行代数运算：
 
 <center> $\vec{King} - \vec{Man} + \vec{Woman} = \vec{Queen}$</center> </br></br>
-
 
 ## 模型结构
 

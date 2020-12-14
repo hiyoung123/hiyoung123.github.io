@@ -4,7 +4,6 @@ title: >-
   Calculus
 abbrlink: b38e2b22
 top: false
-cover: false
 toc: true
 mathjax: true
 tags:
@@ -46,8 +45,6 @@ excerpt: CS224n 深度学习自然语言处理 2019 版 Lecture-3 学习笔记�
 
 <center>$p(y|x) = {exp(W_y,x)\over \sum^C_{c=1} exp(W_Cx)}$</center></br>
 
- 
-
 ### Details of the softmax classifier
 
 将上述的预测函数分为两个步骤介绍：
@@ -69,15 +66,11 @@ excerpt: CS224n 深度学习自然语言处理 2019 版 Lecture-3 学习笔记�
 
 <center>$-logp(y|x) = -log({exp(f_y)\over\sum^C_{c=1}exp(f_c)})$</center></br>
 
- 
-
 ###　What is “cross entropy” loss/error?
 
 交叉熵是信息论中的概念，用于衡量两个分布 p 和 q 之间的差异。在这里使用 p 代表真实值，使用 q 代表模型预测值，那么交叉熵损失函数的公式为：
 
 <center>$H(p,q) = -\sum^C_{c=1} p(c)log q(c)$</center></br>
- 
-
 具体交叉熵的介绍可以看我另外一篇博客[信息熵总结](https://hiyoungai.com/posts/686d9456.html)。
 
 ### Classification over a full dataset
@@ -91,8 +84,6 @@ excerpt: CS224n 深度学习自然语言处理 2019 版 Lecture-3 学习笔记�
 使用矩阵的方式表示 f：
 
 <center>$f = Wx$</center></br>
- 
-
 ### Traditional ML optimization
 
 通常基本的机器学习模型参数 $\theta$ 只包含一列 W：
@@ -101,8 +92,6 @@ excerpt: CS224n 深度学习自然语言处理 2019 版 Lecture-3 学习笔记�
 所以只需要根据参数 $\theta$ 的梯度来更新决策边界：
 
 <center>$\nabla_\theta J(\theta) = \left[ \begin{matrix} \nabla W_{.1} \\ \vdots \\ \nabla W_{.d} \end{matrix} \right] \in R^{Cd}$</center></br>
-
- 
 
 
 ## Neural Network Classifiers

@@ -2,7 +2,6 @@
 title: CS224n-lecture2 Word Vectors and Word Senses
 abbrlink: ad770643
 top: false
-cover: false
 toc: true
 mathjax: true
 tags:

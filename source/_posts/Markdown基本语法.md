@@ -13,7 +13,6 @@ categories:
 img: 'https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_markdown.jpeg'
 abbrlink: 5d36ff15
 date: 2019-11-18 16:05:36
-cover:
 password:
 summary:
 excerpt: Markdown基本语法与工具

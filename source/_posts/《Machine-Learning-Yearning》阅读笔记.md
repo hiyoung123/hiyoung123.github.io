@@ -1,7 +1,6 @@
 ---
 title: 《Machine Learning Yearning》阅读笔记
 top: false
-cover: false
 toc: true
 mathjax: true
 tags:

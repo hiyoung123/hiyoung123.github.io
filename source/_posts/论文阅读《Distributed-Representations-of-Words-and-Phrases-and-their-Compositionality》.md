@@ -2,7 +2,6 @@
 title: 论文阅读《Distributed Representations of Words and Phrases and their Compositionality》
 abbrlink: 28911bbb
 top: false
-cover: false
 toc: true
 mathjax: true
 tags:
@@ -46,7 +45,6 @@ Skip-gram 的模型结构：
 
 <center>$\vec{俄罗斯} + \vec{河} = \vec{伏尔加河}$</center>
 <center>$\vec{德国} + \vec{首都} = \vec{柏林}$</center></br>
-
 
 
 ## Skip-gram 模型

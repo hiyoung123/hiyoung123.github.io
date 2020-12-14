@@ -1,7 +1,6 @@
 ---
 title: 最全Hexo博客搭建教程以及优化
 top: true
-cover: false
 toc: true
 mathjax: true
 tags:

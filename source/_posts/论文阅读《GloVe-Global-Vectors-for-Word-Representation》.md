@@ -3,7 +3,6 @@ title: '论文阅读《GloVe: Global Vectors for Word Representation》'
 toc: true
 mathjax: true
 top: false
-cover: false
 tags:
   - NLP
   - 人工智能

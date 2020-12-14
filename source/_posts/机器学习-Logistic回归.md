@@ -1,7 +1,6 @@
 ---
 title: 机器学习 - Logistic回归
 top: false
-cover: false
 toc: true
 mathjax: true
 tags:

@@ -2,7 +2,6 @@
 title: CS224n-lecture1 Introduction and Word Vectors
 abbrlink: 2878d2b0
 top: false
-cover: false
 toc: true
 mathjax: true
 tags:
