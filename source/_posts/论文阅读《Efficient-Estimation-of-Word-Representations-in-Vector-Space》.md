@@ -13,6 +13,7 @@ tags:
 categories:
   - 自然语言处理
 date: 2019-12-30 17:45:45
+cover: https://cdn.jsdelivr.net/gh/hiyoung123/images/feature/undraw_Blog_post_re_fy5x.svg
 excerpt: 论文《Efficient Estimation of Word Representations in Vector Space》阅读笔记。
 ---
 

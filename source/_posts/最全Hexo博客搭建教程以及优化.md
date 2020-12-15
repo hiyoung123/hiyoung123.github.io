@@ -12,6 +12,7 @@ abbrlink: 4dbbde95
 date: 2019-11-16 11:50:59
 password:
 summary:
+cover: https://cdn.jsdelivr.net/gh/hiyoung123/images/feature/undraw_wall_post_83ul.svg
 excerpt: 最全Hexo博客搭建教程以及优化 使用Hexo+Github搭建一个免费的个人博客，本文略长，大佬请自行选择阅读。
 ---
 > 使用Hexo+Github搭建一个免费的个人博客，本文略长，大佬请自行选择阅读。

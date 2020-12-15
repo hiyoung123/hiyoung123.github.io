@@ -9,6 +9,7 @@ categories:
   - 便捷工具
 excerpt: Arxiv 论文网站查询接口 API 详解。
 abbrlink: 8ba6751b
+cover: https://cdn.jsdelivr.net/gh/hiyoung123/images/feature/undraw_source_code_xx2e.svg
 date: 2020-02-10 23:17:48
 ---
 

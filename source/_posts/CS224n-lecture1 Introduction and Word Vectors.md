@@ -12,6 +12,7 @@ tags:
 categories:
   - 自然语言处理
 date: 2019-11-28 17:45:45
+cover: https://cdn.jsdelivr.net/gh/hiyoung123/images/feature/undraw_hacker_mind_6y85.svg
 excerpt: CS224n 深度学习自然语言处理 2019 版 Lecture-1 学习笔记。
 ---
 

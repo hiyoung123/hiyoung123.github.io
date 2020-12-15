@@ -12,6 +12,7 @@ tags:
 categories:
   - 自然语言处理
 excerpt: CS224n 深度学习自然语言处理 2019 版 Lecture-8 学习笔记。
+cover: https://cdn.jsdelivr.net/gh/hiyoung123/images/feature/undraw_online_transactions_02ka.svg
 abbrlink: 7f15f578
 date: 2020-01-26 18:05:28
 ---

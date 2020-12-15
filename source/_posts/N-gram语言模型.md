@@ -11,6 +11,7 @@ categories:
   - 自然语言处理
 excerpt: N-gram语言模型笔记，以及代码实现预测下一词。
 abbrlink: 853fc4e2
+cover: https://cdn.jsdelivr.net/gh/hiyoung123/images/feature/undraw_visual_data_b1wx.svg
 date: 2020-02-27 22:59:36
 ---
 

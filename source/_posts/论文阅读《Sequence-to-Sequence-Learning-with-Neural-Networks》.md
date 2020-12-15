@@ -11,6 +11,7 @@ tags:
 categories:
   - 自然语言处理
 excerpt: 论文《Sequence to Sequence Learning with Neural Networks》阅读笔记。
+cover: https://cdn.jsdelivr.net/gh/hiyoung123/images/feature/undraw_Charts_re_5qe9.svg
 abbrlink: d1bb6beb
 date: 2020-01-29 14:57:30
 ---

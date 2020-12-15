@@ -15,6 +15,7 @@ abbrlink: c237bc03
 date: 2019-11-27 22:19:51
 password:
 summary:
+cover: https://cdn.jsdelivr.net/gh/hiyoung123/images/feature/undraw_all_the_data_h4ki.svg
 excerpt: Logistic回归是机器学习中最常用最经典的分类方法之一，有的人称为逻辑回归或逻辑斯蒂回归。
 ---
 

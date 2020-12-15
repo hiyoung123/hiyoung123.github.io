@@ -1,7 +1,7 @@
 ---
 title: NLP系列 - 基于词典的中文分词
 top: false
-cover: true
+cover: https://cdn.jsdelivr.net/gh/hiyoung123/images/feature/undraw_Business_decisions_re_84ag.svg
 toc: true
 mathjax: false
 tags:

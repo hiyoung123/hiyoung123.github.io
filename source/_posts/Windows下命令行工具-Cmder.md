@@ -8,6 +8,7 @@ categories:
   - 便捷工具
 excerpt: Windows下程序员必备命令行神器-Cmder的安装与配置。
 abbrlink: 7d402318
+cover: https://cdn.jsdelivr.net/gh/hiyoung123/images/feature/undraw_injured_9757.svg
 date: 2019-12-21 20:35:51
 ---
 

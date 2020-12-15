@@ -12,6 +12,7 @@ tags:
 categories:
   - 自然语言处理
 excerpt: '论文《GloVe: Global Vectors for Word Representation》阅读笔记。'
+cover: https://cdn.jsdelivr.net/gh/hiyoung123/images/feature/undraw_Business_plan_re_0v81.svg
 abbrlink: fb292938
 date: 2020-01-12 17:29:02
 ---

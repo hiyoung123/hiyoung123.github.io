@@ -14,6 +14,7 @@ tags:
 categories:
   - 自然语言处理
 date: 2019-12-31 17:45:45
+cover: https://cdn.jsdelivr.net/gh/hiyoung123/images/feature/undraw_Analytics_re_dkf8.svg
 excerpt: 论文《Distributed Representations of Words and Phrases and their Compositionality》阅读笔记。
 ---
 
@@ -45,7 +46,6 @@ Skip-gram 的模型结构：
 
 <center>$\vec{俄罗斯} + \vec{河} = \vec{伏尔加河}$</center>
 <center>$\vec{德国} + \vec{首都} = \vec{柏林}$</center></br>
-
 ## Skip-gram 模型
 
 Skip-gram 的训练目标是能够预测文本中某个词周围可能出现的词。比如，现在有一份文档（去掉标点符号）由 T 个词组成，$w_1,w_2,w_3,\dots,w_T$， skip-gram 的目标函数就是最大化它们的平均对数概率：

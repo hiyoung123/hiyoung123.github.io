@@ -13,6 +13,7 @@ tags:
   - NER
 categories:
   - 自然语言处理
+cover: https://cdn.jsdelivr.net/gh/hiyoung123/images/feature/undraw_pie_graph_x9dy.svg
 date: 2020-01-16 14:45:45
 excerpt: CS224n 深度学习自然语言处理 2019 版 Lecture-3 学习笔记。
 ---
@@ -90,7 +91,6 @@ excerpt: CS224n 深度学习自然语言处理 2019 版 Lecture-3 学习笔记�
 所以只需要根据参数 $\theta$ 的梯度来更新决策边界：
 
 <center>$\nabla_\theta J(\theta) = \left[ \begin{matrix} \nabla W_{.1} \\ \vdots \\ \nabla W_{.d} \end{matrix} \right] \in R^{Cd}$</center></br>
-
 ## Neural Network Classifiers
 
 一般使用简单传统的 softmax 或者 logistic 回归能进行线性分类，有局限性。而现在的神经网络模型不仅可以学习到线性决策边界还可以学习到非线性的决策边界（依赖于非线性激活单元）。

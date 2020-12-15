@@ -10,6 +10,7 @@ categories:
   - 便捷工具
 excerpt: Ubuntu下划词翻译工具-GoldenDict。
 abbrlink: 7e57c477
+cover: https://cdn.jsdelivr.net/gh/hiyoung123/images/feature/undraw_Business_decisions_re_84ag.svg
 date: 2019-12-27 15:19:09
 ---
 

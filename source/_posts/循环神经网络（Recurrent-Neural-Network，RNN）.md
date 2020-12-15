@@ -11,6 +11,7 @@ categories:
   - 自然语言处理
 excerpt: '循环神经网络（Recurrent Neural Network, RNN）是一类用于处理序列数据的神经网络。'
 abbrlink: eb3fbcc4
+cover: https://cdn.jsdelivr.net/gh/hiyoung123/images/feature/undraw_fill_in_mie5.svg
 date: 2020-03-02 15:20:06
 ---
 
