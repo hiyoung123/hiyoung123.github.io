@@ -42,9 +42,12 @@ copy:
 # formal:
 #   icon: link || the description
 social:
-   fab fa-github: https://github.com/hiyoung123 || Github
+   fab fa-weixin: /wechat.jpg || Wechat
+   fab fa-qq: tencent://message/?uin=787420787 || QQ
    fas fa-envelope: mailto:hiyoungliu@gmail.com || Email
-
+   fab fa-github: https://github.com/hiyoung123 || Github
+   fas fa-rss: /atom.xml || RSS
+   
 # search (搜索)
 # --------------------------------------
 
