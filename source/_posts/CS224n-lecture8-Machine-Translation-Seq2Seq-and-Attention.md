@@ -49,19 +49,19 @@ date: 2020-01-26 18:05:28
 
 > 注意：一些词是没有对应关系的。
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n_19_lec8_align_001.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_cs224n_19_lec8_align_001.png)
 
 对齐可以是多对一的关系：
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n_19_lec8_align_002.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_cs224n_19_lec8_align_002.png)
 
 也可以是一对多的关系：
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n_19_lec8_align_003.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_cs224n_19_lec8_align_003.png)
 
 还可以是多对多的关系（短语对短语）:
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n_19_lec8_align_004.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_cs224n_19_lec8_align_004.png)
 
 对于 $P(x,a|y)$ 需要学习多种因素的组合，比如：
 
@@ -72,7 +72,7 @@ date: 2020-01-26 18:05:28
 
 如何计算 argmax ？ 可以列出所有可能的 y 并计算概率，但是这样计算量太昂贵了。所以使用启发式的搜索算法来搜索最佳的翻译语句，丢弃那些概率低的结果。这个过程叫做 decoding。
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n_19_lec8_smt_decoding_001.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_cs224n_19_lec8_smt_decoding_001.png)
 
 一个 SMT 系统是巨大的研究领域，效果最好的系统是极其复杂的，需要大量人工去研究特征工程，需要大量的人工维护。
 
@@ -84,7 +84,7 @@ date: 2020-01-26 18:05:28
 
 神经网络机器翻译（NMT）是一种使用单一神经网络去做机器翻译的方法。其主要的结构包括两个 RNN ，这种结构称为 Seq2seq。它的结构图如下所示：
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n_19_lec8_nmt_s2s_001.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_cs224n_19_lec8_nmt_s2s_001.png)
 
 Seq2seq 不仅仅用于 MT ，在其他 NLP 领域也发挥这很大的作用：
 
@@ -107,7 +107,7 @@ NMT 是直接计算概率 $P(y|x)$：
 
 如何训练一个 NMT 系统呢？同样的，还是首先需要一个尽量大的语料库。
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n_19_lec8_nmt_s2s_002.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_cs224n_19_lec8_nmt_s2s_002.png)
 
 从上图看出损失函数的梯度可以一直反向传播到 encoder，模型可以整体优化，所以 Seq2Seq 也被看做是 end2end 模型。
 
@@ -115,7 +115,7 @@ NMT 是直接计算概率 $P(y|x)$：
 
 在上文说到，在计算 argmax 时需要用搜索算法，也就是 decoding 的过程，很费算力。在 Seq2seq 的 decoder 中用到的一种算法叫做 Greedy decoding。即每一步均选取概率最大的单词并将其作为下一步的 decoder input。
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n_19_lec8_nmt_s2s_greedy_001.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_cs224n_19_lec8_nmt_s2s_greedy_001.png)
 
 但是 Greedy decoding 有个问题是，每一步选取最大概率的词不一定在全局是最优的选择，并且没有办法回退重新选择。
 
@@ -141,7 +141,7 @@ Beam search 的主要流程如下：
 
 在下图中，beam size = k = 2，蓝色的字为分数：$score(y_1,\cdots,y_t)=\sum^t_{i=1}logP_{LM}(y_i|y_1,\cdots,y_{i-1},x)$。
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n_19_lec8_nmt_beam_search_001.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_cs224n_19_lec8_nmt_beam_search_001.png)
 
 总的来说，在每一个时间步计算下一个词时，使用上述的分数计算公式计算得分，留下 k 个最高的得分，然后再分别预测下一个词，每个时间步都只留下最高的 k 个选项即可。
 
@@ -196,7 +196,7 @@ BLEU(Bilingual Evaluation Understudy)，是将机器翻译出来的句子与人�
 
 Attention 注意力是为了解决 Seq2seq 的信息瓶颈问题而诞生的，回顾一下上文的 Seq2seq 结构图：
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n_19_lec8_nmt_attention_001.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_cs224n_19_lec8_nmt_attention_001.png)
 
 在 encoder 的过程中，需要将输入的所有信息都 encode 到 encoder 的最后一个 hidden state 上，这通常是不现实的，随着源句子的长度增大，hidden state 会记录的信息也就越多，其中包括一些无用的信息。而模型很难去存储更多的信息，所以需要进行取舍，也就是将有用的信息进行保留，这也就是注意力名字的由来。
 

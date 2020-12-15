@@ -31,18 +31,16 @@ DNN 模型功能强大，但是只能处理固定输入输出的数据，这限�
 
 Seq2seq 结构的一般形式如下图：
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_paper_seq2seq_001.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_paper_seq2seq_001.png)
 
 RNN 循环神经网络模型是前馈神经网络在序列问题上的一种推广，给入一个输入序列（$x_1,\cdots,x_t$），可以得到对应的输出序列（$y_1,\cdots,y_t$）：
 
 <center>$\begin{align} h_t &= sigm(W^{hx}x_t + W^{hh}h_{t-1}) \\ y_t &=W^{yh}h_t  \end{align}$</center></br>
-
 如果数据是对齐的，那么 RNN 很容易将序列映射到序列，反之如果输入输出不是对齐的，那么就不确定是否可以达到要求。一般的策略是用一个 RNN 将源序列映射到一个向量，然后使用另外一个 RNN 从中提取出目标序列。但是由于 RNN 自身的局限性，很难学习到太长的序列数据，所以使用 LSTM 替换 RNN。
 
 LSTM 的目标是估计条件概率 $P(y_1,\cdots,y_T | x_1,\cdots,x_T)$，其中 $x_1,\cdots,x_T$ 是输入序列，$y_1,\cdots,y_T$ 是对应的输出序列。首先，LSTM 计算输入序列（$x_1,\cdots,x_T$） 的条件概率得到最后一个隐藏状态 v，然后使用一个标准的 LSTM-LM 计算输出的条件概率（$y_1,\cdots,y_T$），初始的隐藏状态为 v ：
 
 <center>$P(y_1,\cdots,y_T|x_1,\cdots,x_T) = \prod^T_{t=1}P(y_t|v,y_1,\cdots,y_{t-1})$</center></br>
-
 在这个公式中，概率分布 $P(y_t|v,y_1,\cdots,y_{t-1})$ 使用 softmax 计算。同时需要注意的是，每个序列结尾需要使用 *<EOS>* 结尾，这么做的目的是以便预测输出序列的结尾。
 
 在该论文中，作者使用的模型与上述的一般形式有三点不同：
@@ -66,11 +64,9 @@ LSTM 的目标是估计条件概率 $P(y_1,\cdots,y_T | x_1,\cdots,x_T)$，其�
 模型的目标函数为给定输入句子 S 得到输出的翻译句子 T ，最大化 log 概率：
 
 <center>${1\over |S|}\sum_{(T,S) \in S}log P(T|S)$</center></br>
-
 一但训练完成就可以通过模型找到最佳的翻译：
 
 <center>$\hat{T} = argmaxP(T|S)$</center></br>
-
 并且使用 Beam search 来寻找最佳的翻译句子。
 
 ### Reversing the Source Sentences

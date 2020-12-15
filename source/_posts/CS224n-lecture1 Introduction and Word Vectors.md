@@ -58,7 +58,7 @@ list(panda.closure(hyper))
 
 上位词效果如下：
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n-19-lec1-wn-2.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_cs224n-19-lec1-wn-2.png)
 
 NLTK：Natural Language Toolkit，自然语言处理工具包，在NLP领域中，最常使用的一个Python库。
 
@@ -90,13 +90,13 @@ $WordNet$作为资源库很好，但是有一些缺点：
 
 当一个单词$w$出现在文本中时，它的上下文$context$是出现在其附近的一组单词（在一个固定大小的窗口$Window$中）。在大量的语料库中，词$w$会出现在不同的语句中，所以也就有了许多不同的上下文$context$。我们可以通过这些$context$去得到该词的有效表示。
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n-19-lec1-context.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_cs224n-19-lec1-context.png)
 
 ### 词向量（Word Vector）
 
 词向量也叫词的表示（word representations）或者词嵌入（word embeddings），它是一种分布式表示。上文说的独热和通过上下文表示都属于分布式表示，但是独热编码的方式是稀疏的高纬的，而通过上下文表示得到的向量是低纬度的稠密的（dense）。我们希望在相似的$context$下的$word vector$也较为相似。
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n_19_lec1_dens_vector.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_cs224n_19_lec1_dens_vector.png)
 
 词向量在NLP中非常重要，一个训练好的词向量模型，可以很好的表达出词与词之间的关系。使得可以很好的进行下游任务的处理，有助于提高模型的性能和准确率。
 
@@ -118,11 +118,11 @@ $Word2Vec(Mikolov et al. 2013)$是一个学习词向量的框架，通过模型�
 
 下图为窗口大小$j=2$时的$P(w_t+j|w_t)$计算过程，center word分别为$into$和$banking$。
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n_19_lec1_w2v_ov.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_cs224n_19_lec1_w2v_ov.png)
 
 当我们扫到下一个位置时，banking就成为center word。
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n_19_lec1_w2v_ov1.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_cs224n_19_lec1_w2v_ov1.png)
 
 ### Word2vec objective function
 
@@ -172,7 +172,7 @@ $softmax$函数将一个值$x_i$映射成对应的概率值$p_i$。
 
 有了目标函数，我们就可以通过梯度下降法来优化参数$\theta$，在这里$\theta$就是我们的词向量，也就是模型中所有的参数。比如，我们有$V$个单词，每个单词取$d$维度。那么$\theta$可以表示为：
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n-19-lec1-theta.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_cs224n-19-lec1-theta.png)
 
 要记住的是这里每个单词都有两个向量作为中心词时的$v_w$和作为上下文词时的$u_w$。在训练时首先要随机初始化两个向量，通过梯度下降法不断更新向量，最后取平均值来表示该词的词向量。
 

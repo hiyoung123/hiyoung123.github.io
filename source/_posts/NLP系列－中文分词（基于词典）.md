@@ -67,7 +67,7 @@ def cut(self,text):
 
 分词效果：
 
-![FMM分词结果](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_nlp_fenci_fmm.png)
+![FMM分词结果](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_nlp_fenci_fmm.png)
 
 ###  逆向最大匹配法RMM
 
@@ -94,7 +94,7 @@ def cut(self,text):
 
 分词效果：
 
-![RMM分词结果](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_nlp_fenci_rmm.png)
+![RMM分词结果](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_nlp_fenci_rmm.png)
 
 ###  双向最大匹配法Bi-MM
 
@@ -128,7 +128,7 @@ def cut(self,text):
 
 分词效果：
 
-![BIMM分词结果](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_nlp_fenci_bimm.png)
+![BIMM分词结果](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_nlp_fenci_bimm.png)
 
 可能有人会问，如果单字的数量也相同怎么办？如果你明白了中文分词的原理和实际用处的话，那么这个问题的答案自然会知晓。中文分词目前仍然没有完全准确的结果，一句话可以分成不同的分词结果。如果单字数量也相同，按照正常的逻辑那么会继续比较双字词，但是这样却没有可比性，在中文中大多数都是双字词，所以即使双字词的数量相同，但是结果可能却有很多种可能。
 

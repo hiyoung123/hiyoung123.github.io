@@ -40,7 +40,7 @@ excerpt: CS224n 深度学习自然语言处理 2019 版 Lecture-2 学习笔记�
 
 则我们可以得到如下的word-word co-occurrence matrix：
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n_19_lec2_window_matrix_001.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_cs224n_19_lec2_window_matrix_001.png)
 
 在这里设置的 window 为 1，所以只取中心词周围一个词的距离计数。比如单词 “I” 与 “like” 在上面的三句话中在 window 为 1的距离内共同出现了 2 次，所以矩阵中对应位置是 2。统计完所有的词后就得到了一个 co-occurrence matrix。通过共现矩阵的共现计数来衡量两个单词之间的相关性。
 
@@ -52,7 +52,7 @@ excerpt: CS224n 深度学习自然语言处理 2019 版 Lecture-2 学习笔记�
 
 奇异值分解 SVD (Single Value Decomposition) 就是一种常用的降维模型。通过 SVD 可以将共现矩阵 X 分解成 $UΣV^⊤$ 的形式，其中 $Σ$ 是对角线矩阵，对角线上的值是矩阵的奇异值。$U$ 和 $V$ 是对应行和列的正交基。
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n_19_lec2_svd_001.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_cs224n_19_lec2_svd_001.png)
 
 为了减少维度同时尽量保存有效信息，可保留对角矩阵的最大 k 个值，并将矩阵 $U$,$V$ 的相应的行列保留。这是经典的线性代数算法，对于大型矩阵而言，计算代价比较高。
 
@@ -77,7 +77,7 @@ U, s, Vh = la.svd(X, full_matrices=False)
 
 可以通过下图看一下，降维到 2 个维度的词向量：
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n_19_lec2_svd_002.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_cs224n_19_lec2_svd_002.png)
 
 ### Hacks to X (several used in Rohde et al. 2005)
 
@@ -91,9 +91,9 @@ U, s, Vh = la.svd(X, full_matrices=False)
 
 在论文《An Improved Model of Semantic Similarity Based on Lexical Co-Occurrence Rohde et al. ms., 2005》中的COALS模型，通过改善计数，取得了不错的效果：
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n_19_lec2_hacktoX_001.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_cs224n_19_lec2_hacktoX_001.png)
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n_19_lec2_hacktoX_002.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_cs224n_19_lec2_hacktoX_002.png)
 
 在向量中出现的有趣的句法模式：语义向量基本上是线性组件，虽然有一些摆动，但是基本是存在动词和动词实施者的方向。
 
@@ -117,7 +117,7 @@ U, s, Vh = la.svd(X, full_matrices=False)
   * 与语料库大小有关的量表
   * 统计数据的低效使用
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n_19_lec2_compare_001.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_cs224n_19_lec2_compare_001.png)
 
 
 
@@ -127,7 +127,7 @@ U, s, Vh = la.svd(X, full_matrices=False)
 
 首先我们在上文说到的共现矩阵符号基础上加入几个符号，$X_i = \sum _k X_{i k}$ 代表所有出现在单词 $i$ 的上下文中的单词次数，用$P_{i j} = P{j|i} = X_{i j} / X_i$ 来表示单词 $j$ 出现在单词 $i$ 上下文中的概率。
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n_19_lec2_glove_001.png) 
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_cs224n_19_lec2_glove_001.png) 
 
 > 重点不是单一的概率大小，重点是他们之间的比值，其中蕴含着meaning component。
 
@@ -149,7 +149,7 @@ GloVe 模型的优点有：
 * 可扩展到大型语料库
 * 即使使用小的语料库和小的向量，也能获得良好的性能
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n_19_lec2_glove_002.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_cs224n_19_lec2_glove_002.png)
 
 
 
@@ -172,25 +172,25 @@ GloVe 模型的优点有：
 
 可以通过类比的形式评估词向量，比如 man 和 woman 之间的关系是男女性别的差异，那么 king 和什么词也有这种关系呢？下图表示了这种类比评估的方法：
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n_19_lec2_glove_eval.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_cs224n_19_lec2_glove_eval.png)
 
 整体思想在第一节课中已经提到过，并且还有用于测试的测试集合，这里不多说了。
 
 ### Glove Visualizations
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n_19_lec2_glove_vs_001.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_cs224n_19_lec2_glove_vs_001.png)
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n_19_lec2_glove_vs_002.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_cs224n_19_lec2_glove_vs_002.png)
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n_19_lec2_glove_vs_003.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_cs224n_19_lec2_glove_vs_003.png)
 
 从图中可以看出，具有相同类比含义的几组词都是平行的。
 
 ### Analogy evaluation and hyperparameters
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n_19_lec2_glove_compare_001.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_cs224n_19_lec2_glove_compare_001.png)
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n_19_lec2_glove_compare_002.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_cs224n_19_lec2_glove_compare_002.png)
 
 从上面两个对比数据可以看出：
 
@@ -200,11 +200,11 @@ GloVe 模型的优点有：
 
 与 Skip-gram + Neg 对比，可以看出训练时间越长效果越好：
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_css224n_19_lec2_glove_compare_003.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_css224n_19_lec2_glove_compare_003.png)
 
 从下面这组对比数据可知，数据集越大越好，并且维基百科数据集比新闻文本数据集要好。这是因为 Wiki 百科是解释性文本语料库，里面包含了文本本身的含义与相关语句。而新闻类的文本只是在胡说八道（@_@ 哈哈教授原话！）。
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n_19_lec2_glove_compare_004.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_cs224n_19_lec2_glove_compare_004.png)
 
 
 

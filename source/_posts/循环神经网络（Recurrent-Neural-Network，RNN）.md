@@ -43,7 +43,7 @@ RNN 类神经网络在 NLP 起到了重要作用，在很多领域都将性能�
 
 下图是一个简单的 RNN 结构，它由输入层，隐藏层和输出层组成。
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_rnn_dl_jiegou_002.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_rnn_dl_jiegou_002.png)
 
 从图中可以很容易看出，它的每个时间步 t 的输出 $\hat{y}^{(t)}$ 都与当前时刻的输入 $x^{(t)}$ 和前一时间的隐藏状态 $h^{(t)}$ 有关。
 
@@ -94,7 +94,7 @@ RNN 的反向传播 Backpropagation Through Time(BPTT) 由于是序列结构的�
 
 RNN 的网络结构根据不同应用可以分为以下几种：
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_rnn_one_to_many_001.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_rnn_one_to_many_001.png)
 
 * One-to-one ，Vanilla Neural Networks
   最简单的结构，然而效果不怎么好
@@ -111,7 +111,7 @@ RNN 的网络结构根据不同应用可以分为以下几种：
 
 在上面的标准 RNN 结构里，每个时间步的输出都是依赖于历史信息的，也就是后面的输出会包含了前面的信息内容。但是有时候文本的主要信息在后面，那么前面的输出就没有包含重要信息内容。双向循环神经网络（bi-RNN）为满足这种需要而被发明（Schuster and Paliwal, 1997）。
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_birnn_jiegou_001.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_birnn_jiegou_001.png)
 
 Bi-RNN 的思路很简单，就是将输入序列从前向后计算一遍，然后从后向前计算一遍，将两个输出合并作为最后的输出。
 
@@ -121,7 +121,7 @@ Bi-RNN 的思路很简单，就是将输入序列从前向后计算一遍，然�
 
 深度 RNN，通过叠加 RNN 层数来实现。下面是三种不同叠加方法：
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_deeprnn_jiegou_001.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_deeprnn_jiegou_001.png)
 
 
 

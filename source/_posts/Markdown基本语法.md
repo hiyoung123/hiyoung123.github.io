@@ -10,7 +10,6 @@ tags:
   - 流程图
 categories:
   - 便捷工具
-img: 'https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_markdown.jpeg'
 abbrlink: 5d36ff15
 date: 2019-11-18 16:05:36
 password:
@@ -45,7 +44,7 @@ Markdown支持6种级别的标题，对应html标签 `h1` ~ `h6`，严格的Mark
 
 效果如下（实际演示会造成菜单混乱，所以此处使用截图）：
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_markdown_list_1.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_markdown_list_1.png)
 
 除此之外，Markdown还支持另外一种形式的标题展示形式，使用下划线进行文本大小的控制。但是这种形式仅有两种表现形式：即一级标题和二级标题。
 
@@ -58,7 +57,7 @@ Markdown支持6种级别的标题，对应html标签 `h1` ~ `h6`，严格的Mark
 
 效果如下：
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_markdown_list_2.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_markdown_list_2.png)
 
 -- -- --
 
@@ -370,7 +369,7 @@ $(document).ready(function () {
 
 效果如下：
 
-![Write 属性文本](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_markdown.jpeg "写作")
+![Write 属性文本](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_markdown.jpeg "写作")
 
 -- -- --
 

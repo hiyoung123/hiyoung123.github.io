@@ -30,10 +30,9 @@ date: 2020-01-21 22:03:43
 实际上一个完整模型的损失函数还包括正则项，它是所有参数 $\theta$ 的正则化。例如使用 $L_2$ 正则：
 
 <center>$J(\theta) = {1\over N} \sum^N_{i=1}-log({e^{f_{y_i}} \over \sum^C_{c=1} e^{f_e}})+\lambda \sum_k \theta^2_k$</center></br>
-
 正则化的目的是防止模型过拟合，也就是在训练集上效果很好，但是在测试集上效果差。把所有参数加和算到损失里，这样可以抑制模型学习的强度。其中 $\lambda$ 是抑制因子，用于调节正则化的强度。
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n_19_lec4_reg_001.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_cs224n_19_lec4_reg_001.png)
 
 ### 向量化
 
@@ -61,7 +60,7 @@ wordvectors_one_matrix = random.rand(d,N)
 
 神经网络单元中会加入非线性激活函数，使得神经网络模型可以进行非线性计算。下面是一些常用的非线性激活函数：
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n_19_lec4_none_linear_001.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_cs224n_19_lec4_none_linear_001.png)
 
 * sigmoid，常用于逻辑回归，神经网络中偶尔会在最后一层使用。
 * tanh，是一个重新放缩和移动的 sigmoid (两倍陡峭，[-1,1])。
@@ -69,7 +68,7 @@ wordvectors_one_matrix = random.rand(d,N)
 
 因为 tanh 计算缓慢，所以提出了 ReLu 以及变体：
 
-​	![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n_19_lec4_none_linear_002.png)
+​	![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_cs224n_19_lec4_none_linear_002.png)
 
 非零范围内只有一个斜率，这一位置梯度十分有效的传递给了输入，所以模型非常有效的训练，但是由于 ReLu 会有一定概率使单元失活，所以在零范围内进行了修改。稍后会在一篇博客中全面比较各个非线性激活函数。
 
@@ -82,7 +81,6 @@ wordvectors_one_matrix = random.rand(d,N)
 学习框架中的 Xavier，方差与 fan-in 前一层维度和 fan-out 后一层维度成反比：
 
 <center>$Var(W_i) = {2\over n_{in} + n_{out}}$</center></br>
-
 ### 优化器
 
 这是机器学习和深度学习中重要的一部分，通常情况下都使用的是我们熟知的 SGD 随机梯度下降。然而，要得到好的结果通常需要手动调整学习速度。或者在复杂的神经网络中，或者为了安全考虑，可以使用自适应优化器。

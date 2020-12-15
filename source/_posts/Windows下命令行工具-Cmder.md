@@ -15,7 +15,7 @@ date: 2019-12-21 20:35:51
 
 在Linux操作系统下工作久的程序员，在Windows上开发很难适应windows自带的cmd命令行。在此推荐一款开发神器 - Cmder，让你可以在Windows下也可以像Linux中那样使用命令行。
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cmder_main.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_cmder_main.png)
 
 
 
@@ -25,11 +25,11 @@ date: 2019-12-21 20:35:51
 
 进入官网以后，有Mini版和完整版，建议完整版，完整版功能更齐全，还可以使用`git`，下载好解压文件包以后就可以使用。 
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cmder_download.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_cmder_download.png)
 
 解压位置随意，但是个人建议解压到C盘下。如果你解压到了C盘，打开cmder.exe时可能会失败，因为需要使用管理员权限才可以打开。此时我们只需要右键点击Cmder.exe，选择属性 - > 兼容性 - > 勾选以管理员身份运行此程序即可（如下图），这样以后每次打开都不需要使用管理员身份运行了，同时在其他文件夹下使用右键开启也不会报错了。
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cmder_add_auth.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_cmder_add_auth.png)
 
 
 
@@ -37,7 +37,7 @@ date: 2019-12-21 20:35:51
 
 在系统变量PATH添加cmder.exe的路径，使可以在任何位置都可以执行Cmder。
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cmder_add_path.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_cmder_add_path.png)
 
 
 
@@ -63,14 +63,14 @@ Cmder.exe /REGISTER ALL
 
 * 接下来关闭注册表，在桌面上右击鼠标就能看到Cmder选项被删除啦！
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cmder_delte_reg.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_cmder_delte_reg.png)
 
 
 
 ## 界面设置
 
 首先使用`windows+alt+p`进入界面设置
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cmder_setting.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_cmder_setting.png)
 
 
 

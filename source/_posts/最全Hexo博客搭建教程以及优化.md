@@ -48,7 +48,7 @@ sudo apt-get install npm
 
 或者到[官网](http://nodejs.cn/download/)下载：
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_hexo_download_nodejs_1.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_hexo_download_nodejs_1.png)
 
 下载完成后解压到指定文件夹，然后配置环境变量（目的是为了在终端可以任意位置使用它）：
 
@@ -133,13 +133,13 @@ git push -u origin code
 
 创建完账户之后新建一个项目仓库`New repository`，如下所示 
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_hexo_github_new_rep.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_hexo_github_new_rep.png)
 
 接着输入仓库名，后面一定要加`.github.io`后缀，README初始化也要勾上。 如下图配置（因为我的已经存在相同的仓库，所以报错）
 
 > 要创建一个和你用户名相同的仓库，后面加.github.io，只有这样将来要部署到GitHub page的时候，才会被识别，也就是http://xxxx.github.io，其中xxx就是你注册`GitHub`的用户名 
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_hexo_github_creat_rep.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_hexo_github_creat_rep.png)
 
 然后项目就建成了，点击`Settings`，向下拉到最后有个`GitHub Pages`，点击`Choose a theme`选择一个主题。然后等一会儿，再回到`GitHub Pages`，点击新出来的链接，就会进入到`github page`的界面。看到这个界面就说明`Github`的`page`已经可以使用了，接下来我们进入`Hexo`的搭建。
 
@@ -178,7 +178,7 @@ hexo init
 
 这样本地的网站配置也弄好啦，输入`hexo g`生成静态网页，然后输入`hexo s`打开本地服务器，然后浏览器打开[http://localhost:4000](http://localhost:4000)就可以看到我们的博客啦，效果如下：
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_hexo_web_1.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_hexo_web_1.png)
 
 这里介绍一下`Hexo`常用的几个命令：
 
@@ -254,13 +254,13 @@ cat ~/.ssh/id_rsa.pub
 
 以我的阿里云为例，如下图所示，添加两条解析记录：
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_hexo_add_domin.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_hexo_add_domin.png)
 
 我添加的是A记录，也就是需要添加`IP`地址的，你部署到`Github`的`IP`可以通过`ping xxx.github.io`获得。当然也可以添加`CNAME`记录，记录值填写`xxx.github.io`即可。
 
 解析域名完成后，需要在`Github`上加入你的域名。打开你的`github`博客项目，点击`settings`，拉到下面`Custom domain`处，填上你自己的域名，保存完成后如下图：
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_hexo_add_domin_github.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_hexo_add_domin_github.png)
 
 > 注意：如果下面的Enforce HTTPS 没有点击的话请勾选上。这个作用是使你的网络请求以更安全的HTTPS方式请求。
 

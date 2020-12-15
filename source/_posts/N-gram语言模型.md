@@ -97,14 +97,12 @@ Laplace Smoothing，做平滑的最简单的方法是在我们将它们归一化
 在 NLP 中，通常使用困惑度（Perplexity，PPL）作为衡量语言模型好坏的内部指标，此外还有外部指标需要人工评价
 
 <center>$\begin{align} P(W) &= P(w_1 w_2 \cdots w_N)^{-{1\over N}} \\ &= \sqrt[N]{1\over P(w_1 w_2 \cdots w_N)} \\ &= \sqrt[N]{\prod^N_{i=1}{1\over P(w_i|w_1\cdots w_{i-1})}} \end{align}$</center></br>
-
 对于 bigram 模型的困惑度：
 
 <center>$PP(W) = \sqrt[N]{\prod^N_{i=1} {1\over P(w_i|w_{i-1})}}$</center></br>
 困惑度越低，说明生成的语言越接近真实语言，常用于机器翻译和文本生成等 NLP 任务中。困惑度等价于交叉熵损失函数：
 
 <center>$\begin{align} &= \prod^T_{t=1}({1\over \hat{y}^{(t)}_{x_{t+1}}})^{1\over T} \\  &=exp({1\over T \sum^T_{t=1}}-log\hat{y}^{(t)}_{x_{t+1}}) \\ &= exp(J(\theta)) \end{align}$ </center></br>
-
 ## References
 
 1. [N-gram Language Models](https://web.stanford.edu/~jurafsky/slp3/3.pdf)

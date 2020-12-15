@@ -22,7 +22,7 @@ date: 2020-01-24 17:39:38
 
 语言模型是一个预测下一个单词的任务，通常情况下是已知一个语言序列，预测下一个单词是什么。
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n_19_lec6_lm_001.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_cs224n_19_lec6_lm_001.png)
 
 更正式的说是跟定一组词序列 $x^{(1)},x^{(2)},\cdots,x^{(t)}$，计算下一个词 $x^{(t+1)}$ 的概率分布：
 
@@ -42,11 +42,11 @@ date: 2020-01-24 17:39:38
 
 输入法的文本预测：我们使用的输入法中，每当你打出一个字或者词后，输入法 app 都会提示你下一个词，这就是语言模型的一个应用。
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n_19_lec6_lm_002.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_cs224n_19_lec6_lm_002.png)
 
 搜索引擎搜索内容提示：当我们在搜索引擎中输入想要搜索的内容时，会弹出一些向相关的搜索提示。
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n_19_lec6_lm_003.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_cs224n_19_lec6_lm_003.png)
 
 除了这些，语言在智能客服等等的领域都有发挥作用。
 
@@ -74,7 +74,7 @@ N-gram 是一个由 n 个连续单词组成的块，它的思想是一个单词�
 <center>$\approx {count(x^{(x+1)},x^{(t)},\cdots,x^{(t-n+2)}) \over count(x^{(t)},\cdots,x{(t-n+2)}}$</center></br>
 例如使用 4-gram 语言模型：
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n_19_lec6_ngram_001.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_cs224n_19_lec6_ngram_001.png)
 
 其中，“students opened their” 在语料库中出现了 1000 次，“students opened their books ” 出现了 400 次，那么 $P( books | students \ opened \ their) = 0.4$ ；“students opened their exams ” 出现了 100 次，那么 $P( exams | students \ opened \ their) = 0.1$。
 
@@ -82,7 +82,7 @@ N-gram 是一个由 n 个连续单词组成的块，它的思想是一个单词�
 
 ### Sparsity Problems
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n_19_lec6_ngram_002.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_cs224n_19_lec6_ngram_002.png)
 
 如上图所示，关于 n-gram 的稀疏性问题：
 
@@ -93,7 +93,7 @@ N-gram 是一个由 n 个连续单词组成的块，它的思想是一个单词�
 
 ### Storage Problems
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n_19_lec6_ngram_003.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_cs224n_19_lec6_ngram_003.png)
 
 第二个是存储问题，由于要统计文本在语料库中的计数，增加 n 或增加语料库都会增加模型大小。
 
@@ -103,7 +103,7 @@ N-gram 是一个由 n 个连续单词组成的块，它的思想是一个单词�
 
 循环神经网络（RNN）模型是一种神经网络族，它有许多种变体，最核心最基本的思想是重复使用相同的权重矩阵 W。它的基本结构如下图所示：
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n_19_lec6_rnn_001.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_cs224n_19_lec6_rnn_001.png)
 
 > 本篇文章主要以 cs224n 的课件为主，关于 RNN 的详细讲解后续会有更详细的文章。
 
@@ -113,7 +113,7 @@ N-gram 是一个由 n 个连续单词组成的块，它的思想是一个单词�
 
 下面来看一下 RNN 模型在 LM 中是如何使用的：
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n_19_lec6_rnn_lm_001.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_cs224n_19_lec6_rnn_lm_001.png)
 
 根据上图的结构，从下到上的分层来看：
 
@@ -149,7 +149,7 @@ RNN 的缺点：
 
 像传统的 N-gram 模型一样，RNN-LM 也可以进行文本生成，相比 N-gram 更加流畅，语法正确，但总体上仍然很不连贯。
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n_19_lec6_rnn_lm_002.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_cs224n_19_lec6_rnn_lm_002.png)
 
 有趣的是，使用 RNN-LM 模型可以学习到文本中的风格，比如使用奥巴马的演讲作为语料库，那么生成的文本则具有奥巴马演讲的风格。同样如果使用哈利波特作为语料库，那么生成的文本就像是哈利波特的风格。
 
@@ -166,7 +166,7 @@ RNN 的缺点：
 
 下图是语言模型的困惑度变化：
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n_19_lec6_rnn_lm_pre_001.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_cs224n_19_lec6_rnn_lm_pre_001.png)
 
 ​    
 
@@ -196,30 +196,30 @@ RNN 除了用于语言模型之外，在 NLP 其他领域也大有用处。
 
 ### RNNs can be used for tagging
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n_19_lec6_rnn_app_001.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_cs224n_19_lec6_rnn_app_001.png)
 
 ### RNNs can be used for sentence classification
 
 在分类任务中，可以使用 RNN 学习到句子的表示，然后进行分类。下面有两种计算句子向量的方法。
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n_19_lec6_rnn_app_002.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_cs224n_19_lec6_rnn_app_002.png)
 
 基本方法，用最后一个时间步的输出作为句子的向量表示。
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n_19_lec6_rnn_app_003.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_cs224n_19_lec6_rnn_app_003.png)
 
 第二种方法是将每个时间步的输出取平均或者最大值最为句子的向量表示。
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n_19_lec6_rnn_app_004.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_cs224n_19_lec6_rnn_app_004.png)
 
 ### RNNs can be used as an encoder module
 
 主要用于机器翻译/问答系统等任务中。
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n_19_lec6_rnn_app_006.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_cs224n_19_lec6_rnn_app_006.png)
 
 ### RNN-LMs can be used to generate text
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n_19_lec6_rnn_app_005.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_cs224n_19_lec6_rnn_app_005.png)
 
    
 

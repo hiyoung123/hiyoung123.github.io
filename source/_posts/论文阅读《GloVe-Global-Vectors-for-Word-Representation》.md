@@ -60,7 +60,7 @@ date: 2020-01-12 17:29:02
 
 考虑两个在某些方面比较类似的词：$i$ 代表 ice，$j$ 代表 steam。这两个词的关系可以通过研究它们与某个词 $k$ 的共现概率之比来得到。例如，$k$ 是某个和 ice 相关但是和 steam 无关的词，比如 k = solid，那么 $P_{ik}/P_{jk}$ 将会很大；而当 $k$ 和steam 相关但是和 ice 无关时，比如 k = gas，这个比值将会很小。还有 $k$ 和两个词都相关（k=water）或者和两个词都不相关（k=fashion），这个比值将接近于1。
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_paper_glove_example_001.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_paper_glove_example_001.png)
 
 上面的例子表明，词向量的学习应该从共现概率的比值开始而不是概率本身。由于 $P_{ik}/P_{jk}$ 依赖于三个单词 $i,j$ 和 $k$，因此模型的一般形式如下：
 
@@ -108,7 +108,7 @@ date: 2020-01-12 17:29:02
 1 \qquad & otherwise
 \end{cases}$</center></br>
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_paper_glove_f_visa_001.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_paper_glove_f_visa_001.png)
 
 作者经过实验得出，$\alpha = 0.75$ 能得到最好的模型效果。接下来的论文部分还讨论了 Glove 词向量与其他词向量的关系以及复杂度，这里不继续展开说明，后续会在另一篇各种词向量模型比较中详细说明，有兴趣的读者可以仔细阅读一下原论文。
 
@@ -120,7 +120,7 @@ date: 2020-01-12 17:29:02
 
 将 GloVe 模型得到的词向量分别用于 Word analogies, Word similarity, Named entity recognition，在相同的数据集上和CBOW,SVD 等方法进行比较：
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_paper_glove_compare_001.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_paper_glove_compare_001.png)
 
 ### 训练细节
 

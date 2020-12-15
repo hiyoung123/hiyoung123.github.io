@@ -39,12 +39,11 @@ excerpt: CS224n 深度学习自然语言处理 2019 版 Lecture-3 学习笔记�
 
 对于基本的二分类任务，通常最简单的办法是使用 softmax/logistic 回归模型，训练权重 w，找到决策边界将数据集进行正确划分。可视化表示：
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n_19_lec3_class_visa_001.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_cs224n_19_lec3_class_visa_001.png)
 
 使用 softmax 回归的公式为：
 
 <center>$p(y|x) = {exp(W_y,x)\over \sum^C_{c=1} exp(W_Cx)}$</center></br>
-
 ### Details of the softmax classifier
 
 将上述的预测函数分为两个步骤介绍：
@@ -65,7 +64,6 @@ excerpt: CS224n 深度学习自然语言处理 2019 版 Lecture-3 学习笔记�
 对于每个训练样本 $(x,y)$，目标函数是最大化正确分类 y 的概率，等价于该类最小化负对数概率（一般优化算法中都喜欢使用最小化，凸优化理论相关的知识）。
 
 <center>$-logp(y|x) = -log({exp(f_y)\over\sum^C_{c=1}exp(f_c)})$</center></br>
-
 ###　What is “cross entropy” loss/error?
 
 交叉熵是信息论中的概念，用于衡量两个分布 p 和 q 之间的差异。在这里使用 p 代表真实值，使用 q 代表模型预测值，那么交叉熵损失函数的公式为：
@@ -93,12 +91,11 @@ excerpt: CS224n 深度学习自然语言处理 2019 版 Lecture-3 学习笔记�
 
 <center>$\nabla_\theta J(\theta) = \left[ \begin{matrix} \nabla W_{.1} \\ \vdots \\ \nabla W_{.d} \end{matrix} \right] \in R^{Cd}$</center></br>
 
-
 ## Neural Network Classifiers
 
 一般使用简单传统的 softmax 或者 logistic 回归能进行线性分类，有局限性。而现在的神经网络模型不仅可以学习到线性决策边界还可以学习到非线性的决策边界（依赖于非线性激活单元）。
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n_19_lec3_compare_001.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_cs224n_19_lec3_compare_001.png)
 
 上图左边是传统机器学习的分类决策边界，右边是神经网络学习到的分类决策边界，可以看出神经网络模型是非线性的，更好的处理一些不易区分的数据。
 
@@ -110,7 +107,7 @@ excerpt: CS224n 深度学习自然语言处理 2019 版 Lecture-3 学习笔记�
 
 命名实体识别，自然语言处理基本任务之一。该技术的主要工作就是从文本中找出命名实体，比如人名，地址名，组织名等。
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n_19_lec3_ner_example.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_cs224n_19_lec3_ner_example.png)
 
 NER 的用途有：
 
@@ -125,7 +122,7 @@ NER 的用途有：
 
 NER 的实现有多种方法，课程中提出了一种可以通过上下文对词进行分类，然后提取词的子序列来预测实体。
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n_19_lec3_ner_example_001.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_cs224n_19_lec3_ner_example_001.png)
 
 ### Why might NER be hard?
 
@@ -143,7 +140,7 @@ NER 的难点是有的时候很难区分Named Entity的边界，有的时候很�
 
 例如对于 museums in Paris are amazing, 我们希望探测到地点名 Paris。假设窗口大小为2，并且通过词向量方法如word2vec 得到窗口内 5 个单词的词向量（前两个 + 后两个 + 中心词），则我们可以将这 5 个向量连在一起得到更大的向量，再对该向量进行分类。
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n_19_lec3_class_softmax_001.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_cs224n_19_lec3_class_softmax_001.png)
 
 其中列向量 $x_{window} = x \in R^{5d}$。
 
@@ -165,7 +162,7 @@ Binary classification with unnormalized scores 是 Collobert & Weston 在（2008
 
 使用一个三层的神经网络来计算窗口的得分：
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_cs224n_19_lec3_class_score_nn_001.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_cs224n_19_lec3_class_score_nn_001.png)
 
 ### The max-margin loss
 

@@ -26,7 +26,7 @@ Golendict 有以下几大特点：
 
 官方效果图：
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_tool_goldendict_heron-single.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_tool_goldendict_heron-single.png)
 
 
 
@@ -48,7 +48,7 @@ sudo apt-get install goldendict
 
 我们可以通过如下步骤添加在线词典，左上角菜单栏找到“编辑“选项,然后 编辑->词典->网站->添加：
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_tool_glodendict_add_net_dict.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_tool_glodendict_add_net_dict.png)
 
 如何获取到在线词典呢？百度搜索必应词典，随便搜索一个单词，例如 welcome，会得到一个网址：
 `http://cn.bing.com/dict/search?q=welcome&;qs=n&;form=Z9LH5&;pq=welcome&;sc=0-7&;sp=-1&;sk=&;cvid=127D88B2AD4E4842A79BCB32B430FC33`
@@ -65,11 +65,11 @@ sudo apt-get install goldendict
 
 在编辑里选择词典>词典来源>文件，点击添加，我们可以新建一个文件夹来存放我们的字典文件。然后我们将下载好的字典文件解压后，放到这个文件夹中，点击重新扫描就可以识别出本地词典了。
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_tool_glodendict_add_local_dict_1.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_tool_glodendict_add_local_dict_1.png)
 
 这样我们就可以在词典中查看已经添加进来的词典了。
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_tool_glodendict_add_local_dict_2.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_tool_glodendict_add_local_dict_2.png)
 
 
 
@@ -79,7 +79,7 @@ sudo apt-get install goldendict
 
 ### 牛津高阶 8 简体 spx （带发音）
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_tool_glodendict_niujin_dict.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_tool_glodendict_niujin_dict.png)
 
 [百度网盘](https://pan.baidu.com/s/1MupVJbBl4KxGjQ-PYo2pTQ)
 
@@ -87,7 +87,7 @@ sudo apt-get install goldendict
 
 ### Vocabulary.com Dictionary 英文版（联网发音）
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_tool_glodendict_vocabulary.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_tool_glodendict_vocabulary.png)
 
 [百度网盘](https://pan.baidu.com/s/1d2pb-myWwXMZslwwQ1Hg2g)
 
@@ -101,4 +101,4 @@ sudo apt-get install goldendict
 
 向大家推荐星际译王的词典[下载网站](http://download.huzheng.org/)，这个网站几乎包含了所有的字典，我们可以选择下载。
 
-![](https://cdn.jsdelivr.net/gh/hiyoung123/CDN/img/img_tool_glodendict_xingji.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_tool_glodendict_xingji.png)
