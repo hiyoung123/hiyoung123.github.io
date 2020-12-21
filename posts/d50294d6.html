@@ -1,0 +1,321 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>古典概型 | Young Blog</title><meta name="keywords" content="古典概型,概率论"><meta name="author" content="Hiyoung"><meta name="copyright" content="Hiyoung"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="古典概型介绍,及其应用案例分析.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="古典概型">
+<meta property="og:url" content="https://hiyoungai.com/posts/d50294d6.html">
+<meta property="og:site_name" content="Young Blog">
+<meta property="og:description" content="古典概型介绍,及其应用案例分析.">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/hiyoung123/images/feature/undraw_happy_birthday_s72n.svg">
+<meta property="article:published_time" content="2020-12-15T10:22:49.000Z">
+<meta property="article:modified_time" content="2020-12-16T02:29:21.676Z">
+<meta property="article:author" content="Hiyoung">
+<meta property="article:tag" content="古典概型">
+<meta property="article:tag" content="概率论">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/hiyoung123/images/feature/undraw_happy_birthday_s72n.svg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://hiyoungai.com/posts/d50294d6"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#71bbb6","bgDark":"#121212","position":"bottom-left"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}
+
+// https://stackoverflow.com/questions/16839698/jquery-getscript-alternative-in-native-javascript
+const getScript = url => new Promise((resolve, reject) => {
+  const script = document.createElement('script')
+  script.src = url
+  script.async = true
+  script.onerror = reject
+  script.onload = script.onreadystatechange = function() {
+    const loadState = this.readyState
+    if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+    script.onload = script.onreadystatechange = null
+    resolve()
+  }
+  document.head.appendChild(script)
+})</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2020-12-16 10:29:21'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+   if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+  const autoChangeMode = '1'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}const fontSizeVal = saveToLocal.get('global-font-size')
+if (fontSizeVal !== undefined) {
+  document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+}})()</script><meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="Young Blog" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">30</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">74</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/contact/"><i class="fa-fw fas fa-envelope"></i><span> 留言</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://cdn.jsdelivr.net/gh/hiyoung123/images/feature/undraw_happy_birthday_s72n.svg)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Young Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/contact/"><i class="fa-fw fas fa-envelope"></i><span> 留言</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">古典概型</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-12-15T10:22:49.000Z" title="发表于 2020-12-15 18:22:49">2020-12-15</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2020-12-16T02:29:21.676Z" title="更新于 2020-12-16 10:29:21">2020-12-16</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/">概率论与数理统计</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>4分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="预备知识"><a href="#预备知识" class="headerlink" title="预备知识"></a>预备知识</h2><ol>
+<li><p>乘法原理：如果进行 $A_1$ 过程有 $N_1$ 种方法，进行 $A_2$ 过程有 $N_2$ 种方法，那么进行 $A_1$ 后再进行 $A_2$ 过程，共有 $N_1 \cdot N_2$ 种方法。</p>
+</li>
+<li><p>加法原理：如果进行 $A_1$ 过程有 $N_1$ 种方法，进行 $A_2$ 过程有 $N_2$ 种方法，若 $A_1$ 过程与 $A_2$ 过程是平行的，那么进行 $A_1$ 过程或者进行 $A_2$ 过程一共有 $N_1 + N_2$ 种方法。</p>
+</li>
+<li><p>排列：从 n 个不同元素中取出 r 个元素进行排列，</p>
+<ul>
+<li>有放回采样，有重复的排列，共有 $n^r$  种排法。</li>
+<li>无放回采样，也就是全排列，共有 $A_n^r = n\cdot (n-1)\cdots (n-r+1)$ 种排法。</li>
+</ul>
+</li>
+<li><p>组合：从 n 个不同元素中取出 r 个元素而不考虑取出顺序，称为组合。由于不考虑取出的顺序，也就是不进行排列，所以去掉排列的 $r!$ 种可能，则 $C_n^r = {A_n^r \over r!}$。</p>
+</li>
+</ol>
+<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><h3 id="古典概型"><a href="#古典概型" class="headerlink" title="古典概型"></a>古典概型</h3><ol>
+<li>定义: 如果试验中所有可能出现的基本事件只有有限个，并且每个基本事件出现的可能性相等，则称此概率为古典概型。</li>
+<li>特点: 1) 试验结果的有限性; 2) 所有结果的等可能性.</li>
+<li>解题步骤:<ul>
+<li>求出试验所有的基本事件数</li>
+<li>求出事件 A 所包含的基本事件数</li>
+</ul>
+</li>
+<li>公式: $P(A) = {A 包含的基本事件数 \over 基本事件总数} = {m \over n}$</li>
+</ol>
+<h3 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h3><ol>
+<li>基本事件是事件的最小单位, 所有随机事件是由基本事件组成的.</li>
+<li>任何两个基本事件是互斥的, $P(A\or B) = P(A) + P(B); P(A \and B) = P(A)P(B)$.</li>
+<li>任何事件都可以表示成基本事件之和(不可能事件除外).</li>
+</ol>
+<h2 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h2><ol>
+<li><p>题目：盒子里共有大小相同的3只白球，1 只黑球．若从中随机摸出两只球，则它们颜色相同的概率是?</p>
+<p>四个球取出两球有 6 种等可能基本事件：(黑，白1)，(黑，白2)，(黑，白3)，(白1，白2)，(白1，白3)，(白2，白3)．两只球颜色相同有 3 种：(白1，白2)，(白1，白3)，(白2，白3)．<br>所以所求概率为 $P = {3\over 6} = {1 \over 2}$.</p>
+</li>
+<li><p>将 n 个球随机放入 N 个盒子，每个盒子至多有一个球的概率是?</p>
+<p>每个球都可以放入 N 个盒子, 所以共有 $N^n$ 个基本事件, 而每个盒子最多一个球共有 $N(N-1)\cdots (N-n+1)$ 种放法, 所以所求概率为 $P = {N(N-1)\cdots (N-n+1) \over N^n} = {A_N^n \over N^n}$</p>
+</li>
+<li><p>n 个人中，他们的生日各不相同的概率是?</p>
+<p>每个人可能有365种情况, 那么总的基本事件数是 $365^n$ , 各不相同的情况有 $365\cdot(365-1)\cdots(365-n+1)$种, 所以所求概率为 $P = {A_{356}^n \over  365^n}$.</p>
+<p>至少有两个人生日相同的概率: $P = 1 - {A_{365}^n \over 365^n}$</p>
+<p>在 n = 64 的情况下, 至少有两个人生日相同的概率接近 1 。</p>
+</li>
+<li><p>N 件产品中有 D 件次品，问从中取出 n 件恰好有 k 件次品的概率是?</p>
+<p>一共有 $C_N^n$ 种取法, 其中取次品的可能数是 $C_D^k$, 取正品的可能数是 $C_{N-D}^{n-k}$, 则所求概率 $P = {C_D^k C_{N-D}^{n-k} \over C_N^n}$， 也叫超几何概率公式。</p>
+</li>
+<li><p>题目：甲乙两人赌技相同，各出赌本 500 元。约定：谁先胜出三局，则谁拿走全部的 1000 元。现已赌了三局，甲二胜一负而因故要终止赌博，问这 1000 元要如何分，才算公平？</p>
+<p>分析：平均分对甲欠公平，全归甲则对乙欠公平，合理的分法是按一定的比例甲拿大头，乙拿小头。一种看来可以接受的方法是按已胜局数分，即甲拿 2/3，乙拿 1/3。仔细分析，发现这不合理，道理如下：</p>
+<p>设想继续赌两局，则结果无非以下四种情况之一：</p>
+<p>甲甲、甲乙、乙甲、乙乙</p>
+<p>其中“甲乙”表示第一局甲胜第二局乙胜，其余类推。把已赌过的三局与上面这四个结果结合（即甲、乙赌完五局），我们看到：对前三个结果都是甲胜三局，因而的 1000 元，只有在最后一个结果才由乙得 1000 元。在赌技相同的情况下，四个结果应有等可能性。因此，甲、乙最终获胜的可能性的大小之比为 3：1。全部赌本应按这比例分，即甲分 750 元，乙分 250 元，才算公平合理。</p>
+</li>
+</ol>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a target="_blank" rel="noopener" href="http://www.mofangge.com/qlist/shuxue/691/">关于“古典概型的定义及计算”的所有试题</a></li>
+<li><a target="_blank" rel="noopener" href="https://jpkc.jmpt.cn/suite/portal/displayItem/1122027/3%E5%8F%A4%E5%85%B8%E6%A6%82%E5%9E%8B.htm">古典概型详解+经典案例</a></li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Hiyoung</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://hiyoungai.com/posts/d50294d6.html">https://hiyoungai.com/posts/d50294d6.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://hiyoungai.com" target="_blank">Young Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%8F%A4%E5%85%B8%E6%A6%82%E5%9E%8B/">古典概型</a><a class="post-meta__tags" href="/tags/%E6%A6%82%E7%8E%87%E8%AE%BA/">概率论</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/hiyoung123/images/feature/undraw_happy_birthday_s72n.svg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/9e79f075.html"><img class="prev-cover" src="https://cdn.jsdelivr.net/gh/hiyoung123/images/feature/undraw_Invest_re_8jl5.svg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">泊松分布</div></div></a></div><div class="next-post pull-right"><a href="/posts/eb3fbcc4.html"><img class="next-cover" src="https://cdn.jsdelivr.net/gh/hiyoung123/images/feature/undraw_fill_in_mie5.svg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">循环神经网络（Recurrent Neural Network，RNN）</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Hiyoung</div><div class="author-info__description">人生何所求，致富和自由。 -《基督山伯爵》</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">30</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">74</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/hiyoung123"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="tencent://message/?uin=787420787" target="_blank" title="QQ"><i class="fab fa-qq"></i></a><a class="social-icon" href="mailto:hiyoungliu@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://github.com/hiyoung123" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fas fa-rss"></i></a></div></div></div><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="card-content"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86"><span class="toc-number">1.</span> <span class="toc-text">预备知识</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-number">2.</span> <span class="toc-text">概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%A4%E5%85%B8%E6%A6%82%E5%9E%8B"><span class="toc-number">2.1.</span> <span class="toc-text">古典概型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A6%81%E7%82%B9"><span class="toc-number">2.2.</span> <span class="toc-text">要点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B"><span class="toc-number">3.</span> <span class="toc-text">案例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-number">4.</span> <span class="toc-text">参考</span></a></li></ol></div></div></div><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/46e4f7d7.html" title="正态分布(高斯分布)"><img src="https://cdn.jsdelivr.net/gh/hiyoung123/images/feature/undraw_growth_curve_8mqx.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="正态分布(高斯分布)"/></a><div class="content"><a class="title" href="/posts/46e4f7d7.html" title="正态分布(高斯分布)">正态分布(高斯分布)</a><time datetime="2020-12-21T02:27:02.000Z" title="发表于 2020-12-21 10:27:02">2020-12-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/53cfa4f7.html" title="指数分布"><img src="https://cdn.jsdelivr.net/gh/hiyoung123/images/feature/undraw_Contemplating_re_ynec.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="指数分布"/></a><div class="content"><a class="title" href="/posts/53cfa4f7.html" title="指数分布">指数分布</a><time datetime="2020-12-20T05:21:39.000Z" title="发表于 2020-12-20 13:21:39">2020-12-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/9e79f075.html" title="泊松分布"><img src="https://cdn.jsdelivr.net/gh/hiyoung123/images/feature/undraw_Invest_re_8jl5.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="泊松分布"/></a><div class="content"><a class="title" href="/posts/9e79f075.html" title="泊松分布">泊松分布</a><time datetime="2020-12-19T15:43:33.000Z" title="发表于 2020-12-19 23:43:33">2020-12-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/d50294d6.html" title="古典概型"><img src="https://cdn.jsdelivr.net/gh/hiyoung123/images/feature/undraw_happy_birthday_s72n.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="古典概型"/></a><div class="content"><a class="title" href="/posts/d50294d6.html" title="古典概型">古典概型</a><time datetime="2020-12-15T10:22:49.000Z" title="发表于 2020-12-15 18:22:49">2020-12-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/eb3fbcc4.html" title="循环神经网络（Recurrent Neural Network，RNN）"><img src="https://cdn.jsdelivr.net/gh/hiyoung123/images/feature/undraw_fill_in_mie5.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="循环神经网络（Recurrent Neural Network，RNN）"/></a><div class="content"><a class="title" href="/posts/eb3fbcc4.html" title="循环神经网络（Recurrent Neural Network，RNN）">循环神经网络（Recurrent Neural Network，RNN）</a><time datetime="2020-03-02T07:20:06.000Z" title="发表于 2020-03-02 15:20:06">2020-03-02</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 By Hiyoung</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    loader: {
+      source: {
+        '[tex]/amsCd': '[tex]/amscd'
+      }
+    },
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        addClass: [200,() => {
+          document.querySelectorAll('mjx-container:not([display=\'true\']').forEach( node => {
+            const target = node.parentNode
+            if (!target.classList.contains('has-jax')) {
+              target.classList.add('mathjax-overflow')
+            }
+          })
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script><script>function loadValine () {
+  function initValine () {
+    let initData = {
+      el: '#vcomment',
+      appId: 'ILRnbdNWCDva9ch1Y5YHGPpr-gzGzoHsz',
+      appKey: 'b9pW89SXRMssN7eatVkCmc1G',
+      placeholder: '昵称处填写QQ号会自动获取QQ昵称哦！',
+      avatar: 'monsterid',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'zh-CN',
+      recordIP: false,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: true,
+      path: window.location.pathname,
+    }
+
+    if (true) { 
+      initData.requiredFields= ('nick,mail'.split(','))
+    }
+    
+    if (false) {
+      const otherData = false
+      initData = Object.assign({}, initData, otherData)
+    }
+    
+    const valine = new Valine(initData)
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) btf.loadComment(document.querySelector('#vcomment'),loadValine)
+  else setTimeout(() => loadValine(), 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></div><script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight||document.documentElement.clientHeight)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},n.src=i}()}i(),n.addEventListener("scroll",function(){var t,e;t=i,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body></html>

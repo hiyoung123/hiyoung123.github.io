@@ -4,6 +4,114 @@
   
     
     <entry>
+      <title>正态分布(高斯分布)</title>
+      <link href="posts/46e4f7d7.html"/>
+      <url>posts/46e4f7d7.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>正态分布又名高斯分布（Gaussian distribution），是一种常见的连续概率分布．正态分布在统计学上非常重要，经常用来在自然和社会科学来代表一个不明的随机变量．正态分布的概率密度函数曲线呈钟形，因此人们又经常称之为钟形曲线．</p><p>若随机变量 $X$ 服从一个位置参数为 $\mu$ ，尺度参数为 $\sigma$ 的正态分布，记为 $X ～ N(\mu, \sigma^2)$．</p><p>概率密度函数为：</p><center>$f(x) = {1\over \sqrt{2\pi}\sigma}e^{-{(x-\mu)^2}\over 2\sigma^2}$    </center></br>图像为：<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_gauss_001.png" alt=""></p><p>则累积分布函数为：</p><center>$F(x) = {1\over \sqrt{2\pi}\sigma}\int_{-\infty}^x e^{-{(t-\mu)^2}\over 2\sigma^2}dt$</center></br>图像为：<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_gauss_002.png" alt=""></p><p>其中期望 $\mu$ 决定了分布的位置，标准差 $\sigma$ 或者方差 $\sigma^2$ 决定了分布的幅度．</p><h2 id="标准状态分布"><a href="#标准状态分布" class="headerlink" title="标准状态分布"></a>标准状态分布</h2><p>通常情况下，我们把期望 $\mu$ 为 0，方差 $\sigma^2$ 为 1 的正态分布，叫做标准正态分布．</p><h2 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h2><ul><li>密度函数 $f(x)$ 关于平均值线 $x=\mu$ 对称．</li><li>平均值与它的众数以及中位数同一数值．</li><li>函数曲线下 68.268949% 的面积在平均数左右的一个标准差 $\sigma$ 范围内．</li><li>95.449974% 的面积在平均数左右的两个标准差 $\sigma$ 范围内．</li><li>99.730020% 的面积在平均数左右的三个标准差 $\sigma$ 范围内．</li><li>99.993666% 的面积在平均数左右的四个标准差 $\sigma$ 范围内．</li><li>函数曲线的拐点位置在离平均数一个标准差 $\sigma$ 的位置．</li></ul><h2 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h2><ul><li>某高校男生的身高．</li><li>计算学生智力高低的概率．</li></ul><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="[https://zh.wikipedia.org/wiki/%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83](https://zh.wikipedia.org/wiki/正态分布)">正态分布-wiki</a></li><li><a href="https://blog.csdn.net/hhaowang/article/details/83898881#t1">正态分布（高斯分布）- CSDN</a></li><li><a href="https://blog.csdn.net/pipisorry/article/details/49516209">概率论：高斯/正态分布 - CSDN</a></li><li><a href="https://baijiahao.baidu.com/s?id=1621087027738177317&wfr=spider&for=pc">透彻理解高斯分布 - 百度百科</a></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 概率论与数理统计 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 正态分布 </tag>
+            
+            <tag> 高斯分布 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>指数分布</title>
+      <link href="posts/53cfa4f7.html"/>
+      <url>posts/53cfa4f7.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><h2 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h2><h2 id="与泊松分布的关系"><a href="#与泊松分布的关系" class="headerlink" title="与泊松分布的关系"></a>与泊松分布的关系</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> 概率论与数理统计 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 指数分布 </tag>
+            
+            <tag> 泊松分布 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>泊松分布</title>
+      <link href="posts/9e79f075.html"/>
+      <url>posts/9e79f075.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>泊松分布（Poisson distribution），是一种统计与概率学里常见到的离散分布，由法国数学家西莫恩·德尼·泊松在1838年时发表。</p><p>泊松分布适合于描述单位时间内随机事件发生的次数的概率分布。</p><p>课本中的定义为：设随机变量 $X$ 所有可能取的值为 $0,1,2,3 \cdots$，而取得各个值的概率为</p><center>$P \{ X=k\} = {\lambda^ke^{-\lambda} \over k!}, k = 0,1,2,3\cdots$</center></br>其中 $\lambda > 0 $ 是常数，则称 $X$ 服从参数为 $\lambda$ 的泊松分布，记为 $X ～\pi(\lambda)$。<blockquote><p>吐槽一句，课本真的是晦涩难懂，就不能像wiki中的那么解释的简单明了一些，然后再引出公式吗？</p></blockquote><h2 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h2><p>生活中具有泊松分布的例子有很多：</p><ol><li>一本书一页中的印刷错误数；</li><li>某地区在一天内邮递遗失的信件数；</li><li>某医院平均每小时出生 3 个婴儿；</li><li>某公司平均每 10 分钟接到 1 个电话；</li><li>某超市平均每天销售 4 包xx牌奶粉；</li><li>某网站平均每分钟有 2 次访问；</li><li>等等。。</li></ol><h2 id="柏松定理"><a href="#柏松定理" class="headerlink" title="柏松定理"></a>柏松定理</h2><p>我们知道二项分布是进行了 $n$ 次伯努利实验</p><center>$P\{X = k \} = C_n^k p^k(1-p)^{n-k}$</center></br>如果当 $n$ 很大时，趋近于无限大的时候，如果计算随机变量的概率分布呢？也就是去计算下面的式子（这里用到了自然对数 e 的概念），令 $\lambda = np$：<center>$\lim_{n\to\infty} C_n^k p^k(1-p)^{n-k} = {\lambda^ke^{-\lambda} \over k!}$</center></br>其中 $\lambda = np$ 是常数，是二项分布的均值，当 $n$ 很大且 $p$ 很小的时候，那么可以使用泊松分布近似二项分布。<blockquote><p>一般 $n \geq 20, p \leq 0.05$</p></blockquote><h2 id="与二项分布的关系"><a href="#与二项分布的关系" class="headerlink" title="与二项分布的关系"></a>与二项分布的关系</h2><p>从泊松定理可以看出，二项分布在 $n$ 趋近于无限的情况下就是泊松分布。其实就是把从 $n$ 中取 $k$ 个值的概率，变成了从一段时间中取 $k$ 个值的概率。</p><p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_poisson_001.jpeg" alt=""></p><p>当 $p$ 取很小的值时两个分布几乎相同。</p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="https://zh.wikipedia.org/wiki/%E6%B3%8A%E6%9D%BE%E5%88%86%E4%BD%88">泊松分布-wiki</a></li><li><a href="https://www.zhihu.com/question/26441147">知乎-马同学</a></li><li><a href="http://www.ruanyifeng.com/blog/2015/06/poisson-distribution.html">阮一峰-泊松分布</a></li><li><a href="https://zhuanlan.zhihu.com/p/26263743">知乎-泊松分布 (Poisson Distributions) 的推导</a></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 概率论与数理统计 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 泊松分布 </tag>
+            
+            <tag> 二项分布 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>古典概型</title>
+      <link href="posts/d50294d6.html"/>
+      <url>posts/d50294d6.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="预备知识"><a href="#预备知识" class="headerlink" title="预备知识"></a>预备知识</h2><ol><li><p>乘法原理：如果进行 $A_1$ 过程有 $N_1$ 种方法，进行 $A_2$ 过程有 $N_2$ 种方法，那么进行 $A_1$ 后再进行 $A_2$ 过程，共有 $N_1 \cdot N_2$ 种方法。</p></li><li><p>加法原理：如果进行 $A_1$ 过程有 $N_1$ 种方法，进行 $A_2$ 过程有 $N_2$ 种方法，若 $A_1$ 过程与 $A_2$ 过程是平行的，那么进行 $A_1$ 过程或者进行 $A_2$ 过程一共有 $N_1 + N_2$ 种方法。</p></li><li><p>排列：从 n 个不同元素中取出 r 个元素进行排列，</p><ul><li>有放回采样，有重复的排列，共有 $n^r$  种排法。</li><li>无放回采样，也就是全排列，共有 $A_n^r = n\cdot (n-1)\cdots (n-r+1)$ 种排法。</li></ul></li><li><p>组合：从 n 个不同元素中取出 r 个元素而不考虑取出顺序，称为组合。由于不考虑取出的顺序，也就是不进行排列，所以去掉排列的 $r!$ 种可能，则 $C_n^r = {A_n^r \over r!}$。</p></li></ol><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><h3 id="古典概型"><a href="#古典概型" class="headerlink" title="古典概型"></a>古典概型</h3><ol><li>定义: 如果试验中所有可能出现的基本事件只有有限个，并且每个基本事件出现的可能性相等，则称此概率为古典概型。</li><li>特点: 1) 试验结果的有限性; 2) 所有结果的等可能性.</li><li>解题步骤:<ul><li>求出试验所有的基本事件数</li><li>求出事件 A 所包含的基本事件数</li></ul></li><li>公式: $P(A) = {A 包含的基本事件数 \over 基本事件总数} = {m \over n}$</li></ol><h3 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h3><ol><li>基本事件是事件的最小单位, 所有随机事件是由基本事件组成的.</li><li>任何两个基本事件是互斥的, $P(A\or B) = P(A) + P(B); P(A \and B) = P(A)P(B)$.</li><li>任何事件都可以表示成基本事件之和(不可能事件除外).</li></ol><h2 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h2><ol><li><p>题目：盒子里共有大小相同的3只白球，1 只黑球．若从中随机摸出两只球，则它们颜色相同的概率是?</p><p>四个球取出两球有 6 种等可能基本事件：(黑，白1)，(黑，白2)，(黑，白3)，(白1，白2)，(白1，白3)，(白2，白3)．两只球颜色相同有 3 种：(白1，白2)，(白1，白3)，(白2，白3)．<br>所以所求概率为 $P = {3\over 6} = {1 \over 2}$.</p></li><li><p>将 n 个球随机放入 N 个盒子，每个盒子至多有一个球的概率是?</p><p>每个球都可以放入 N 个盒子, 所以共有 $N^n$ 个基本事件, 而每个盒子最多一个球共有 $N(N-1)\cdots (N-n+1)$ 种放法, 所以所求概率为 $P = {N(N-1)\cdots (N-n+1) \over N^n} = {A_N^n \over N^n}$</p></li><li><p>n 个人中，他们的生日各不相同的概率是?</p><p>每个人可能有365种情况, 那么总的基本事件数是 $365^n$ , 各不相同的情况有 $365\cdot(365-1)\cdots(365-n+1)$种, 所以所求概率为 $P = {A_{356}^n \over  365^n}$.</p><p>至少有两个人生日相同的概率: $P = 1 - {A_{365}^n \over 365^n}$</p><p>在 n = 64 的情况下, 至少有两个人生日相同的概率接近 1 。</p></li><li><p>N 件产品中有 D 件次品，问从中取出 n 件恰好有 k 件次品的概率是?</p><p>一共有 $C_N^n$ 种取法, 其中取次品的可能数是 $C_D^k$, 取正品的可能数是 $C_{N-D}^{n-k}$, 则所求概率 $P = {C_D^k C_{N-D}^{n-k} \over C_N^n}$， 也叫超几何概率公式。</p></li><li><p>题目：甲乙两人赌技相同，各出赌本 500 元。约定：谁先胜出三局，则谁拿走全部的 1000 元。现已赌了三局，甲二胜一负而因故要终止赌博，问这 1000 元要如何分，才算公平？</p><p>分析：平均分对甲欠公平，全归甲则对乙欠公平，合理的分法是按一定的比例甲拿大头，乙拿小头。一种看来可以接受的方法是按已胜局数分，即甲拿 2/3，乙拿 1/3。仔细分析，发现这不合理，道理如下：</p><p>设想继续赌两局，则结果无非以下四种情况之一：</p><p>甲甲、甲乙、乙甲、乙乙</p><p>其中“甲乙”表示第一局甲胜第二局乙胜，其余类推。把已赌过的三局与上面这四个结果结合（即甲、乙赌完五局），我们看到：对前三个结果都是甲胜三局，因而的 1000 元，只有在最后一个结果才由乙得 1000 元。在赌技相同的情况下，四个结果应有等可能性。因此，甲、乙最终获胜的可能性的大小之比为 3：1。全部赌本应按这比例分，即甲分 750 元，乙分 250 元，才算公平合理。</p></li></ol><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="http://www.mofangge.com/qlist/shuxue/691/">关于“古典概型的定义及计算”的所有试题</a></li><li><a href="https://jpkc.jmpt.cn/suite/portal/displayItem/1122027/3%E5%8F%A4%E5%85%B8%E6%A6%82%E5%9E%8B.htm">古典概型详解+经典案例</a></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 概率论与数理统计 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 古典概型 </tag>
+            
+            <tag> 概率论 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>循环神经网络（Recurrent Neural Network，RNN）</title>
       <link href="posts/eb3fbcc4.html"/>
       <url>posts/eb3fbcc4.html</url>
