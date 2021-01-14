@@ -15,6 +15,7 @@ menu:
   #   - Music || /music/ || fas fa-music
   #   - Movie || /movies/ || fas fa-video
   # Link: /link/ || fas fa-link
+   日记: /diary/ || fas fa-book
    留言: /contact/ || fas fa-envelope
    关于: /about/ || fas fa-heart
 
