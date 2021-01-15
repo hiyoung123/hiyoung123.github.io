@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hiyoungai.com/"/>
-  <updated>2020-12-21T03:47:43.917Z</updated>
+  <updated>2021-01-15T02:15:54.394Z</updated>
   <id>https://hiyoungai.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>概率论基本概念</title>
+    <link href="https://hiyoungai.com/posts/69aaf0dc.html"/>
+    <id>https://hiyoungai.com/posts/69aaf0dc.html</id>
+    <published>2021-01-14T09:02:41.000Z</published>
+    <updated>2021-01-15T02:15:54.394Z</updated>
+    
+    <summary type="html">
+    
+      机器学习深度学习等领域需要的概率论知识总结。
+    
+    </summary>
+    
+    
+      <category term="概率论与数理统计" scheme="https://hiyoungai.com/categories/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/"/>
+    
+    
+      <category term="概率论" scheme="https://hiyoungai.com/tags/%E6%A6%82%E7%8E%87%E8%AE%BA/"/>
+    
+      <category term="随机变量" scheme="https://hiyoungai.com/tags/%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F/"/>
+    
+      <category term="条件概率" scheme="https://hiyoungai.com/tags/%E6%9D%A1%E4%BB%B6%E6%A6%82%E7%8E%87/"/>
+    
+  </entry>
   
   <entry>
     <title>正态分布(高斯分布)</title>
@@ -333,7 +358,7 @@
     <link href="https://hiyoungai.com/posts/58c9c51f.html"/>
     <id>https://hiyoungai.com/posts/58c9c51f.html</id>
     <published>2020-01-15T07:43:27.000Z</published>
-    <updated>2021-01-14T07:27:43.535Z</updated>
+    <updated>2021-01-14T07:33:50.296Z</updated>
     
     <summary type="html">
     
@@ -508,33 +533,6 @@
     
     
       <category term="cmder" scheme="https://hiyoungai.com/tags/cmder/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>信息熵总结</title>
-    <link href="https://hiyoungai.com/posts/686d9456.html"/>
-    <id>https://hiyoungai.com/posts/686d9456.html</id>
-    <published>2019-12-16T01:53:36.000Z</published>
-    <updated>2020-12-15T05:21:32.340Z</updated>
-    
-    <summary type="html">
-    
-      机器学习、深度学习、自然语言处理中常用的信息熵相关知识总结。
-    
-    </summary>
-    
-    
-      <category term="机器学习" scheme="https://hiyoungai.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="信息熵" scheme="https://hiyoungai.com/tags/%E4%BF%A1%E6%81%AF%E7%86%B5/"/>
-    
-      <category term="交叉熵" scheme="https://hiyoungai.com/tags/%E4%BA%A4%E5%8F%89%E7%86%B5/"/>
-    
-      <category term="信息增益" scheme="https://hiyoungai.com/tags/%E4%BF%A1%E6%81%AF%E5%A2%9E%E7%9B%8A/"/>
-    
-      <category term="基尼系数" scheme="https://hiyoungai.com/tags/%E5%9F%BA%E5%B0%BC%E7%B3%BB%E6%95%B0/"/>
     
   </entry>
   

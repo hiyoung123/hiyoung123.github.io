@@ -2,9 +2,44 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hiyoungai.com/diary/index.html</loc>
+    
+    <lastmod>2021-01-15T02:24:01.265Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://hiyoungai.com/posts/69aaf0dc.html</loc>
+    
+    <lastmod>2021-01-15T02:15:54.394Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://hiyoungai.com/about/index.html</loc>
+    
+    <lastmod>2021-01-15T02:15:54.394Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://hiyoungai.com/categories/index.html</loc>
+    
+    <lastmod>2021-01-15T02:15:54.394Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://hiyoungai.com/tags/index.html</loc>
+    
+    <lastmod>2021-01-15T02:15:54.394Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://hiyoungai.com/posts/58c9c51f.html</loc>
     
-    <lastmod>2021-01-14T07:27:43.535Z</lastmod>
+    <lastmod>2021-01-14T07:33:50.296Z</lastmod>
     
   </url>
   
@@ -44,30 +79,9 @@
   </url>
   
   <url>
-    <loc>https://hiyoungai.com/tags/index.html</loc>
-    
-    <lastmod>2020-12-15T06:36:15.109Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://hiyoungai.com/friends/index.html</loc>
     
     <lastmod>2020-12-15T06:36:00.925Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://hiyoungai.com/about/index.html</loc>
-    
-    <lastmod>2020-12-15T06:35:19.260Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://hiyoungai.com/categories/index.html</loc>
-    
-    <lastmod>2020-12-15T06:34:08.771Z</lastmod>
     
   </url>
   
