@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hiyoungai.com/"/>
-  <updated>2021-01-15T08:37:01.129Z</updated>
+  <updated>2021-01-20T03:29:30.158Z</updated>
   <id>https://hiyoungai.com/</id>
   
   <author>
@@ -17,11 +17,32 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>凸优化概述</title>
+    <link href="https://hiyoungai.com/posts/b0f73140.html"/>
+    <id>https://hiyoungai.com/posts/b0f73140.html</id>
+    <published>2021-01-17T15:03:40.000Z</published>
+    <updated>2021-01-20T03:29:30.158Z</updated>
+    
+    <summary type="html">
+    
+      机器学习深度学习等领域需要的凸优化知识总结。
+    
+    </summary>
+    
+    
+      <category term="凸优化" scheme="https://hiyoungai.com/categories/%E5%87%B8%E4%BC%98%E5%8C%96/"/>
+    
+    
+      <category term="凸优化" scheme="https://hiyoungai.com/tags/%E5%87%B8%E4%BC%98%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
     <title>概率论基本概念</title>
     <link href="https://hiyoungai.com/posts/69aaf0dc.html"/>
     <id>https://hiyoungai.com/posts/69aaf0dc.html</id>
     <published>2021-01-14T09:02:41.000Z</published>
-    <updated>2021-01-15T08:37:01.129Z</updated>
+    <updated>2021-01-20T02:45:39.098Z</updated>
     
     <summary type="html">
     
@@ -512,27 +533,6 @@
       <category term="GoldenDict" scheme="https://hiyoungai.com/tags/GoldenDict/"/>
     
       <category term="词典" scheme="https://hiyoungai.com/tags/%E8%AF%8D%E5%85%B8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Windows下命令行工具-Cmder</title>
-    <link href="https://hiyoungai.com/posts/7d402318.html"/>
-    <id>https://hiyoungai.com/posts/7d402318.html</id>
-    <published>2019-12-21T12:35:51.000Z</published>
-    <updated>2020-12-15T05:26:56.618Z</updated>
-    
-    <summary type="html">
-    
-      Windows下程序员必备命令行神器-Cmder的安装与配置。
-    
-    </summary>
-    
-    
-      <category term="便捷工具" scheme="https://hiyoungai.com/categories/%E4%BE%BF%E6%8D%B7%E5%B7%A5%E5%85%B7/"/>
-    
-    
-      <category term="cmder" scheme="https://hiyoungai.com/tags/cmder/"/>
     
   </entry>
   
