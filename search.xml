@@ -4,6 +4,60 @@
   
     
     <entry>
+      <title>伯努利分布和二项分布</title>
+      <link href="posts/9d7e2111.html"/>
+      <url>posts/9d7e2111.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="伯努利分布"><a href="#伯努利分布" class="headerlink" title="伯努利分布"></a>伯努利分布</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>伯努利分布（Bernoulli），也叫两点分布，$0-1$ 分布，是一种离散型概率分布。</p><p>设试验 $E$ 只有两个可能结果：$A$ 与 $\overline{A}$ ，则称 $E$ 为伯努利试验．设 $P(A) = p \ (0&lt;p&lt;1)$，此时 $P(\overline{A}) = 1-p$。将 $E$ 独立重复地进行 $n$ 次，则称这一串重复的独立试验为 $n$ 重伯努利试验（二项分布）。</p><p>若离散随机变量 $X$ 的服从参数为 $p$ 伯努利分布，令 $q=1-p$，则 $X$ 的概率函数为：</p><center>$f(x|p) = \begin{cases} p^xq^{1-x}, \ \  & x = 0,1 \\ 0, \ \ &x \neq 0,1 \end{cases}$</center></br><h3 id="期望"><a href="#期望" class="headerlink" title="期望"></a>期望</h3><center>$ E(x) = ∑x∗p(x) = 1∗p+0∗(1−p) = p$ </center></br><h3 id="方差"><a href="#方差" class="headerlink" title="方差"></a>方差</h3><center>$D(x) = E(x^2)−(E^2)(x) = p−p^2 = p(1−p)$</center></br><h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><ul><li>抛一次硬币是正面向上吗？</li><li>刚出生的小孩是个女孩吗？</li></ul><h2 id="二项分布"><a href="#二项分布" class="headerlink" title="二项分布"></a>二项分布</h2><h3 id="概念-1"><a href="#概念-1" class="headerlink" title="概念"></a>概念</h3><p>二项分布（Binomial Distribution）也是一种离散型概率分布。二项分布是指进行 $n$ 次伯努利实验（只有出现和不出现两种情况），所期望的结果出现次数的概率，又称为 $n$ 重伯努利分布。</p><p>二项分布是建立在有放回的采样基础上，无放回采样可以使用超几何分布计算概率。当样本总量 $N$ 很大，而实验次数 $n$ 很小时，${n\over N} \leq 0.1$ 时可以用二项分布近似超几何分布。</p><h3 id="公式"><a href="#公式" class="headerlink" title="公式"></a>公式</h3><center>$b(x,n,p) = C_n^xp^x(1-p)^{n-x}$</center></br><p>其中 $C_n^x = {n \cdot (n-1) \cdot \cdots (n-x+1) \over x \cdot (x-1) \cdots 1}$，$n$ 为实验次数​。从公式上可以看出，伯努利分布是二项分布在 $n=1$ 时的特例。</p><h3 id="期望-1"><a href="#期望-1" class="headerlink" title="期望"></a>期望</h3><center>$E[X] = np$</center></br><h3 id="方差-1"><a href="#方差-1" class="headerlink" title="方差"></a>方差</h3><center>$D(X) = np(1-p)$</center></br><h3 id="例子-1"><a href="#例子-1" class="headerlink" title="例子"></a>例子</h3><ul><li>扔 $n$ 次硬币，出现 $k$ 次正面的概率。</li></ul><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">double</span> <span class="token function">binomial</span><span class="token punctuation">(</span><span class="token keyword">int</span> N<span class="token punctuation">,</span> <span class="token keyword">int</span> k<span class="token punctuation">,</span> <span class="token keyword">double</span> p<span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>    <span class="token keyword">if</span><span class="token punctuation">(</span>N<span class="token operator">==</span><span class="token number">0</span> <span class="token operator">&amp;&amp;</span> k<span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>        <span class="token keyword">return</span> <span class="token number">1.0</span><span class="token punctuation">;</span>    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>    <span class="token keyword">if</span><span class="token punctuation">(</span>N<span class="token operator">&lt;</span><span class="token number">0</span> <span class="token operator">||</span> k<span class="token operator">&lt;</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>        <span class="token keyword">return</span> <span class="token number">0.0</span><span class="token punctuation">;</span>    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>    <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token number">1.0</span><span class="token operator">-</span>p<span class="token punctuation">)</span><span class="token operator">*</span><span class="token function">binomial</span><span class="token punctuation">(</span>N<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> k<span class="token punctuation">,</span> p<span class="token punctuation">)</span> <span class="token operator">+</span> p<span class="token operator">*</span><span class="token function">binomial</span><span class="token punctuation">(</span>N<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> k<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> p<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//binomial(n,k,p) = (1-p)*binomial(n-1,k,p)+p*bimomial(n-1,k-1,p)</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="https://zhuanlan.zhihu.com/p/24692791">统计基础篇之十：怎么理解二项分布</a></li><li><a href="https://www.zhihu.com/question/316063270">什么是二项分布？</a></li><li><a href="https://zhuanlan.zhihu.com/p/43514413">伯努利分布、二项分布、多类别分布、多项分布</a></li><li><a href="https://www.cnblogs.com/jmilkfan-fanguiju/p/10589773.html">统计与分布之伯努利分布与二项分布</a></li><li><a href="https://www.cnblogs.com/ehomeshasha/p/3820512.html">伯努利分布详解(包含该分布数字特征的详细推导步骤)</a></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 概率论与数理统计 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 伯努利分布 </tag>
+            
+            <tag> 二项分布 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>遗传算法</title>
+      <link href="posts/9cfaa3ca.html"/>
+      <url>posts/9cfaa3ca.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="遗传算法"><a href="#遗传算法" class="headerlink" title="遗传算法"></a>遗传算法</h2><p>遗传算法（$GA$）：是一种基于自然选择和群体遗传机制的搜索算法，它模拟了自然选择和自然遗传过程中的繁殖，杂交和突变的现象．</p><blockquote><p> 能够生存下来的往往不是最强大的物种，也不是最聪明的物种，而是最能适应环境的物种。</p><p> ​                                                                                                                    - 查尔斯·达尔文</p></blockquote><h2 id="求解思想"><a href="#求解思想" class="headerlink" title="求解思想"></a>求解思想</h2><ul><li>利用遗传算法求解问题时，随机产生一些个体（问题的解），</li><li>根据预定的目标函数对每一个个体进行评估，给出一个适应度，选择一些个体用来产生下一代个体．选择操作体现了适者生存的原理，好的个体被用来产生下一代，坏的个体被淘汰．</li><li>然后选择出来的个体经过杂交，突变再组合产生新的个体</li></ul><p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_ga_001.png" alt=""></p><h2 id="遗传操作"><a href="#遗传操作" class="headerlink" title="遗传操作"></a>遗传操作</h2><ol><li>选择<ul><li>选择是指从群体中选择优良的个体并淘汰劣质的个体，他建立在适应度评估的基础上．适应度越大的个体，被选中的概率越大，他的子孙在下一代中的数量越多．</li><li>选择的方法有：轮赌盘方法，最佳个体保留法，期望值法，排序选择法，竞争法，线性标准化法．</li></ul></li><li>交叉<ul><li>交叉是指把两个父代个体的部分结构加以替换组合而生成新的个体的操作，交叉的目的是为了产生下一代新的个体．通过交叉操作，遗传算法的搜索能力得到飞跃的提升．</li><li>交叉是遗传算法获取优良个体的重要手段，交叉操作是按照一定的交叉概率在匹配库中随机的选取两个个体进行的，交叉的位置也是随机的，交叉概率一般取得很大 $0.6~0.9$.</li></ul></li><li>变异<ul><li>变异是以很小的概率 $p$ 随机改变种群中个体的某些基因的值</li><li>变异操作的过程是：<ul><li>产生一个$［０，１］$之间的随机数 $rand$．</li><li>如果 $rand &lt; p$ ，则进变异操作．</li></ul></li><li>变异操作本身是一种局部随机搜索，与选择和交叉结合一起使用，能够避免由于选择和交叉导致某些局部信息永久丢失，保证了遗传算法的有效性．保证了群体多样性．</li><li>变异概率不宜取过大，如果 $p &gt; 0.5$ ，那么遗传算法退化为随机搜索．</li></ul></li></ol><h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><p>遗传算法是一种迭代的选择算法，从初始解，以及后续繁殖出来的子解中选择最优的解．通常的做法是，将问题的解转化为二进制表示，然后进行遗传算法选择最优解．</p><ol><li>特征选择：每个特征用二进制中的位表示，$０$ 不选择该特征，$1$ 选择该特征．则有多组特征选择，用遗传算法进行选择最优解.</li><li>背包问题</li><li>路线规划</li></ol><h2 id="python-相关库"><a href="#python-相关库" class="headerlink" title="python 相关库"></a>python 相关库</h2><ul><li>tpot：树形传递优化技术</li></ul><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="https://blog.csdn.net/jzp1083462154/article/details/80032987">遗传算法的基本原理</a></li><li><a href="https://www.cnblogs.com/jingsupo/p/genetic-algorithm-python.html">一文读懂遗传算法工作原理（附Python实现）</a></li><li><a href="https://www.jianshu.com/p/ae5157c26af9">超详细的遗传算法(Genetic Algorithm)解析</a></li><li><a href="https://www.zhihu.com/question/19885905">遗传算法有哪些比较直观的应用呢？</a> （列举一些有用的应用和蛋疼的应用，比如用于搜索神经网络参数以及k-mean的ｋ值都是比较蛋疼的．．．）</li><li><a href="https://github.com/anopara/genetic-drawing">Genetic Drawing</a></li><li><a href="https://arxiv.org/abs/1412.1897">攻击神经网络</a></li><li><a href="https://www.zhihu.com/question/20085479">遗传算法有哪些有趣应用？</a></li><li><a href="https://www.zhihu.com/question/23293449?sort=created">如何通俗易懂地解释遗传算法？有什么例子？</a></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 智能优化算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 遗传算法 </tag>
+            
+            <tag> 智能优化算法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>凸优化概述</title>
       <link href="posts/b0f73140.html"/>
       <url>posts/b0f73140.html</url>
@@ -128,9 +182,9 @@
       
         <tags>
             
-            <tag> 泊松分布 </tag>
-            
             <tag> 二项分布 </tag>
+            
+            <tag> 泊松分布 </tag>
             
         </tags>
       
