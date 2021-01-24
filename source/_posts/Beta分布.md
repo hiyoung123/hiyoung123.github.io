@@ -2,13 +2,15 @@
 title: Beta分布
 toc: true
 mathjax: true
-date: 2021-01-24 10:31:42
-cover: https://cdn.jsdelivr.net/gh/hiyoung123/images/feature/undraw_coffee_break_h3uu.svg
+cover: >-
+  https://cdn.jsdelivr.net/gh/hiyoung123/images/feature/undraw_coffee_break_h3uu.svg
 tags:
   - Beta函数
 categories:
   - 概率论与数理统计
 excerpt: Beta 分布学习笔记。
+abbrlink: 9243dfdf
+date: 2021-01-24 10:31:42
 ---
 
 ## 前言
