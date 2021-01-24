@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hiyoungai.com/"/>
-  <updated>2021-01-21T09:13:50.835Z</updated>
+  <updated>2021-01-24T03:00:05.037Z</updated>
   <id>https://hiyoungai.com/</id>
   
   <author>
@@ -15,6 +15,75 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Gamma分布</title>
+    <link href="https://hiyoungai.com/posts/997b3ae2.html"/>
+    <id>https://hiyoungai.com/posts/997b3ae2.html</id>
+    <published>2021-01-24T02:32:00.000Z</published>
+    <updated>2021-01-24T03:00:05.037Z</updated>
+    
+    <summary type="html">
+    
+      Gamma 函数学习笔记。
+    
+    </summary>
+    
+    
+      <category term="概率论与数理统计" scheme="https://hiyoungai.com/categories/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/"/>
+    
+    
+      <category term="Gamma函数" scheme="https://hiyoungai.com/tags/Gamma%E5%87%BD%E6%95%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Beta分布</title>
+    <link href="https://hiyoungai.com/posts/9243dfdf.html"/>
+    <id>https://hiyoungai.com/posts/9243dfdf.html</id>
+    <published>2021-01-24T02:31:42.000Z</published>
+    <updated>2021-01-24T02:57:21.478Z</updated>
+    
+    <summary type="html">
+    
+      Beta 分布学习笔记。
+    
+    </summary>
+    
+    
+      <category term="概率论与数理统计" scheme="https://hiyoungai.com/categories/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/"/>
+    
+    
+      <category term="Beta函数" scheme="https://hiyoungai.com/tags/Beta%E5%87%BD%E6%95%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>共轭先验分布</title>
+    <link href="https://hiyoungai.com/posts/b6eca691.html"/>
+    <id>https://hiyoungai.com/posts/b6eca691.html</id>
+    <published>2021-01-23T02:30:54.000Z</published>
+    <updated>2021-01-24T02:00:54.559Z</updated>
+    
+    <summary type="html">
+    
+      贝叶斯学派与频率学派是当今数理统计学的两大学派，基于各自的理论，在诸多领域中都起到了重要作用。自 20 世纪初数理统计学大发展开始，一直到 20 世纪中叶，频率学派一直占据主导地位，当时诸多大咖如 Fisher、K.Pearson 等都属于频率学派，而从 20 世纪中叶以后，贝叶斯学派迅速发展壮大起来，可与频率学派分庭抗礼（我想这也是社会发展的需求，一些问题用原来的方法解决不了，需要一种的新的思维出现来解决问题），由于其发展较新，因此人们也将频率学派称为古典学派。
+    
+    </summary>
+    
+    
+      <category term="概率论与数理统计" scheme="https://hiyoungai.com/categories/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/"/>
+    
+    
+      <category term="二项分布" scheme="https://hiyoungai.com/tags/%E4%BA%8C%E9%A1%B9%E5%88%86%E5%B8%83/"/>
+    
+      <category term="共轭先验分布" scheme="https://hiyoungai.com/tags/%E5%85%B1%E8%BD%AD%E5%85%88%E9%AA%8C%E5%88%86%E5%B8%83/"/>
+    
+      <category term="Beta分布" scheme="https://hiyoungai.com/tags/Beta%E5%88%86%E5%B8%83/"/>
+    
+      <category term="贝叶斯公式" scheme="https://hiyoungai.com/tags/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%85%AC%E5%BC%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>多项式分布</title>
@@ -438,83 +507,6 @@
       <category term="分类任务" scheme="https://hiyoungai.com/tags/%E5%88%86%E7%B1%BB%E4%BB%BB%E5%8A%A1/"/>
     
       <category term="NER" scheme="https://hiyoungai.com/tags/NER/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>线性代数概要</title>
-    <link href="https://hiyoungai.com/posts/58c9c51f.html"/>
-    <id>https://hiyoungai.com/posts/58c9c51f.html</id>
-    <published>2020-01-15T07:43:27.000Z</published>
-    <updated>2021-01-14T07:33:50.296Z</updated>
-    
-    <summary type="html">
-    
-      机器学习深度学习等领域需要的线性代数知识总结。
-    
-    </summary>
-    
-    
-      <category term="线性代数" scheme="https://hiyoungai.com/categories/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/"/>
-    
-    
-      <category term="线性代数" scheme="https://hiyoungai.com/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>论文阅读《GloVe: Global Vectors for Word Representation》</title>
-    <link href="https://hiyoungai.com/posts/fb292938.html"/>
-    <id>https://hiyoungai.com/posts/fb292938.html</id>
-    <published>2020-01-12T09:29:02.000Z</published>
-    <updated>2020-12-15T05:20:11.407Z</updated>
-    
-    <summary type="html">
-    
-      论文《GloVe: Global Vectors for Word Representation》阅读笔记。
-    
-    </summary>
-    
-    
-      <category term="自然语言处理" scheme="https://hiyoungai.com/categories/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/"/>
-    
-    
-      <category term="NLP" scheme="https://hiyoungai.com/tags/NLP/"/>
-    
-      <category term="人工智能" scheme="https://hiyoungai.com/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
-    
-      <category term="GloVe" scheme="https://hiyoungai.com/tags/GloVe/"/>
-    
-      <category term="全局词向量" scheme="https://hiyoungai.com/tags/%E5%85%A8%E5%B1%80%E8%AF%8D%E5%90%91%E9%87%8F/"/>
-    
-      <category term="共现矩阵" scheme="https://hiyoungai.com/tags/%E5%85%B1%E7%8E%B0%E7%9F%A9%E9%98%B5/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CS224n-lecture2 Word Vectors and Word Senses</title>
-    <link href="https://hiyoungai.com/posts/ad770643.html"/>
-    <id>https://hiyoungai.com/posts/ad770643.html</id>
-    <published>2020-01-08T09:45:45.000Z</published>
-    <updated>2020-12-15T05:23:29.467Z</updated>
-    
-    <summary type="html">
-    
-      CS224n 深度学习自然语言处理 2019 版 Lecture-2 学习笔记。
-    
-    </summary>
-    
-    
-      <category term="自然语言处理" scheme="https://hiyoungai.com/categories/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/"/>
-    
-    
-      <category term="NLP" scheme="https://hiyoungai.com/tags/NLP/"/>
-    
-      <category term="CS224n" scheme="https://hiyoungai.com/tags/CS224n/"/>
-    
-      <category term="词向量" scheme="https://hiyoungai.com/tags/%E8%AF%8D%E5%90%91%E9%87%8F/"/>
-    
-      <category term="GloVe" scheme="https://hiyoungai.com/tags/GloVe/"/>
     
   </entry>
   

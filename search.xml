@@ -4,6 +4,87 @@
   
     
     <entry>
+      <title>Gamma分布</title>
+      <link href="posts/997b3ae2.html"/>
+      <url>posts/997b3ae2.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> 概率论与数理统计 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Gamma函数 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Beta分布</title>
+      <link href="posts/9243dfdf.html"/>
+      <url>posts/9243dfdf.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在 <a href="https://hiyoungai.com/posts/b6eca691.html">共轭先验分布</a> 中已经简单介绍过 Beta 分布了，这里只做简单的笔记记录。更详细的内容可以参考 <a href="https://zhuanlan.zhihu.com/p/69606875">【统计学进阶知识（一）】深入理解Beta分布：从定义到公式推导</a>。</p><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><ol><li>Beta 分布是一种连续型概率密度函数分布, 由形状参数 $a, b$ 决定。</li><li>Beta 分布可以看作一个概率的概率密度分布，当你不知道一个东西的具体概率是多少时，它可以给出了所有概率出现的可能性大小。</li><li>推导过程:$\int_0^1 k\cdot q^a \cdot (1-q)^b dq =1, 则 k= {1 \over \int_0^1 q^a \cdot (1-q)^b dq}, 令 \beta(a+1, b+1) = \int_0^1 q^a \cdot (1-q)^b dq, 则 \beta 分布为 f(a+1, b+1, q) = {1\over \beta(a+1, b+1)} \cdot q^a \cdot (1-q)^b. \ 将a+1和b+1替换为a和b, 将q 替换为t, \beta 函数为: \beta(\alpha, \beta) = \int_0^1 t^{\alpha -1}(1-t)^(\beta-1) dt, \beta 分布函数为: f(\alpha , \beta, x) = {1\over \beta(\alpha, \beta)} x^{\alpha -1} (1-x)^{\beta -1} $</li><li>期望: $\alpha \over \alpha + \beta$</li><li>方差: ${\alpha \beta}\over  (\alpha + \beta + 1)(\alpha + \beta)^2$</li><li>$\beta (\alpha, \beta) = {\Gamma(\alpha) \Gamma(\beta)\over \Gamma(\alpha + \beta)}$</li><li>Beta 分布的概率分布函数: $F(x) = {1\over B(\alpha, \beta)} \int_0^x x^{\alpha-1}(1-x)^{\beta-1}dx$, 其中 $\beta(\alpha, x, \beta) = \int_0^x x^{\alpha-1}(1-x)^{\beta-1}dx$ 称为不完全Beta函数.则$F(x) = {\beta(\alpha, x, \beta)\over \beta(\alpha, \beta)}$</li><li>Beta分布与二项分布的关系: 进行 $n$ 次伯努利试验，其出现试验成功的概率 $p$ 服从一个先验概率密度分布 $\beta (\alpha, \beta)$，试验结果出现 $k$ 次试验成功，则试验成功的概率 $p$ 的后验概率密度分布为 $\beta(a+k, \beta+n-k)$</li><li>Beta分布与均匀分布的关系: 当$\alpha=1, \beta=1$时就是均匀分布.</li></ol><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="https://zhuanlan.zhihu.com/p/69606875">https://zhuanlan.zhihu.com/p/69606875</a></li><li><a href="https://www.zhihu.com/question/31407058">https://www.zhihu.com/question/31407058</a></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 概率论与数理统计 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Beta函数 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>共轭先验分布</title>
+      <link href="posts/b6eca691.html"/>
+      <url>posts/b6eca691.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="预备知识"><a href="#预备知识" class="headerlink" title="预备知识"></a>预备知识</h2><h3 id="贝叶斯学派和概率学派"><a href="#贝叶斯学派和概率学派" class="headerlink" title="贝叶斯学派和概率学派"></a>贝叶斯学派和概率学派</h3><blockquote><p> 贝叶斯学派与频率学派是当今数理统计学的两大学派，基于各自的理论，在诸多领域中都起到了重要作用。自 20 世纪初数理统计学大发展开始，一直到 20 世纪中叶，频率学派一直占据主导地位，当时诸多大咖如 Fisher、K.Pearson 等都属于频率学派，而从 20 世纪中叶以后，贝叶斯学派迅速发展壮大起来，可与频率学派分庭抗礼（我想这也是社会发展的需求，一些问题用原来的方法解决不了，需要一种的新的思维出现来解决问题），由于其发展较新，因此人们也将频率学派称为古典学派。 </p><p>​                                                                                - 摘抄自 <a href="https://blog.csdn.net/huguozhiengr/article/details/81777577">统计学中的频率学派与贝叶斯学派</a></p></blockquote><p>简单的说，概率学派认为事情发生的概率是固定的，所以通常进行大量的实验后，使用事件发生的频率近似认为是事件本身的概率。也就是说，当实验次数 $N$ 趋近于无穷 $\infty$ 时，事件 $X$ 发生的频率 ${n\over N}$ 可以认为是其概率</p><center>$\lim_{N\rightarrow\infty} {n\over N} = P(X)$</center></br><p>其中，$n$ 是事件 $X$ 发生的次数。概率派认为，过去的实验对事件本身的概率是没有影响的。放到模型中来说，也就是模型参数（事件发生的概率） $\theta$ 是固定不变的。</p><blockquote><p>对于一个模型或者也可说一个分布中的参数，我们相信它是固定不变的，而我们观察（采样）到的数据是这个分布中的一个独立同分布样本。也就是说，我们相信这个分布的参数不管你怎么采样，根据参数对其的估计都应该是不会变的，They remain constant! 如果根据数据估计出来的参数和真实模型不符合，只可能是引入了噪声而已。在这个观点中，模型参数才是上帝，数据为之服务。</p><p>​                                                                                - 摘抄自 <a href="https://zhuanlan.zhihu.com/p/158933171">概率派和贝叶斯派的区别</a></p></blockquote><p>在我们之前研究的概率分布中，如二项分布，通常都是给定了基本的概率 $p$（固定的 $\theta$），然后才去求其他复杂事件发生的概率。</p><blockquote><p>为了统一符号，如果没有特殊说明，下面统一使用 $\theta$ 代表基本事件概率，也就是模型参数。</p></blockquote><p>而贝叶斯学派认为，我们观察到的数据才是固定不变的，而我们的模型的参数才是在一直变化的。我们不停地观察数据，估计出来的模型参数就可能一直的变化。也就是先验知识对事件概率是有影响的。在这种观点中，我们的模型参数 $\theta$ 不再是一个参数，而是一个随机变量，满足一定的概率分布了。</p><blockquote><p>这样，在贝叶斯学派中，之前的事件概率 $P(X)$ 就应该写成 $P(X|\theta)$，因为不再只有一个随机变量 $X$ 而是有两个随机变量 $X,\theta$。（目前只考虑一维的情况）</p></blockquote><p>就拿抛硬币来说，我们知道，经过大量实验后可以证明抛硬币出现字的一面和出现花的一面，概率各是 $1\over 2$。但是如果我们没有进行大量实验，而是进行了 100 次，运气不好的情况下，出现花的次数为 10 次，那么我们能认为 $P(花) = {1\over 10}$ 吗？这显然是不准确的。并且可以看出，通过频率去确认概率，是需要经过大量重复实验的，可是实际上很多事情没办法进行大量的实验，比如火山爆发，行星撞地球。</p><h3 id="先验分布和后验分布"><a href="#先验分布和后验分布" class="headerlink" title="先验分布和后验分布"></a>先验分布和后验分布</h3><p>在贝叶斯学派中，通常对于一个未知分布的数据，我们根据经验假设认为 $\theta$ 满足一个分布 - 先验分布 $P(\theta)$，然后根据数据不断去调整该分布，最终得到了稳定的分布 - 后验分布 $P(\theta|X)$。</p><h3 id="贝叶斯公式"><a href="#贝叶斯公式" class="headerlink" title="贝叶斯公式"></a>贝叶斯公式</h3><center>$P(\theta|X) = {P(X|\theta) P(\theta) \over P(X)} = {P(X|\theta)P(\theta)\over \sum_i P(X|\theta_i)P(\theta_i)}$</center></br><blockquote><p>贝叶斯学派里的最基本的观点就是，对于任何一个未知量都可以使用概率分布来描述其未知的状况，而这个概率分布是在抽样之前，就基于已有的知识对于这个未知量进行的预估。这在贝叶斯公式里面被称作先验分布 $P(\theta)$，然后再基于样本的分布情况，最后在考虑到所有因素的情况下得出这个具体的后验分布 $P(\theta|X)$。</p><p>​                                                                                              - 摘抄自 <a href="https://blog.csdn.net/u010945683/article/details/49149815">共轭先验分布</a></p></blockquote><h2 id="共轭先验分布"><a href="#共轭先验分布" class="headerlink" title="共轭先验分布"></a>共轭先验分布</h2><p>在贝叶斯概率理论中，如果后验概率 $P(\theta|X)$ 和先验概率 $P(\theta)$ 满足同样的分布律（形式相同，参数不同）。那么，先验分布和后验分布被叫做共轭分布，同时，先验分布叫做似然函数 $P(X|\theta)$ 的共轭先验分布。</p><blockquote><p>可以认为共轭分布是研究概率的概率。</p></blockquote><p>我们可以来看一下二项分布的共轭分布是什么</p><center>$P(X|\theta) = C_n^x \theta^x (1-\theta)^{n-x}$</center></br><p>而先验分布 $P(\theta)$ 在未知的情况下，通常会取均匀分布。关于 $X,\theta$ 的联合分布为</p><center>$P(X,\theta) = P(X|\theta) P(\theta)$</center></br><p>通过联合分布，又可以得到关于 $X$ 的边缘概率分布</p><center>$\begin{align} P(X) &= \int_0^1 P(X, \theta) d\theta   \\ &= \int_0^1 P(X|\theta)P(\theta) d\theta \\ & = \int_0^1 C_n^x \theta^x (1-\theta)^{n-x} \\ &= {\Gamma(x+1) \Gamma(n-x+1) \over \Gamma(n+2)}\end{align}$</center></br><p>综上可以得到后验概率分布</p><center>$\begin{align}P(\theta|X) &= {P(X,\theta)\over P(X)} \\ &= {\Gamma(n+2)\over \Gamma(x+1) \Gamma (n-x+1)} \theta^{x+1-1} (1-\theta)^{n-x+1-1}\end{align}$</center></br><p>这就是一个参数为 $x+1,n-x+1$ 的 Beta 分布，而先验分布均匀分布也可以认为是一个参数为 1 和 1 的 Beta 分布。所以先验分布和后验分布有是一样的，这说明二项分布的共轭先验分布是 Beta 分布。</p><h3 id="常见的共轭分布"><a href="#常见的共轭分布" class="headerlink" title="常见的共轭分布"></a>常见的共轭分布</h3><table><thead><tr><th align="center">总体分布</th><th align="center">参数</th><th align="center">共轭先验分布</th></tr></thead><tbody><tr><td align="center">二项分布</td><td align="center">成功的概率</td><td align="center">Beta分布</td></tr><tr><td align="center">多项分布</td><td align="center">成功的概率</td><td align="center">狄利克雷分布</td></tr><tr><td align="center">泊松分布</td><td align="center">均值</td><td align="center">伽马分布</td></tr><tr><td align="center">指数分布</td><td align="center">均值的倒数</td><td align="center">伽马分布</td></tr><tr><td align="center">正态分布</td><td align="center">均值</td><td align="center">正态分布</td></tr><tr><td align="center">正态分布</td><td align="center">方差</td><td align="center">逆伽马分布</td></tr></tbody></table><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul><li><a href="https://blog.csdn.net/u010945683/article/details/49149815">共轭先验分布</a></li><li><a href="https://zhuanlan.zhihu.com/p/158933171">概率派和贝叶斯派的区别</a></li><li><a href="https://blog.csdn.net/huguozhiengr/article/details/81777577">统计学中的频率学派与贝叶斯学派</a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 概率论与数理统计 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 二项分布 </tag>
+            
+            <tag> 共轭先验分布 </tag>
+            
+            <tag> Beta分布 </tag>
+            
+            <tag> 贝叶斯公式 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>多项式分布</title>
       <link href="posts/7147e84f.html"/>
       <url>posts/7147e84f.html</url>
