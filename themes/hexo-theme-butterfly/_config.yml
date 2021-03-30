@@ -8,14 +8,15 @@
 
 menu:
    首页: / || fas fa-home
-   分类: /categories/ || fas fa-folder-open
-   标签: /tags/ || fas fa-tags
-   归档: /archives/ || fas fa-archive
+   文章||fas fa-book:
+       - 分类 || /categories/ || fas fa-folder-open
+       - 标签 || /tags/ || fas fa-tags
+       - 归档 || /archives/ || fas fa-archive
   # List||fas fa-list:
   #   - Music || /music/ || fas fa-music
   #   - Movie || /movies/ || fas fa-video
-  # Link: /link/ || fas fa-link
-   日记: /diary/ || fas fa-book
+   链接: /link/ || fas fa-link
+   日记: /diary/ || fas fa-edit
    留言: /contact/ || fas fa-envelope
    关于: /about/ || fas fa-heart
 
@@ -620,7 +621,7 @@ aside:
       link: https://github.com/hiyoung123
   card_announcement:
     enable: true
-    content: This is my Blog
+    content: 记录和分享一些学习和开源内容，若有任何问题可通过邮箱或者是留言板给我留言，谢谢！
   card_recent_post:
     enable: true
     limit: 5 # if set 0 will show all
