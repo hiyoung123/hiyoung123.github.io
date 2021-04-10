@@ -64,4 +64,16 @@
     - name: 抱抱脸
       link: https://github.com/huggingface/transformers
       avatar: https://raw.githubusercontent.com/huggingface/transformers/master/docs/source/imgs/transformers_logo_name.png
-      descr: State-of-the-art Natural Language Processing for PyTorch and TensorFlow 2.0  
+      descr: State-of-the-art Natural Language Processing for PyTorch and TensorFlow 2.0 
+
+- class_name: 数据集
+  class_desc: 数据集大全
+  link_list:
+    - name: CLUE
+      link: https://www.cluebenchmarks.com/
+      avatar: https://www.cluebenchmarks.com/static/img/logo.png
+      descr: 中文语言理解测评基准(CLUE)
+    - name: UCI
+      link: http://archive.ics.uci.edu/ml/index.php
+      avatar: http://archive.ics.uci.edu/ml/assets/logo.gif
+      descr: 机器学习数据集大全。
