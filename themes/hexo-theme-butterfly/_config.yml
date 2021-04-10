@@ -407,10 +407,10 @@ cnzz_analytics:
 
 # Google Adsense (谷歌廣告)
 google_adsense:
-  enable: false
+  enable: true
   auto_ads: true
   js: https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js
-  client:
+  client: ca-pub-4100172238907464
   enable_page_level_ads: true
 
 # Insert ads manually (手動插入廣告)

@@ -65,7 +65,10 @@
       link: https://github.com/huggingface/transformers
       avatar: https://raw.githubusercontent.com/huggingface/transformers/master/docs/source/imgs/transformers_logo_name.png
       descr: State-of-the-art Natural Language Processing for PyTorch and TensorFlow 2.0 
-
+    - name: 哈工大中文Bert-wwm
+      link: https://github.com/ymcui/Chinese-BERT-wwm
+      avatar: https://github.com/ymcui/Chinese-BERT-wwm/raw/master/pics/banner.png 
+      descr: 哈工大中文bert-wwm预训练模型大全。
 - class_name: 数据集
   class_desc: 数据集大全
   link_list:
