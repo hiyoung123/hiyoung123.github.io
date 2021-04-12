@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>标签平滑LabelSmoothing</title>
+      <link href="posts/1632aa17.html"/>
+      <url>posts/1632aa17.html</url>
+      
+        <content type="html"><![CDATA[<blockquote><p> 论文：<a href="https://arxiv.org/pdf/1906.02629.pdf">《When does label smoothing help？》</a> </p></blockquote><p>标签平滑（Label Smoothing）是最近我在比赛中学到的上分 Trick，然后找到相应的论文学习一下，看看它是如何对模型提高性能的。</p><h2 id="交叉熵损失函数的问题"><a href="#交叉熵损失函数的问题" class="headerlink" title="交叉熵损失函数的问题"></a>交叉熵损失函数的问题</h2><p>在分类任务中，最常见的损失函数是交叉熵损失。给定一个数据，经过神经网络模型的计算后输出一个值，我们称为置信度 $z$，然后经过 Softmax 归一化后得到该数据属于各个类别的概率值。</p><center>$q_i = {exp(z_i)\over \sum_{j=1}^K exp(z_j)}$</center></br><p>然后根据与之对应的真实 label 计算 loss：</p><center>$loss = -\sum_{i=1}^K p_i log q_i $</center></br><p>其中 $p_i$ 是预测的概率值，而对于真实标签 $q_i$ 我们总是使用 one-hot 编码来表示，所以如果真是标签的类别为 $i$ ，那么 $q_i=1$，而对于其他类别 $q_{\neq i}=0$。</p><p>训练模型的目的就是为了最小化损失函数，让预测值与真实标签尽可能相等。所以通过一段时间的训练后，通过最小化交叉熵损失函数，会得到最优的概率分布。</p><center>$p_i = \begin{cases} 1, &if (i=y) \\ 0, & if (i\neq y) \end{cases}$</center></br><p>同时置信度 $z$ 也有如下分布</p><center>$z_i = \begin{cases} +\infty, &if(i =y) \\ 0, & if(i\neq y) \end{cases}$</center></br><p>因为只有当 $z_i$ 趋近于 $+\infty$ 时，$p_i$ 才可能等于 1 。</p><p>交叉熵损失函数会尽可能的扩大正负输出概率之间的差值，也就是标签为 $q_i$ 的样本，输出概率 $p_i$ 尽可能的无限趋近于 1。但是这种过于追求完全准确，会让模型过于自信，在训练集上会有好的效果，但是缺少泛化能力，也就是在验证集（未知数据）上没有很好的效果，也就是模型过拟合。</p><h2 id="什么是标签平滑"><a href="#什么是标签平滑" class="headerlink" title="什么是标签平滑"></a>什么是标签平滑</h2><p>Label Smoothing 是一种在分类任务中，防止过拟合的正则化方法，是对损失函数的修正，可以有效的提高模型的泛化能力。在计算交叉熵损失时，对输出的概率做一些调整，并不是一味的追求预测概率为 1，而是得到些许平滑的 $1-\xi$ ，从而使它对自己的答案不那么自信。</p><p>调整后的概率分布为</p><center>$p_{i_{update}} = \begin{cases}(1-\xi), & if(i=y) \\ {\xi\over K-1}, & if(i\neq y) \end{cases}$</center></br><p>调整后的交叉熵损失函数为</p><center>$loss_{i_{update}} = \begin{cases}(1-\xi)*loss , & if(i=y)\\ \xi * loss, & if(i\neq y) \end{cases}$</center></br><p>最终模型抑制正负样本输出概率的差值，使模型有更好的泛化能力。</p><h2 id="Pytorch实现"><a href="#Pytorch实现" class="headerlink" title="Pytorch实现"></a>Pytorch实现</h2><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> torch<span class="token punctuation">.</span>nn <span class="token keyword">as</span> nn<span class="token keyword">import</span> torch<span class="token punctuation">.</span>nn<span class="token punctuation">.</span>functional <span class="token keyword">as</span> F<span class="token keyword">class</span> <span class="token class-name">LabelSmoothingCrossEntropy</span><span class="token punctuation">(</span>nn<span class="token punctuation">.</span>Module<span class="token punctuation">)</span><span class="token punctuation">:</span>    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> eps<span class="token operator">=</span><span class="token number">0.1</span><span class="token punctuation">,</span> reduction<span class="token operator">=</span><span class="token string">'mean'</span><span class="token punctuation">)</span><span class="token punctuation">:</span>        super<span class="token punctuation">(</span>LabelSmoothingCrossEntropy<span class="token punctuation">,</span> self<span class="token punctuation">)</span><span class="token punctuation">.</span>__init__<span class="token punctuation">(</span><span class="token punctuation">)</span>        self<span class="token punctuation">.</span>eps <span class="token operator">=</span> eps        self<span class="token punctuation">.</span>reduction <span class="token operator">=</span> reduction    <span class="token keyword">def</span> <span class="token function">forward</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> output<span class="token punctuation">,</span> target<span class="token punctuation">)</span><span class="token punctuation">:</span>        c <span class="token operator">=</span> output<span class="token punctuation">.</span>size<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>        log_preds <span class="token operator">=</span> F<span class="token punctuation">.</span>log_softmax<span class="token punctuation">(</span>output<span class="token punctuation">,</span> dim<span class="token operator">=</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>        <span class="token keyword">if</span> self<span class="token punctuation">.</span>reduction<span class="token operator">==</span><span class="token string">'sum'</span><span class="token punctuation">:</span>            loss <span class="token operator">=</span> <span class="token operator">-</span>log_preds<span class="token punctuation">.</span>sum<span class="token punctuation">(</span><span class="token punctuation">)</span>        <span class="token keyword">else</span><span class="token punctuation">:</span>            loss <span class="token operator">=</span> <span class="token operator">-</span>log_preds<span class="token punctuation">.</span>sum<span class="token punctuation">(</span>dim<span class="token operator">=</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>            <span class="token keyword">if</span> self<span class="token punctuation">.</span>reduction<span class="token operator">==</span><span class="token string">'mean'</span><span class="token punctuation">:</span>                loss <span class="token operator">=</span> loss<span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token punctuation">)</span>        <span class="token keyword">return</span> loss<span class="token operator">*</span>self<span class="token punctuation">.</span>eps<span class="token operator">/</span>c <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">-</span>self<span class="token punctuation">.</span>eps<span class="token punctuation">)</span> <span class="token operator">*</span> F<span class="token punctuation">.</span>nll_loss<span class="token punctuation">(</span>log_preds<span class="token punctuation">,</span> target<span class="token punctuation">,</span> reduction<span class="token operator">=</span>self<span class="token punctuation">.</span>reduction<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h2><h2 id="在知识蒸馏中的效果"><a href="#在知识蒸馏中的效果" class="headerlink" title="在知识蒸馏中的效果"></a>在知识蒸馏中的效果</h2><p>论文中最后讨论了在知识蒸馏中，即使在 Teacher Model 中使用 Label Smoothing 会提高性能，但是 Student Model 却没有好的性能。</p><p>标签平滑产生的模型是不好的 Teacher Model  的原因是通过强制将最终的分类划分为更紧密的集群，使 Teacher Model 删除了更多的细节，将重点放在类之间的核心区别上。</p><p>这种舍入有助于 Teacher Model 更好地处理不可见数据。然而，丢失的信息最终会对它教授 Student Model 的能力产生负面影响。 </p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>Label Smoothing 被证实在需要任务中有良好的性能表现，除了 CV 领域，在 NLP 领域也起到了不小作用。个人感觉，它之所以提高了模型泛化能力，原理与对抗训练有些类似，只不过是对抗训练是在计算梯度时添加了干扰噪声，而 Label Smoothing 是在计算 loss 的时候添加的噪声。那么如果我们换个位置添加噪声，是不是又是一个新的 Trick 了呢？</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 深度学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Trick </tag>
+            
+            <tag> 损失函数 </tag>
+            
+            <tag> 正则化 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>机器学习 - SVM</title>
       <link href="posts/cf02cefb.html"/>
       <url>posts/cf02cefb.html</url>
@@ -687,9 +716,9 @@
             
             <tag> CS224n </tag>
             
-            <tag> GloVe </tag>
-            
             <tag> 词向量 </tag>
+            
+            <tag> GloVe </tag>
             
         </tags>
       
@@ -900,9 +929,9 @@
             
             <tag> CS224n </tag>
             
-            <tag> 词向量 </tag>
-            
             <tag> Word2vec </tag>
+            
+            <tag> 词向量 </tag>
             
         </tags>
       
