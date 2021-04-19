@@ -25,9 +25,9 @@ date: 2021-04-19 22:20:01
 
 下面一层一层的研究 TextCNN 的结构。下面两张图，第一张是该论文中的原图，而第二张是另一篇论文 [《A Sensitivity Analysis of (and Practitioners’ Guide to) Convolutional Neural Networks for Sentence Classification》](https://arxiv.org/pdf/1510.03820.pdf) 中的配图，个人感觉更清楚明了一些。
 
-![img](https://img2018.cnblogs.com/blog/1182656/201809/1182656-20180919171652802-136261435.png)
+![img](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_textcnn_001.png)
 
-![](https://img2018.cnblogs.com/blog/1182656/201809/1182656-20180919171920103-1233770993.png)
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_textcnn_002.png)
 
 ### 输入层
 
