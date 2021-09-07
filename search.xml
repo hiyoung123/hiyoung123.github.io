@@ -4,6 +4,74 @@
   
     
     <entry>
+      <title>文本去重算法-SimHash</title>
+      <link href="posts/3e122ce4.html"/>
+      <url>posts/3e122ce4.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>SimHash 算法是 Google 出品的一款短小精悍，用来处理海量文本去重的算法。</p><p>它的大概思路是，将文本通过 hash 映射到一个低纬向量中，然后使用局部敏感 hash 的思想，将向量映射为二进制向量。最后通过计算文本间的 hamming 距离，从而判断文本是否相同。</p><p>SimHash 算法具有实现简单，计算速度快的优点。但是因为是通过 hash 计算，所以会因为 hash 碰撞从而出现误判的问题。并且相比 bloom filter 和 single 去重算法，simhash 的准确率略有不足。</p><p>不过由于局部敏感 hash 的原因，simhash 是求两个文本近似相似，而不是像 bloom filter 那样必须完全一致才是相同的。就算两个文档有些许的内容不同，通过 simhash 也可能会得到结果为相同的文档，这个可以通过调节计算 hamming 距离的阀值控制。</p><h2 id="算法流程"><a href="#算法流程" class="headerlink" title="算法流程"></a>算法流程</h2><ul><li><p>分词：将文本进行分词处理。</p></li><li><p>Hash：将每个词进行 Hash 处理成固定长度（一般为 64 位或 128 位）的二进制特征编码，即每一位非 0 即 1。</p></li><li><p>加权：根据每个词的权重（如 TF-IDF）对特征编码进行加权：</p><p>$W = Hash * Weight$</p><p>其中，如果对应位的 hash 值为 0，那么 hash 乘上权重的负数</p><p>$ W = Hash * -Weight $</p></li><li><p>合并：将所有词计算后的 $W$ 进行按位累加。</p></li><li><p>降维：对于上述累加结果的每一位，如果大于 0 则置 1 ，否则置 0。从而得到每一位都是 0/1 的 SimHash 编码。</p></li><li><p>计算：通过上述方法得到了两个文本的 SimHash 编码，然后计算两者的汉明距离，得到的距离如果小于等于 n（一般为 3），则表示两个文本是相同的。</p></li></ul><p><img src="/medias/loading.gif" data-original="http://images.yanyiwu.com/simhash.jpg" alt="img"></p><p>详细代码：<a href="https://github.com/hiyoung123/simhash">https://github.com/hiyoung123/simhash</a></p><h2 id="去重算法"><a href="#去重算法" class="headerlink" title="去重算法"></a>去重算法</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> 自然语言处理 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 文本去重 </tag>
+            
+            <tag> 局部敏感哈希 </tag>
+            
+            <tag> simhash </tag>
+            
+            <tag> 汉明距离 </tag>
+            
+            <tag> 哈希算法 </tag>
+            
+            <tag> hash </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>使用卷积网络进行文本分类-TextCNN</title>
+      <link href="posts/96025b39.html"/>
+      <url>posts/96025b39.html</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>论文：<a href="https://arxiv.org/pdf/1408.5882.pdf">《Convolutional Neural Networks for Sentence Classification》</a></p></blockquote><p>在 2014 年，kim 大神提出了，在文本词向量之上使用卷积网络 CNN 进行文本分类，在使用少量超参数和使用静态词向量的情况下，可以取得不错的成果。</p><h2 id="TextCNN"><a href="#TextCNN" class="headerlink" title="TextCNN"></a>TextCNN</h2><p>下面一层一层的研究 TextCNN 的结构。下面两张图，第一张是该论文中的原图，而第二张是另一篇论文 <a href="https://arxiv.org/pdf/1510.03820.pdf">《A Sensitivity Analysis of (and Practitioners’ Guide to) Convolutional Neural Networks for Sentence Classification》</a> 中的配图，个人感觉更清楚明了一些。</p><p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_textcnn_001.png" alt="img"></p><p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_textcnn_002.png" alt=""></p><h3 id="输入层"><a href="#输入层" class="headerlink" title="输入层"></a>输入层</h3><p>与传统 NLP 深度学习模型一样，首先都需要将文本转化为词向量的形式，也就是通过 Embedding 层将文本映射成词向量组成的矩阵。而这个词向量矩阵可以是静态的（static），也可以是非静态的（no-static）。静态的矩阵，就是在训练的过程中不跟着变化，而非静态的矩阵是随着模型训练一起更新。</p><p>矩阵的来源一般都是随机初始化一个，从框架中默认生成的一个 vocab_size * embedding_dim 的矩阵。或者是预训练好的词向量，我们只要直接加载到 Embedding 层中使用即可（通常效果更好）。</p><p>在该篇论文中，作者使用了 CNN-rand 方式、CNN-static 方式、CNN-non-static 方式和 CNN-multichannel 共四种方式。</p><ul><li>CNN-rand：随机初始化词向量矩阵，在训练中随着模型训练一起改变。</li><li>CNN-static：使用预训练的词向量矩阵，论文中使用了 Word2vec 预训练词向量。但是在训练的过程中保持不变，模型只学习其他参数。</li><li>CNN-non-static：使用了预训练词向量，并且在模型训练的过程中，一起学习。</li><li>CNN-multichannel：一个模型，使用多个词向量矩阵，每个词向量矩阵都可以进行后续的卷积操作，正好符合卷积网络的多通道概念。论文中使用了两个通道，区别是其中一个是 static ，另一个是 non-static。两个通道都是用的是 Word2vec 预训练词向量。</li></ul><p>使用预训练词向量可以更好的利用词向量的先验知识，而让词向量参与训练可以与当前任务更好的结合起来，使词向量更适应当前的任务。</p><blockquote><p> 但是貌似多通道的效果没有很好。</p></blockquote><h3 id="卷积层"><a href="#卷积层" class="headerlink" title="卷积层"></a>卷积层</h3><p>我们知道，卷积神经网络 CNN 是用于图像领域的，在图片的局部进行卷积操作，从而可以提取到局部特征。但是如何在文本领域使用呢？</p><p>可以把输入文本经过 Embedding 映射后的文本矩阵看作是一个 embedding_size * seq_len 的图片，这样卷积核可以是把长设置为词向量的维度 embedding_size，宽为 filter_size。这样卷积核就成为一个滑动窗口，在文本上横着移动，进行卷积操作（如上图 1 中的黄框和红框）。</p><p>论文中使用了 2，3，4 三个大小的 filter_size，相当于文本的 2-gram，3-gram 和 4-gram，可以充分的提取文本的结构特征。一共使用了 100 个 feature map。</p><p>卷积网络的通道一般都是用于图像中的像素（r，g，b），在这里由于使用了 2 个 Embedding 矩阵，所以卷积的通道数量就是 2。</p><h3 id="池化层"><a href="#池化层" class="headerlink" title="池化层"></a>池化层</h3><p>经过不同尺寸的卷积核得到了不同尺寸的 feature map，因此需要使用池化操作将其维度统一。</p><p>池化的种类有很多，这里就不多介绍了，论文中使用的是 1-max-pooling，提取出每个 feature map 的最大值。经过池化操作后，将各个结果合并起来，交给全连接层最后输出分类结果。</p><h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><ul><li>模型简单，可解释强，参数少，效果不错。</li><li>相比于 RNN 类模型，TextCNN 的收敛速度要快很多。</li></ul><h2 id="Pytorch实现"><a href="#Pytorch实现" class="headerlink" title="Pytorch实现"></a>Pytorch实现</h2><p>这里的实现没有使用论文中的多通道：</p><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">TextCNN</span><span class="token punctuation">(</span>nn<span class="token punctuation">.</span>Module<span class="token punctuation">)</span><span class="token punctuation">:</span>    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> config<span class="token punctuation">)</span><span class="token punctuation">:</span>        super<span class="token punctuation">(</span>TextCNN<span class="token punctuation">,</span> self<span class="token punctuation">)</span><span class="token punctuation">.</span>__init__<span class="token punctuation">(</span><span class="token punctuation">)</span>        <span class="token keyword">if</span> config<span class="token punctuation">.</span>embedding_pretrained <span class="token keyword">is</span> <span class="token operator">not</span> None<span class="token punctuation">:</span>            self<span class="token punctuation">.</span>embedding <span class="token operator">=</span> nn<span class="token punctuation">.</span>Embedding<span class="token punctuation">.</span>from_pretrained<span class="token punctuation">(</span>config<span class="token punctuation">.</span>embedding_pretrained<span class="token punctuation">,</span> freeze<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>        <span class="token keyword">else</span><span class="token punctuation">:</span>            self<span class="token punctuation">.</span>embedding <span class="token operator">=</span> nn<span class="token punctuation">.</span>Embedding<span class="token punctuation">(</span>config<span class="token punctuation">.</span>vocab_size<span class="token punctuation">,</span> config<span class="token punctuation">.</span>embedding_dim<span class="token punctuation">,</span> padding_idx<span class="token operator">=</span>config<span class="token punctuation">.</span>vocab_size <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span>        self<span class="token punctuation">.</span>convs <span class="token operator">=</span> nn<span class="token punctuation">.</span>ModuleList<span class="token punctuation">(</span>            <span class="token punctuation">[</span>nn<span class="token punctuation">.</span>Conv2d<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> config<span class="token punctuation">.</span>num_filters<span class="token punctuation">,</span> <span class="token punctuation">(</span>k<span class="token punctuation">,</span> config<span class="token punctuation">.</span>embedding_dim<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">for</span> k <span class="token keyword">in</span> config<span class="token punctuation">.</span>filter_sizes<span class="token punctuation">]</span><span class="token punctuation">)</span>        self<span class="token punctuation">.</span>dropout <span class="token operator">=</span> nn<span class="token punctuation">.</span>Dropout<span class="token punctuation">(</span>config<span class="token punctuation">.</span>dropout<span class="token punctuation">)</span>        self<span class="token punctuation">.</span>fc <span class="token operator">=</span> nn<span class="token punctuation">.</span>Linear<span class="token punctuation">(</span>config<span class="token punctuation">.</span>num_filters <span class="token operator">*</span> len<span class="token punctuation">(</span>config<span class="token punctuation">.</span>filter_sizes<span class="token punctuation">)</span><span class="token punctuation">,</span> config<span class="token punctuation">.</span>num_labels<span class="token punctuation">)</span>    <span class="token keyword">def</span> <span class="token function">conv_and_pool</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> x<span class="token punctuation">,</span> conv<span class="token punctuation">)</span><span class="token punctuation">:</span>        x <span class="token operator">=</span> F<span class="token punctuation">.</span>relu<span class="token punctuation">(</span>conv<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>squeeze<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>        x <span class="token operator">=</span> F<span class="token punctuation">.</span>max_pool1d<span class="token punctuation">(</span>x<span class="token punctuation">,</span> x<span class="token punctuation">.</span>size<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>squeeze<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>        <span class="token keyword">return</span> x    <span class="token keyword">def</span> <span class="token function">forward</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">:</span>        out <span class="token operator">=</span> self<span class="token punctuation">.</span>embedding<span class="token punctuation">(</span>x<span class="token punctuation">[</span><span class="token string">'text'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>        out <span class="token operator">=</span> out<span class="token punctuation">.</span>unsqueeze<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>        out <span class="token operator">=</span> torch<span class="token punctuation">.</span>cat<span class="token punctuation">(</span><span class="token punctuation">[</span>self<span class="token punctuation">.</span>conv_and_pool<span class="token punctuation">(</span>out<span class="token punctuation">,</span> conv<span class="token punctuation">)</span> <span class="token keyword">for</span> conv <span class="token keyword">in</span> self<span class="token punctuation">.</span>convs<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>        out <span class="token operator">=</span> self<span class="token punctuation">.</span>dropout<span class="token punctuation">(</span>out<span class="token punctuation">)</span>        out <span class="token operator">=</span> self<span class="token punctuation">.</span>fc<span class="token punctuation">(</span>out<span class="token punctuation">)</span>        <span class="token keyword">return</span> out<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h2><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>TextCNN 不仅结构简单，收敛速度快，效果也非常好，通常作为文本分类任务的 baseline 。在 NLP 领域中，很多技术都是从 CV 领域借鉴来的，CNN 只是其中之一，但确实是很好用的一个方法。CNN 学习结构特征的特性，可以使其在很多地方发挥出不错的作用，所以我们可以在很多 NLP 的模型中看到 CNN 的身影。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 自然语言处理 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> NLP </tag>
+            
+            <tag> 卷积网络 </tag>
+            
+            <tag> CNN </tag>
+            
+            <tag> 文本分类 </tag>
+            
+            <tag> TextCNN </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>标签平滑LabelSmoothing</title>
       <link href="posts/1632aa17.html"/>
       <url>posts/1632aa17.html</url>
@@ -378,6 +446,31 @@
             <tag> 古典概型 </tag>
             
             <tag> 概率论 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Redis学习笔记</title>
+      <link href="posts/8eda3648.html"/>
+      <url>posts/8eda3648.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h1><hr><h2 id="什么是Redis"><a href="#什么是Redis" class="headerlink" title="什么是Redis"></a>什么是Redis</h2><p>Redis（remote dictionary server） 是一种用 c 语言写的，开源的，高性能 NoSql（非关系）键值对数据库。</p><p>可以存储健和五种不同数据结构之间的映射，但是健必须是字符串。</p><p>与传统数据库不同的是，redis 运行在内存，所以速度非常快，常用作缓存。也常用作分布式锁。</p><p>Redis 支持 事务，持久化，LUA 脚本，LRU驱动事件，多种集群方案。</p><h2 id="支持的数据结构"><a href="#支持的数据结构" class="headerlink" title="支持的数据结构"></a>支持的数据结构</h2><ul><li>字符串：string</li><li>集合：set</li><li>列表：list</li><li>散列表：hash</li><li>有序集合：zset</li></ul><h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><ul><li>读写速度快</li><li>支持数据持久化，支持 AOF（写命令日志追加） 和 RDB（定期存储数据） 两种持久化方式</li><li>支持事务，Redis 的操作都是原子的，并且支持几个操作合并后 也是原子操作。</li><li>数据结构丰富</li><li>支持主从复制，主机自动同步数据给从机，并支持读写分离。</li></ul><h2 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h2><ul><li>数据库容量受内存的限制，无法做海量数据的高性能读写，所以一般只作为缓存。</li><li>不具备自动容错和恢复功能，主机从机宕机，都会导致读写失败。</li><li>主机宕机，没有及时同步数据到从机，导致读写失败</li><li>很难进行在线扩容。</li></ul><h2 id="缓存分类"><a href="#缓存分类" class="headerlink" title="缓存分类"></a>缓存分类</h2><ul><li>本地缓存：map，guava，随程序销毁而销毁，无法持久，并且多个实例有多个备份，无法数据一致。</li><li>分布式缓存：redis，memcached，多实例公用一份备份，数据一致性。</li></ul><h2 id="为什么Redis快"><a href="#为什么Redis快" class="headerlink" title="为什么Redis快"></a>为什么Redis快</h2><ul><li>完全基于内存</li><li>数据结构简单</li><li>采用单线程，避免不必要的上下文切换和竞争条件，也不存在各个线程和进程切换，不用考虑锁等问题。</li><li>使用多路 I/O 复用，非阻塞 I/O</li><li>Redis 使用自己构建的 VM 机制，减少系统调用。</li></ul><h2 id="过期策略"><a href="#过期策略" class="headerlink" title="过期策略"></a>过期策略</h2><ul><li>定时过期：为每个健设定一个定时器，到达时间自动过期删除。</li><li>惰性过期：每次查询健的时候查看是否过期，不查询不做过期检查。</li><li>定期过期：一定时间全部健做过期检查。</li></ul><p>redis 使用定期过期和惰性过期。</p><h2 id="内存淘汰策略"><a href="#内存淘汰策略" class="headerlink" title="内存淘汰策略"></a>内存淘汰策略</h2><h2 id="线程模型"><a href="#线程模型" class="headerlink" title="线程模型"></a>线程模型</h2><ul><li>使用的是 reactor 模型，I/O 复用。</li><li>单线程。</li></ul><h2 id="事物"><a href="#事物" class="headerlink" title="事物"></a>事物</h2><ul><li>redis 一个事物内的命令顺序执行，并且其他客户端的请求也不会插入到事物中。并且支持 ACID 中的隔离性和一致性，持久性，其他不支持。</li><li>A 原子性：一个事物内的操作要发生就都会发生，redis 的命令支持隔离，但事物不支持隔离，一条命令失败，其他命令继续执行。</li><li>C：一致性，事物操作前后保持一致性</li><li>I：隔离性，多个事物并发时，一个事物不会影响其他事物。redis 是单线程，并且是顺序执行的，所以支持 I。</li><li>D：持久性，事物一旦提交，堆数据库的影响时持久性的。</li></ul><h2 id="集群方案"><a href="#集群方案" class="headerlink" title="集群方案"></a>集群方案</h2><h3 id="哨兵模式"><a href="#哨兵模式" class="headerlink" title="哨兵模式"></a>哨兵模式</h3><ul><li>集群监控：负责监控redis master 和 slave 进程是否正常工作</li><li>消息通知：如果某个 redis 实例有故障，哨兵会发送消息通知给管理员</li><li>故障转移：如果 master node 挂掉了，会自动转移到 slave node 上。需要大量的 哨兵 node 一起投票选举新的 master node。</li><li>配置中心：如果故障转移发生，通知 client 端新的 master 地址</li><li>哨兵节点的个数 2n+1 ，保证投票选举可以执行。</li></ul><h3 id="服务器端数据共享"><a href="#服务器端数据共享" class="headerlink" title="服务器端数据共享"></a>服务器端数据共享</h3><ul><li>一份数据被分为多个切片，分布在服务器的各个主从节点中</li><li>同一个切分可能分布在不同节点上。</li><li>写入数据时，先写在主节点上，再写到多个从节点上。</li><li>读取数据时，如果该节点没有对应数据，会将请求转移到正确的节点上</li><li>扩容时，把旧数据的切片分一部分给新节点。</li></ul><h3 id="客户端分配"><a href="#客户端分配" class="headerlink" title="客户端分配"></a>客户端分配</h3><h3 id="代理服务器分配"><a href="#代理服务器分配" class="headerlink" title="代理服务器分配"></a>代理服务器分配</h3><h3 id="Redis-主从架构"><a href="#Redis-主从架构" class="headerlink" title="Redis 主从架构"></a>Redis 主从架构</h3><ul><li>一主多从</li><li>主负责写，从负责读，读写分离</li><li>好处是：轻松实现水平扩容，支持读高并发</li><li>为什么不建议使用 slave 做 redis 备份：因为如果 master 不备份，数据丢了后，salve 复制了 0 数据，自身也丢了。</li><li>复制数据过程：<ul><li>新加入 salve 节点，发送同步命令给 master 节点</li><li>master 开启后台线程生成 RDS 文件，并且把此时的写命令缓存到内存中。</li><li>RDS 文件生成好后发给 slave 节点进行本地磁盘数据库建立，并写入到 slave 内存中。还有缓存的写命令。</li><li>之后 master 收到的写命令 都会发给 slave，同步操作。</li></ul></li></ul><h3 id="分布式锁"><a href="#分布式锁" class="headerlink" title="分布式锁"></a>分布式锁</h3><ul><li>使用  setnx 实现分布式锁，只有 key 不存在时才设值。</li></ul><h2 id="缓存异常"><a href="#缓存异常" class="headerlink" title="缓存异常"></a>缓存异常</h2><h3 id="缓存雪崩"><a href="#缓存雪崩" class="headerlink" title="缓存雪崩"></a>缓存雪崩</h3><ul><li>是指一段时间内缓存大面积失效，导致命令落在了数据库上，对数据库造成短时间内承受大量请求而崩溃。</li><li>解决：<ul><li>缓存设置随机过期时间，防止一段时间内大面积过期。</li><li>一般并发量不多的时候，使用加锁排队</li><li>给每一个缓存加标记，记录缓存是否失效。</li></ul></li></ul><h3 id="缓存穿透"><a href="#缓存穿透" class="headerlink" title="缓存穿透"></a>缓存穿透</h3><ul><li>是指 缓存和数据库都没有数据</li><li>解决：使用布隆过滤器，直接过滤掉，防止访问数据库</li></ul><h3 id="缓存击穿"><a href="#缓存击穿" class="headerlink" title="缓存击穿"></a>缓存击穿</h3><ul><li>是指缓存没有，数据库有，但是与雪崩不同的是，击穿指的是一条数据。多次请求一条数据在数据库上。</li><li>解决：设置热点数据永不过期。加互斥锁。</li></ul><h3 id="缓存预热"><a href="#缓存预热" class="headerlink" title="缓存预热"></a>缓存预热</h3><ul><li>系统上线后，自动将数据添加到缓存中。</li></ul><h3 id="缓存降级"><a href="#缓存降级" class="headerlink" title="缓存降级"></a>缓存降级</h3><ul><li><h3 id="热点数据和冷数据"><a href="#热点数据和冷数据" class="headerlink" title="热点数据和冷数据"></a>热点数据和冷数据</h3></li></ul><h3 id="缓存热点key"><a href="#缓存热点key" class="headerlink" title="缓存热点key"></a>缓存热点key</h3><p><img src="/medias/loading.gif" data-original="https://pic4.zhimg.com/80/v2-d1128bb6e62db58955215c4c05ac1eab_1440w.jpg" alt=""></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数据库 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Redis </tag>
             
         </tags>
       
