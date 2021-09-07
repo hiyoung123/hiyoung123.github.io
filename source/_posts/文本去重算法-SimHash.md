@@ -2,7 +2,6 @@
 title: 文本去重算法-SimHash
 toc: true
 mathjax: true
-date: 2021-06-18 20:41:18
 tags:
   - 文本去重
   - 局部敏感哈希
@@ -13,6 +12,8 @@ tags:
 categories:
   - 自然语言处理
 excerpt: Google 出品的一款简单高效的文本去重算法 - simhash。
+abbrlink: 3e122ce4
+date: 2021-06-18 20:41:18
 ---
 
 ## 介绍

@@ -102,7 +102,7 @@ theme: hexo-theme-butterfly
 deploy:
   - type: git
     repo:
-      github: https://github.com/hiyoung123/hiyoung123.github.io
+      github: git@github.com:hiyoung123/hiyoung123.github.io.git
       coding: https://e.coding.net/hiyoung123/hiyoung123.coding.me.git
     branch: master
   #- type: baidu_url_submitter
