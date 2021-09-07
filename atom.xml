@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hiyoungai.com/"/>
-  <updated>2021-09-07T06:53:26.953Z</updated>
+  <updated>2021-09-07T07:25:42.029Z</updated>
   <id>https://hiyoungai.com/</id>
   
   <author>
@@ -15,6 +15,75 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Docker学习笔记</title>
+    <link href="https://hiyoungai.com/posts/4a3d459a.html"/>
+    <id>https://hiyoungai.com/posts/4a3d459a.html</id>
+    <published>2021-09-07T07:24:54.000Z</published>
+    <updated>2021-09-07T07:25:42.029Z</updated>
+    
+    <summary type="html">
+    
+      Docker学习笔记。
+    
+    </summary>
+    
+    
+      <category term="Docker" scheme="https://hiyoungai.com/categories/Docker/"/>
+    
+    
+      <category term="Docker" scheme="https://hiyoungai.com/tags/Docker/"/>
+    
+      <category term="虚拟容器" scheme="https://hiyoungai.com/tags/%E8%99%9A%E6%8B%9F%E5%AE%B9%E5%99%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>TensorflowServing学习笔记与实战总结</title>
+    <link href="https://hiyoungai.com/posts/8d71e860.html"/>
+    <id>https://hiyoungai.com/posts/8d71e860.html</id>
+    <published>2021-09-07T07:21:58.000Z</published>
+    <updated>2021-09-07T07:22:53.513Z</updated>
+    
+    <summary type="html">
+    
+      TensorflowServing学习笔记与实战总结。
+    
+    </summary>
+    
+    
+      <category term="深度学习" scheme="https://hiyoungai.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="TensorflowServing" scheme="https://hiyoungai.com/tags/TensorflowServing/"/>
+    
+      <category term="Tensorflow" scheme="https://hiyoungai.com/tags/Tensorflow/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Pandas常用代码总结</title>
+    <link href="https://hiyoungai.com/posts/ed5d9995.html"/>
+    <id>https://hiyoungai.com/posts/ed5d9995.html</id>
+    <published>2021-09-07T07:18:53.000Z</published>
+    <updated>2021-09-07T07:20:17.465Z</updated>
+    
+    <summary type="html">
+    
+      Pandas常用代码总结。
+    
+    </summary>
+    
+    
+      <category term="数据分析" scheme="https://hiyoungai.com/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
+    
+    
+      <category term="pandas" scheme="https://hiyoungai.com/tags/pandas/"/>
+    
+      <category term="python" scheme="https://hiyoungai.com/tags/python/"/>
+    
+  </entry>
   
   <entry>
     <title>文本去重算法-SimHash</title>
@@ -44,6 +113,104 @@
       <category term="哈希算法" scheme="https://hiyoungai.com/tags/%E5%93%88%E5%B8%8C%E7%AE%97%E6%B3%95/"/>
     
       <category term="hash" scheme="https://hiyoungai.com/tags/hash/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Brpc框架学习笔记</title>
+    <link href="https://hiyoungai.com/posts/ac01086f.html"/>
+    <id>https://hiyoungai.com/posts/ac01086f.html</id>
+    <published>2021-05-07T07:11:34.000Z</published>
+    <updated>2021-09-07T07:13:13.517Z</updated>
+    
+    <summary type="html">
+    
+      Brpc框架学习笔记
+    
+    </summary>
+    
+    
+      <category term="RPC" scheme="https://hiyoungai.com/categories/RPC/"/>
+    
+    
+      <category term="rpc" scheme="https://hiyoungai.com/tags/rpc/"/>
+    
+      <category term="brpc" scheme="https://hiyoungai.com/tags/brpc/"/>
+    
+      <category term="protobuf" scheme="https://hiyoungai.com/tags/protobuf/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Thrift框架学习笔记</title>
+    <link href="https://hiyoungai.com/posts/9937f9bc.html"/>
+    <id>https://hiyoungai.com/posts/9937f9bc.html</id>
+    <published>2021-05-06T07:15:23.000Z</published>
+    <updated>2021-09-07T07:16:45.161Z</updated>
+    
+    <summary type="html">
+    
+      Thrift框架学习笔记。
+    
+    </summary>
+    
+    
+      <category term="RPC" scheme="https://hiyoungai.com/categories/RPC/"/>
+    
+    
+      <category term="rpc" scheme="https://hiyoungai.com/tags/rpc/"/>
+    
+      <category term="thrift" scheme="https://hiyoungai.com/tags/thrift/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>RPC框架简介</title>
+    <link href="https://hiyoungai.com/posts/60fc1713.html"/>
+    <id>https://hiyoungai.com/posts/60fc1713.html</id>
+    <published>2021-05-06T07:13:44.000Z</published>
+    <updated>2021-09-07T07:14:58.321Z</updated>
+    
+    <summary type="html">
+    
+      RPC框架概念简介
+    
+    </summary>
+    
+    
+      <category term="RPC" scheme="https://hiyoungai.com/categories/RPC/"/>
+    
+    
+      <category term="rpc" scheme="https://hiyoungai.com/tags/rpc/"/>
+    
+      <category term="brpc" scheme="https://hiyoungai.com/tags/brpc/"/>
+    
+      <category term="protobuf" scheme="https://hiyoungai.com/tags/protobuf/"/>
+    
+      <category term="thrift" scheme="https://hiyoungai.com/tags/thrift/"/>
+    
+      <category term="grpc" scheme="https://hiyoungai.com/tags/grpc/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Protobuf简介</title>
+    <link href="https://hiyoungai.com/posts/9c355038.html"/>
+    <id>https://hiyoungai.com/posts/9c355038.html</id>
+    <published>2021-05-05T07:17:10.000Z</published>
+    <updated>2021-09-07T07:18:33.041Z</updated>
+    
+    <summary type="html">
+    
+      protobuf简介。
+    
+    </summary>
+    
+    
+      <category term="RPC" scheme="https://hiyoungai.com/categories/RPC/"/>
+    
+    
+      <category term="protobuf" scheme="https://hiyoungai.com/tags/protobuf/"/>
     
   </entry>
   
@@ -330,173 +497,6 @@
       <category term="正态分布" scheme="https://hiyoungai.com/tags/%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83/"/>
     
       <category term="高斯分布" scheme="https://hiyoungai.com/tags/%E9%AB%98%E6%96%AF%E5%88%86%E5%B8%83/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>指数分布</title>
-    <link href="https://hiyoungai.com/posts/53cfa4f7.html"/>
-    <id>https://hiyoungai.com/posts/53cfa4f7.html</id>
-    <published>2020-12-20T05:21:39.000Z</published>
-    <updated>2020-12-21T03:45:46.884Z</updated>
-    
-    <summary type="html">
-    
-      概率论与数理统计中指数分布的学习笔记。
-    
-    </summary>
-    
-    
-      <category term="概率论与数理统计" scheme="https://hiyoungai.com/categories/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/"/>
-    
-    
-      <category term="指数分布" scheme="https://hiyoungai.com/tags/%E6%8C%87%E6%95%B0%E5%88%86%E5%B8%83/"/>
-    
-      <category term="泊松分布" scheme="https://hiyoungai.com/tags/%E6%B3%8A%E6%9D%BE%E5%88%86%E5%B8%83/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>泊松分布</title>
-    <link href="https://hiyoungai.com/posts/9e79f075.html"/>
-    <id>https://hiyoungai.com/posts/9e79f075.html</id>
-    <published>2020-12-19T15:43:33.000Z</published>
-    <updated>2020-12-20T05:23:21.898Z</updated>
-    
-    <summary type="html">
-    
-      概率论与数理统计中泊松分布的学习笔记。
-    
-    </summary>
-    
-    
-      <category term="概率论与数理统计" scheme="https://hiyoungai.com/categories/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/"/>
-    
-    
-      <category term="二项分布" scheme="https://hiyoungai.com/tags/%E4%BA%8C%E9%A1%B9%E5%88%86%E5%B8%83/"/>
-    
-      <category term="泊松分布" scheme="https://hiyoungai.com/tags/%E6%B3%8A%E6%9D%BE%E5%88%86%E5%B8%83/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>古典概型</title>
-    <link href="https://hiyoungai.com/posts/d50294d6.html"/>
-    <id>https://hiyoungai.com/posts/d50294d6.html</id>
-    <published>2020-12-15T10:22:49.000Z</published>
-    <updated>2020-12-16T02:29:21.676Z</updated>
-    
-    <summary type="html">
-    
-      古典概型介绍,及其应用案例分析.
-    
-    </summary>
-    
-    
-      <category term="概率论与数理统计" scheme="https://hiyoungai.com/categories/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/"/>
-    
-    
-      <category term="古典概型" scheme="https://hiyoungai.com/tags/%E5%8F%A4%E5%85%B8%E6%A6%82%E5%9E%8B/"/>
-    
-      <category term="概率论" scheme="https://hiyoungai.com/tags/%E6%A6%82%E7%8E%87%E8%AE%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Redis学习笔记</title>
-    <link href="https://hiyoungai.com/posts/8eda3648.html"/>
-    <id>https://hiyoungai.com/posts/8eda3648.html</id>
-    <published>2020-09-07T06:51:12.000Z</published>
-    <updated>2021-09-07T06:53:26.949Z</updated>
-    
-    <summary type="html">
-    
-      Redis 学习笔记
-    
-    </summary>
-    
-    
-      <category term="数据库" scheme="https://hiyoungai.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-    
-      <category term="Redis" scheme="https://hiyoungai.com/tags/Redis/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>循环神经网络（Recurrent Neural Network，RNN）</title>
-    <link href="https://hiyoungai.com/posts/eb3fbcc4.html"/>
-    <id>https://hiyoungai.com/posts/eb3fbcc4.html</id>
-    <published>2020-03-02T07:20:06.000Z</published>
-    <updated>2020-12-15T05:22:00.885Z</updated>
-    
-    <summary type="html">
-    
-      循环神经网络（Recurrent Neural Network, RNN）是一类用于处理序列数据的神经网络。
-    
-    </summary>
-    
-    
-      <category term="自然语言处理" scheme="https://hiyoungai.com/categories/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/"/>
-    
-    
-      <category term="RNN" scheme="https://hiyoungai.com/tags/RNN/"/>
-    
-      <category term="BPTT" scheme="https://hiyoungai.com/tags/BPTT/"/>
-    
-      <category term="LSTM" scheme="https://hiyoungai.com/tags/LSTM/"/>
-    
-      <category term="GRU" scheme="https://hiyoungai.com/tags/GRU/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>N-gram语言模型</title>
-    <link href="https://hiyoungai.com/posts/853fc4e2.html"/>
-    <id>https://hiyoungai.com/posts/853fc4e2.html</id>
-    <published>2020-02-27T14:59:36.000Z</published>
-    <updated>2020-12-15T05:25:04.640Z</updated>
-    
-    <summary type="html">
-    
-      N-gram语言模型笔记，以及代码实现预测下一词。
-    
-    </summary>
-    
-    
-      <category term="自然语言处理" scheme="https://hiyoungai.com/categories/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/"/>
-    
-    
-      <category term="NLP" scheme="https://hiyoungai.com/tags/NLP/"/>
-    
-      <category term="语言模型" scheme="https://hiyoungai.com/tags/%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/"/>
-    
-      <category term="N-gram" scheme="https://hiyoungai.com/tags/N-gram/"/>
-    
-      <category term="困惑度" scheme="https://hiyoungai.com/tags/%E5%9B%B0%E6%83%91%E5%BA%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Arxiv查询接口详解</title>
-    <link href="https://hiyoungai.com/posts/8ba6751b.html"/>
-    <id>https://hiyoungai.com/posts/8ba6751b.html</id>
-    <published>2020-02-10T15:17:48.000Z</published>
-    <updated>2020-12-15T05:22:57.622Z</updated>
-    
-    <summary type="html">
-    
-      Arxiv 论文网站查询接口 API 详解。
-    
-    </summary>
-    
-    
-      <category term="便捷工具" scheme="https://hiyoungai.com/categories/%E4%BE%BF%E6%8D%B7%E5%B7%A5%E5%85%B7/"/>
-    
-    
-      <category term="Arxiv API" scheme="https://hiyoungai.com/tags/Arxiv-API/"/>
-    
-      <category term="论文查询" scheme="https://hiyoungai.com/tags/%E8%AE%BA%E6%96%87%E6%9F%A5%E8%AF%A2/"/>
     
   </entry>
   
