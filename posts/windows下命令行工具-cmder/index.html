@@ -419,28 +419,24 @@ Win+Alt+P   开启工具选项视窗
 </div>
 
   </footer>
-<div id="gitalk-container"></div>
-<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-<script>
-  const gitalk = new Gitalk({
-    clientID: '153dec37e580c3c02a02',
-    clientSecret: '600d67aa2691177184d763642f25196b907a8226',
-    repo: 'hiyoung123.github.io',
-    owner: 'hiyoung123',
-    admin: ['hiyoung123'],
-    id: location.pathname, 
-    distractionFreeMode: false 
-  });
-  (function() {
-    if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-      document.getElementById('gitalk-container').innerHTML = 'Gitalk comments not available by default when the website is previewed locally.';
-      return;
-    }
-    gitalk.render('gitalk-container');
-  })();
+<span id="/posts/windows%E4%B8%8B%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7-cmder/" class="leancloud_visitors" data-flag-title="Windows下命令行工具 Cmder">
+<p></p>
+</span>
+<div id="vcomments"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script type="text/javascript">
+new Valine({
+    el: '#vcomments' ,
+    appId: 'ILRnbdNWCDva9ch1Y5YHGPpr-gzGzoHsz',
+    appKey: 'b9pW89SXRMssN7eatVkCmc1G',
+    notify:  false , 
+    verify:  false , 
+    avatar:'monsterid', 
+    placeholder: '说点什么吧...',
+    visitor:  true 
+});
 </script>
-
 </article>
     </main>
     

@@ -1657,28 +1657,24 @@ print data
 </div>
 
   </footer>
-<div id="gitalk-container"></div>
-<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-<script>
-  const gitalk = new Gitalk({
-    clientID: '153dec37e580c3c02a02',
-    clientSecret: '600d67aa2691177184d763642f25196b907a8226',
-    repo: 'hiyoung123.github.io',
-    owner: 'hiyoung123',
-    admin: ['hiyoung123'],
-    id: location.pathname, 
-    distractionFreeMode: false 
-  });
-  (function() {
-    if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-      document.getElementById('gitalk-container').innerHTML = 'Gitalk comments not available by default when the website is previewed locally.';
-      return;
-    }
-    gitalk.render('gitalk-container');
-  })();
+<span id="/posts/arxiv%E5%AD%A6%E6%9C%AF%E8%AE%BA%E6%96%87%E6%9F%A5%E8%AF%A2%E6%8E%A5%E5%8F%A3%E8%AF%A6%E8%A7%A3/" class="leancloud_visitors" data-flag-title="Arxiv学术论文查询接口详解">
+<p></p>
+</span>
+<div id="vcomments"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script type="text/javascript">
+new Valine({
+    el: '#vcomments' ,
+    appId: 'ILRnbdNWCDva9ch1Y5YHGPpr-gzGzoHsz',
+    appKey: 'b9pW89SXRMssN7eatVkCmc1G',
+    notify:  false , 
+    verify:  false , 
+    avatar:'monsterid', 
+    placeholder: '说点什么吧...',
+    visitor:  true 
+});
 </script>
-
 </article>
     </main>
     

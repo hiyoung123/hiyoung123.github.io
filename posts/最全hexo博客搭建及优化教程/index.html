@@ -1197,28 +1197,24 @@ hexo clean; hexo g
 </div>
 
   </footer>
-<div id="gitalk-container"></div>
-<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-<script>
-  const gitalk = new Gitalk({
-    clientID: '153dec37e580c3c02a02',
-    clientSecret: '600d67aa2691177184d763642f25196b907a8226',
-    repo: 'hiyoung123.github.io',
-    owner: 'hiyoung123',
-    admin: ['hiyoung123'],
-    id: location.pathname, 
-    distractionFreeMode: false 
-  });
-  (function() {
-    if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-      document.getElementById('gitalk-container').innerHTML = 'Gitalk comments not available by default when the website is previewed locally.';
-      return;
-    }
-    gitalk.render('gitalk-container');
-  })();
+<span id="/posts/%E6%9C%80%E5%85%A8hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%8F%8A%E4%BC%98%E5%8C%96%E6%95%99%E7%A8%8B/" class="leancloud_visitors" data-flag-title="最全Hexo博客搭建及优化教程">
+<p></p>
+</span>
+<div id="vcomments"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script type="text/javascript">
+new Valine({
+    el: '#vcomments' ,
+    appId: 'ILRnbdNWCDva9ch1Y5YHGPpr-gzGzoHsz',
+    appKey: 'b9pW89SXRMssN7eatVkCmc1G',
+    notify:  false , 
+    verify:  false , 
+    avatar:'monsterid', 
+    placeholder: '说点什么吧...',
+    visitor:  true 
+});
 </script>
-
 </article>
     </main>
     
