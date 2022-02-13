@@ -40,7 +40,7 @@ params:
       # DateFormat: ""
       # languageAltTitle: ""
       ShowReadingTime: true # 阅读时间
-      ShowShareButtons: true # 分享按钮
+      ShowShareButtons: false # 分享按钮
       ShowCodeCopyButtons: true # 代码复制按钮
       # ShowFullTextinRSS: true  # RSS 内容
       defaultTheme: auto # light、dark to switch between dark or light according to browser theme
@@ -107,6 +107,17 @@ params:
               url: "mailto:hiyoungliu@gmail.com"
             - name: RSS
               url: "/index.xml"
+
+      valine:
+            enable: true
+            appId: "ILRnbdNWCDva9ch1Y5YHGPpr-gzGzoHsz"
+            appKey: "b9pW89SXRMssN7eatVkCmc1G"
+            notify: false
+            verify: false
+            avatar: "monsterid"
+            placeholder: "说点什么吧..."
+            visitor: true
+
 taxonomies:
     category: categories
     tag: tags
@@ -146,3 +157,4 @@ menu:
         #   name: 友链
         #   url: /links/
         #   weight: 60
+
