@@ -41,6 +41,7 @@ params:
       # languageAltTitle: ""
       ShowReadingTime: true # 阅读时间
       ShowShareButtons: false # 分享按钮
+      disableShare: true
       ShowCodeCopyButtons: true # 代码复制按钮
       # ShowFullTextinRSS: true  # RSS 内容
       defaultTheme: auto # light、dark to switch between dark or light according to browser theme
