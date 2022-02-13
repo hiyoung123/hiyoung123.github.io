@@ -1,10 +1,10 @@
 ---
-title: "{{ replace .Name "-" " " | title }}"
-date: {{ .Date }}
+title: "Test"
+date: 2022-02-13T11:09:37+08:00
 draft: true
 
-tags: [""]
-categories: [""]
+tags: ["aaa"]
+categories: ["自然语言处理"]
 
 showtoc: true
 tocopen: true

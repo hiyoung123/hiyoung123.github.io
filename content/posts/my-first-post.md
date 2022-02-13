@@ -2,5 +2,65 @@
 title: "My First Post"
 date: 2022-02-11T22:45:11+08:00
 draft: true
+categories: ["Python"]
 ---
 
+## 定义
+
+泊松分布（Poisson distribution），是一种统计与概率学里常见到的离散分布，由法国数学家西莫恩·德尼·泊松在1838年时发表。
+
+泊松分布适合于描述单位时间内随机事件发生的次数的概率分布。
+
+课本中的定义为：设随机变量 $X$ 所有可能取的值为 $0,1,2,3 \cdots$，而取得各个值的概率为
+
+<center>$P \{ X=k\} = {\lambda^ke^{-\lambda} \over k!}, k = 0,1,2,3\cdots$</center></br>
+其中 $\lambda > 0 $ 是常数，则称 $X$ 服从参数为 $\lambda$ 的泊松分布，记为 $X ～\pi(\lambda)$。
+
+> 吐槽一句，课本真的是晦涩难懂，就不能像wiki中的那么解释的简单明了一些，然后再引出公式吗？
+
+
+
+## 举例
+
+生活中具有泊松分布的例子有很多：
+
+1. 一本书一页中的印刷错误数；
+2. 某地区在一天内邮递遗失的信件数；
+3. 某医院平均每小时出生 3 个婴儿；
+4. 某公司平均每 10 分钟接到 1 个电话；
+5. 某超市平均每天销售 4 包xx牌奶粉；
+6. 某网站平均每分钟有 2 次访问；
+7. 等等。。
+
+
+
+## 柏松定理
+
+我们知道二项分布是进行了 $n$ 次伯努利实验
+
+<center>$P\{X = k \} = C_n^k p^k(1-p)^{n-k}$</center></br>
+如果当 $n$ 很大时，趋近于无限大的时候，如果计算随机变量的概率分布呢？也就是去计算下面的式子（这里用到了自然对数 e 的概念），令 $\lambda = np$：
+
+<center>$\lim_{n\to\infty} C_n^k p^k(1-p)^{n-k} = {\lambda^ke^{-\lambda} \over k!}$</center></br>
+其中 $\lambda = np$ 是常数，是二项分布的均值，当 $n$ 很大且 $p$ 很小的时候，那么可以使用泊松分布近似二项分布。
+
+> 一般 $n \geq 20, p \leq 0.05$
+
+
+
+## 与二项分布的关系
+
+从泊松定理可以看出，二项分布在 $n$ 趋近于无限的情况下就是泊松分布。其实就是把从 $n$ 中取 $k$ 个值的概率，变成了从一段时间中取 $k$ 个值的概率。
+
+![](https://cdn.jsdelivr.net/gh/hiyoung123/images/img/img_poisson_001.jpeg)
+
+当 $p$ 取很小的值时两个分布几乎相同。
+
+
+
+## 参考
+
+1. [泊松分布-wiki](https://zh.wikipedia.org/wiki/%E6%B3%8A%E6%9D%BE%E5%88%86%E4%BD%88)
+2. [知乎-马同学](https://www.zhihu.com/question/26441147)
+3. [阮一峰-泊松分布](http://www.ruanyifeng.com/blog/2015/06/poisson-distribution.html)
+4. [知乎-泊松分布 (Poisson Distributions) 的推导](https://zhuanlan.zhihu.com/p/26263743)

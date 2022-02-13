@@ -1,0 +1,142 @@
+baseURL: "https://hiyoungai.com/"
+languageCode: 'zh-CN'
+title: "Young's Blog"
+theme: PaperMod
+paginate: 5
+
+
+enableInlineShortcodes: true
+enableEmoji: true # 允许使用 Emoji 表情，建议 true
+enableRobotsTXT: true # 允许爬虫抓取到搜索引擎，建议 true
+
+hasCJKLanguage: true # 自动检测是否包含 中文日文韩文 如果文章中使用了很多中文引号的话可以开启
+
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+
+minify:
+    disableXML: true
+    # minifyOutput: true
+
+defaultContentLanguage: zh # 最顶部首先展示的语言页面
+defaultContentLanguageInSubdir: false
+
+# 搜索
+outputs:
+    home:
+        - HTML
+        - RSS
+        - JSON
+
+
+params:
+      env: production # to enable google analytics, opengraph, twitter-cards and schema.
+      # title: ""
+      # description: "这是一个纯粹的博客......"
+      # author: hiyoung
+      # images: ""
+      # keywords: []
+      # DateFormat: ""
+      # languageAltTitle: ""
+      ShowReadingTime: true # 阅读时间
+      ShowShareButtons: true # 分享按钮
+      ShowCodeCopyButtons: true # 代码复制按钮
+      # ShowFullTextinRSS: true  # RSS 内容
+      defaultTheme: auto # light、dark to switch between dark or light according to browser theme
+      disableThemeToggle: false # 切换主题
+      disableSpecial1stPost: true # 无卡特殊外观 ??
+      disableScrollToTop: false # 返回顶部按钮
+      # disableAnchoredHeadings: false # 锚定标题
+      # hideMeta: true # 隐藏元数据
+      # hideSummary: true # 隐藏摘要
+      showtoc: true # 显示目录
+      tocopen: true # 打开目录
+      ShowPostNavLinks: true # 显示上一个下一个
+      ShowBreadCrumbs: true # 面包屑
+      comments: true # 显示评论
+      DateFormat: "2006-01-02"
+      # disableSpecialistPost: true
+      displayFullLangName: true
+      hideFooter: false # 隐藏页脚
+      ShowWordCounts: true
+      VisitCount: true
+      ShowLastMod: false #显示文章更新时间
+
+      assets:
+            favicon: "/favicon.ico"
+            favicon16x16:  "/favicon-16x16.png"
+            favicon32x32:  "/favicon-32x32.png"
+            apple_touch_icon:  "/apple-touch-icon.png"
+            safari_pinned_tab:  "/safari-pinned-tab.svg"
+
+      profileMode:
+            enabled: true
+            title: "HiYoung" # optional default will be site title
+            subtitle: "人生何所求，财富和自由！"
+            imageUrl: "images/avatar.png" # optional
+            imageTitle: "avatar" # optional
+            imageWidth: 150 # custom size
+            imageHeight: 150 # custom size
+            buttons:
+                  - name: 自然语言处理
+                    url: "/categories/自然语言处理/"
+                  - name: 深度学习
+                    url: "/categories/深度学习/"
+                  - name: 机器学习
+                    url: "/categories/机器学习/"
+                  - name: 信息检索
+                    url: "/categories/信息检索/"
+                  - name: C++
+                    url: "/categories/c++/"
+                  - name: Python
+                    url: "/categories/python/"
+
+      socialIcons: # optional
+            - name: Github
+              url: "https://github.com/hiyoung123"
+            - name: QQ
+              url: "http://wpa.qq.com/msgrd?v=3&uin=787420787&site=qq&menu=yes"
+            - name: RSS
+              url: "/index.xml"
+            - name: Email
+              url: "mailto:hiyoungliu@gmail.com"
+taxonomies:
+    category: categories
+    tag: tags
+    series: series
+    
+menu:
+    main:
+        - identifier: home
+          name: 主页
+          url: /
+          weight: 20
+        - identifier: posts
+          name: 文章
+          url: /posts/
+          weight: 20
+        - identifier: archives
+          name: 归档
+          url: /archives/
+          weight: 30
+        # - identifier: categories
+        #   name: 分类
+        #   url: /categories/
+        #   weight: 40
+        - identifier: tags
+          name: 标签
+          url: /tags/
+          weight: 50
+        - identifier: about
+          name: 关于
+          url: /about/
+          weight: 60
+        - identifier: search
+          name: 搜索
+          url: /search/
+          weight: 70
+        # - identifier: links
+        #   name: 友链
+        #   url: /links/
+        #   weight: 60
