@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Markdown on Young&#39;s Blog</title>
+    <link>https://hiyoungai.com/tags/markdown/</link>
+    <description>Recent content in Markdown on Young&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sun, 13 Feb 2022 18:31:04 +0800</lastBuildDate><atom:link href="https://hiyoungai.com/tags/markdown/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Markdown基本语法</title>
+      <link>https://hiyoungai.com/posts/markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</link>
+      <pubDate>Sun, 13 Feb 2022 18:31:04 +0800</pubDate>
+      
+      <guid>https://hiyoungai.com/posts/markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</guid>
+      <description>标题 Markdown支持6种级别的标题，对应html标签 h1 ~ h6，严格的Markdown语法＃和文本之间要有一个空格。 # h1 这是一级标题 ## h2 这</description>
+    </item>
+    
+  </channel>
+</rss>

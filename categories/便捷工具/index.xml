@@ -6,14 +6,50 @@
     <description>Recent content in 便捷工具 on Young&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 13 Feb 2022 16:57:28 +0800</lastBuildDate><atom:link href="https://hiyoungai.com/categories/%E4%BE%BF%E6%8D%B7%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 13 Feb 2022 18:31:04 +0800</lastBuildDate><atom:link href="https://hiyoungai.com/categories/%E4%BE%BF%E6%8D%B7%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>最全Hexo博客搭建及优化教程</title>
+      <link>https://hiyoungai.com/posts/%E6%9C%80%E5%85%A8hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%8F%8A%E4%BC%98%E5%8C%96%E6%95%99%E7%A8%8B/</link>
+      <pubDate>Sun, 13 Feb 2022 18:23:54 +0800</pubDate>
+      
+      <guid>https://hiyoungai.com/posts/%E6%9C%80%E5%85%A8hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%8F%8A%E4%BC%98%E5%8C%96%E6%95%99%E7%A8%8B/</guid>
+      <description>使用Hexo+Github搭建一个免费的个人博客，本文略长，大佬请自行选择阅读。 前言 一边上班一边搭建博客，忙了大概有一周左右的时间，终于把博</description>
+    </item>
+    
+    <item>
+      <title>Markdown基本语法</title>
+      <link>https://hiyoungai.com/posts/markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</link>
+      <pubDate>Sun, 13 Feb 2022 18:31:04 +0800</pubDate>
+      
+      <guid>https://hiyoungai.com/posts/markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</guid>
+      <description>标题 Markdown支持6种级别的标题，对应html标签 h1 ~ h6，严格的Markdown语法＃和文本之间要有一个空格。 # h1 这是一级标题 ## h2 这</description>
+    </item>
+    
+    <item>
+      <title>Arxiv学术论文查询接口详解</title>
+      <link>https://hiyoungai.com/posts/arxiv%E5%AD%A6%E6%9C%AF%E8%AE%BA%E6%96%87%E6%9F%A5%E8%AF%A2%E6%8E%A5%E5%8F%A3%E8%AF%A6%E8%A7%A3/</link>
+      <pubDate>Sun, 13 Feb 2022 18:18:48 +0800</pubDate>
+      
+      <guid>https://hiyoungai.com/posts/arxiv%E5%AD%A6%E6%9C%AF%E8%AE%BA%E6%96%87%E6%9F%A5%E8%AF%A2%E6%8E%A5%E5%8F%A3%E8%AF%A6%E8%A7%A3/</guid>
+      <description>Arxiv API 允许以编程方式获取 https://arxiv.org 上的论文。API 的基本结构为： http://export.arxiv.org/api/{method_name}?{parameters} 查询接口 查询接口的的 method_name 为 query，下面是查询方法的参数，参数之间以 &amp;amp; 分隔。 parameters type defaults required</description>
+    </item>
+    
+    <item>
+      <title>Ubuntu下划词翻译工具 GoldenDict</title>
+      <link>https://hiyoungai.com/posts/ubuntu%E4%B8%8B%E5%88%92%E8%AF%8D%E7%BF%BB%E8%AF%91%E5%B7%A5%E5%85%B7-goldendict/</link>
+      <pubDate>Sun, 13 Feb 2022 18:09:33 +0800</pubDate>
+      
+      <guid>https://hiyoungai.com/posts/ubuntu%E4%B8%8B%E5%88%92%E8%AF%8D%E7%BF%BB%E8%AF%91%E5%B7%A5%E5%85%B7-goldendict/</guid>
+      <description>简介 Goldendict 是一款跨平台的翻译软件，支持划词翻译等功能。它更像一种词典或者词典的API工具，通过外挂好本地词典或者网站词典进行翻译，返回的样式就是</description>
+    </item>
+    
     <item>
       <title>Windows下命令行工具 Cmder</title>
       <link>https://hiyoungai.com/posts/windows%E4%B8%8B%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7-cmder/</link>
       <pubDate>Sun, 13 Feb 2022 16:57:28 +0800</pubDate>
       
       <guid>https://hiyoungai.com/posts/windows%E4%B8%8B%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7-cmder/</guid>
-      <description>Windows下程序员必备命令行神器-Cmder的安装与配置。</description>
+      <description>简介 在Linux操作系统下工作久的程序员，在Windows上开发很难适应windows自带的cmd命令行。在此推荐一款开发神器 - Cmder，</description>
     </item>
     
   </channel>

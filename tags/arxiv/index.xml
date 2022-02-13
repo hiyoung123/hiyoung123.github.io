@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Arxiv on Young&#39;s Blog</title>
+    <link>https://hiyoungai.com/tags/arxiv/</link>
+    <description>Recent content in Arxiv on Young&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sun, 13 Feb 2022 18:18:48 +0800</lastBuildDate><atom:link href="https://hiyoungai.com/tags/arxiv/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Arxiv学术论文查询接口详解</title>
+      <link>https://hiyoungai.com/posts/arxiv%E5%AD%A6%E6%9C%AF%E8%AE%BA%E6%96%87%E6%9F%A5%E8%AF%A2%E6%8E%A5%E5%8F%A3%E8%AF%A6%E8%A7%A3/</link>
+      <pubDate>Sun, 13 Feb 2022 18:18:48 +0800</pubDate>
+      
+      <guid>https://hiyoungai.com/posts/arxiv%E5%AD%A6%E6%9C%AF%E8%AE%BA%E6%96%87%E6%9F%A5%E8%AF%A2%E6%8E%A5%E5%8F%A3%E8%AF%A6%E8%A7%A3/</guid>
+      <description>Arxiv API 允许以编程方式获取 https://arxiv.org 上的论文。API 的基本结构为： http://export.arxiv.org/api/{method_name}?{parameters} 查询接口 查询接口的的 method_name 为 query，下面是查询方法的参数，参数之间以 &amp;amp; 分隔。 parameters type defaults required</description>
+    </item>
+    
+  </channel>
+</rss>
