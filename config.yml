@@ -87,20 +87,26 @@ params:
                     url: "/categories/机器学习/"
                   - name: 信息检索
                     url: "/categories/信息检索/"
+                  - name: 大数据
+                    url: "/categories/大数据/"
                   - name: C++
                     url: "/categories/c++/"
                   - name: Python
                     url: "/categories/python/"
+                  - name: 数据结构与算法
+                    url: "/categories/数据结构与算法/"
+                  - name: 便捷工具
+                    url: "/categories/便捷工具/"
 
       socialIcons: # optional
             - name: Github
               url: "https://github.com/hiyoung123"
             - name: QQ
               url: "http://wpa.qq.com/msgrd?v=3&uin=787420787&site=qq&menu=yes"
-            - name: RSS
-              url: "/index.xml"
             - name: Email
               url: "mailto:hiyoungliu@gmail.com"
+            - name: RSS
+              url: "/index.xml"
 taxonomies:
     category: categories
     tag: tags
