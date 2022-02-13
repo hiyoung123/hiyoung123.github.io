@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Young&#39;s Blog</title>
-    <link>https://hiyoungai.com/</link>
-    <description>Recent content on Young&#39;s Blog</description>
+    <title>cmder on Young&#39;s Blog</title>
+    <link>https://hiyoungai.com/tags/cmder/</link>
+    <description>Recent content in cmder on Young&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 13 Feb 2022 16:57:28 +0800</lastBuildDate><atom:link href="https://hiyoungai.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 13 Feb 2022 16:57:28 +0800</lastBuildDate><atom:link href="https://hiyoungai.com/tags/cmder/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Windows下命令行工具 Cmder</title>
       <link>https://hiyoungai.com/posts/windows%E4%B8%8B%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7-cmder/</link>
@@ -15,17 +15,6 @@
       <guid>https://hiyoungai.com/posts/windows%E4%B8%8B%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7-cmder/</guid>
       <description>Windows下程序员必备命令行神器-Cmder的安装与配置。</description>
     </item>
-    
-    <item>
-      <title>About</title>
-      <link>https://hiyoungai.com/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hiyoungai.com/about/</guid>
-      <description>about</description>
-    </item>
-    
-    
     
   </channel>
 </rss>

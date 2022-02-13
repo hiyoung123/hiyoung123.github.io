@@ -2,15 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://hiyoungai.com/about/</loc>
-  </url><url>
     <loc>https://hiyoungai.com/categories/</loc>
+    <lastmod>2022-02-13T16:57:28+08:00</lastmod>
   </url><url>
-    <loc>https://hiyoungai.com/series/</loc>
+    <loc>https://hiyoungai.com/tags/cmder/</loc>
+    <lastmod>2022-02-13T16:57:28+08:00</lastmod>
+  </url><url>
+    <loc>https://hiyoungai.com/posts/</loc>
+    <lastmod>2022-02-13T16:57:28+08:00</lastmod>
   </url><url>
     <loc>https://hiyoungai.com/tags/</loc>
+    <lastmod>2022-02-13T16:57:28+08:00</lastmod>
+  </url><url>
+    <loc>https://hiyoungai.com/posts/windows%E4%B8%8B%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7-cmder/</loc>
+    <lastmod>2022-02-13T16:57:28+08:00</lastmod>
   </url><url>
     <loc>https://hiyoungai.com/</loc>
+    <lastmod>2022-02-13T16:57:28+08:00</lastmod>
+  </url><url>
+    <loc>https://hiyoungai.com/categories/%E4%BE%BF%E6%8D%B7%E5%B7%A5%E5%85%B7/</loc>
+    <lastmod>2022-02-13T16:57:28+08:00</lastmod>
+  </url><url>
+    <loc>https://hiyoungai.com/about/</loc>
+  </url><url>
+    <loc>https://hiyoungai.com/series/</loc>
   </url><url>
     <loc>https://hiyoungai.com/archives/</loc>
   </url><url>
