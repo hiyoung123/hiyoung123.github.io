@@ -6,7 +6,7 @@ hugo -t PaperMod
 
 cd public
 
-git add .
+git add . -f
 
 msg="rebuilding site $(date)"
 if [ -n "$*" ]; then
