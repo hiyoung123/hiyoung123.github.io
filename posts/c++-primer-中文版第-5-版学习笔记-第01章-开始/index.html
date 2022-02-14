@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>《C&#43;&#43; Primer 中文版（第 5 版）》学习笔记-第01章 开始 | Young&#39;s Blog</title>
+<meta name="keywords" content="C&#43;&#43;, C&#43;&#43; Primer" />
+<meta name="description" content="1.1 编写一个简单的 C&#43;&#43; 程序 1.1.1 Example int main() { return 0; } 每个 C&#43;&#43; 程序必须包含一个或者多个函数，其中一个必须命名为 main 函数。 一个函数必须包含四部分：返回类型、函数名">
+<meta name="author" content="">
+<link rel="canonical" href="https://hiyoungai.com/posts/c&#43;&#43;-primer-%E4%B8%AD%E6%96%87%E7%89%88%E7%AC%AC-5-%E7%89%88%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC01%E7%AB%A0-%E5%BC%80%E5%A7%8B/" />
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.7438e8fa4a8ff9cbdbe938fb56cc527f0717f7f7735c81f1e7d1308e895c406a.css" integrity="sha256-dDjo&#43;kqP&#43;cvb6Tj7VsxSfwcX9/dzXIHx59EwjolcQGo=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js" integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5&#43;kdJvBz5iKbt6B5PJI="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://hiyoungai.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://hiyoungai.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://hiyoungai.com/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://hiyoungai.com/apple-touch-icon.png">
+<link rel="mask-icon" href="https://hiyoungai.com/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<meta name="generator" content="Hugo 0.92.1" />
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="《C&#43;&#43; Primer 中文版（第 5 版）》学习笔记-第01章 开始" />
+<meta property="og:description" content="1.1 编写一个简单的 C&#43;&#43; 程序 1.1.1 Example int main() { return 0; } 每个 C&#43;&#43; 程序必须包含一个或者多个函数，其中一个必须命名为 main 函数。 一个函数必须包含四部分：返回类型、函数名" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://hiyoungai.com/posts/c&#43;&#43;-primer-%E4%B8%AD%E6%96%87%E7%89%88%E7%AC%AC-5-%E7%89%88%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC01%E7%AB%A0-%E5%BC%80%E5%A7%8B/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-02-14T16:57:17&#43;08:00" />
+<meta property="article:modified_time" content="2022-02-14T16:57:17&#43;08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="《C&#43;&#43; Primer 中文版（第 5 版）》学习笔记-第01章 开始"/>
+<meta name="twitter:description" content="1.1 编写一个简单的 C&#43;&#43; 程序 1.1.1 Example int main() { return 0; } 每个 C&#43;&#43; 程序必须包含一个或者多个函数，其中一个必须命名为 main 函数。 一个函数必须包含四部分：返回类型、函数名"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://hiyoungai.com/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "《C++ Primer 中文版（第 5 版）》学习笔记-第01章 开始",
+      "item": "https://hiyoungai.com/posts/c++-primer-%E4%B8%AD%E6%96%87%E7%89%88%E7%AC%AC-5-%E7%89%88%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC01%E7%AB%A0-%E5%BC%80%E5%A7%8B/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "《C++ Primer 中文版（第 5 版）》学习笔记-第01章 开始",
+  "name": "《C\u002b\u002b Primer 中文版（第 5 版）》学习笔记-第01章 开始",
+  "description": "1.1 编写一个简单的 C++ 程序 1.1.1 Example int main() { return 0; } 每个 C++ 程序必须包含一个或者多个函数，其中一个必须命名为 main 函数。 一个函数必须包含四部分：返回类型、函数名",
+  "keywords": [
+    "C++", "C++ Primer"
+  ],
+  "articleBody": "1.1 编写一个简单的 C++ 程序 1.1.1 Example int main() { return 0; }  每个 C++ 程序必须包含一个或者多个函数，其中一个必须命名为 main 函数。 一个函数必须包含四部分：返回类型、函数名、形参列表和函数体。  1.1.2 编译、运行程序   程序源码存在一个或者多个文件中，通常称为源文件，常见后缀 .cc、.cxx、.cpp、.cp 以及 .c。\n  常见编译器：g++、gcc、cl\n  编译流程\n源代码 test.c 预处理 test.i 编译 test.s 汇编 test.o 链接 test.ext/test.out   编译命令\ng++ -std=c++11 -Wall -o prog01 prog01.cpp   运行可执行文件\n./prog01   查看运行状态\necho %ERRORLEVEL% # windows echo $? # UNIX   编译多个文件\ng++ -std=c++11 -Wall prog01.cpp Sales_item.cc -o prog01   g++ 常用命令\n-std=c++11 # 指定c++版本 -Wall # 输出所有编译警告信息 -E # 预处理 -S # 编译 -c # 汇编 -o # 指定可执行文件并进行链接阶段 -g # 输出调试信息 -fPIC # 链接动态库 -Dmacro=XXX # 定义宏 -llibrarytest # 链接 librarytest 库 -L # 指定库文件路径 -I #    1.2 初始输入输出 1.2.1 标准输入输出对象  标准输入输出库：iostream，包括 istream 和 ostream。 一个流就是一个字符序列，是从 IO 设备读出或者写入 IO 设备的。随着时间推移，字符是顺序生成或者消耗。 标准库定义了 4 个 IO 对象：cin 标准输入、cout 标准输出、cerr 标准错误、clog 标准日志信息。  1.2.2 一个使用 IO 库的程序 #include int main() { std::cout  \"Enter two numbers:\"  std::endl; int vl = 0, v2 = 0; std::cin  v1  v2; std::cout  \"The sum of \"  v1  \" and\"  v2  \" is\"  v1 + v2  std::endl; return 0; }  标准库的头文件使用 ，非标准库的头文件使用 \"\"  称为输出运算符，接收两个运算对象，左侧的运算对象必须是 ostream 对象，右侧的运算对象是要打印的值。与之对称的是输入运算符  。 字符串字面常量，是被两个双引号包着的字符序列。 endl 称为操纵符，效果是结束当前行，并把设备关联的缓冲区的内入刷新到设备中，保证执行到当前语句时，程序所产生的输出真正的写入到输出流中，而不是停留在缓存区。 std 是标准库的命名空间，命名空间的作用是防止命名冲突。 :: 是作用域运算符，作用是访问标准库中的名字。  1.3 注释简介   注释的作用是帮助人类读者理解程序。\n  注释分为单行注释 // 和界定符注释 /**/（也叫多行注释）。\n  注释界定符 /**/ 不能嵌套。\n  双引号内的注释会被忽略。\n#define SALESITEM_H /* * 多行注释格式 * 每一行加一个* */   1.4 控制流 1.4.1 while 语句 #include int main() { int sum = 0, val = 1; // 只要 val 的值小于等于 10， while 循环就会继续执行  while (val  10) { sum += val; ++val; } std::cout  \"Sum of 1 to 10 inclusive is \"  sum  std::endl; return 0; }  while 语句反复执行一段代码，直到条件为假为止。 复合赋值运算符 a += b，表示 a = a+b 前缀递增运算符 ++a，表示 a = a+1  1.4.2 for 语句 #include int main() { int sum = 0; // 从 1 加到 10  for (int val = 1; val  10; ++val) { sum += val; // 等价于 sum = sum + val  } std::cout  \"Sum of 1 to 10 inclusive is \"  sum  std::endl; return 0; } 循环头由三部分组成：\n 一个初始化语句（init-statement） 一个循环条件（condition） 一个表达式（expression）  1.4.3 读取数量不定的输入数据 #include int main() { int sum = 0, value = 0; // 读取数据直到遇到文件尾，计算所有读入的值的和  while (std::cinvalue) { sum += value; } std::cout  \"Sum is: \"  sum  std::endl; return 0; } 1.4.4 if 语句 #include int main() { // currVal 是要统计的数  int currVal = 0, val = 0; // 读取第一个数  if (std::cincurrVal) { int cnt = 1; while (std::cinval) { if (val == currVal) { ++cnt; } else { std::cout  currVal  \" occurs\"  cnt  \" times\"  std::endl; currVal = val; cnt = 1; } } std::cout  currVal  \" occurs\"  cnt  \" times\"  std::endl; } return 0; }  if 语句支持条件执行，条件中可以出现 == 条件运算符页可以出现 = 赋值运算符，注意区分。   编译器可以检查形式上的错误，包括：语法错误、类型错误、声明错误。\n 1.5 类简介   使用类来定义数据结构。通常自己定义的类要放在头文件中，头文件的后缀通常时 .h 或者 .hpp、.hxx。\n  文件重定向操作\naddItems outfile addItems 是可执行程序 outfile 表示addItems的输出输入到 outfile 中   成员函数是类的一部分的函数，也叫做方法。调用成员函数的方法为 类对象.函数名。\n  1.6 书店程序 #include #include \"Sales_item.h\" int main() { Sales_item total; if (std::cintotal) { Sales_item trans; while (std::cintrans) { if (total.isbn() == trans.isbn()) { total += trans; } else { std::cout  total  std::endl; total = trans; } } std::cout  total  std::endl; } else { std::cerr  \"No data ? \"  std::endl; return -1; } return 0; } ",
+  "wordCount" : "1536",
+  "inLanguage": "zh",
+  "datePublished": "2022-02-14T16:57:17+08:00",
+  "dateModified": "2022-02-14T16:57:17+08:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://hiyoungai.com/posts/c++-primer-%E4%B8%AD%E6%96%87%E7%89%88%E7%AC%AC-5-%E7%89%88%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC01%E7%AB%A0-%E5%BC%80%E5%A7%8B/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Young's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://hiyoungai.com/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://hiyoungai.com/" accesskey="h" title="Young&#39;s Blog (Alt + H)">Young&#39;s Blog</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </span>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://hiyoungai.com/" title="主页">
+                    <span>主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://hiyoungai.com/posts/" title="文章">
+                    <span>文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://hiyoungai.com/archives/" title="归档">
+                    <span>归档</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://hiyoungai.com/tags/" title="标签">
+                    <span>标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://hiyoungai.com/about/" title="关于">
+                    <span>关于</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://hiyoungai.com/search/" title="搜索 (Alt &#43; /)" accesskey=/>
+                    <span>搜索</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://hiyoungai.com/">主页</a>&nbsp;»&nbsp;<a href="https://hiyoungai.com/posts/">Posts</a></div>
+    <h1 class="post-title">
+      《C&#43;&#43; Primer 中文版（第 5 版）》学习笔记-第01章 开始
+    </h1>
+    <div class="post-meta">
+
+
+
+
+
+
+
+
+
+
+创建:&nbsp;<span title='2022-02-14 16:57:17 +0800 CST'>2022-02-14</span>&nbsp;|&nbsp;字数:&nbsp;1536字&nbsp;|&nbsp;时长: 4分钟
+
+</div>
+  </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+            <summary accesskey="c" title="(Alt + C)">
+                <span class="details">目录</span>
+            </summary>
+
+            <div class="inner"><ul>
+                    <li>
+                        <a href="#11-%e7%bc%96%e5%86%99%e4%b8%80%e4%b8%aa%e7%ae%80%e5%8d%95%e7%9a%84-c-%e7%a8%8b%e5%ba%8f" aria-label="1.1 编写一个简单的 C&#43;&#43; 程序">1.1 编写一个简单的 C++ 程序</a><ul>
+                            
+                    <li>
+                        <a href="#111-example" aria-label="1.1.1 Example">1.1.1 Example</a></li>
+                    <li>
+                        <a href="#112-%e7%bc%96%e8%af%91%e8%bf%90%e8%a1%8c%e7%a8%8b%e5%ba%8f" aria-label="1.1.2 编译、运行程序">1.1.2 编译、运行程序</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#12-%e5%88%9d%e5%a7%8b%e8%be%93%e5%85%a5%e8%be%93%e5%87%ba" aria-label="1.2 初始输入输出">1.2 初始输入输出</a><ul>
+                            
+                    <li>
+                        <a href="#121-%e6%a0%87%e5%87%86%e8%be%93%e5%85%a5%e8%be%93%e5%87%ba%e5%af%b9%e8%b1%a1" aria-label="1.2.1 标准输入输出对象">1.2.1 标准输入输出对象</a></li>
+                    <li>
+                        <a href="#122-%e4%b8%80%e4%b8%aa%e4%bd%bf%e7%94%a8-io-%e5%ba%93%e7%9a%84%e7%a8%8b%e5%ba%8f" aria-label="1.2.2 一个使用 IO 库的程序">1.2.2 一个使用 IO 库的程序</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#13--%e6%b3%a8%e9%87%8a%e7%ae%80%e4%bb%8b" aria-label="1.3  注释简介">1.3  注释简介</a></li>
+                    <li>
+                        <a href="#14-%e6%8e%a7%e5%88%b6%e6%b5%81" aria-label="1.4 控制流">1.4 控制流</a><ul>
+                            
+                    <li>
+                        <a href="#141-while-%e8%af%ad%e5%8f%a5" aria-label="1.4.1 while 语句">1.4.1 while 语句</a></li>
+                    <li>
+                        <a href="#142-for-%e8%af%ad%e5%8f%a5" aria-label="1.4.2 for 语句">1.4.2 for 语句</a></li>
+                    <li>
+                        <a href="#143-%e8%af%bb%e5%8f%96%e6%95%b0%e9%87%8f%e4%b8%8d%e5%ae%9a%e7%9a%84%e8%be%93%e5%85%a5%e6%95%b0%e6%8d%ae" aria-label="1.4.3 读取数量不定的输入数据">1.4.3 读取数量不定的输入数据</a></li>
+                    <li>
+                        <a href="#144-if-%e8%af%ad%e5%8f%a5" aria-label="1.4.4 if 语句">1.4.4 if 语句</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#15-%e7%b1%bb%e7%ae%80%e4%bb%8b" aria-label="1.5 类简介">1.5 类简介</a></li>
+                    <li>
+                        <a href="#16-%e4%b9%a6%e5%ba%97%e7%a8%8b%e5%ba%8f" aria-label="1.6 书店程序">1.6 书店程序</a>
+                    </li>
+                </ul>
+            </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+         
+         activeElement = elements[0];
+         const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+         document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+     }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 && 
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+             const id = encodeURI(element.getAttribute('id')).toLowerCase();
+             if (element === activeElement){
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+             } else {
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+             }
+         })
+     }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;   
+    }
+</script>
+
+  <div class="post-content"><h2 id="11-编写一个简单的-c-程序">1.1 编写一个简单的 C++ 程序<a hidden class="anchor" aria-hidden="true" href="#11-编写一个简单的-c-程序">#</a></h2>
+<h3 id="111-example">1.1.1 Example<a hidden class="anchor" aria-hidden="true" href="#111-example">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+	<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+</code></pre></div><ul>
+<li>每个 C++ 程序必须包含一个或者多个函数，其中一个必须命名为 <code>main</code> 函数。</li>
+<li>一个函数必须包含四部分：返回类型、函数名、形参列表和函数体。</li>
+</ul>
+<h3 id="112-编译运行程序">1.1.2 编译、运行程序<a hidden class="anchor" aria-hidden="true" href="#112-编译运行程序">#</a></h3>
+<ul>
+<li>
+<p>程序源码存在一个或者多个文件中，通常称为源文件，常见后缀 <code>.cc</code>、<code>.cxx</code>、<code>.cpp</code>、<code>.cp</code> 以及 <code>.c</code>。</p>
+</li>
+<li>
+<p>常见编译器：<code>g++</code>、<code>gcc</code>、<code>cl</code></p>
+</li>
+<li>
+<p>编译流程</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">源代码 test.c
+预处理 test.i
+编译   test.s
+汇编   test.o
+链接   test.ext/test.out
+</code></pre></div></li>
+<li>
+<p>编译命令</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">g++ -std<span style="color:#f92672">=</span>c++11 -Wall -o prog01 prog01.cpp
+</code></pre></div></li>
+<li>
+<p>运行可执行文件</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">./prog01
+</code></pre></div></li>
+<li>
+<p>查看运行状态</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">echo %ERRORLEVEL% <span style="color:#75715e"># windows</span>
+echo $? <span style="color:#75715e"># UNIX</span>
+</code></pre></div></li>
+<li>
+<p>编译多个文件</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">g++ -std<span style="color:#f92672">=</span>c++11 -Wall prog01.cpp Sales_item.cc -o prog01
+</code></pre></div></li>
+<li>
+<p>g++ 常用命令</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">-std<span style="color:#f92672">=</span>c++11     <span style="color:#75715e"># 指定c++版本</span>
+-Wall          <span style="color:#75715e"># 输出所有编译警告信息</span>
+-E             <span style="color:#75715e"># 预处理</span>
+-S             <span style="color:#75715e"># 编译</span>
+-c             <span style="color:#75715e"># 汇编</span>
+-o             <span style="color:#75715e"># 指定可执行文件并进行链接阶段</span>
+-g             <span style="color:#75715e"># 输出调试信息</span>
+-fPIC          <span style="color:#75715e"># 链接动态库</span>
+-Dmacro<span style="color:#f92672">=</span>XXX    <span style="color:#75715e"># 定义宏</span>
+-llibrarytest  <span style="color:#75715e"># 链接 librarytest 库</span>
+-L             <span style="color:#75715e"># 指定库文件路径</span>
+-I             <span style="color:#75715e"># </span>
+</code></pre></div></li>
+</ul>
+<h2 id="12-初始输入输出">1.2 初始输入输出<a hidden class="anchor" aria-hidden="true" href="#12-初始输入输出">#</a></h2>
+<h3 id="121-标准输入输出对象">1.2.1 标准输入输出对象<a hidden class="anchor" aria-hidden="true" href="#121-标准输入输出对象">#</a></h3>
+<ul>
+<li>标准输入输出库：<code>iostream</code>，包括 <code>istream</code> 和 <code>ostream</code>。</li>
+<li>一个流就是一个字符序列，是从 IO 设备读出或者写入 IO 设备的。随着时间推移，字符是顺序生成或者消耗。</li>
+<li>标准库定义了 4 个 IO 对象：<code>cin</code> 标准输入、<code>cout</code> 标准输出、<code>cerr</code> 标准错误、<code>clog</code> 标准日志信息。</li>
+</ul>
+<h3 id="122-一个使用-io-库的程序">1.2.2 一个使用 IO 库的程序<a hidden class="anchor" aria-hidden="true" href="#122-一个使用-io-库的程序">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Enter two numbers:&#34;</span> <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
+    <span style="color:#66d9ef">int</span> vl <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, v2 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+    std<span style="color:#f92672">::</span>cin <span style="color:#f92672">&gt;&gt;</span> v1 <span style="color:#f92672">&gt;&gt;</span> v2;
+    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;The sum of &#34;</span> <span style="color:#f92672">&lt;&lt;</span> v1 <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; and&#34;</span> <span style="color:#f92672">&lt;&lt;</span> v2 <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; is&#34;</span> <span style="color:#f92672">&lt;&lt;</span> v1 <span style="color:#f92672">+</span> v2 <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+</code></pre></div><ul>
+<li>标准库的头文件使用 <code>&lt;&gt;</code>，非标准库的头文件使用 <code>&quot;&quot;</code></li>
+<li><code>&lt;&lt;</code> 称为输出运算符，接收两个运算对象，左侧的运算对象必须是 <code>ostream</code> 对象，右侧的运算对象是要打印的值。与之对称的是输入运算符 <code>&gt;&gt;</code> 。</li>
+<li>字符串字面常量，是被两个双引号包着的字符序列。</li>
+<li><code>endl</code> 称为操纵符，效果是结束当前行，并把设备关联的缓冲区的内入刷新到设备中，保证执行到当前语句时，程序所产生的输出真正的写入到输出流中，而不是停留在缓存区。</li>
+<li><code>std</code> 是标准库的命名空间，命名空间的作用是防止命名冲突。</li>
+<li><code>::</code> 是作用域运算符，作用是访问标准库中的名字。</li>
+</ul>
+<h2 id="13--注释简介">1.3  注释简介<a hidden class="anchor" aria-hidden="true" href="#13--注释简介">#</a></h2>
+<ul>
+<li>
+<p>注释的作用是帮助人类读者理解程序。</p>
+</li>
+<li>
+<p>注释分为单行注释 <code>//</code> 和界定符注释 <code>/**/</code>（也叫多行注释）。</p>
+</li>
+<li>
+<p>注释界定符 <code>/**/</code> 不能嵌套。</p>
+</li>
+<li>
+<p>双引号内的注释会被忽略。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#define SALESITEM_H
+</span><span style="color:#75715e"></span><span style="color:#75715e">/*
+</span><span style="color:#75715e"> * 多行注释格式
+</span><span style="color:#75715e"> * 每一行加一个*
+</span><span style="color:#75715e"> */</span>
+</code></pre></div></li>
+</ul>
+<h2 id="14-控制流">1.4 控制流<a hidden class="anchor" aria-hidden="true" href="#14-控制流">#</a></h2>
+<h3 id="141-while-语句">1.4.1 while 语句<a hidden class="anchor" aria-hidden="true" href="#141-while-语句">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    <span style="color:#66d9ef">int</span> sum <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, val <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+    <span style="color:#75715e">// 只要 val 的值小于等于 10， while 循环就会继续执行
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">while</span> (val <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">10</span>) {
+        sum <span style="color:#f92672">+=</span> val;
+        <span style="color:#f92672">++</span>val;
+    }
+    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Sum of 1 to 10 inclusive is &#34;</span> <span style="color:#f92672">&lt;&lt;</span> sum <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+</code></pre></div><ul>
+<li>while 语句反复执行一段代码，直到条件为假为止。</li>
+<li>复合赋值运算符 <code>a += b</code>，表示 <code>a = a+b</code></li>
+<li>前缀递增运算符 <code>++a</code>，表示 <code>a = a+1</code></li>
+</ul>
+<h3 id="142-for-语句">1.4.2 for 语句<a hidden class="anchor" aria-hidden="true" href="#142-for-语句">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+	<span style="color:#66d9ef">int</span> sum <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+    <span style="color:#75715e">// 从 1 加到 10
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> val <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; val <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">10</span>; <span style="color:#f92672">++</span>val)
+    {
+        sum <span style="color:#f92672">+=</span> val; <span style="color:#75715e">// 等价于 sum = sum + val
+</span><span style="color:#75715e"></span>    }
+    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Sum of 1 to 10 inclusive is &#34;</span> <span style="color:#f92672">&lt;&lt;</span> sum <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+</code></pre></div><p>循环头由三部分组成：</p>
+<ul>
+<li>一个初始化语句（init-statement）</li>
+<li>一个循环条件（condition）</li>
+<li>一个表达式（expression）</li>
+</ul>
+<h3 id="143-读取数量不定的输入数据">1.4.3 读取数量不定的输入数据<a hidden class="anchor" aria-hidden="true" href="#143-读取数量不定的输入数据">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    <span style="color:#66d9ef">int</span> sum <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, value <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+    <span style="color:#75715e">// 读取数据直到遇到文件尾，计算所有读入的值的和
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">while</span> (std<span style="color:#f92672">::</span>cin<span style="color:#f92672">&gt;&gt;</span>value) {
+        sum <span style="color:#f92672">+=</span> value;
+    }
+    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Sum is: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> sum <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+</code></pre></div><h3 id="144-if-语句">1.4.4 if 语句<a hidden class="anchor" aria-hidden="true" href="#144-if-语句">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    <span style="color:#75715e">// currVal 是要统计的数
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">int</span> currVal <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, val <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+    <span style="color:#75715e">// 读取第一个数
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> (std<span style="color:#f92672">::</span>cin<span style="color:#f92672">&gt;&gt;</span>currVal) {
+        <span style="color:#66d9ef">int</span> cnt <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+        <span style="color:#66d9ef">while</span> (std<span style="color:#f92672">::</span>cin<span style="color:#f92672">&gt;&gt;</span>val) {
+            <span style="color:#66d9ef">if</span> (val <span style="color:#f92672">==</span> currVal) {
+                <span style="color:#f92672">++</span>cnt;
+            } <span style="color:#66d9ef">else</span> {
+                std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> currVal <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; occurs&#34;</span> <span style="color:#f92672">&lt;&lt;</span> cnt <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; times&#34;</span> <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
+                currVal <span style="color:#f92672">=</span> val;
+                cnt <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+            }
+        }
+        std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> currVal <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; occurs&#34;</span> <span style="color:#f92672">&lt;&lt;</span> cnt <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; times&#34;</span> <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
+    }
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+</code></pre></div><ul>
+<li>if 语句支持条件执行，条件中可以出现 <code>==</code> 条件运算符页可以出现 <code>=</code> 赋值运算符，注意区分。</li>
+</ul>
+<blockquote>
+<p>编译器可以检查形式上的错误，包括：语法错误、类型错误、声明错误。</p>
+</blockquote>
+<h2 id="15-类简介">1.5 类简介<a hidden class="anchor" aria-hidden="true" href="#15-类简介">#</a></h2>
+<ul>
+<li>
+<p>使用类来定义数据结构。通常自己定义的类要放在头文件中，头文件的后缀通常时 <code>.h</code> 或者 <code>.hpp</code>、<code>.hxx</code>。</p>
+</li>
+<li>
+<p>文件重定向操作</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">addItems &lt; infile &gt; outfile
+
+addItems 是可执行程序
+&lt; infile 表示从infile文件中获取数据，作为addItems程序的参数
+&gt; outfile 表示addItems的输出输入到 outfile 中
+
+</code></pre></div></li>
+<li>
+<p>成员函数是类的一部分的函数，也叫做方法。调用成员函数的方法为 <code>类对象.函数名</code>。</p>
+</li>
+</ul>
+<h2 id="16-书店程序">1.6 书店程序<a hidden class="anchor" aria-hidden="true" href="#16-书店程序">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;Sales_item.h&#34;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    Sales_item total;
+    <span style="color:#66d9ef">if</span> (std<span style="color:#f92672">::</span>cin<span style="color:#f92672">&gt;&gt;</span>total) {
+        Sales_item trans;
+        <span style="color:#66d9ef">while</span> (std<span style="color:#f92672">::</span>cin<span style="color:#f92672">&gt;&gt;</span>trans) {
+            <span style="color:#66d9ef">if</span> (total.isbn() <span style="color:#f92672">==</span> trans.isbn()) {
+                total <span style="color:#f92672">+=</span> trans;
+            } <span style="color:#66d9ef">else</span> {
+                std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> total <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
+                total <span style="color:#f92672">=</span> trans;
+            }
+        }
+        std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> total <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
+    } <span style="color:#66d9ef">else</span> {
+        std<span style="color:#f92672">::</span>cerr <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;No data ? &#34;</span> <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
+        <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
+    }
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+</code></pre></div>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://hiyoungai.com/tags/c&#43;&#43;/">C&#43;&#43;</a></li>
+      <li><a href="https://hiyoungai.com/tags/c&#43;&#43;-primer/">C&#43;&#43; Primer</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://hiyoungai.com/posts/markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>Markdown基本语法</span>
+  </a>
+  <a class="next" href="https://hiyoungai.com/posts/%E4%BF%A1%E6%81%AF%E7%86%B5%E6%80%BB%E7%BB%93/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>信息熵总结</span>
+  </a>
+</nav>
+
+  </footer>
+<span id="/posts/c&#43;&#43;-primer-%E4%B8%AD%E6%96%87%E7%89%88%E7%AC%AC-5-%E7%89%88%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC01%E7%AB%A0-%E5%BC%80%E5%A7%8B/" class="leancloud_visitors" data-flag-title="《C&#43;&#43; Primer 中文版（第 5 版）》学习笔记-第01章 开始">
+<p></p>
+</span>
+<div id="vcomments"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script type="text/javascript">
+new Valine({
+    el: '#vcomments' ,
+    appId: 'ILRnbdNWCDva9ch1Y5YHGPpr-gzGzoHsz',
+    appKey: 'b9pW89SXRMssN7eatVkCmc1G',
+    notify:  false , 
+    verify:  false , 
+    avatar:'monsterid', 
+    placeholder: '说点什么吧...',
+    visitor:  true 
+});
+</script>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2022 <a href="https://hiyoungai.com/">Young&#39;s Blog</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

@@ -6,7 +6,7 @@
     <description>Recent content in Posts on Young&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 13 Feb 2022 18:48:20 +0800</lastBuildDate><atom:link href="https://hiyoungai.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 14 Feb 2022 16:57:17 +0800</lastBuildDate><atom:link href="https://hiyoungai.com/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>最全Hexo博客搭建及优化教程</title>
       <link>https://hiyoungai.com/posts/%E6%9C%80%E5%85%A8hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%8F%8A%E4%BC%98%E5%8C%96%E6%95%99%E7%A8%8B/</link>
@@ -23,6 +23,15 @@
       
       <guid>https://hiyoungai.com/posts/markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</guid>
       <description>标题 Markdown支持6种级别的标题，对应html标签 h1 ~ h6，严格的Markdown语法＃和文本之间要有一个空格。 # h1 这是一级标题 ## h2 这</description>
+    </item>
+    
+    <item>
+      <title>《C&#43;&#43; Primer 中文版（第 5 版）》学习笔记-第01章 开始</title>
+      <link>https://hiyoungai.com/posts/c&#43;&#43;-primer-%E4%B8%AD%E6%96%87%E7%89%88%E7%AC%AC-5-%E7%89%88%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC01%E7%AB%A0-%E5%BC%80%E5%A7%8B/</link>
+      <pubDate>Mon, 14 Feb 2022 16:57:17 +0800</pubDate>
+      
+      <guid>https://hiyoungai.com/posts/c&#43;&#43;-primer-%E4%B8%AD%E6%96%87%E7%89%88%E7%AC%AC-5-%E7%89%88%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC01%E7%AB%A0-%E5%BC%80%E5%A7%8B/</guid>
+      <description>1.1 编写一个简单的 C++ 程序 1.1.1 Example int main() { return 0; } 每个 C++ 程序必须包含一个或者多个函数，其中一个必须命名为 main 函数。 一个函数必须包含四部分：返回类型、函数名</description>
     </item>
     
     <item>
