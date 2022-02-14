@@ -2,7 +2,7 @@
 title: "Windows下命令行工具 Cmder"
 date: 2022-02-13T16:57:28+08:00
 draft: false
-tags: ["cmder"]
+tags: ["Cmder"]
 categories: ["便捷工具"]
 description: ""
 ---
