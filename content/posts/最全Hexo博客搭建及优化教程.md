@@ -5,7 +5,6 @@ draft: false
 tags: ["Hexo", "博客搭建"]
 categories: ["便捷工具"]
 description: ""
-weight: 1
 ---
 
 > 使用Hexo+Github搭建一个免费的个人博客，本文略长，大佬请自行选择阅读。
