@@ -84,8 +84,6 @@
 </script>
 {{- end }}
 
-{{ partial "mathjax.html" . }}
-
 {{- if (and (eq .Kind "page") (ne .Layout "archives") (ne .Layout "search") (.Param "ShowCodeCopyButtons")) }}
 <script>
     document.querySelectorAll('pre > code').forEach((codeblock) => {
