@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Ngram语言模型 | Young&#39;s Blog</title>
+<meta name="keywords" content="ngram, 语言模型, 困惑度" />
+<meta name="description" content="语言模型 计算文本序列概率的模型叫做语言模型（LMs）。下面简单介绍如何使用 n-gram 模型来估计给定前一个单词的n-gram的最后一个单词的概率，并将">
+<meta name="author" content="">
+<link rel="canonical" href="https://hiyoungai.com/posts/ngram%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" />
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.7438e8fa4a8ff9cbdbe938fb56cc527f0717f7f7735c81f1e7d1308e895c406a.css" integrity="sha256-dDjo&#43;kqP&#43;cvb6Tj7VsxSfwcX9/dzXIHx59EwjolcQGo=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js" integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5&#43;kdJvBz5iKbt6B5PJI="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://hiyoungai.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://hiyoungai.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://hiyoungai.com/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://hiyoungai.com/apple-touch-icon.png">
+<link rel="mask-icon" href="https://hiyoungai.com/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<meta name="generator" content="Hugo 0.92.1" />
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Ngram语言模型" />
+<meta property="og:description" content="语言模型 计算文本序列概率的模型叫做语言模型（LMs）。下面简单介绍如何使用 n-gram 模型来估计给定前一个单词的n-gram的最后一个单词的概率，并将" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://hiyoungai.com/posts/ngram%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-02-17T22:44:43&#43;08:00" />
+<meta property="article:modified_time" content="2022-02-17T22:44:43&#43;08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Ngram语言模型"/>
+<meta name="twitter:description" content="语言模型 计算文本序列概率的模型叫做语言模型（LMs）。下面简单介绍如何使用 n-gram 模型来估计给定前一个单词的n-gram的最后一个单词的概率，并将"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://hiyoungai.com/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Ngram语言模型",
+      "item": "https://hiyoungai.com/posts/ngram%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Ngram语言模型",
+  "name": "Ngram语言模型",
+  "description": "语言模型 计算文本序列概率的模型叫做语言模型（LMs）。下面简单介绍如何使用 n-gram 模型来估计给定前一个单词的n-gram的最后一个单词的概率，并将",
+  "keywords": [
+    "ngram", "语言模型", "困惑度"
+  ],
+  "articleBody": "语言模型 计算文本序列概率的模型叫做语言模型（LMs）。下面简单介绍如何使用 n-gram 模型来估计给定前一个单词的n-gram的最后一个单词的概率，并将概率分配给整个序列。把 n-gram 一些重点内容记录一下：\n形式 $P(the|its \\ water \\ is \\ so \\ transparent \\ that)$\n简单直观的计算方式使用统计计数 $P(the|its \\ water \\ is \\ so \\ transparent \\ that) = {C(its \\ water \\ is \\ so \\ transparent \\ that \\ the) \\over C(its \\ water \\ is \\ so \\ transparent \\ that)}$\n这种方式在有新的句子加入时不利于维护，所以可以使用链式法则求出概率：$\\begin{align} P(x^{(1)},\\cdots,x^{(T)}) \u0026= P(x^{(1)})\\times P(x^{(2)}|x^{(1)})\\times \\cdots \\times P(x^{(T)}|,\\cdots,x^{(1)}) \\ \u0026= \\prod^T_{t=1} P(x^{(t)}|x^{(t-1)},\\cdots,x^{(1)})\\end{align}$\n但是根据前面整个句子的概率去计算下一个词，计算量太大，并且也不是完全依赖前面所有的词。可以根据前几个词来计算概率，所以有了 n-gram 模型。\n为了计算语言模型，我们需要计算词的概率，以及一个词在给定前几个词的情况下的条件概率，即语言模型参数。设训练数据集为一个大型文本语料库，如维基百科的所有条目。词的概率可以通过该词在训练数据集中的相对词频来计算。例如，$P(w_1)$可以计算为 $w_1$ 在训练数据集中的词频（词出现的次数）与训练数据集的总词数之比。因此，根据条件概率定义，一个词在给定前几个词的情况下的条件概率也可以通过训练数据集中的相对词频计算。例如，$P(w_2∣w_1)$可以计算为$w_1,w_2$两词相邻的频率与 $w_1$ 词频的比值，因为该比值即 $P(w_1,w_2)$ 与 $ P( w_1) $ 之比；而 $P(w_3|w_1,w_2)$ 同理可以计算为$w_1、w_2$ 和 $w_3$ 三词相邻的频率与 $w_1$ 和 $w_2$ 两词相邻的频率的比值。以此类推。\nN-gram 语言模型 N-gram 是一个由 n 个连续单词组成的块，它的思想是一个单词出现的概率与它前 n-1 个出现的词有关。也就是每个词依赖于前 n-1 个词。下面是一些常见的术语以及示例，可以帮助你更好的理解 N-gram 语言模型：\n Unigrams：一元文法，由一个单词组成的 token，例如： “the”, “students”, “opened”, ”their”。 Bigrams：二元文法，也叫一元马尔科夫链。由连续两个单词组成的 token，例如：“the students”, “students opened”, “opened their”。 Trigrams：三元文法，由连续三个单词组成的 token，例如：“the students opened”, “students opened their”。 4-grams：四元文法，由连续四个单词组成的 token，例如：“the students opened their”。  如何估计这些 n-gram 概率？估计概率的一种直观方法叫做极大似然估计（MLE）。可以通过从正态语料库中获取计数，并将计数归一化，使其位于 0 到 1 之间，从而得到 n-gram 模型参数的最大似然估计。\n例如，要计算一个给定前一个单词为 x ，y 的 bigram 概率，将计算 bigram C(x y)的计数，并通过共享相同第一个单词 x的所有 bigram 的总和进行标准化。\n$P(X_n|X_{n-1}) = {C(X_{n-1} X_n) \\over \\sum_X C(X_{n-1}X)}$\n其中分子为 bigram C(x y) 在语料库中的计数，分母为前一个词为 x，后一个为任意词的 bigram 计数的总和。为了简单可以写成下面的形式：\n$P(X_n|X_{n-1}) = {C(X_{n-1} X_n) \\over C(X_{n-1})}$\n这样就通过极大似然估计求得了概率值。但是有个问题是，在其他语料库中出现次数很多的句子可能在当前语料库中没有，所以很难进行泛化。下面是 n-gram 模型的稀疏性问题：\n  如果要求的词没有在文本中出现，也就是分子的概率为 0。解决办法是添加一个很小的值给对应的词，这种方法叫做平滑，例如拉普拉斯平滑。这使得词表中的每个单词都至少有很小的概率。\n  如果前 n-1 个词没有出现在文本中，也就是分母的概率无法计算。解决办法如使用 “water is so transparent that“ 替代，这种方法叫做后退。保证作为条件的分母概率值存在。（还有其他平滑技术）\n  需要注意的是，概率是一个大于 0 小于 1 的数，随着相乘会变得很小。所以通常使用 log 的形式：\n$p_1 \\times p_2 \\times p_3 \\times p_4 = exp(log\\ p_1 + log\\ p_2 + log \\ p_3 + log\\ p_4)$\n  还有的是提高 n 的值会使稀疏性变得更糟糕，还会增加存储量，所以 n-gram 一般不会超过 5。\n  当n2时，比如 tigram，可能需要在头部添加两个start-token，后续看看效果如何。\n  平滑技术 上面提到过，一些 OOV 词汇，模型会分配 0 概率，这样是错误的。因而，必须分配给所有可能出现的字符串一个非零的概率值来避免这种错误的发生。平滑（smoothing）技术就是用来解决这类零概率问题的。提高低概率（如零概率），降低高概率，尽量使概率分布趋于均匀。\n拉普拉斯平滑 Laplace Smoothing，做平滑的最简单的方法是在我们将它们归一化为概率之前，在所有的计数上加1。拉普拉斯平滑在现代 n-gram 模型中并没有得到很好的应用，但它很好地引入了我们在其他平滑算法中看到的许多概念，给出了一个有用的基线，也是文本分类等其他任务的实用平滑算法。下面在 1-gram 上看看拉普拉斯平滑：\n$P_{Laplace}(w_i) = {c_i + 1 \\over N+V}$\n加法平滑 拉普拉斯平滑也算是加法平滑的一种，加法平滑的一般形式：\n$P_{Add-k}(w_n|w_{n-1}) = {C(w_{n-1}w_n)+k \\over C(w_{n-1}+kV)}$\n尽管 add-k 在某些任务(包括文本分类)中很有用，但它在语言建模中仍然不能很好地工作，生成的计数方差很差。\nKatz 平滑 Kneser-Ney 平滑 Backoff and Interpolation 评估方法 困惑度 在 NLP 中，通常使用困惑度（Perplexity，PPL）作为衡量语言模型好坏的内部指标，此外还有外部指标需要人工评价\n$\\begin{align} P(W) \u0026= P(w_1 w_2 \\cdots w_N)^{-{1\\over N}} \\ \u0026= \\sqrt[N]{1\\over P(w_1 w_2 \\cdots w_N)} \\ \u0026= \\sqrt[N]{\\prod^N_{i=1}{1\\over P(w_i|w_1\\cdots w_{i-1})}} \\end{align}$\n对于 bigram 模型的困惑度：\n$PP(W) = \\sqrt[N]{\\prod^N_{i=1} {1\\over P(w_i|w_{i-1})}}$\n困惑度越低，说明生成的语言越接近真实语言，常用于机器翻译和文本生成等 NLP 任务中。困惑度等价于交叉熵损失函数：\n$\\begin{align} \u0026= \\prod^T_{t=1}({1\\over \\hat{y}^{(t)}{x{t+1}}})^{1\\over T} \\ \u0026=exp({1\\over T \\sum^T_{t=1}}-log\\hat{y}^{(t)}{x{t+1}}) \\ \u0026= exp(J(\\theta)) \\end{align}$\nReferences  N-gram Language Models 《统计自然语言处理》- 宗成庆  ",
+  "wordCount" : "2116",
+  "inLanguage": "zh",
+  "datePublished": "2022-02-17T22:44:43+08:00",
+  "dateModified": "2022-02-17T22:44:43+08:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://hiyoungai.com/posts/ngram%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Young's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://hiyoungai.com/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://hiyoungai.com/" accesskey="h" title="Young&#39;s Blog (Alt + H)">Young&#39;s Blog</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </span>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://hiyoungai.com/" title="主页">
+                    <span>主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://hiyoungai.com/posts/" title="文章">
+                    <span>文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://hiyoungai.com/archives/" title="归档">
+                    <span>归档</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://hiyoungai.com/tags/" title="标签">
+                    <span>标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://hiyoungai.com/about/" title="关于">
+                    <span>关于</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://hiyoungai.com/search/" title="搜索 (Alt &#43; /)" accesskey=/>
+                    <span>搜索</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://hiyoungai.com/">主页</a>&nbsp;»&nbsp;<a href="https://hiyoungai.com/posts/">Posts</a></div>
+    <h1 class="post-title">
+      Ngram语言模型
+    </h1>
+    <div class="post-meta">
+
+
+
+
+
+
+
+
+
+
+创建:&nbsp;<span title='2022-02-17 22:44:43 +0800 CST'>2022-02-17</span>&nbsp;|&nbsp;字数:&nbsp;2116字&nbsp;|&nbsp;时长: 5分钟
+
+</div>
+  </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+            <summary accesskey="c" title="(Alt + C)">
+                <span class="details">目录</span>
+            </summary>
+
+            <div class="inner"><ul>
+                    <li>
+                        <a href="#%e8%af%ad%e8%a8%80%e6%a8%a1%e5%9e%8b" aria-label="语言模型">语言模型</a></li>
+                    <li>
+                        <a href="#n-gram-%e8%af%ad%e8%a8%80%e6%a8%a1%e5%9e%8b" aria-label="N-gram 语言模型">N-gram 语言模型</a></li>
+                    <li>
+                        <a href="#%e5%b9%b3%e6%bb%91%e6%8a%80%e6%9c%af" aria-label="平滑技术">平滑技术</a><ul>
+                            
+                    <li>
+                        <a href="#%e6%8b%89%e6%99%ae%e6%8b%89%e6%96%af%e5%b9%b3%e6%bb%91" aria-label="拉普拉斯平滑">拉普拉斯平滑</a></li>
+                    <li>
+                        <a href="#%e5%8a%a0%e6%b3%95%e5%b9%b3%e6%bb%91" aria-label="加法平滑">加法平滑</a></li>
+                    <li>
+                        <a href="#katz-%e5%b9%b3%e6%bb%91" aria-label="Katz 平滑">Katz 平滑</a></li>
+                    <li>
+                        <a href="#kneser-ney--%e5%b9%b3%e6%bb%91" aria-label="Kneser-Ney  平滑">Kneser-Ney  平滑</a></li>
+                    <li>
+                        <a href="#backoff-and-interpolation" aria-label="Backoff and Interpolation">Backoff and Interpolation</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#%e8%af%84%e4%bc%b0%e6%96%b9%e6%b3%95" aria-label="评估方法">评估方法</a><ul>
+                            
+                    <li>
+                        <a href="#%e5%9b%b0%e6%83%91%e5%ba%a6" aria-label="困惑度">困惑度</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#references" aria-label="References">References</a>
+                    </li>
+                </ul>
+            </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+         
+         activeElement = elements[0];
+         const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+         document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+     }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 && 
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+             const id = encodeURI(element.getAttribute('id')).toLowerCase();
+             if (element === activeElement){
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+             } else {
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+             }
+         })
+     }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;   
+    }
+</script>
+
+  <div class="post-content"><h2 id="语言模型">语言模型<a hidden class="anchor" aria-hidden="true" href="#语言模型">#</a></h2>
+<p>计算文本序列概率的模型叫做语言模型（LMs）。下面简单介绍如何使用 n-gram 模型来估计给定前一个单词的n-gram的最后一个单词的概率，并将概率分配给整个序列。把 n-gram 一些重点内容记录一下：</p>
+<p>形式 $P(the|its \ water \ is \ so \ transparent \ that)$</p>
+<p>简单直观的计算方式使用统计计数 $P(the|its \ water \ is \ so \ transparent \ that) = {C(its \ water \ is \ so \ transparent \ that \ the) \over C(its \ water \ is \ so \ transparent \ that)}$</p>
+<p>这种方式在有新的句子加入时不利于维护，所以可以使用链式法则求出概率：$\begin{align} P(x^{(1)},\cdots,x^{(T)}) &amp;= P(x^{(1)})\times P(x^{(2)}|x^{(1)})\times \cdots \times P(x^{(T)}|,\cdots,x^{(1)}) \ &amp;= \prod^T_{t=1} P(x^{(t)}|x^{(t-1)},\cdots,x^{(1)})\end{align}$</p>
+<p>但是根据前面整个句子的概率去计算下一个词，计算量太大，并且也不是完全依赖前面所有的词。可以根据前几个词来计算概率，所以有了 n-gram 模型。</p>
+<p>为了计算语言模型，我们需要计算词的概率，以及一个词在给定前几个词的情况下的条件概率，即语言模型参数。设训练数据集为一个大型文本语料库，如维基百科的所有条目。词的概率可以通过该词在训练数据集中的相对词频来计算。例如，$P(w_1)$可以计算为 $w_1$ 在训练数据集中的词频（词出现的次数）与训练数据集的总词数之比。因此，根据条件概率定义，一个词在给定前几个词的情况下的条件概率也可以通过训练数据集中的相对词频计算。例如，$P(w_2∣w_1)$可以计算为$w_1,w_2$两词相邻的频率与 $w_1$ 词频的比值，因为该比值即 $P(w_1,w_2)$ 与 $ P( w_1) $ 之比；而 $P(w_3|w_1,w_2)$ 同理可以计算为$w_1、w_2$ 和 $w_3$ 三词相邻的频率与 $w_1$ 和 $w_2$ 两词相邻的频率的比值。以此类推。</p>
+<h2 id="n-gram-语言模型">N-gram 语言模型<a hidden class="anchor" aria-hidden="true" href="#n-gram-语言模型">#</a></h2>
+<p>N-gram 是一个由 n 个连续单词组成的块，它的思想是一个单词出现的概率与它前 n-1 个出现的词有关。也就是每个词依赖于前 n-1 个词。下面是一些常见的术语以及示例，可以帮助你更好的理解 N-gram 语言模型：</p>
+<ul>
+<li>Unigrams：一元文法，由一个单词组成的 token，例如： “the”, “students”, “opened”, ”their”。</li>
+<li>Bigrams：二元文法，也叫一元马尔科夫链。由连续两个单词组成的 token，例如：“the students”, “students opened”, “opened their”。</li>
+<li>Trigrams：三元文法，由连续三个单词组成的 token，例如：“the students opened”, “students opened their”。</li>
+<li>4-grams：四元文法，由连续四个单词组成的 token，例如：“the students opened their”。</li>
+</ul>
+<p>如何估计这些 n-gram 概率？估计概率的一种直观方法叫做极大似然估计（MLE）。可以通过从正态语料库中获取计数，并将计数归一化，使其位于 0 到 1 之间，从而得到 n-gram 模型参数的最大似然估计。</p>
+<p>例如，要计算一个给定前一个单词为 x ，y 的 bigram 概率，将计算 bigram C(x y)的计数，并通过共享相同第一个单词 x的所有 bigram 的总和进行标准化。</p>
+<p>$P(X_n|X_{n-1}) = {C(X_{n-1} X_n) \over \sum_X C(X_{n-1}X)}$</p>
+<p>其中分子为 bigram C(x y) 在语料库中的计数，分母为前一个词为 x，后一个为任意词的 bigram 计数的总和。为了简单可以写成下面的形式：</p>
+<p>$P(X_n|X_{n-1}) = {C(X_{n-1} X_n) \over C(X_{n-1})}$</p>
+<p>这样就通过极大似然估计求得了概率值。但是有个问题是，在其他语料库中出现次数很多的句子可能在当前语料库中没有，所以很难进行泛化。下面是 n-gram 模型的稀疏性问题：</p>
+<ol>
+<li>
+<p>如果要求的词没有在文本中出现，也就是分子的概率为 0。解决办法是添加一个很小的值给对应的词，这种方法叫做平滑，例如拉普拉斯平滑。这使得词表中的每个单词都至少有很小的概率。</p>
+</li>
+<li>
+<p>如果前 n-1 个词没有出现在文本中，也就是分母的概率无法计算。解决办法如使用 “water  is  so  transparent  that“ 替代，这种方法叫做后退。保证作为条件的分母概率值存在。（还有其他平滑技术）</p>
+</li>
+<li>
+<p>需要注意的是，概率是一个大于 0 小于 1 的数，随着相乘会变得很小。所以通常使用 log 的形式：</p>
+<p>$p_1 \times p_2 \times p_3 \times p_4 = exp(log\ p_1 + log\ p_2 + log \ p_3 + log\ p_4)$</p>
+</li>
+<li>
+<p>还有的是提高 n 的值会使稀疏性变得更糟糕，还会增加存储量，所以 n-gram 一般不会超过 5。</p>
+</li>
+<li>
+<p>当n&gt;2时，比如 tigram，可能需要在头部添加两个start-token，后续看看效果如何。</p>
+</li>
+</ol>
+<h2 id="平滑技术">平滑技术<a hidden class="anchor" aria-hidden="true" href="#平滑技术">#</a></h2>
+<p>上面提到过，一些 OOV 词汇，模型会分配 0 概率，这样是错误的。因而，必须分配给所有可能出现的字符串一个非零的概率值来避免这种错误的发生。平滑（smoothing）技术就是用来解决这类零概率问题的。提高低概率（如零概率），降低高概率，尽量使概率分布趋于均匀。</p>
+<h3 id="拉普拉斯平滑">拉普拉斯平滑<a hidden class="anchor" aria-hidden="true" href="#拉普拉斯平滑">#</a></h3>
+<p>Laplace Smoothing，做平滑的最简单的方法是在我们将它们归一化为概率之前，在所有的计数上加1。拉普拉斯平滑在现代 n-gram 模型中并没有得到很好的应用，但它很好地引入了我们在其他平滑算法中看到的许多概念，给出了一个有用的基线，也是文本分类等其他任务的实用平滑算法。下面在 1-gram 上看看拉普拉斯平滑：</p>
+<p>$P_{Laplace}(w_i) = {c_i + 1 \over N+V}$</p>
+<h3 id="加法平滑">加法平滑<a hidden class="anchor" aria-hidden="true" href="#加法平滑">#</a></h3>
+<p>拉普拉斯平滑也算是加法平滑的一种，加法平滑的一般形式：</p>
+<p>$P_{Add-k}(w_n|w_{n-1}) = {C(w_{n-1}w_n)+k \over C(w_{n-1}+kV)}$</p>
+<p>尽管 add-k 在某些任务(包括文本分类)中很有用，但它在语言建模中仍然不能很好地工作，生成的计数方差很差。</p>
+<h3 id="katz-平滑">Katz 平滑<a hidden class="anchor" aria-hidden="true" href="#katz-平滑">#</a></h3>
+<h3 id="kneser-ney--平滑">Kneser-Ney  平滑<a hidden class="anchor" aria-hidden="true" href="#kneser-ney--平滑">#</a></h3>
+<h3 id="backoff-and-interpolation">Backoff and Interpolation<a hidden class="anchor" aria-hidden="true" href="#backoff-and-interpolation">#</a></h3>
+<h2 id="评估方法">评估方法<a hidden class="anchor" aria-hidden="true" href="#评估方法">#</a></h2>
+<h3 id="困惑度">困惑度<a hidden class="anchor" aria-hidden="true" href="#困惑度">#</a></h3>
+<p>在 NLP 中，通常使用困惑度（Perplexity，PPL）作为衡量语言模型好坏的内部指标，此外还有外部指标需要人工评价</p>
+<p>$\begin{align} P(W) &amp;= P(w_1 w_2 \cdots w_N)^{-{1\over N}} \ &amp;= \sqrt[N]{1\over P(w_1 w_2 \cdots w_N)} \ &amp;= \sqrt[N]{\prod^N_{i=1}{1\over P(w_i|w_1\cdots w_{i-1})}} \end{align}$</p>
+<p>对于 bigram 模型的困惑度：</p>
+<p>$PP(W) = \sqrt[N]{\prod^N_{i=1} {1\over P(w_i|w_{i-1})}}$</p>
+<p>困惑度越低，说明生成的语言越接近真实语言，常用于机器翻译和文本生成等 NLP 任务中。困惑度等价于交叉熵损失函数：</p>
+<p>$\begin{align} &amp;= \prod^T_{t=1}({1\over \hat{y}^{(t)}<em>{x</em>{t+1}}})^{1\over T} \  &amp;=exp({1\over T \sum^T_{t=1}}-log\hat{y}^{(t)}<em>{x</em>{t+1}}) \ &amp;= exp(J(\theta)) \end{align}$</p>
+<h2 id="references">References<a hidden class="anchor" aria-hidden="true" href="#references">#</a></h2>
+<ol>
+<li><a href="https://web.stanford.edu/~jurafsky/slp3/3.pdf">N-gram Language Models</a></li>
+<li>《统计自然语言处理》- 宗成庆</li>
+</ol>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://hiyoungai.com/tags/ngram/">ngram</a></li>
+      <li><a href="https://hiyoungai.com/tags/%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/">语言模型</a></li>
+      <li><a href="https://hiyoungai.com/tags/%E5%9B%B0%E6%83%91%E5%BA%A6/">困惑度</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="next" href="https://hiyoungai.com/posts/c&#43;&#43;-primer-%E4%B8%AD%E6%96%87%E7%89%88%E7%AC%AC-5-%E7%89%88%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC01%E7%AB%A0-%E5%BC%80%E5%A7%8B/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>《C&#43;&#43; Primer 中文版（第 5 版）》学习笔记-第01章 开始</span>
+  </a>
+</nav>
+
+  </footer>
+<span id="/posts/ngram%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" class="leancloud_visitors" data-flag-title="Ngram语言模型">
+<br/>
+<p>💬评论</p>
+<hr/>
+</span>
+<div id="vcomments"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script type="text/javascript">
+new Valine({
+    el: '#vcomments' ,
+    appId: 'ILRnbdNWCDva9ch1Y5YHGPpr-gzGzoHsz',
+    appKey: 'b9pW89SXRMssN7eatVkCmc1G',
+    notify:  false , 
+    verify:  false , 
+    avatar:'monsterid', 
+    placeholder: '说点什么吧...',
+    visitor:  true 
+});
+</script>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2022 <a href="https://hiyoungai.com/">Young&#39;s Blog</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+<script type="text/javascript"
+        async
+        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<style>
+code.has-jax {
+    font: inherit;
+    font-size: 100%;
+    background: inherit;
+    border: inherit;
+    color: #515151;
+}
+</style>
+
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

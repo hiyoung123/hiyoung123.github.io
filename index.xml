@@ -6,7 +6,16 @@
     <description>Recent content on Young&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 14 Feb 2022 16:57:17 +0800</lastBuildDate><atom:link href="https://hiyoungai.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 17 Feb 2022 22:44:43 +0800</lastBuildDate><atom:link href="https://hiyoungai.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ngram语言模型</title>
+      <link>https://hiyoungai.com/posts/ngram%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/</link>
+      <pubDate>Thu, 17 Feb 2022 22:44:43 +0800</pubDate>
+      
+      <guid>https://hiyoungai.com/posts/ngram%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/</guid>
+      <description>语言模型 计算文本序列概率的模型叫做语言模型（LMs）。下面简单介绍如何使用 n-gram 模型来估计给定前一个单词的n-gram的最后一个单词的概率，并将</description>
+    </item>
+    
     <item>
       <title>《C&#43;&#43; Primer 中文版（第 5 版）》学习笔记-第01章 开始</title>
       <link>https://hiyoungai.com/posts/c&#43;&#43;-primer-%E4%B8%AD%E6%96%87%E7%89%88%E7%AC%AC-5-%E7%89%88%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AC%AC01%E7%AB%A0-%E5%BC%80%E5%A7%8B/</link>
