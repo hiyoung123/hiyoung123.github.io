@@ -94,6 +94,8 @@ params:
                     url: "/categories/c++/"
                   - name: Python
                     url: "/categories/python/"
+                  - name: Linux
+                    url: "/categories/linux/"
                   - name: 数据结构与算法
                     url: "/categories/数据结构与算法/"
                   - name: 便捷工具
