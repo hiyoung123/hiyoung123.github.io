@@ -5,11 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>Linux命令学习记录 Ls命令 | Young&#39;s Blog</title>
-<meta name="keywords" content="Linux, ls" />
-<meta name="description" content="1. 简介 ls 命令是程序员使用次数最多的一条命令，是 list 的缩写。它的作用是列出目录中有哪些文件和文件夹。 2. 基本用法 语法 ls [选项]... [文件名]..">
+<title>Linux命令学习记录 Du命令 | Young&#39;s Blog</title>
+<meta name="keywords" content="Linux, du" />
+<meta name="description" content="1. 简介 du 命令是检查文件或者目录的磁盘使用情况的一种命令，是 disk usage 的缩写。 2. 基本使用 语法 du [选项][文件] 选项 -a # 显示目录中个别文件的大小。 -c #">
 <meta name="author" content="">
-<link rel="canonical" href="https://hiyoungai.com/posts/linux%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-ls%E5%91%BD%E4%BB%A4/" />
+<link rel="canonical" href="https://hiyoungai.com/posts/linux%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-du%E5%91%BD%E4%BB%A4/" />
 <link crossorigin="anonymous" href="/assets/css/stylesheet.min.7438e8fa4a8ff9cbdbe938fb56cc527f0717f7f7735c81f1e7d1308e895c406a.css" integrity="sha256-dDjo&#43;kqP&#43;cvb6Tj7VsxSfwcX9/dzXIHx59EwjolcQGo=" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js" integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5&#43;kdJvBz5iKbt6B5PJI="
     onload="hljs.initHighlightingOnLoad();"></script>
@@ -57,16 +57,16 @@
         }
 
     </style>
-</noscript><meta property="og:title" content="Linux命令学习记录 Ls命令" />
-<meta property="og:description" content="1. 简介 ls 命令是程序员使用次数最多的一条命令，是 list 的缩写。它的作用是列出目录中有哪些文件和文件夹。 2. 基本用法 语法 ls [选项]... [文件名].." />
+</noscript><meta property="og:title" content="Linux命令学习记录 Du命令" />
+<meta property="og:description" content="1. 简介 du 命令是检查文件或者目录的磁盘使用情况的一种命令，是 disk usage 的缩写。 2. 基本使用 语法 du [选项][文件] 选项 -a # 显示目录中个别文件的大小。 -c #" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://hiyoungai.com/posts/linux%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-ls%E5%91%BD%E4%BB%A4/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2022-03-14T15:20:31&#43;08:00" />
-<meta property="article:modified_time" content="2022-03-14T15:20:31&#43;08:00" />
+<meta property="og:url" content="https://hiyoungai.com/posts/linux%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-du%E5%91%BD%E4%BB%A4/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-03-20T13:24:58&#43;08:00" />
+<meta property="article:modified_time" content="2022-03-20T13:24:58&#43;08:00" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Linux命令学习记录 Ls命令"/>
-<meta name="twitter:description" content="1. 简介 ls 命令是程序员使用次数最多的一条命令，是 list 的缩写。它的作用是列出目录中有哪些文件和文件夹。 2. 基本用法 语法 ls [选项]... [文件名].."/>
+<meta name="twitter:title" content="Linux命令学习记录 Du命令"/>
+<meta name="twitter:description" content="1. 简介 du 命令是检查文件或者目录的磁盘使用情况的一种命令，是 disk usage 的缩写。 2. 基本使用 语法 du [选项][文件] 选项 -a # 显示目录中个别文件的大小。 -c #"/>
 
 
 <script type="application/ld+json">
@@ -83,8 +83,8 @@
     {
       "@type": "ListItem",
       "position":  2 ,
-      "name": "Linux命令学习记录 Ls命令",
-      "item": "https://hiyoungai.com/posts/linux%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-ls%E5%91%BD%E4%BB%A4/"
+      "name": "Linux命令学习记录 Du命令",
+      "item": "https://hiyoungai.com/posts/linux%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-du%E5%91%BD%E4%BB%A4/"
     }
   ]
 }
@@ -93,20 +93,20 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "Linux命令学习记录 Ls命令",
-  "name": "Linux命令学习记录 Ls命令",
-  "description": "1. 简介 ls 命令是程序员使用次数最多的一条命令，是 list 的缩写。它的作用是列出目录中有哪些文件和文件夹。 2. 基本用法 语法 ls [选项]... [文件名]..",
+  "headline": "Linux命令学习记录 Du命令",
+  "name": "Linux命令学习记录 Du命令",
+  "description": "1. 简介 du 命令是检查文件或者目录的磁盘使用情况的一种命令，是 disk usage 的缩写。 2. 基本使用 语法 du [选项][文件] 选项 -a # 显示目录中个别文件的大小。 -c #",
   "keywords": [
-    "Linux", "ls"
+    "Linux", "du"
   ],
-  "articleBody": "1. 简介 ls 命令是程序员使用次数最多的一条命令，是 list 的缩写。它的作用是列出目录中有哪些文件和文件夹。\n2. 基本用法 语法 ls [选项]... [文件名]...\r选项 -a # 全部文件系统列表\r-F # 每个目录名加 \"/\" 后缀，每个 FIFO 名加 \"|\" 后缀， 每个可运行名加“ * ”后缀\r-h # 方便阅读方式显示\r-H # 等于 \"-h\"，但是计算式，1K=1000，而不是 1K=1024\r-i # 显示 inode 信息\r-k # 区块为 1K=1024 字节\r-l # 只显示本地文件系统\r-m # 区块为 1M=1048576 字节\r-n # 列出数字化的 UID 和 GID 而不是用户名和组名\r-r # 逆序排列目录内容\r-R # 递归列出全部目录的内容\r-t # 按时间信息排序。\r-u # 使用最近访问时间代替最近修改时间为依据来排序（使用“-t”选项时）或列出（使用“-l”选项时）。\r--help # 显示帮助信息\r--version # 显示版本信息\r3. 使用示例 仅列出当前目录可见文件\nls\r列出当前目录可见文件详细信息\nls -l\r列出详细信息并以可读大小显示文件大小\nls -hl\r列出所有文件（包括隐藏）的详细信息\nls -al\r显示文件的 inode 信息\nls -i\r显示文件的 gid 和 uid\nls -n\r按修改时间列出文件和文件夹详细信息\nls -lt\r按修改时间的逆序列出文件和文件夹详细信息\nls -ltr\r列出指定目录的内容\nls /etc\r",
-  "wordCount" : "460",
+  "articleBody": "1. 简介 du 命令是检查文件或者目录的磁盘使用情况的一种命令，是 disk usage 的缩写。\n2. 基本使用 语法 du [选项][文件] 选项 -a # 显示目录中个别文件的大小。 -c # 除了显示个别目录或文件的大小外，同时也显示所有目录或文件的总和。 -h # 以K，M，G为单位，提高信息的可读性。 -s # 仅显示总计，只列出最后加总的值。 --max-depth=N # 显示目录总计(与--all 一起使用计算文件)当N为指定数值时计算深度为 N 使用示例 显示当前目录的所占空间大小\ndu 显示指定文件夹或者文件的所占空间大小\ndu text.txt 显示多个文件所占空间大小\ndu text1.txt text2.txt 只显示总和大小\ndu -s 方便阅读的方式显示\ndu -sh 既显示每个文件也显示总和\ndu -sch 只显示一级子目录的所占空间大小\ndu -h --max-depth=1 ",
+  "wordCount" : "284",
   "inLanguage": "zh",
-  "datePublished": "2022-03-14T15:20:31+08:00",
-  "dateModified": "2022-03-14T15:20:31+08:00",
+  "datePublished": "2022-03-20T13:24:58+08:00",
+  "dateModified": "2022-03-20T13:24:58+08:00",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://hiyoungai.com/posts/linux%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-ls%E5%91%BD%E4%BB%A4/"
+    "@id": "https://hiyoungai.com/posts/linux%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-du%E5%91%BD%E4%BB%A4/"
   },
   "publisher": {
     "@type": "Organization",
@@ -199,7 +199,7 @@
   <header class="post-header">
     <div class="breadcrumbs"><a href="https://hiyoungai.com/">主页</a>&nbsp;»&nbsp;<a href="https://hiyoungai.com/posts/">Posts</a></div>
     <h1 class="post-title">
-      Linux命令学习记录 Ls命令
+      Linux命令学习记录 Du命令
     </h1>
     <div class="post-meta">
 
@@ -212,7 +212,7 @@
 
 
 
-创建:&nbsp;<span title='2022-03-14 15:20:31 +0800 CST'>2022-03-14</span>&nbsp;|&nbsp;字数:&nbsp;460字&nbsp;|&nbsp;时长: 1分钟
+创建:&nbsp;<span title='2022-03-20 13:24:58 +0800 CST'>2022-03-20</span>&nbsp;|&nbsp;字数:&nbsp;284字&nbsp;|&nbsp;时长: 1分钟
 
 </div>
   </header> <aside id="toc-container" class="toc-container wide">
@@ -226,7 +226,7 @@
                     <li>
                         <a href="#1-%e7%ae%80%e4%bb%8b" aria-label="1. 简介">1. 简介</a></li>
                     <li>
-                        <a href="#2-%e5%9f%ba%e6%9c%ac%e7%94%a8%e6%b3%95" aria-label="2. 基本用法">2. 基本用法</a><ul>
+                        <a href="#2-%e5%9f%ba%e6%9c%ac%e4%bd%bf%e7%94%a8" aria-label="2. 基本使用">2. 基本使用</a><ul>
                             
                     <li>
                         <a href="#%e8%af%ad%e6%b3%95" aria-label="语法">语法</a></li>
@@ -234,7 +234,7 @@
                         <a href="#%e9%80%89%e9%a1%b9" aria-label="选项">选项</a></li></ul>
                     </li>
                     <li>
-                        <a href="#3-%e4%bd%bf%e7%94%a8%e7%a4%ba%e4%be%8b" aria-label="3. 使用示例">3. 使用示例</a>
+                        <a href="#%e4%bd%bf%e7%94%a8%e7%a4%ba%e4%be%8b" aria-label="使用示例">使用示例</a>
                     </li>
                 </ul>
             </div>
@@ -302,45 +302,31 @@
 </script>
 
   <div class="post-content"><h2 id="1-简介">1. 简介<a hidden class="anchor" aria-hidden="true" href="#1-简介">#</a></h2>
-<p>ls 命令是程序员使用次数最多的一条命令，是 list 的缩写。它的作用是列出目录中有哪些文件和文件夹。</p>
-<h2 id="2-基本用法">2. 基本用法<a hidden class="anchor" aria-hidden="true" href="#2-基本用法">#</a></h2>
+<p>du 命令是检查文件或者目录的磁盘使用情况的一种命令，是 disk usage 的缩写。</p>
+<h2 id="2-基本使用">2. 基本使用<a hidden class="anchor" aria-hidden="true" href="#2-基本使用">#</a></h2>
 <h3 id="语法">语法<a hidden class="anchor" aria-hidden="true" href="#语法">#</a></h3>
-<pre tabindex="0"><code>ls [选项]... [文件名]...
+<pre tabindex="0"><code>du [选项][文件]
 </code></pre><h3 id="选项">选项<a hidden class="anchor" aria-hidden="true" href="#选项">#</a></h3>
-<pre tabindex="0"><code>-a                 # 全部文件系统列表
--F                 # 每个目录名加 &quot;/&quot; 后缀，每个 FIFO 名加 &quot;|&quot; 后缀， 每个可运行名加“ * ”后缀
--h                 # 方便阅读方式显示
--H                 # 等于 &quot;-h&quot;，但是计算式，1K=1000，而不是 1K=1024
--i                 # 显示 inode 信息
--k                 # 区块为 1K=1024 字节
--l                 # 只显示本地文件系统
--m                 # 区块为 1M=1048576 字节
--n                 # 列出数字化的 UID 和 GID 而不是用户名和组名
--r                 # 逆序排列目录内容
--R                 # 递归列出全部目录的内容
--t                 # 按时间信息排序。
--u                 # 使用最近访问时间代替最近修改时间为依据来排序（使用“-t”选项时）或列出（使用“-l”选项时）。
---help             # 显示帮助信息
---version          # 显示版本信息
-</code></pre><h2 id="3-使用示例">3. 使用示例<a hidden class="anchor" aria-hidden="true" href="#3-使用示例">#</a></h2>
-<p>仅列出当前目录可见文件</p>
-<pre tabindex="0"><code>ls
-</code></pre><p>列出当前目录可见文件详细信息</p>
-<pre tabindex="0"><code>ls -l
-</code></pre><p>列出详细信息并以可读大小显示文件大小</p>
-<pre tabindex="0"><code>ls -hl
-</code></pre><p>列出所有文件（包括隐藏）的详细信息</p>
-<pre tabindex="0"><code>ls -al
-</code></pre><p>显示文件的 inode 信息</p>
-<pre tabindex="0"><code>ls -i
-</code></pre><p>显示文件的 gid 和 uid</p>
-<pre tabindex="0"><code>ls -n
-</code></pre><p>按修改时间列出文件和文件夹详细信息</p>
-<pre tabindex="0"><code>ls -lt
-</code></pre><p>按修改时间的逆序列出文件和文件夹详细信息</p>
-<pre tabindex="0"><code>ls -ltr
-</code></pre><p>列出指定目录的内容</p>
-<pre tabindex="0"><code>ls /etc
+<pre tabindex="0"><code>-a                         # 显示目录中个别文件的大小。
+-c                         # 除了显示个别目录或文件的大小外，同时也显示所有目录或文件的总和。
+-h                         # 以K，M，G为单位，提高信息的可读性。
+-s                         # 仅显示总计，只列出最后加总的值。
+--max-depth=N              # 显示目录总计(与--all 一起使用计算文件)当N为指定数值时计算深度为 N
+</code></pre><h2 id="使用示例">使用示例<a hidden class="anchor" aria-hidden="true" href="#使用示例">#</a></h2>
+<p>显示当前目录的所占空间大小</p>
+<pre tabindex="0"><code>du
+</code></pre><p>显示指定文件夹或者文件的所占空间大小</p>
+<pre tabindex="0"><code>du text.txt
+</code></pre><p>显示多个文件所占空间大小</p>
+<pre tabindex="0"><code>du text1.txt text2.txt
+</code></pre><p>只显示总和大小</p>
+<pre tabindex="0"><code>du -s
+</code></pre><p>方便阅读的方式显示</p>
+<pre tabindex="0"><code>du -sh
+</code></pre><p>既显示每个文件也显示总和</p>
+<pre tabindex="0"><code>du -sch
+</code></pre><p>只显示一级子目录的所占空间大小</p>
+<pre tabindex="0"><code>du -h --max-depth=1
 </code></pre>
 
   </div>
@@ -348,23 +334,18 @@
   <footer class="post-footer">
     <ul class="post-tags">
       <li><a href="https://hiyoungai.com/tags/linux/">Linux</a></li>
-      <li><a href="https://hiyoungai.com/tags/ls/">ls</a></li>
+      <li><a href="https://hiyoungai.com/tags/du/">du</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://hiyoungai.com/posts/linux%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-du%E5%91%BD%E4%BB%A4/">
-    <span class="title">« 上一页</span>
-    <br>
-    <span>Linux命令学习记录 Du命令</span>
-  </a>
-  <a class="next" href="https://hiyoungai.com/posts/linux%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-man%E5%91%BD%E4%BB%A4/">
+  <a class="next" href="https://hiyoungai.com/posts/linux%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-ls%E5%91%BD%E4%BB%A4/">
     <span class="title">下一页 »</span>
     <br>
-    <span>Linux命令学习记录 Man命令</span>
+    <span>Linux命令学习记录 Ls命令</span>
   </a>
 </nav>
 
   </footer>
-<span id="/posts/linux%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-ls%E5%91%BD%E4%BB%A4/" class="leancloud_visitors" data-flag-title="Linux命令学习记录 Ls命令">
+<span id="/posts/linux%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-du%E5%91%BD%E4%BB%A4/" class="leancloud_visitors" data-flag-title="Linux命令学习记录 Du命令">
 <br/>
 <p>💬评论</p>
 <hr/>

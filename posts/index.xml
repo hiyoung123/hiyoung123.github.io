@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Young&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 14 Mar 2022 15:20:31 +0800</lastBuildDate><atom:link href="https://hiyoungai.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 20 Mar 2022 13:24:58 +0800</lastBuildDate><atom:link href="https://hiyoungai.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linux命令学习记录 Du命令</title>
+      <link>https://hiyoungai.com/posts/linux%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-du%E5%91%BD%E4%BB%A4/</link>
+      <pubDate>Sun, 20 Mar 2022 13:24:58 +0800</pubDate>
+      
+      <guid>https://hiyoungai.com/posts/linux%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-du%E5%91%BD%E4%BB%A4/</guid>
+      <description>1. 简介 du 命令是检查文件或者目录的磁盘使用情况的一种命令，是 disk usage 的缩写。 2. 基本使用 语法 du [选项][文件] 选项 -a # 显示目录中个别文件的大小。 -c #</description>
+    </item>
+    
     <item>
       <title>Linux命令学习记录 Ls命令</title>
       <link>https://hiyoungai.com/posts/linux%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-ls%E5%91%BD%E4%BB%A4/</link>
